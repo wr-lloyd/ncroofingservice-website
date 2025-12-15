@@ -2,9 +2,15 @@
 
 import { useState } from 'react'
 
+interface ChatMessage {
+  from: string
+  text: string
+  options?: string[]
+}
+
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false)
-  const [messages, setMessages] = useState([
+  const [messages, setMessages] = useState<ChatMessage[]>([
     { 
       from: 'bot', 
       text: "👋 Hi! I'm here to help with your roofing needs. I'm Randall with B&C Roofing. Would you like to:",
