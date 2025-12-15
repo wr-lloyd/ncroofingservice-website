@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef, useCallback, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 
@@ -110,7 +110,7 @@ const stormIcons = {
   ),
 }
 
-export default function StormCheckPage() {
+function StormCheckContent() {
   const searchParams = useSearchParams()
   const [address, setAddress] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -579,5 +579,33 @@ export default function StormCheckPage() {
         </div>
       </section>
     </main>
+  )
+}
+
+// Loading fallback for Suspense
+function StormCheckLoading() {
+  return (
+    <main className="pt-20">
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-slate-900/90 to-slate-800/90" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <div className="animate-pulse">
+              <div className="h-4 bg-slate-700 rounded w-48 mx-auto mb-4"></div>
+              <div className="h-12 bg-slate-700 rounded w-96 mx-auto mb-6"></div>
+              <div className="h-6 bg-slate-700 rounded w-80 mx-auto"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  )
+}
+
+export default function StormCheckPage() {
+  return (
+    <Suspense fallback={<StormCheckLoading />}>
+      <StormCheckContent />
+    </Suspense>
   )
 }
