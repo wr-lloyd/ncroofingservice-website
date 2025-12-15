@@ -31,7 +31,7 @@ export default function Navigation() {
               className="w-12 h-12"
             />
             <div className="hidden sm:block">
-              <span className="text-white font-bold text-lg">Roofing Services</span>
+              <span className="text-white font-bold text-lg">B&C Roofing Services</span>
               <span className="text-slate-400 text-xs block -mt-1">Your Local NC Provider</span>
             </div>
           </Link>

@@ -45,7 +45,7 @@ export default function Home() {
               </p>
               
               <p className="text-lg text-slate-400 mb-8 leading-relaxed">
-                Serving Rougemont and the NC Triangle since 2018. GAF, Owens Corning, and CertainTeed 
+                Servicing the greater NC Triangle area since 2018. GAF, Owens Corning, and CertainTeed 
                 certified. Free inspections, honest pricing, and quality workmanship on every project.
               </p>
               

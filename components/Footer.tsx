@@ -18,7 +18,7 @@ export default function Footer() {
                 className="w-12 h-12"
               />
               <div>
-                <span className="text-white font-bold text-lg block">Roofing Services</span>
+                <span className="text-white font-bold text-lg block">B&C Roofing Services</span>
                 <span className="text-slate-500 text-xs">Your Local NC Provider</span>
               </div>
             </div>
