@@ -41,8 +41,25 @@ const situations = [
   },
 ]
 
+// Tool type
+interface Tool {
+  id: string
+  name: string
+  href: string
+  external?: boolean
+  highlight?: boolean
+}
+
+interface ToolCategory {
+  id: string
+  title: string
+  icon: string
+  color: string
+  tools: Tool[]
+}
+
 // Tool categories for the sidebar
-const toolCategories = [
+const toolCategories: ToolCategory[] = [
   {
     id: 'storm',
     title: 'Storm Check',
