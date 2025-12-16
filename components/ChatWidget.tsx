@@ -55,7 +55,7 @@ export default function ChatWidget() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full shadow-2xl flex items-center justify-center transition-all hover:scale-110 ${
-          isOpen ? 'bg-slate-700' : 'bg-blue-600 hover:bg-blue-700'
+          isOpen ? 'bg-slate-600' : 'bg-blue-600 hover:bg-blue-700'
         }`}
         aria-label="Chat with us"
       >
@@ -77,7 +77,7 @@ export default function ChatWidget() {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 z-50 w-[360px] max-w-[calc(100vw-2rem)] bg-slate-900 rounded-2xl shadow-2xl border border-white/10 overflow-hidden">
+        <div className="fixed bottom-24 right-6 z-50 w-[360px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden">
           {/* Header */}
           <div className="bg-blue-600 p-4">
             <div className="flex items-center gap-3">
@@ -95,14 +95,14 @@ export default function ChatWidget() {
           </div>
 
           {/* Messages */}
-          <div className="h-80 overflow-y-auto p-4 space-y-4">
+          <div className="h-80 overflow-y-auto p-4 space-y-4 bg-slate-50">
             {messages.map((msg, idx) => (
               <div key={idx} className={`flex ${msg.from === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`max-w-[80%] ${msg.from === 'user' ? 'order-2' : ''}`}>
                   <div className={`rounded-2xl px-4 py-2 ${
                     msg.from === 'user' 
                       ? 'bg-blue-600 text-white rounded-br-md'
-                      : 'bg-slate-800 text-slate-200 rounded-bl-md'
+                      : 'bg-white text-slate-700 rounded-bl-md border border-slate-200 shadow-sm'
                   }`}>
                     {msg.text}
                   </div>
@@ -112,7 +112,7 @@ export default function ChatWidget() {
                         <button
                           key={option}
                           onClick={() => handleOptionClick(option)}
-                          className="block w-full text-left px-4 py-2 bg-slate-800 hover:bg-slate-700 text-blue-400 rounded-lg text-sm transition-colors border border-slate-700"
+                          className="block w-full text-left px-4 py-2 bg-white hover:bg-blue-50 text-blue-600 rounded-lg text-sm transition-colors border border-slate-200 shadow-sm"
                         >
                           {option}
                         </button>
@@ -125,7 +125,7 @@ export default function ChatWidget() {
           </div>
 
           {/* Input */}
-          <div className="p-4 border-t border-white/10">
+          <div className="p-4 border-t border-slate-200 bg-white">
             <div className="flex gap-2">
               <input
                 type="text"
@@ -133,19 +133,19 @@ export default function ChatWidget() {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                 placeholder="Type a message..."
-                className="flex-1 px-4 py-2 bg-slate-800 border border-white/10 rounded-full text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+                className="flex-1 px-4 py-2 bg-slate-100 border border-slate-200 rounded-full text-slate-800 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
               />
               <button
                 onClick={handleSend}
-                className="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-colors"
+                className="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-colors shadow-md"
               >
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                 </svg>
               </button>
             </div>
-            <p className="text-center text-xs text-slate-500 mt-2">
-              Or call <a href="tel:+19194758841" className="text-blue-400 hover:underline">(919) 475-8841</a>
+            <p className="text-center text-xs text-slate-400 mt-2">
+              Or call <a href="tel:+19194758841" className="text-blue-600 hover:underline">(919) 475-8841</a>
             </p>
           </div>
         </div>

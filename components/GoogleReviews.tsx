@@ -45,12 +45,12 @@ export default function GoogleReviews() {
   ]
 
   return (
-    <section className="py-24 bg-slate-800">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <span className="text-blue-500 font-semibold text-sm uppercase tracking-wider">Customer Reviews</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mt-2 mb-4">What Our Customers Say</h2>
+          <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Customer Reviews</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-4">What Our Customers Say</h2>
           
           {/* Aggregate Rating */}
           <div className="flex items-center justify-center gap-4 mb-4">
@@ -62,7 +62,7 @@ export default function GoogleReviews() {
                 <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
                 <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
               </svg>
-              <span className="text-white font-semibold">4.9</span>
+              <span className="text-slate-800 font-semibold">4.9</span>
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
                   <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -71,14 +71,14 @@ export default function GoogleReviews() {
                 ))}
               </div>
             </div>
-            <span className="text-slate-500">|</span>
-            <div className="flex items-center gap-2 text-slate-400">
-              <span className="text-amber-500 font-bold">A+</span>
+            <span className="text-slate-300">|</span>
+            <div className="flex items-center gap-2 text-slate-600">
+              <span className="text-amber-600 font-bold">A+</span>
               <span className="text-sm">BBB Rating</span>
             </div>
           </div>
           
-          <p className="text-slate-400">Serving the Triangle area since 2018</p>
+          <p className="text-slate-500">Serving the Triangle area since 2018</p>
         </div>
 
         {/* Reviews Grid */}
@@ -86,21 +86,21 @@ export default function GoogleReviews() {
           {reviews.map((review, idx) => (
             <div 
               key={idx}
-              className="bg-slate-900/50 rounded-2xl p-6 border border-white/5"
+              className="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-sm"
             >
               <div className="flex items-start gap-4 mb-4">
-                <div className={`w-12 h-12 bg-gradient-to-br ${review.avatarColor} rounded-full flex items-center justify-center flex-shrink-0`}>
+                <div className={`w-12 h-12 bg-gradient-to-br ${review.avatarColor} rounded-full flex items-center justify-center flex-shrink-0 shadow-md`}>
                   <span className="text-white font-bold">{review.avatar}</span>
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-white font-semibold">{review.name}</div>
+                      <div className="text-slate-900 font-semibold">{review.name}</div>
                       <div className="text-slate-500 text-sm">{review.location}</div>
                     </div>
                     <div className="text-right">
-                      <div className="text-slate-500 text-sm">{review.date}</div>
-                      <div className="text-xs text-slate-600">via {review.source}</div>
+                      <div className="text-slate-400 text-sm">{review.date}</div>
+                      <div className="text-xs text-slate-400">via {review.source}</div>
                     </div>
                   </div>
                   <div className="flex gap-0.5 mt-1">
@@ -112,17 +112,17 @@ export default function GoogleReviews() {
                   </div>
                 </div>
               </div>
-              <p className="text-slate-300 leading-relaxed">&quot;{review.text}&quot;</p>
+              <p className="text-slate-600 leading-relaxed">&quot;{review.text}&quot;</p>
             </div>
           ))}
         </div>
 
         {/* CTA */}
         <div className="text-center mt-12">
-          <p className="text-slate-400 mb-4">Join hundreds of satisfied homeowners across NC</p>
+          <p className="text-slate-500 mb-4">Join hundreds of satisfied homeowners across NC</p>
           <Link 
             href="/contact"
-            className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
+            className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-md"
           >
             Get Your Free Inspection
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

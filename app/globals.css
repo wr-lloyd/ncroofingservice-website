@@ -2,7 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: system-ui, -apple-system, sans-serif;
+/* Light Mode Color Scheme for B&C Roofing */
+:root {
+  --background: 248 250 252; /* slate-50 */
+  --foreground: 15 23 42; /* slate-900 */
+  --muted: 241 245 249; /* slate-100 */
+  --muted-foreground: 100 116 139; /* slate-500 */
+  --card: 255 255 255;
+  --card-foreground: 30 41 59; /* slate-800 */
+  --border: 226 232 240; /* slate-200 */
+  --primary: 37 99 235; /* blue-600 */
+  --primary-foreground: 255 255 255;
+  --accent: 249 115 22; /* orange-500 */
 }
 
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: rgb(var(--background));
+  color: rgb(var(--foreground));
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom selection colors */
+::selection {
+  background-color: rgba(37, 99, 235, 0.2);
+  color: rgb(15, 23, 42);
+}
+
+/* Form input styling for light mode */
+input, select, textarea {
+  color-scheme: light;
+}
+
+/* Gradient overlays for hero sections */
+.hero-gradient-light {
+  background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.9) 50%, rgba(241,245,249,0.85) 100%);
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: all 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* Subtle gradient backgrounds */
+.bg-gradient-subtle {
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+
+/* Mobile safe area */
+.safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}

@@ -172,7 +172,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-slate-900">
+      <body className="bg-slate-50">
         <EmergencyBanner />
         <Navigation />
         {children}

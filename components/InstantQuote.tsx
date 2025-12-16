@@ -117,7 +117,7 @@ export default function InstantQuote() {
 
   if (showEstimate) {
     return (
-      <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-2xl p-8 text-center">
+      <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-2xl p-8 text-center shadow-xl">
         <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
           <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -142,16 +142,16 @@ export default function InstantQuote() {
   }
 
   return (
-    <div className="bg-slate-800/80 backdrop-blur rounded-2xl p-6 border border-white/10">
+    <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-xl">
       <div className="flex items-center gap-3 mb-4">
-        <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+        <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center shadow-md">
           <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
           </svg>
         </div>
         <div>
-          <h3 className="text-lg font-bold text-white">Free Roof Inspection</h3>
-          <p className="text-slate-400 text-xs">Includes storm damage assessment</p>
+          <h3 className="text-lg font-bold text-slate-900">Free Roof Inspection</h3>
+          <p className="text-slate-500 text-xs">Includes storm damage assessment</p>
         </div>
       </div>
 
@@ -161,7 +161,7 @@ export default function InstantQuote() {
           <div 
             key={s}
             className={`h-1.5 flex-1 rounded-full transition-colors ${
-              s <= step ? 'bg-blue-500' : 'bg-slate-700'
+              s <= step ? 'bg-blue-500' : 'bg-slate-200'
             }`}
           />
         ))}
@@ -171,24 +171,24 @@ export default function InstantQuote() {
         {step === 1 && (
           <div className="space-y-4">
             <div>
-              <label className="block text-sm text-slate-300 mb-1">Street Address</label>
+              <label className="block text-sm text-slate-600 mb-1 font-medium">Street Address</label>
               <input
                 type="text"
                 name="address"
                 value={formData.address}
                 onChange={handleChange}
                 placeholder="123 Main St"
-                className="w-full px-4 py-3 bg-slate-900/50 border border-white/10 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm text-slate-300 mb-1">City</label>
+              <label className="block text-sm text-slate-600 mb-1 font-medium">City</label>
               <select
                 name="city"
                 value={formData.city}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-slate-900/50 border border-white/10 rounded-lg text-white focus:outline-none focus:border-blue-500"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
                 required
               >
                 <option value="">Select your city</option>
@@ -204,12 +204,12 @@ export default function InstantQuote() {
               </select>
             </div>
             <div>
-              <label className="block text-sm text-slate-300 mb-1">What do you need?</label>
+              <label className="block text-sm text-slate-600 mb-1 font-medium">What do you need?</label>
               <select
                 name="projectType"
                 value={formData.projectType}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-slate-900/50 border border-white/10 rounded-lg text-white focus:outline-none focus:border-blue-500"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
                 required
               >
                 <option value="">Select service needed</option>
@@ -226,7 +226,7 @@ export default function InstantQuote() {
               type="button"
               onClick={handleContinue}
               disabled={isCheckingStorms || !formData.address || !formData.city || !formData.projectType}
-              className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800 disabled:cursor-not-allowed text-white py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2"
+              className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 disabled:cursor-not-allowed text-white py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 shadow-md"
             >
               {isCheckingStorms ? (
                 <>
@@ -249,7 +249,7 @@ export default function InstantQuote() {
             {stormAlert && (
               <Link 
                 href={`/storm-check?address=${encodeURIComponent(getFullAddress())}`}
-                className="block bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl p-3 text-white hover:from-orange-600 hover:to-orange-700 transition-all"
+                className="block bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl p-3 text-white hover:from-orange-600 hover:to-orange-700 transition-all shadow-md"
               >
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
@@ -267,38 +267,38 @@ export default function InstantQuote() {
             )}
 
             <div>
-              <label className="block text-sm text-slate-300 mb-1">Your Name</label>
+              <label className="block text-sm text-slate-600 mb-1 font-medium">Your Name</label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="John Smith"
-                className="w-full px-4 py-3 bg-slate-900/50 border border-white/10 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm text-slate-300 mb-1">Phone Number</label>
+              <label className="block text-sm text-slate-600 mb-1 font-medium">Phone Number</label>
               <input
                 type="tel"
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="(919) 555-1234"
-                className="w-full px-4 py-3 bg-slate-900/50 border border-white/10 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm text-slate-300 mb-1">Email (Optional)</label>
+              <label className="block text-sm text-slate-600 mb-1 font-medium">Email (Optional)</label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="john@example.com"
-                className="w-full px-4 py-3 bg-slate-900/50 border border-white/10 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
               />
             </div>
             <div className="flex gap-3">
@@ -306,14 +306,14 @@ export default function InstantQuote() {
                 type="button"
                 onClick={() => setStep(1)}
                 disabled={isSubmitting}
-                className="flex-1 border border-white/20 hover:bg-white/5 text-white py-3 rounded-lg font-semibold transition-colors disabled:opacity-50"
+                className="flex-1 border-2 border-slate-200 hover:bg-slate-50 text-slate-700 py-3 rounded-lg font-semibold transition-colors disabled:opacity-50"
               >
                 ← Back
               </button>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="flex-1 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white py-3 rounded-lg font-semibold transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+                className="flex-1 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white py-3 rounded-lg font-semibold transition-all disabled:opacity-50 flex items-center justify-center gap-2 shadow-md"
               >
                 {isSubmitting ? (
                   <>
@@ -328,14 +328,14 @@ export default function InstantQuote() {
                 )}
               </button>
             </div>
-            <p className="text-center text-xs text-slate-500">
+            <p className="text-center text-xs text-slate-400">
               🔒 Your information is secure and will never be shared
             </p>
           </div>
         )}
       </form>
 
-      <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-center gap-4 text-xs text-slate-400">
+      <div className="mt-4 pt-4 border-t border-slate-200 flex items-center justify-center gap-4 text-xs text-slate-500">
         <span className="flex items-center gap-1">
           <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
