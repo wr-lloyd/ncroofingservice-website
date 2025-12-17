@@ -28,7 +28,7 @@ export default function FortifiedRoofingPage() {
   const benefits = [
     {
       icon: (
-        <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
@@ -37,7 +37,7 @@ export default function FortifiedRoofingPage() {
     },
     {
       icon: (
-        <svg className="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
         </svg>
       ),
@@ -46,7 +46,7 @@ export default function FortifiedRoofingPage() {
     },
     {
       icon: (
-        <svg className="w-8 h-8 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
         </svg>
       ),
@@ -55,7 +55,7 @@ export default function FortifiedRoofingPage() {
     },
     {
       icon: (
-        <svg className="w-8 h-8 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
@@ -144,7 +144,7 @@ export default function FortifiedRoofingPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => setShowScheduler(true)}
-                  className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-4 rounded-xl font-semibold transition-colors"
+                  className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-4 rounded-xl font-semibold transition-colors shadow-lg"
                 >
                   Learn More About FORTIFIED
                 </button>
@@ -172,17 +172,17 @@ export default function FortifiedRoofingPage() {
       </section>
 
       {/* Benefits */}
-      <section className="py-16 bg-slate-800">
+      <section className="py-16 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white text-center mb-12">Why Choose FORTIFIED</h2>
+          <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">Why Choose FORTIFIED</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, idx) => (
-              <div key={idx} className="text-center">
-                <div className="w-16 h-16 bg-slate-900/50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div key={idx} className="text-center bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+                <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-slate-200">
                   {benefit.icon}
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{benefit.title}</h3>
-                <p className="text-slate-400 text-sm">{benefit.desc}</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">{benefit.title}</h3>
+                <p className="text-slate-600 text-sm">{benefit.desc}</p>
               </div>
             ))}
           </div>
@@ -190,28 +190,28 @@ export default function FortifiedRoofingPage() {
       </section>
 
       {/* Levels */}
-      <section className="py-16 bg-slate-900">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white text-center mb-4">FORTIFIED Designation Levels</h2>
-          <p className="text-slate-400 text-center mb-12 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold text-slate-900 text-center mb-4">FORTIFIED Designation Levels</h2>
+          <p className="text-slate-600 text-center mb-12 max-w-2xl mx-auto">
             FORTIFIED has three levels of designation. Most homeowners start with FORTIFIED Roof during a roof replacement.
           </p>
           <div className="grid md:grid-cols-3 gap-8">
             {levels.map((level, idx) => (
-              <div key={idx} className={`rounded-2xl p-8 border ${
-                idx === 0 ? 'bg-green-900/20 border-green-500/30' : 'bg-slate-800/50 border-white/5'
+              <div key={idx} className={`rounded-2xl p-8 border-2 ${
+                idx === 0 ? 'bg-green-50 border-green-300' : 'bg-slate-50 border-slate-200'
               }`}>
                 {idx === 0 && (
-                  <span className="inline-block px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-medium mb-4">
+                  <span className="inline-block px-3 py-1 bg-green-500 text-white rounded-full text-xs font-medium mb-4 shadow-sm">
                     Most Popular
                   </span>
                 )}
-                <h3 className="text-xl font-bold text-white mb-2">{level.name}</h3>
-                <p className="text-slate-400 text-sm mb-4">{level.desc}</p>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">{level.name}</h3>
+                <p className="text-slate-600 text-sm mb-4">{level.desc}</p>
                 <ul className="space-y-2">
                   {level.features.map((feature, fIdx) => (
-                    <li key={fIdx} className="flex items-center gap-2 text-slate-300 text-sm">
-                      <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <li key={fIdx} className="flex items-center gap-2 text-slate-700 text-sm">
+                      <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                       </svg>
                       {feature}
@@ -225,20 +225,20 @@ export default function FortifiedRoofingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-slate-800">
+      <section className="py-16 bg-slate-50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white text-center mb-12">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">Frequently Asked Questions</h2>
           <div className="space-y-4">
             {faqs.map((faq, idx) => (
-              <details key={idx} className="group bg-slate-900/50 rounded-xl border border-white/5">
+              <details key={idx} className="group bg-white rounded-xl border border-slate-200 shadow-sm">
                 <summary className="flex items-center justify-between p-6 cursor-pointer">
-                  <span className="text-white font-medium pr-4">{faq.q}</span>
+                  <span className="text-slate-900 font-medium pr-4">{faq.q}</span>
                   <svg className="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </summary>
                 <div className="px-6 pb-6 pt-0">
-                  <p className="text-slate-400">{faq.a}</p>
+                  <p className="text-slate-600">{faq.a}</p>
                 </div>
               </details>
             ))}
@@ -254,7 +254,7 @@ export default function FortifiedRoofingPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-green-600 px-8 py-4 rounded-xl font-semibold transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-green-600 px-8 py-4 rounded-xl font-semibold transition-colors shadow-lg"
             >
               Schedule Consultation
             </Link>

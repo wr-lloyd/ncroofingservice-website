@@ -88,7 +88,7 @@ export default function StormDamageInsurancePage() {
                 <button
                   onClick={() => setActiveTool('helper')}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    activeTool === 'helper' ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                    activeTool === 'helper' ? 'bg-blue-600 text-white shadow-md' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
                   }`}
                 >
                   Claims Guide
@@ -96,7 +96,7 @@ export default function StormDamageInsurancePage() {
                 <button
                   onClick={() => setActiveTool('problem')}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    activeTool === 'problem' ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                    activeTool === 'problem' ? 'bg-blue-600 text-white shadow-md' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
                   }`}
                 >
                   Problem Finder
@@ -104,7 +104,7 @@ export default function StormDamageInsurancePage() {
                 <button
                   onClick={() => setActiveTool('upload')}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    activeTool === 'upload' ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                    activeTool === 'upload' ? 'bg-blue-600 text-white shadow-md' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
                   }`}
                 >
                   Upload Photos
@@ -112,7 +112,7 @@ export default function StormDamageInsurancePage() {
                 <button
                   onClick={() => setActiveTool('schedule')}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    activeTool === 'schedule' ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                    activeTool === 'schedule' ? 'bg-blue-600 text-white shadow-md' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
                   }`}
                 >
                   Schedule Inspection
@@ -122,7 +122,7 @@ export default function StormDamageInsurancePage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="tel:+19194758841"
-                  className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-4 rounded-xl font-semibold transition-colors"
+                  className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-4 rounded-xl font-semibold transition-colors shadow-lg"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -144,56 +144,56 @@ export default function StormDamageInsurancePage() {
       </section>
 
       {/* Technology We Use */}
-      <section className="py-16 bg-slate-800">
+      <section className="py-16 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white text-center mb-12">How We Document Damage</h2>
+          <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">How We Document Damage</h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-slate-900/50 rounded-2xl p-8 border border-white/5 text-center">
-              <div className="w-16 h-16 bg-blue-600/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">EagleView Imaging</h3>
-              <p className="text-slate-400">Satellite and aerial imaging provides precise measurements for accurate claims.</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">EagleView Imaging</h3>
+              <p className="text-slate-600">Satellite and aerial imaging provides precise measurements for accurate claims.</p>
             </div>
-            <div className="bg-slate-900/50 rounded-2xl p-8 border border-white/5 text-center">
-              <div className="w-16 h-16 bg-green-600/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm text-center">
+              <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">PLRB Weather Data</h3>
-              <p className="text-slate-400">We use official weather records to verify storm events and support your claim.</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">PLRB Weather Data</h3>
+              <p className="text-slate-600">We use official weather records to verify storm events and support your claim.</p>
             </div>
-            <div className="bg-slate-900/50 rounded-2xl p-8 border border-white/5 text-center">
-              <div className="w-16 h-16 bg-amber-600/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm text-center">
+              <div className="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Detailed Reports</h3>
-              <p className="text-slate-400">Comprehensive documentation with photos, measurements, and damage assessment.</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Detailed Reports</h3>
+              <p className="text-slate-600">Comprehensive documentation with photos, measurements, and damage assessment.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-slate-900">
+      <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white text-center mb-12">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">Frequently Asked Questions</h2>
           <div className="space-y-4">
             {faqs.map((faq, idx) => (
-              <details key={idx} className="group bg-slate-800/50 rounded-xl border border-white/5">
+              <details key={idx} className="group bg-slate-50 rounded-xl border border-slate-200 shadow-sm">
                 <summary className="flex items-center justify-between p-6 cursor-pointer">
-                  <span className="text-white font-medium pr-4">{faq.q}</span>
+                  <span className="text-slate-900 font-medium pr-4">{faq.q}</span>
                   <svg className="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </summary>
                 <div className="px-6 pb-6 pt-0">
-                  <p className="text-slate-400">{faq.a}</p>
+                  <p className="text-slate-600">{faq.a}</p>
                 </div>
               </details>
             ))}
@@ -209,7 +209,7 @@ export default function StormDamageInsurancePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-blue-600 px-8 py-4 rounded-xl font-semibold transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-blue-600 px-8 py-4 rounded-xl font-semibold transition-colors shadow-lg"
             >
               Schedule Free Inspection
             </Link>

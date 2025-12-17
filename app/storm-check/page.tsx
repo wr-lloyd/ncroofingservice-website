@@ -82,10 +82,10 @@ const simulateStormLookup = (address: string): StormResults => {
 }
 
 const riskColors = {
-  low: { bg: 'bg-green-900/20', border: 'border-green-500/30', text: 'text-green-400', icon: '✓' },
-  moderate: { bg: 'bg-yellow-900/20', border: 'border-yellow-500/30', text: 'text-yellow-400', icon: '⚠' },
-  high: { bg: 'bg-orange-900/20', border: 'border-orange-500/30', text: 'text-orange-400', icon: '⚠' },
-  severe: { bg: 'bg-red-900/20', border: 'border-red-500/30', text: 'text-red-400', icon: '🚨' },
+  low: { bg: 'bg-green-50', border: 'border-green-200', text: 'text-green-600', icon: '✓' },
+  moderate: { bg: 'bg-yellow-50', border: 'border-yellow-200', text: 'text-yellow-600', icon: '⚠' },
+  high: { bg: 'bg-orange-50', border: 'border-orange-200', text: 'text-orange-600', icon: '⚠' },
+  severe: { bg: 'bg-red-50', border: 'border-red-200', text: 'text-red-600', icon: '🚨' },
 }
 
 const stormIcons = {
@@ -213,12 +213,12 @@ function StormCheckContent() {
       </section>
 
       {/* Address Input Section */}
-      <section className="py-16 bg-slate-800">
+      <section className="py-16 bg-slate-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <form onSubmit={handleCheck} className="bg-slate-900/50 rounded-2xl p-8 border border-white/5">
+          <form onSubmit={handleCheck} className="bg-white rounded-2xl p-8 border border-slate-200 shadow-lg">
             <div className="flex flex-col md:flex-row gap-4">
               <div className="flex-1">
-                <label htmlFor="address" className="block text-sm font-medium text-slate-300 mb-2">
+                <label htmlFor="address" className="block text-sm font-medium text-slate-700 mb-2">
                   Enter Your Address
                 </label>
                 <input
@@ -227,7 +227,7 @@ function StormCheckContent() {
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
                   placeholder="123 Main St, Raleigh, NC 27601"
-                  className="w-full px-4 py-4 bg-slate-800 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors text-lg"
+                  className="w-full px-4 py-4 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-colors text-lg"
                   required
                 />
               </div>
@@ -235,7 +235,7 @@ function StormCheckContent() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800 disabled:cursor-wait text-white px-8 py-4 rounded-xl font-semibold transition-colors text-lg flex items-center justify-center gap-2"
+                  className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 disabled:cursor-wait text-white px-8 py-4 rounded-xl font-semibold transition-colors text-lg flex items-center justify-center gap-2 shadow-md"
                 >
                   {isLoading ? (
                     <>
@@ -257,7 +257,7 @@ function StormCheckContent() {
               </div>
             </div>
             {error && (
-              <div className="mt-4 p-4 bg-red-900/30 border border-red-500/30 rounded-xl text-red-300 text-center">
+              <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-xl text-red-600 text-center">
                 {error}
               </div>
             )}
@@ -270,26 +270,26 @@ function StormCheckContent() {
 
       {/* Results Section */}
       {results && (
-        <section ref={resultsRef} className="py-16 bg-slate-900 scroll-mt-20">
+        <section ref={resultsRef} className="py-16 bg-white scroll-mt-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Overall Risk Banner */}
-            <div className={`${riskColors[results.overallRisk].bg} ${riskColors[results.overallRisk].border} border rounded-2xl p-6 mb-8`}>
+            <div className={`${riskColors[results.overallRisk].bg} ${riskColors[results.overallRisk].border} border-2 rounded-2xl p-6 mb-8 shadow-sm`}>
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <div className="flex items-center gap-4">
-                  <div className={`w-16 h-16 rounded-full ${results.overallRisk === 'high' || results.overallRisk === 'severe' ? 'bg-orange-600' : 'bg-yellow-600'} flex items-center justify-center text-2xl`}>
+                  <div className={`w-16 h-16 rounded-full ${results.overallRisk === 'high' || results.overallRisk === 'severe' ? 'bg-orange-500' : 'bg-yellow-500'} flex items-center justify-center text-2xl text-white`}>
                     {riskColors[results.overallRisk].icon}
                   </div>
                   <div>
                     <h2 className={`text-2xl font-bold ${riskColors[results.overallRisk].text}`}>
                       {results.overallRisk.toUpperCase()} DAMAGE RISK
                     </h2>
-                    <p className="text-slate-400">{results.storms.length} storm events detected near your address</p>
+                    <p className="text-slate-600">{results.storms.length} storm events detected near your address</p>
                   </div>
                 </div>
                 {results.insuranceDeadline && (
-                  <div className="bg-slate-800/50 rounded-xl px-4 py-2 text-center">
+                  <div className="bg-slate-100 rounded-xl px-4 py-2 text-center border border-slate-200">
                     <p className="text-slate-500 text-xs uppercase tracking-wider">Insurance Deadline</p>
-                    <p className="text-white font-bold">{results.insuranceDeadline}</p>
+                    <p className="text-slate-900 font-bold">{results.insuranceDeadline}</p>
                   </div>
                 )}
               </div>
@@ -297,30 +297,30 @@ function StormCheckContent() {
 
             {/* Storm Events List */}
             <div className="space-y-4 mb-8">
-              <h3 className="text-xl font-bold text-white mb-4">Recent Storm Activity</h3>
+              <h3 className="text-xl font-bold text-slate-900 mb-4">Recent Storm Activity</h3>
               {results.storms.map((storm, index) => (
                 <div 
                   key={index}
-                  className={`${riskColors[storm.damageRisk].bg} ${riskColors[storm.damageRisk].border} border rounded-xl p-5`}
+                  className={`${riskColors[storm.damageRisk].bg} ${riskColors[storm.damageRisk].border} border-2 rounded-xl p-5`}
                 >
                   <div className="flex items-start gap-4">
                     <div className={`w-12 h-12 rounded-lg ${
-                      storm.type === 'hail' ? 'bg-cyan-600/20 text-cyan-400' :
-                      storm.type === 'wind' ? 'bg-blue-600/20 text-blue-400' :
-                      'bg-red-600/20 text-red-400'
+                      storm.type === 'hail' ? 'bg-cyan-100 text-cyan-600' :
+                      storm.type === 'wind' ? 'bg-blue-100 text-blue-600' :
+                      'bg-red-100 text-red-600'
                     } flex items-center justify-center flex-shrink-0`}>
                       {stormIcons[storm.type]}
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between flex-wrap gap-2">
-                        <h4 className="text-white font-semibold capitalize">
+                        <h4 className="text-slate-900 font-semibold capitalize">
                           {storm.type === 'hail' ? '🌨️' : storm.type === 'wind' ? '💨' : '🌪️'} {storm.type.charAt(0).toUpperCase() + storm.type.slice(1)} Event
                         </h4>
-                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${riskColors[storm.damageRisk].bg} ${riskColors[storm.damageRisk].text}`}>
+                        <span className={`px-3 py-1 rounded-full text-xs font-medium border ${riskColors[storm.damageRisk].border} ${riskColors[storm.damageRisk].text}`}>
                           {storm.damageRisk.toUpperCase()} RISK
                         </span>
                       </div>
-                      <p className="text-slate-400 text-sm mt-1">{storm.description}</p>
+                      <p className="text-slate-600 text-sm mt-1">{storm.description}</p>
                       <div className="flex flex-wrap gap-4 mt-3 text-sm">
                         <span className="text-slate-500">
                           📅 {new Date(storm.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
@@ -339,20 +339,20 @@ function StormCheckContent() {
             </div>
 
             {/* Recommendation */}
-            <div className="bg-blue-900/20 border border-blue-500/30 rounded-xl p-6 mb-8">
-              <h3 className="text-white font-bold text-lg mb-2 flex items-center gap-2">
-                <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-6 mb-8">
+              <h3 className="text-slate-900 font-bold text-lg mb-2 flex items-center gap-2">
+                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 Our Recommendation
               </h3>
-              <p className="text-slate-300">{results.recommendation}</p>
+              <p className="text-slate-700">{results.recommendation}</p>
             </div>
 
             {/* Insurance Info */}
-            <div className="bg-slate-800/50 rounded-xl p-6 mb-8 border border-white/5">
-              <h3 className="text-white font-bold text-lg mb-4">📋 What You Should Know About Insurance</h3>
-              <ul className="space-y-3 text-slate-400">
+            <div className="bg-slate-50 rounded-xl p-6 mb-8 border border-slate-200">
+              <h3 className="text-slate-900 font-bold text-lg mb-4">📋 What You Should Know About Insurance</h3>
+              <ul className="space-y-3 text-slate-600">
                 <li className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -363,7 +363,7 @@ function StormCheckContent() {
                   <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span>You typically have <strong className="text-white">1-2 years</strong> from the storm date to file a claim</span>
+                  <span>You typically have <strong className="text-slate-900">1-2 years</strong> from the storm date to file a claim</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -382,14 +382,14 @@ function StormCheckContent() {
 
             {/* CTA */}
             {!showScheduleForm ? (
-              <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 text-center">
+              <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 text-center shadow-lg">
                 <h3 className="text-2xl font-bold text-white mb-2">Get Your Free Professional Inspection</h3>
                 <p className="text-blue-100 mb-6">
                   Don&apos;t wait until a small leak becomes a big problem. Our certified inspectors will document any damage for free.
                 </p>
                 <button
                   onClick={() => setShowScheduleForm(true)}
-                  className="bg-white hover:bg-slate-100 text-blue-600 px-8 py-4 rounded-xl font-semibold transition-colors text-lg"
+                  className="bg-white hover:bg-slate-100 text-blue-600 px-8 py-4 rounded-xl font-semibold transition-colors text-lg shadow-md"
                 >
                   Schedule Free Inspection
                 </button>
@@ -398,49 +398,49 @@ function StormCheckContent() {
                 </p>
               </div>
             ) : (
-              <div className="bg-slate-800/50 rounded-2xl p-8 border border-white/5">
-                <h3 className="text-xl font-bold text-white mb-6">Schedule Your Free Inspection</h3>
+              <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+                <h3 className="text-xl font-bold text-slate-900 mb-6">Schedule Your Free Inspection</h3>
                 <form onSubmit={handleScheduleSubmit} className="space-y-4">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-slate-300 mb-2">Your Name</label>
+                      <label className="block text-sm font-medium text-slate-700 mb-2">Your Name</label>
                       <input
                         type="text"
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
                         required
-                        className="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+                        className="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
                         placeholder="John Smith"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-slate-300 mb-2">Phone Number</label>
+                      <label className="block text-sm font-medium text-slate-700 mb-2">Phone Number</label>
                       <input
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => setFormData({...formData, phone: e.target.value})}
                         required
-                        className="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+                        className="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
                         placeholder="(919) 555-1234"
                       />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-2">Email (optional)</label>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Email (optional)</label>
                     <input
                       type="email"
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      className="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+                      className="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
                       placeholder="john@example.com"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-2">Preferred Time</label>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Preferred Time</label>
                     <select
                       value={formData.preferredTime}
                       onChange={(e) => setFormData({...formData, preferredTime: e.target.value})}
-                      className="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-lg text-white focus:outline-none focus:border-blue-500"
+                      className="w-full px-4 py-3 bg-white border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
                     >
                       <option value="">Select a time...</option>
                       <option value="morning">Morning (8am - 12pm)</option>
@@ -452,7 +452,7 @@ function StormCheckContent() {
                   <div className="pt-4">
                     <button
                       type="submit"
-                      className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-xl font-semibold transition-colors text-lg"
+                      className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-xl font-semibold transition-colors text-lg shadow-md"
                     >
                       Request Free Inspection
                     </button>
@@ -466,74 +466,74 @@ function StormCheckContent() {
 
       {/* How It Works Section */}
       {!results && (
-        <section className="py-24 bg-slate-900">
+        <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-white mb-4">How Storm Damage Happens</h2>
-              <p className="text-slate-400 max-w-2xl mx-auto">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">How Storm Damage Happens</h2>
+              <p className="text-slate-600 max-w-2xl mx-auto">
                 Even storms that seem minor can cause significant roof damage that leads to costly repairs if left unchecked.
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-slate-800/50 rounded-xl p-6 border border-white/5 text-center">
-                <div className="w-16 h-16 bg-cyan-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-slate-50 rounded-xl p-6 border border-slate-200 text-center shadow-sm">
+                <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl">🌨️</span>
                 </div>
-                <h3 className="text-white font-bold text-lg mb-2">Hail Damage</h3>
-                <p className="text-slate-400 text-sm">
+                <h3 className="text-slate-900 font-bold text-lg mb-2">Hail Damage</h3>
+                <p className="text-slate-600 text-sm">
                   Hail as small as 1&quot; can crack shingles, dent metal, and compromise your roof&apos;s protective granules. Damage often isn&apos;t visible from the ground.
                 </p>
               </div>
 
-              <div className="bg-slate-800/50 rounded-xl p-6 border border-white/5 text-center">
-                <div className="w-16 h-16 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-slate-50 rounded-xl p-6 border border-slate-200 text-center shadow-sm">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl">💨</span>
                 </div>
-                <h3 className="text-white font-bold text-lg mb-2">Wind Damage</h3>
-                <p className="text-slate-400 text-sm">
+                <h3 className="text-slate-900 font-bold text-lg mb-2">Wind Damage</h3>
+                <p className="text-slate-600 text-sm">
                   Winds over 50 mph can lift shingles, break seals, and create entry points for water. The edges and ridges of your roof are most vulnerable.
                 </p>
               </div>
 
-              <div className="bg-slate-800/50 rounded-xl p-6 border border-white/5 text-center">
-                <div className="w-16 h-16 bg-red-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-slate-50 rounded-xl p-6 border border-slate-200 text-center shadow-sm">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl">🌪️</span>
                 </div>
-                <h3 className="text-white font-bold text-lg mb-2">Severe Storms</h3>
-                <p className="text-slate-400 text-sm">
+                <h3 className="text-slate-900 font-bold text-lg mb-2">Severe Storms</h3>
+                <p className="text-slate-600 text-sm">
                   Tornadoes and severe thunderstorms can cause catastrophic damage. Even near-misses can leave your roof compromised and vulnerable.
                 </p>
               </div>
             </div>
 
-            <div className="mt-16 bg-slate-800/50 rounded-2xl p-8 border border-white/5">
+            <div className="mt-16 bg-slate-50 rounded-2xl p-8 border border-slate-200">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
-                  <h3 className="text-2xl font-bold text-white mb-4">Why Check Now?</h3>
-                  <ul className="space-y-3 text-slate-400">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-4">Why Check Now?</h3>
+                  <ul className="space-y-3 text-slate-600">
                     <li className="flex items-start gap-3">
-                      <span className="text-orange-400">⏰</span>
-                      <span><strong className="text-white">Insurance deadlines</strong> — Most policies require claims within 1-2 years</span>
+                      <span className="text-orange-500">⏰</span>
+                      <span><strong className="text-slate-900">Insurance deadlines</strong> — Most policies require claims within 1-2 years</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-orange-400">💧</span>
-                      <span><strong className="text-white">Hidden leaks</strong> — Damage often isn&apos;t visible until water enters your home</span>
+                      <span className="text-orange-500">💧</span>
+                      <span><strong className="text-slate-900">Hidden leaks</strong> — Damage often isn&apos;t visible until water enters your home</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-orange-400">💰</span>
-                      <span><strong className="text-white">Free coverage</strong> — Many roofs qualify for full replacement at no cost to you</span>
+                      <span className="text-orange-500">💰</span>
+                      <span><strong className="text-slate-900">Free coverage</strong> — Many roofs qualify for full replacement at no cost to you</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <span className="text-orange-400">📈</span>
-                      <span><strong className="text-white">Home value</strong> — A new roof increases property value by $15,000+</span>
+                      <span className="text-orange-500">📈</span>
+                      <span><strong className="text-slate-900">Home value</strong> — A new roof increases property value by $15,000+</span>
                     </li>
                   </ul>
                 </div>
-                <div className="bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-xl p-6 border border-white/10">
+                <div className="bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl p-6 border border-blue-200">
                   <div className="text-center">
-                    <div className="text-5xl font-bold text-white mb-2">68%</div>
-                    <p className="text-slate-400">of NC homeowners have storm damage they don&apos;t know about</p>
+                    <div className="text-5xl font-bold text-slate-900 mb-2">68%</div>
+                    <p className="text-slate-600">of NC homeowners have storm damage they don&apos;t know about</p>
                     <p className="text-slate-500 text-sm mt-2">— NC Insurance Commissioner Report</p>
                   </div>
                 </div>
@@ -544,32 +544,32 @@ function StormCheckContent() {
       )}
 
       {/* Trust Section */}
-      <section className="py-16 bg-slate-800">
+      <section className="py-16 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-2xl font-bold text-white mb-2">Trusted By NC Homeowners</h2>
-            <p className="text-slate-400">We&apos;ve helped hundreds of families navigate storm damage claims</p>
+            <h2 className="text-2xl font-bold text-slate-900 mb-2">Trusted By NC Homeowners</h2>
+            <p className="text-slate-600">We&apos;ve helped hundreds of families navigate storm damage claims</p>
           </div>
           <div className="flex flex-wrap justify-center items-center gap-8">
-            <div className="flex items-center gap-2 text-slate-400">
+            <div className="flex items-center gap-2 text-slate-700">
               <svg className="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
               GAF Certified
             </div>
-            <div className="flex items-center gap-2 text-slate-400">
+            <div className="flex items-center gap-2 text-slate-700">
               <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
               Licensed & Insured
             </div>
-            <div className="flex items-center gap-2 text-slate-400">
+            <div className="flex items-center gap-2 text-slate-700">
               <svg className="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
               BBB A+ Rated
             </div>
-            <div className="flex items-center gap-2 text-slate-400">
+            <div className="flex items-center gap-2 text-slate-700">
               <svg className="w-5 h-5 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
@@ -591,10 +591,18 @@ function StormCheckLoading() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="animate-pulse">
-              <div className="h-4 bg-slate-700 rounded w-48 mx-auto mb-4"></div>
-              <div className="h-12 bg-slate-700 rounded w-96 mx-auto mb-6"></div>
-              <div className="h-6 bg-slate-700 rounded w-80 mx-auto"></div>
+              <div className="h-4 bg-slate-600 rounded w-48 mx-auto mb-4"></div>
+              <div className="h-12 bg-slate-600 rounded w-96 mx-auto mb-6"></div>
+              <div className="h-6 bg-slate-600 rounded w-80 mx-auto"></div>
             </div>
+          </div>
+        </div>
+      </section>
+      <section className="py-16 bg-slate-100">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-2xl p-8 border border-slate-200 animate-pulse">
+            <div className="h-6 bg-slate-200 rounded w-32 mb-4"></div>
+            <div className="h-14 bg-slate-200 rounded w-full"></div>
           </div>
         </div>
       </section>

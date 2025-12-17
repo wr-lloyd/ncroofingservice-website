@@ -52,19 +52,19 @@ export default function Footer() {
             <h3 className="text-white font-semibold text-lg mb-4">Service Areas</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/locations" className="text-blue-400 hover:text-blue-300 transition-colors text-sm font-medium">Greater Raleigh</Link>
+                <Link href="/contact#triangle-coverage-team" className="text-blue-400 hover:text-blue-300 transition-colors text-sm font-medium">Wake & East Triangle</Link>
                 <span className="text-slate-500 text-xs block">Mike Villarroel</span>
               </li>
               <li>
-                <Link href="/locations" className="text-green-400 hover:text-green-300 transition-colors text-sm font-medium">Greater Durham</Link>
+                <Link href="/contact#triangle-coverage-team" className="text-green-400 hover:text-green-300 transition-colors text-sm font-medium">Durham & North Triangle</Link>
                 <span className="text-slate-500 text-xs block">Randy Butler</span>
               </li>
               <li>
-                <Link href="/locations" className="text-purple-400 hover:text-purple-300 transition-colors text-sm font-medium">Greater Chapel Hill</Link>
+                <Link href="/contact#triangle-coverage-team" className="text-purple-400 hover:text-purple-300 transition-colors text-sm font-medium">Orange & West Triangle</Link>
                 <span className="text-slate-500 text-xs block">Preston Mayo</span>
               </li>
               <li className="pt-2">
-                <Link href="/locations" className="text-slate-400 hover:text-white transition-colors text-sm">View All Service Areas →</Link>
+                <Link href="/contact#triangle-coverage-team" className="text-slate-400 hover:text-white transition-colors text-sm">View All Service Areas →</Link>
               </li>
             </ul>
           </div>

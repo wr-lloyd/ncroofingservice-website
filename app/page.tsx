@@ -408,7 +408,7 @@ export default function Home() {
             {['Rougemont', 'Durham', 'Raleigh', 'Chapel Hill', 'Cary', 'Hillsborough', 'Wake Forest', 'Apex', 'Butner', 'Creedmoor', 'Oxford', 'Mebane'].map((city) => (
               <Link 
                 key={city}
-                href="/locations"
+                href="/contact#triangle-coverage-team"
                 className="bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-300 rounded-xl p-4 text-center transition-all group shadow-sm"
               >
                 <span className="text-slate-800 font-medium group-hover:text-blue-600 transition-colors">{city}</span>
@@ -418,7 +418,7 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-8">
-            <Link href="/locations" className="text-blue-600 hover:underline text-sm font-medium">
+            <Link href="/contact#triangle-coverage-team" className="text-blue-600 hover:underline text-sm font-medium">
               View all service areas →
             </Link>
           </div>

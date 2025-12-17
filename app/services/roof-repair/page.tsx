@@ -82,7 +82,7 @@ export default function RoofRepairPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="tel:+19194758841"
-                  className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-4 rounded-xl font-semibold transition-colors"
+                  className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-4 rounded-xl font-semibold transition-colors shadow-lg"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -91,7 +91,7 @@ export default function RoofRepairPage() {
                 </a>
                 <button
                   onClick={() => setActiveTool('schedule')}
-                  className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-xl font-semibold transition-colors"
+                  className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-xl font-semibold transition-colors shadow-lg"
                 >
                   Schedule Free Inspection
                 </button>
@@ -113,45 +113,45 @@ export default function RoofRepairPage() {
       </section>
 
       {/* Benefits */}
-      <section className="py-16 bg-slate-800">
+      <section className="py-16 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white text-center mb-12">Why Choose B&C for Repairs</h2>
+          <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">Why Choose B&C for Repairs</h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-amber-600/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="text-center bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
+              <div className="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Fast Response</h3>
-              <p className="text-slate-400">24/7 emergency service. We prioritize active leaks and urgent issues to protect your home.</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Fast Response</h3>
+              <p className="text-slate-600">24/7 emergency service. We prioritize active leaks and urgent issues to protect your home.</p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="text-center bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
+              <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Honest Assessment</h3>
-              <p className="text-slate-400">We&apos;ll tell you exactly what&apos;s wrong and recommend repair only when it makes sense.</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Honest Assessment</h3>
+              <p className="text-slate-600">We&apos;ll tell you exactly what&apos;s wrong and recommend repair only when it makes sense.</p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-green-600/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="text-center bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
+              <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Quality Materials</h3>
-              <p className="text-slate-400">We use the same premium materials from our certified suppliers for lasting repairs.</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Quality Materials</h3>
+              <p className="text-slate-600">We use the same premium materials from our certified suppliers for lasting repairs.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Our Process */}
-      <section className="py-16 bg-slate-900">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white text-center mb-12">Our Repair Process</h2>
+          <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">Our Repair Process</h2>
           <div className="grid md:grid-cols-4 gap-8">
             {[
               { step: 1, title: 'Inspect', desc: 'We thoroughly inspect to find the root cause, not just the symptoms.' },
@@ -160,11 +160,11 @@ export default function RoofRepairPage() {
               { step: 4, title: 'Verify', desc: 'We verify the repair and clean up completely before leaving.' },
             ].map((item) => (
               <div key={item.step} className="text-center">
-                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg">
+                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg shadow-lg">
                   {item.step}
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-slate-400 text-sm">{item.desc}</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h3>
+                <p className="text-slate-600 text-sm">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -172,20 +172,20 @@ export default function RoofRepairPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-slate-800">
+      <section className="py-16 bg-slate-50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white text-center mb-12">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">Frequently Asked Questions</h2>
           <div className="space-y-4">
             {faqs.map((faq, idx) => (
-              <details key={idx} className="group bg-slate-900/50 rounded-xl border border-white/5">
+              <details key={idx} className="group bg-white rounded-xl border border-slate-200 shadow-sm">
                 <summary className="flex items-center justify-between p-6 cursor-pointer">
-                  <span className="text-white font-medium pr-4">{faq.q}</span>
+                  <span className="text-slate-900 font-medium pr-4">{faq.q}</span>
                   <svg className="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </summary>
                 <div className="px-6 pb-6 pt-0">
-                  <p className="text-slate-400">{faq.a}</p>
+                  <p className="text-slate-600">{faq.a}</p>
                 </div>
               </details>
             ))}
@@ -194,9 +194,9 @@ export default function RoofRepairPage() {
       </section>
 
       {/* Trust Badges */}
-      <section className="py-12 bg-slate-900 border-t border-white/5">
+      <section className="py-12 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-center gap-8 text-slate-400 text-sm">
+          <div className="flex flex-wrap items-center justify-center gap-8 text-slate-500 text-sm">
             <span className="flex items-center gap-2">✓ GAF Certified</span>
             <span className="flex items-center gap-2">✓ CertainTeed Certified</span>
             <span className="flex items-center gap-2">✓ Owens Corning Certified</span>
@@ -214,7 +214,7 @@ export default function RoofRepairPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-blue-600 px-8 py-4 rounded-xl font-semibold transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-blue-600 px-8 py-4 rounded-xl font-semibold transition-colors shadow-lg"
             >
               Schedule Free Inspection
             </Link>

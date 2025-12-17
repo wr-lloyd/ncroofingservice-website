@@ -91,10 +91,10 @@ const problems: Problem[] = [
 ]
 
 const urgencyColors = {
-  emergency: { bg: 'bg-red-500/20', border: 'border-red-500/50', text: 'text-red-400', label: '🚨 Emergency' },
-  high: { bg: 'bg-orange-500/20', border: 'border-orange-500/50', text: 'text-orange-400', label: 'High Priority' },
-  medium: { bg: 'bg-amber-500/20', border: 'border-amber-500/50', text: 'text-amber-400', label: 'Schedule Soon' },
-  low: { bg: 'bg-green-500/20', border: 'border-green-500/50', text: 'text-green-400', label: 'When Convenient' },
+  emergency: { bg: 'bg-red-50', border: 'border-red-200', text: 'text-red-600', label: '🚨 Emergency' },
+  high: { bg: 'bg-orange-50', border: 'border-orange-200', text: 'text-orange-600', label: 'High Priority' },
+  medium: { bg: 'bg-amber-50', border: 'border-amber-200', text: 'text-amber-600', label: 'Schedule Soon' },
+  low: { bg: 'bg-green-50', border: 'border-green-200', text: 'text-green-600', label: 'When Convenient' },
 }
 
 interface ProblemFinderProps {
@@ -119,32 +119,32 @@ export default function ProblemFinder({ onSelectAction, compact = false }: Probl
     const urgency = urgencyColors[selectedProblem.urgency]
     
     return (
-      <div className={`bg-slate-900/50 rounded-2xl border border-white/5 overflow-hidden ${compact ? 'p-6' : 'p-8'}`}>
+      <div className={`bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm ${compact ? 'p-6' : 'p-8'}`}>
         {/* Result Header */}
         <div className="flex items-center justify-between mb-6">
           <button 
             onClick={() => setSelectedProblem(null)}
-            className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm"
+            className="flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors text-sm"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
             Back
           </button>
-          <span className={`px-3 py-1 rounded-full text-xs font-medium ${urgency.bg} ${urgency.text}`}>
+          <span className={`px-3 py-1 rounded-full text-xs font-medium ${urgency.bg} ${urgency.text} border ${urgency.border}`}>
             {urgency.label}
           </span>
         </div>
 
         {/* Selected Problem */}
-        <div className={`${urgency.bg} ${urgency.border} border rounded-xl p-6 mb-6`}>
+        <div className={`${urgency.bg} ${urgency.border} border-2 rounded-xl p-6 mb-6`}>
           <div className="flex items-center gap-4 mb-4">
             <div className={`${urgency.text}`}>
               {selectedProblem.icon}
             </div>
-            <h3 className="text-xl font-bold text-white">{selectedProblem.label}</h3>
+            <h3 className="text-xl font-bold text-slate-900">{selectedProblem.label}</h3>
           </div>
-          <p className="text-slate-300">{selectedProblem.advice}</p>
+          <p className="text-slate-700">{selectedProblem.advice}</p>
         </div>
 
         {/* Action Button */}
@@ -172,17 +172,17 @@ export default function ProblemFinder({ onSelectAction, compact = false }: Probl
 
         {/* Alternative */}
         <p className="text-center text-slate-500 text-sm mt-4">
-          Or call anytime: <a href="tel:+19194758841" className="text-blue-400 hover:underline">(919) 475-8841</a>
+          Or call anytime: <a href="tel:+19194758841" className="text-blue-600 hover:underline">(919) 475-8841</a>
         </p>
       </div>
     )
   }
 
   return (
-    <div className={`bg-slate-900/50 rounded-2xl border border-white/5 ${compact ? 'p-6' : 'p-8'}`}>
+    <div className={`bg-white rounded-2xl border border-slate-200 shadow-sm ${compact ? 'p-6' : 'p-8'}`}>
       <div className="text-center mb-6">
-        <h3 className={`font-bold text-white ${compact ? 'text-xl' : 'text-2xl'}`}>What&apos;s happening with your roof?</h3>
-        <p className="text-slate-400 mt-2">Select the issue that best describes your situation</p>
+        <h3 className={`font-bold text-slate-900 ${compact ? 'text-xl' : 'text-2xl'}`}>What&apos;s happening with your roof?</h3>
+        <p className="text-slate-500 mt-2">Select the issue that best describes your situation</p>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -190,12 +190,12 @@ export default function ProblemFinder({ onSelectAction, compact = false }: Probl
           <button
             key={problem.id}
             onClick={() => handleSelect(problem)}
-            className="flex flex-col items-center gap-3 p-4 bg-slate-800/50 hover:bg-slate-800 border border-white/5 hover:border-blue-500/50 rounded-xl transition-all group text-center"
+            className="flex flex-col items-center gap-3 p-4 bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-blue-300 rounded-xl transition-all group text-center"
           >
-            <div className="text-slate-400 group-hover:text-blue-400 transition-colors">
+            <div className="text-slate-500 group-hover:text-blue-600 transition-colors">
               {problem.icon}
             </div>
-            <span className="text-white font-medium text-sm">{problem.label}</span>
+            <span className="text-slate-900 font-medium text-sm">{problem.label}</span>
           </button>
         ))}
       </div>

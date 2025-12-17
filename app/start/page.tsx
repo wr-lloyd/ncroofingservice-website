@@ -197,7 +197,7 @@ export default function StartPage() {
   const currentStepData = steps[currentStep - 1]
 
   return (
-    <main className="pt-20 min-h-screen bg-slate-900">
+    <main className="pt-20 min-h-screen bg-slate-50">
       {/* Hero Banner */}
       <section className="relative py-24 overflow-hidden">
         {/* Background with roof image */}
@@ -210,13 +210,13 @@ export default function StartPage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <span className="text-green-500 font-semibold text-sm uppercase tracking-wider">
+            <span className="text-green-400 font-semibold text-sm uppercase tracking-wider">
               {selectedSituation ? 'Your Journey' : 'Start Here'}
             </span>
             <h1 className="text-4xl md:text-6xl font-bold text-white mt-2 mb-6">
               {selectedSituation ? 'Your Roofing Journey' : 'How Can We Help?'}
             </h1>
-            <p className="text-slate-400 text-xl max-w-3xl mx-auto">
+            <p className="text-slate-300 text-xl max-w-3xl mx-auto">
               {selectedSituation 
                 ? 'Follow these steps and we\'ll take care of the rest. Skip ahead anytime using the tools on the right.'
                 : 'Tell us your situation and we\'ll guide you to the right solution, or jump directly to any tool below.'}
@@ -237,46 +237,46 @@ export default function StartPage() {
                 {/* Storm Check CTA */}
                 <Link 
                   href="/storm-check"
-                  className="block mb-8 bg-gradient-to-r from-orange-600/20 to-red-600/20 border border-orange-500/30 rounded-2xl p-6 hover:from-orange-600/30 hover:to-red-600/30 transition-all group"
+                  className="block mb-8 bg-gradient-to-r from-orange-50 to-red-50 border-2 border-orange-200 rounded-2xl p-6 hover:border-orange-300 hover:shadow-lg transition-all group"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center text-2xl">
+                      <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center text-2xl shadow-md">
                         ⚡
                       </div>
                       <div>
-                        <h3 className="text-white font-bold text-lg flex items-center gap-2">
+                        <h3 className="text-slate-900 font-bold text-lg flex items-center gap-2">
                           Storm Damage Checker
                           <span className="text-xs bg-orange-500 text-white px-2 py-0.5 rounded-full">NEW</span>
                         </h3>
-                        <p className="text-slate-400 text-sm">Enter your address to see if recent storms may have damaged your roof</p>
+                        <p className="text-slate-600 text-sm">Enter your address to see if recent storms may have damaged your roof</p>
                       </div>
                     </div>
-                    <svg className="w-6 h-6 text-orange-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-orange-500 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </div>
                 </Link>
 
-                <h2 className="text-xl font-semibold text-white mb-6">What brings you here today?</h2>
+                <h2 className="text-xl font-semibold text-slate-900 mb-6">What brings you here today?</h2>
                 <div className="grid md:grid-cols-2 gap-4 mb-8">
                   {situations.map((situation) => (
                     <button
                       key={situation.id}
                       onClick={() => handleSituationSelect(situation.id)}
-                      className={`text-left p-6 rounded-2xl border ${situation.borderColor} bg-slate-800/50 hover:bg-slate-800 transition-all group`}
+                      className={`text-left p-6 rounded-2xl border-2 border-slate-200 bg-white hover:border-blue-300 hover:shadow-lg transition-all group`}
                     >
                       <div className="flex items-start gap-4">
-                        <div className={`w-12 h-12 bg-gradient-to-br ${situation.color} rounded-xl flex items-center justify-center text-xl flex-shrink-0`}>
+                        <div className={`w-12 h-12 bg-gradient-to-br ${situation.color} rounded-xl flex items-center justify-center text-xl flex-shrink-0 shadow-md`}>
                           {situation.icon}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h3 className="text-lg font-bold text-white mb-1 group-hover:text-blue-400 transition-colors">
+                          <h3 className="text-lg font-bold text-slate-900 mb-1 group-hover:text-blue-600 transition-colors">
                             {situation.title}
                           </h3>
-                          <p className="text-slate-400 text-sm">{situation.subtitle}</p>
+                          <p className="text-slate-500 text-sm">{situation.subtitle}</p>
                         </div>
-                        <svg className="w-5 h-5 text-slate-500 group-hover:text-blue-400 group-hover:translate-x-1 transition-all mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 text-slate-400 group-hover:text-blue-500 group-hover:translate-x-1 transition-all mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                       </div>
@@ -285,12 +285,12 @@ export default function StartPage() {
                 </div>
 
                 {/* Not Sure Option */}
-                <div className="text-center p-6 bg-slate-800/30 rounded-2xl border border-white/5">
-                  <p className="text-slate-400 mb-3">Not sure what you need?</p>
+                <div className="text-center p-6 bg-white rounded-2xl border border-slate-200 shadow-sm">
+                  <p className="text-slate-600 mb-3">Not sure what you need?</p>
                   <Link
                     href="#schedule-inspection"
                     onClick={(e) => { e.preventDefault(); scrollToSection('schedule-inspection'); }}
-                    className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-medium transition-colors"
+                    className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -307,7 +307,7 @@ export default function StartPage() {
                   <div className="flex items-center justify-between mb-4">
                     <button
                       onClick={handleBack}
-                      className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm"
+                      className="flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors text-sm"
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -321,7 +321,7 @@ export default function StartPage() {
                       <div
                         key={idx}
                         className={`h-2 flex-1 rounded-full transition-colors ${
-                          idx + 1 <= currentStep ? 'bg-blue-500' : 'bg-slate-700'
+                          idx + 1 <= currentStep ? 'bg-blue-500' : 'bg-slate-200'
                         }`}
                       />
                     ))}
@@ -329,7 +329,7 @@ export default function StartPage() {
                 </div>
 
                 {/* Step Title */}
-                <h2 className="text-2xl font-bold text-white mb-6">{currentStepData?.title}</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-6">{currentStepData?.title}</h2>
 
                 {/* Step Content */}
                 <div className="mb-8">
@@ -341,7 +341,7 @@ export default function StartPage() {
                   <div className="flex justify-end">
                     <button
                       onClick={handleNext}
-                      className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm"
+                      className="flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors text-sm"
                     >
                       Skip this step
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -357,23 +357,23 @@ export default function StartPage() {
           {/* Sticky Sidebar - Desktop */}
           <div className="hidden lg:block w-72 flex-shrink-0">
             <div className="sticky top-24">
-              <div className="bg-slate-800/70 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+              <div className="bg-white rounded-2xl border border-slate-200 shadow-lg overflow-hidden">
                 {/* Header */}
-                <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 border-b border-white/10 px-5 py-4">
-                  <h3 className="font-bold text-white flex items-center gap-2">
-                    <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-b border-slate-200 px-5 py-4">
+                  <h3 className="font-bold text-slate-900 flex items-center gap-2">
+                    <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                     </svg>
                     Jump to Tools
                   </h3>
-                  <p className="text-slate-400 text-xs mt-1">Quick access to all resources</p>
+                  <p className="text-slate-500 text-xs mt-1">Quick access to all resources</p>
                 </div>
 
                 {/* Tool Categories */}
                 <div className="p-4 space-y-4">
                   {toolCategories.map((category) => (
                     <div key={category.id}>
-                      <h4 className={`text-xs font-semibold uppercase tracking-wider ${category.color} mb-2 flex items-center gap-2`}>
+                      <h4 className={`text-xs font-semibold uppercase tracking-wider text-slate-900 mb-2 flex items-center gap-2`}>
                         <span>{category.icon}</span>
                         {category.title}
                       </h4>
@@ -385,10 +385,10 @@ export default function StartPage() {
                                 href={tool.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors group"
+                                className="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors group"
                               >
                                 <span>{tool.name}</span>
-                                <svg className="w-3.5 h-3.5 text-slate-500 group-hover:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-3.5 h-3.5 text-slate-400 group-hover:text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                 </svg>
                               </a>
@@ -397,8 +397,8 @@ export default function StartPage() {
                                 onClick={() => scrollToSection(tool.id)}
                                 className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors ${
                                   activeSection === tool.id
-                                    ? 'bg-blue-600/20 text-blue-400'
-                                    : 'text-slate-300 hover:text-white hover:bg-white/5'
+                                    ? 'bg-blue-50 text-blue-600'
+                                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                                 }`}
                               >
                                 <span>{tool.name}</span>
@@ -420,11 +420,11 @@ export default function StartPage() {
       </div>
 
       {/* All Tools Section */}
-      <section className="border-t border-white/5 bg-slate-800/30">
+      <section className="border-t border-slate-200 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
           <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">All Tools & Resources</h2>
-            <p className="text-slate-400">Everything you need to make an informed decision about your roof.</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">All Tools & Resources</h2>
+            <p className="text-slate-600">Everything you need to make an informed decision about your roof.</p>
           </div>
 
           {/* Tool Sections */}
@@ -433,7 +433,7 @@ export default function StartPage() {
             <div id="visualizers" className="scroll-mt-24">
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-2xl">🎨</span>
-                <h3 className="text-xl font-bold text-white">Visualization Tools</h3>
+                <h3 className="text-xl font-bold text-slate-900">Visualization Tools</h3>
               </div>
               <VisualizerCard />
             </div>
@@ -442,7 +442,7 @@ export default function StartPage() {
             <div id="problem-finder" className="scroll-mt-24">
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-2xl">🔍</span>
-                <h3 className="text-xl font-bold text-white">Problem Finder</h3>
+                <h3 className="text-xl font-bold text-slate-900">Problem Finder</h3>
               </div>
               <ProblemFinder />
             </div>
@@ -451,7 +451,7 @@ export default function StartPage() {
             <div id="damage-upload" className="scroll-mt-24">
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-2xl">📷</span>
-                <h3 className="text-xl font-bold text-white">Upload Damage Photos</h3>
+                <h3 className="text-xl font-bold text-slate-900">Upload Damage Photos</h3>
               </div>
               <DamageUpload />
             </div>
@@ -460,7 +460,7 @@ export default function StartPage() {
             <div id="insurance-helper" className="scroll-mt-24">
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-2xl">📋</span>
-                <h3 className="text-xl font-bold text-white">Insurance Claim Helper</h3>
+                <h3 className="text-xl font-bold text-slate-900">Insurance Claim Helper</h3>
               </div>
               <InsuranceHelper />
             </div>
@@ -469,7 +469,7 @@ export default function StartPage() {
             <div id="fortified-info" className="scroll-mt-24">
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-2xl">🛡️</span>
-                <h3 className="text-xl font-bold text-white">FORTIFIED Roofing</h3>
+                <h3 className="text-xl font-bold text-slate-900">FORTIFIED Roofing</h3>
               </div>
               <FortifiedExplainer />
             </div>
@@ -478,7 +478,7 @@ export default function StartPage() {
             <div id="schedule-inspection" className="scroll-mt-24">
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-2xl">📅</span>
-                <h3 className="text-xl font-bold text-white">Schedule Your Free Inspection</h3>
+                <h3 className="text-xl font-bold text-slate-900">Schedule Your Free Inspection</h3>
               </div>
               <ScheduleInspection />
             </div>
@@ -487,9 +487,9 @@ export default function StartPage() {
       </section>
 
       {/* What Happens Next */}
-      <section className="py-12 md:py-16 bg-slate-900 border-t border-white/5">
+      <section className="py-12 md:py-16 bg-white border-t border-slate-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-white text-center mb-8">What Happens Next</h2>
+          <h2 className="text-2xl font-bold text-slate-900 text-center mb-8">What Happens Next</h2>
           <div className="flex flex-wrap justify-center gap-4 md:gap-8">
             {[
               { step: 1, label: 'Inspect', icon: '🔍' },
@@ -500,13 +500,13 @@ export default function StartPage() {
             ].map((item, idx) => (
               <div key={idx} className="flex items-center gap-2 md:gap-4">
                 <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 md:w-14 md:h-14 bg-slate-800 rounded-xl flex items-center justify-center text-xl md:text-2xl mb-2">
+                  <div className="w-12 h-12 md:w-14 md:h-14 bg-slate-100 border border-slate-200 rounded-xl flex items-center justify-center text-xl md:text-2xl mb-2 shadow-sm">
                     {item.icon}
                   </div>
-                  <span className="text-white font-medium text-sm">{item.label}</span>
+                  <span className="text-slate-900 font-medium text-sm">{item.label}</span>
                 </div>
                 {idx < 4 && (
-                  <svg className="w-4 h-4 text-slate-600 hidden md:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-slate-400 hidden md:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 )}
@@ -536,17 +536,17 @@ export default function StartPage() {
 
       {/* Mobile Toolbar Sheet */}
       {showMobileToolbar && (
-        <div className="lg:hidden fixed inset-x-0 bottom-0 z-30 bg-slate-900/95 backdrop-blur-lg border-t border-white/10 rounded-t-3xl shadow-2xl animate-slide-up pb-20">
+        <div className="lg:hidden fixed inset-x-0 bottom-0 z-30 bg-white/95 backdrop-blur-lg border-t border-slate-200 rounded-t-3xl shadow-2xl animate-slide-up pb-20">
           <div className="p-6 max-h-[70vh] overflow-y-auto">
             {/* Handle */}
-            <div className="w-12 h-1 bg-slate-600 rounded-full mx-auto mb-6"></div>
+            <div className="w-12 h-1 bg-slate-300 rounded-full mx-auto mb-6"></div>
             
-            <h3 className="font-bold text-white text-lg mb-4">Jump to Tools</h3>
+            <h3 className="font-bold text-slate-900 text-lg mb-4">Jump to Tools</h3>
             
             <div className="space-y-4">
               {toolCategories.map((category) => (
                 <div key={category.id}>
-                  <h4 className={`text-xs font-semibold uppercase tracking-wider ${category.color} mb-2 flex items-center gap-2`}>
+                  <h4 className={`text-xs font-semibold uppercase tracking-wider text-slate-900 mb-2 flex items-center gap-2`}>
                     <span>{category.icon}</span>
                     {category.title}
                   </h4>
@@ -558,10 +558,10 @@ export default function StartPage() {
                           href={tool.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center justify-between px-4 py-3 bg-slate-800 rounded-xl text-sm text-slate-300"
+                          className="flex items-center justify-between px-4 py-3 bg-slate-100 rounded-xl text-sm text-slate-700"
                         >
                           <span>{tool.name}</span>
-                          <svg className="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                           </svg>
                         </a>
@@ -569,10 +569,10 @@ export default function StartPage() {
                         <button
                           key={tool.id}
                           onClick={() => scrollToSection(tool.id)}
-                          className="flex items-center justify-between px-4 py-3 bg-slate-800 rounded-xl text-sm text-slate-300"
+                          className="flex items-center justify-between px-4 py-3 bg-slate-100 rounded-xl text-sm text-slate-700"
                         >
                           <span>{tool.name}</span>
-                          <svg className="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                           </svg>
                         </button>
@@ -614,45 +614,45 @@ export default function StartPage() {
 // FORTIFIED Explainer Component
 function FortifiedExplainer() {
   return (
-    <div className="bg-gradient-to-br from-green-900/30 to-slate-900 rounded-2xl border border-green-500/30 p-8">
+    <div className="bg-gradient-to-br from-green-50 to-white rounded-2xl border-2 border-green-200 p-8 shadow-sm">
       <div className="flex items-center gap-3 mb-4">
-        <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center">
+        <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center shadow-md">
           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
           </svg>
         </div>
         <div>
-          <h3 className="text-xl font-bold text-white">FORTIFIED Roofing</h3>
-          <p className="text-green-400 text-sm">Storm-resistant • Insurance discounts • IBHS Certified</p>
+          <h3 className="text-xl font-bold text-slate-900">FORTIFIED Roofing</h3>
+          <p className="text-green-600 text-sm">Storm-resistant • Insurance discounts • IBHS Certified</p>
         </div>
       </div>
 
-      <p className="text-slate-300 mb-6">
+      <p className="text-slate-600 mb-6">
         FORTIFIED is a building standard developed by the Insurance Institute for Business & Home Safety. 
         It goes beyond code to create roofs that can better withstand hurricanes, high winds, and hail.
       </p>
 
       <div className="grid md:grid-cols-3 gap-4 mb-6">
-        <div className="bg-slate-800/50 rounded-xl p-4 text-center">
+        <div className="bg-white rounded-xl p-4 text-center border border-slate-200 shadow-sm">
           <div className="text-2xl mb-2">💰</div>
-          <h4 className="text-white font-medium text-sm">Insurance Savings</h4>
+          <h4 className="text-slate-900 font-medium text-sm">Insurance Savings</h4>
           <p className="text-slate-500 text-xs">15-45% premium discounts</p>
         </div>
-        <div className="bg-slate-800/50 rounded-xl p-4 text-center">
+        <div className="bg-white rounded-xl p-4 text-center border border-slate-200 shadow-sm">
           <div className="text-2xl mb-2">🛡️</div>
-          <h4 className="text-white font-medium text-sm">Storm Resistance</h4>
+          <h4 className="text-slate-900 font-medium text-sm">Storm Resistance</h4>
           <p className="text-slate-500 text-xs">Proven performance in hurricanes</p>
         </div>
-        <div className="bg-slate-800/50 rounded-xl p-4 text-center">
+        <div className="bg-white rounded-xl p-4 text-center border border-slate-200 shadow-sm">
           <div className="text-2xl mb-2">📈</div>
-          <h4 className="text-white font-medium text-sm">Home Value</h4>
+          <h4 className="text-slate-900 font-medium text-sm">Home Value</h4>
           <p className="text-slate-500 text-xs">Increases resale value</p>
         </div>
       </div>
 
       <Link
         href="/services/fortified-roofing"
-        className="flex items-center justify-center gap-2 w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-semibold transition-colors"
+        className="flex items-center justify-center gap-2 w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-semibold transition-colors shadow-md"
       >
         Learn More About FORTIFIED
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

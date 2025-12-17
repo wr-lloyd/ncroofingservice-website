@@ -109,50 +109,50 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
 
   if (isSubmitted) {
     return (
-      <div className="bg-slate-900/50 rounded-2xl border border-green-500/30 p-8 text-center">
-        <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="bg-green-50 rounded-2xl border-2 border-green-200 p-8 text-center shadow-sm">
+        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="text-2xl font-bold text-white mb-2">Photos Received!</h3>
-        <p className="text-slate-400 mb-6">
+        <h3 className="text-2xl font-bold text-slate-900 mb-2">Photos Received!</h3>
+        <p className="text-slate-600 mb-6">
           We&apos;ll review your photos and call within 2 hours during business hours with our assessment.
         </p>
         
         {onContinueToSchedule && (
           <button
             onClick={onContinueToSchedule}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl font-semibold transition-colors mb-4"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl font-semibold transition-colors mb-4 shadow-md"
           >
             Schedule an Inspection Now
           </button>
         )}
         
         <p className="text-slate-500 text-sm">
-          Questions? Call us: <a href="tel:+19194758841" className="text-blue-400 hover:underline">(919) 475-8841</a>
+          Questions? Call us: <a href="tel:+19194758841" className="text-blue-600 hover:underline">(919) 475-8841</a>
         </p>
       </div>
     )
   }
 
   return (
-    <div className="bg-slate-900/50 rounded-2xl border border-white/5 p-8">
+    <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
       <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center">
-          <svg className="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+          <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
         </div>
-        <h3 className="text-2xl font-bold text-white">Upload Damage Photos</h3>
+        <h3 className="text-2xl font-bold text-slate-900">Upload Damage Photos</h3>
       </div>
-      <p className="text-slate-400 mb-6">Share photos and we&apos;ll assess the damage before your inspection.</p>
+      <p className="text-slate-600 mb-6">Share photos and we&apos;ll assess the damage before your inspection.</p>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Issue Type Selection */}
         <div>
-          <label className="block text-sm font-medium text-slate-300 mb-3">What type of issue? *</label>
+          <label className="block text-sm font-medium text-slate-700 mb-3">What type of issue? *</label>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
             {issueTypes.map((issue) => (
               <button
@@ -161,8 +161,8 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
                 onClick={() => handleIssueSelect(issue.id)}
                 className={`flex items-center gap-2 p-3 rounded-lg border transition-all text-left ${
                   formData.issueType === issue.id
-                    ? 'bg-blue-600/20 border-blue-500 text-white'
-                    : 'bg-slate-800/50 border-white/10 text-slate-300 hover:border-white/30'
+                    ? 'bg-blue-50 border-blue-500 text-slate-900'
+                    : 'bg-slate-50 border-slate-200 text-slate-700 hover:border-blue-300'
                 }`}
               >
                 <span className="text-xl">{issue.icon}</span>
@@ -174,7 +174,7 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
 
         {/* Photo Upload */}
         <div>
-          <label className="block text-sm font-medium text-slate-300 mb-3">
+          <label className="block text-sm font-medium text-slate-700 mb-3">
             Upload Photos (up to 5)
           </label>
           
@@ -182,11 +182,11 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
             <div className="grid grid-cols-5 gap-2 mb-3">
               {previews.map((preview, index) => (
                 <div key={index} className="relative aspect-square">
-                  <img src={preview} alt={`Preview ${index + 1}`} className="w-full h-full object-cover rounded-lg" />
+                  <img src={preview} alt={`Preview ${index + 1}`} className="w-full h-full object-cover rounded-lg border border-slate-200" />
                   <button
                     type="button"
                     onClick={() => removePhoto(index)}
-                    className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white text-xs hover:bg-red-600"
+                    className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white text-xs hover:bg-red-600 shadow-sm"
                   >
                     ×
                   </button>
@@ -199,12 +199,12 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
             <button
               type="button"
               onClick={() => fileInputRef.current?.click()}
-              className="w-full border-2 border-dashed border-white/20 rounded-xl p-6 hover:border-blue-500/50 transition-colors text-center"
+              className="w-full border-2 border-dashed border-slate-300 rounded-xl p-6 hover:border-blue-500 hover:bg-blue-50 transition-colors text-center"
             >
               <svg className="w-8 h-8 text-slate-400 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
               </svg>
-              <span className="text-slate-400">Click to add photos</span>
+              <span className="text-slate-500">Click to add photos</span>
               <input
                 ref={fileInputRef}
                 type="file"
@@ -219,7 +219,7 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
 
         {/* Description */}
         <div>
-          <label htmlFor="description" className="block text-sm font-medium text-slate-300 mb-1">
+          <label htmlFor="description" className="block text-sm font-medium text-slate-700 mb-1">
             Describe the issue
           </label>
           <textarea
@@ -228,7 +228,7 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
             value={formData.description}
             onChange={handleChange}
             rows={3}
-            className="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 resize-none"
+            className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 resize-none"
             placeholder="Where is the damage? When did you first notice it?"
           />
         </div>
@@ -236,7 +236,7 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
         {/* Contact Info */}
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-1">Your Name *</label>
+            <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-1">Your Name *</label>
             <input
               type="text"
               id="name"
@@ -244,12 +244,12 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+              className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
               placeholder="John Smith"
             />
           </div>
           <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-slate-300 mb-1">Phone *</label>
+            <label htmlFor="phone" className="block text-sm font-medium text-slate-700 mb-1">Phone *</label>
             <input
               type="tel"
               id="phone"
@@ -257,7 +257,7 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
               value={formData.phone}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+              className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
               placeholder="(919) 555-1234"
             />
           </div>
@@ -266,7 +266,7 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
         <button
           type="submit"
           disabled={isSubmitting || !formData.issueType}
-          className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white py-4 rounded-xl font-semibold transition-colors flex items-center justify-center gap-2"
+          className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white py-4 rounded-xl font-semibold transition-colors flex items-center justify-center gap-2 shadow-md"
         >
           {isSubmitting ? (
             <>

@@ -104,27 +104,27 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-24 bg-slate-800">
+      <section className="py-24 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             {services.map((service) => (
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}`}
-                className="bg-slate-900/50 rounded-2xl p-8 border border-white/5 hover:border-blue-500/30 transition-all group"
+                className="bg-white rounded-2xl p-8 border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all group"
               >
                 <div className="flex items-start gap-6">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center flex-shrink-0 text-white`}>
+                  <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center flex-shrink-0 text-white shadow-md`}>
                     {service.icon}
                   </div>
                   <div className="flex-1">
-                    <h2 className="text-2xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                    <h2 className="text-2xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
                       {service.title}
                     </h2>
-                    <p className="text-slate-400 mb-4">{service.description}</p>
+                    <p className="text-slate-600 mb-4">{service.description}</p>
                     <ul className="space-y-2 mb-4">
                       {service.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-center gap-2 text-slate-300 text-sm">
+                        <li key={idx} className="flex items-center gap-2 text-slate-700 text-sm">
                           <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                           </svg>
@@ -132,7 +132,7 @@ export default function ServicesPage() {
                         </li>
                       ))}
                     </ul>
-                    <span className="inline-flex items-center gap-2 text-blue-400 font-medium group-hover:text-blue-300 transition-colors">
+                    <span className="inline-flex items-center gap-2 text-blue-600 font-medium group-hover:text-blue-700 transition-colors">
                       Learn More
                       <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -147,9 +147,9 @@ export default function ServicesPage() {
       </section>
 
       {/* Additional Services */}
-      <section className="py-16 bg-slate-900">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-white text-center mb-8">We Also Provide</h2>
+          <h2 className="text-2xl font-bold text-slate-900 text-center mb-8">We Also Provide</h2>
           <div className="grid md:grid-cols-4 gap-6">
             {[
               { title: 'Free Inspections', desc: 'Thorough roof assessment at no cost' },
@@ -157,9 +157,9 @@ export default function ServicesPage() {
               { title: 'Commercial Roofing', desc: 'Flat roofs, TPO, EPDM systems' },
               { title: 'Gutter Services', desc: 'Installation, repair, and cleaning' },
             ].map((item, idx) => (
-              <div key={idx} className="bg-slate-800/50 rounded-xl p-6 border border-white/5 text-center">
-                <h3 className="text-white font-semibold mb-2">{item.title}</h3>
-                <p className="text-slate-400 text-sm">{item.desc}</p>
+              <div key={idx} className="bg-slate-50 rounded-xl p-6 border border-slate-200 text-center shadow-sm">
+                <h3 className="text-slate-900 font-semibold mb-2">{item.title}</h3>
+                <p className="text-slate-600 text-sm">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -167,10 +167,10 @@ export default function ServicesPage() {
       </section>
 
       {/* Certifications */}
-      <section className="py-12 bg-slate-800 border-t border-white/5">
+      <section className="py-12 bg-slate-100 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-center text-slate-500 text-sm mb-6">Certified & Trusted By</p>
-          <div className="flex flex-wrap items-center justify-center gap-8 text-slate-400">
+          <div className="flex flex-wrap items-center justify-center gap-8 text-slate-700">
             <span className="flex items-center gap-2">✓ GAF Certified</span>
             <span className="flex items-center gap-2">✓ Owens Corning</span>
             <span className="flex items-center gap-2">✓ CertainTeed</span>
