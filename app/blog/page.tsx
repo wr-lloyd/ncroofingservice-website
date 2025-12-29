@@ -1,8 +1,8 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Roofing Blog | B&C Roofing and Repair | Tips & News',
-  description: 'Roofing tips, maintenance advice, and industry news from B&C Roofing and Repair in Rougemont, NC. Learn how to protect your home.',
+  title: 'Roofing Blog | NC Roofing Service and Repair | Tips & News',
+  description: 'Roofing tips, maintenance advice, and industry news from NC Roofing Service and Repair in Rougemont, NC. Learn how to protect your home.',
 }
 
 interface BlogPost {

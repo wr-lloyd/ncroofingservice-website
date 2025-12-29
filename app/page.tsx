@@ -148,7 +148,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">What We Do</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-4">B&C Roofing Services</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-4">Roofing and Exterior System Services</h2>
             <p className="text-slate-600 text-lg max-w-2xl mx-auto">
               From free inspections to complete replacements, we provide the highest level of service 
               and quality workmanship on every project.
@@ -307,10 +307,10 @@ export default function Home() {
             <div>
               <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Why Choose Us</span>
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-6">
-                The B&C Difference
+                The NC Roofing Service Difference
               </h2>
               <p className="text-slate-600 text-lg mb-8">
-                We&apos;re not a franchise or a fly-by-night operation. B&C Roofing is locally owned 
+                We&apos;re not a franchise or a fly-by-night operation. NC Roofing Service is locally owned 
                 and operated in Rougemont, NC. Owner Randall Butler lives and works in this community — 
                 our reputation matters to us.
               </p>

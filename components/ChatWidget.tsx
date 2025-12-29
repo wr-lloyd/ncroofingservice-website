@@ -13,7 +13,7 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState<ChatMessage[]>([
     { 
       from: 'bot', 
-      text: "👋 Hi! I'm here to help with your roofing needs. I'm Randall with B&C Roofing. Would you like to:",
+      text: "👋 Hi! I'm here to help with your roofing needs. I'm Randall with NC Roofing Service. Would you like to:",
       options: ['Schedule Free Inspection', 'Get Repair Quote', 'Report Emergency', 'Ask a Question']
     }
   ])
@@ -82,10 +82,10 @@ export default function ChatWidget() {
           <div className="bg-blue-600 p-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold">B&C</span>
+                <span className="text-white font-bold">NC</span>
               </div>
               <div>
-                <div className="text-white font-semibold">B&C Roofing & Repair</div>
+                <div className="text-white font-semibold">NC Roofing Service & Repair</div>
                 <div className="text-blue-200 text-sm flex items-center gap-1">
                   <span className="w-2 h-2 bg-green-400 rounded-full"></span>
                   Online • Rougemont, NC

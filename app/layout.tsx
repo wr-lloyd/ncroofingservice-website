@@ -7,14 +7,60 @@ import MobileCTA from '@/components/MobileCTA'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'B&C Roofing and Repair | Rougemont NC | Free Roof Inspections',
+  metadataBase: new URL('https://ncroofingservice.com'),
+  title: {
+    default: 'NC Roofing Service and Repair | Rougemont NC | Free Roof Inspections',
+    template: '%s | NC Roofing Service NC',
+  },
   description: 'Certified roofing contractor in Rougemont, NC. GAF, Owens Corning & CertainTeed certified. FORTIFIED roofing specialists. Free inspections, insurance claim help. Call (919) 475-8841.',
-  keywords: 'roofing Rougemont NC, roof repair Durham, roof replacement Raleigh, FORTIFIED roofing NC, storm damage roof repair, insurance claim roofing',
+  keywords: 'roofing Rougemont NC, roof repair Durham, roof replacement Raleigh, FORTIFIED roofing NC, storm damage roof repair, insurance claim roofing, Triangle roofing contractor',
+  authors: [{ name: 'NC Roofing Service and Repair, LLC' }],
+  creator: 'NC Roofing Service and Repair, LLC',
+  publisher: 'NC Roofing Service and Repair, LLC',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: 'B&C Roofing and Repair, LLC | Rougemont NC Roofing Experts',
+    title: 'NC Roofing Service and Repair, LLC | Rougemont NC Roofing Experts',
     description: 'Certified, licensed and insured roofing professionals serving the Triangle. Free inspections, honest pricing, quality workmanship. BBB A+ rated.',
+    url: 'https://ncroofingservice.com',
+    siteName: 'NC Roofing Service and Repair',
     type: 'website',
     locale: 'en_US',
+    images: [
+      {
+        url: '/images/logos/bnc_logo.png',
+        width: 800,
+        height: 600,
+        alt: 'NC Roofing Service and Repair - NC Triangle Roofing Experts',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'NC Roofing Service and Repair | NC Triangle Roofing Experts',
+    description: 'Certified roofing contractor serving Rougemont, Durham, Raleigh & the NC Triangle. Free inspections. Call (919) 475-8841.',
+    images: ['/images/logos/bnc_logo.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    // Add Google Search Console verification when available
+    // google: 'your-google-verification-code',
   },
 }
 
@@ -33,7 +79,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "RoofingContractor",
-              "name": "B&C Roofing and Repair, LLC",
+              "name": "NC Roofing Service and Repair, LLC",
               "image": "https://ncroofingservice.com/logo.png",
               "url": "https://ncroofingservice.com",
               "telephone": "+1-919-475-8841",

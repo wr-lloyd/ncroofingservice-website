@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'What to Look for When Hiring a Roofer | B&C Roofing NC',
+  title: 'What to Look for When Hiring a Roofer | NC Roofing Service NC',
   description: 'Learn what insurance and certifications a professional roofer should have. Protect yourself from storm chasers and unlicensed contractors in NC.',
 }
 
@@ -293,10 +293,10 @@ export default function HiringRooferArticle() {
 
           </div>
 
-          {/* B&C CTA Box */}
+          {/* NC Roofing Service CTA Box */}
           <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 mt-12">
             <div className="text-center">
-              <h3 className="text-2xl font-bold text-white mb-4">B&C Roofing Meets Every Requirement</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">NC Roofing Service Meets Every Requirement</h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
                 $2M liability coverage. Full crew workers&apos; comp. Certified by GAF, Owens Corning, AND CertainTeed. 
                 FORTIFIED certified. BBB A+ rated. Local to Rougemont since 2018.
@@ -322,10 +322,10 @@ export default function HiringRooferArticle() {
           <div className="mt-12 bg-slate-900/50 rounded-2xl p-8 border border-white/5">
             <div className="flex items-center gap-4">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-white font-bold text-xl">B&C</span>
+                <span className="text-white font-bold text-xl">NC</span>
               </div>
               <div>
-                <h4 className="text-white font-bold">B&C Roofing and Repair, LLC</h4>
+                <h4 className="text-white font-bold">NC Roofing Service and Repair, LLC</h4>
                 <p className="text-slate-400 text-sm">
                   Certified, licensed and insured roofing professionals serving the NC Triangle since 2018. 
                   Based in Rougemont, NC.

@@ -1,8 +1,9 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'FAQ | B&C Roofing and Repair | Common Roofing Questions',
-  description: 'Frequently asked questions about roofing services, repairs, replacements, insurance claims, and more. Get answers from B&C Roofing experts in NC.',
+  title: 'FAQ | NC Roofing Service and Repair | Common Roofing Questions',
+  description: 'Frequently asked questions about roofing services, repairs, replacements, insurance claims, and more. Get answers from NC Roofing Service experts in NC.',
+  keywords: 'roofing FAQ, roof repair questions, roof replacement FAQ, roofing insurance claims, FORTIFIED roofing questions',
 }
 
 const faqs = [
@@ -23,7 +24,7 @@ const faqs = [
       },
       {
         q: 'Are you licensed and insured?',
-        a: 'Absolutely. B&C Roofing and Repair, LLC is fully licensed in North Carolina and carries comprehensive liability insurance and workers\' compensation coverage. We\'re also BBB A+ accredited since May 2023.'
+        a: 'Absolutely. NC Roofing Service and Repair, LLC is fully licensed in North Carolina and carries comprehensive liability insurance and workers\' compensation coverage. We\'re also BBB A+ accredited since May 2023.'
       },
     ]
   },
@@ -88,9 +89,34 @@ const faqs = [
   },
 ]
 
+// Generate FAQ Schema JSON-LD
+function generateFaqSchema() {
+  const allQuestions = faqs.flatMap(section => section.questions)
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": allQuestions.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
+      }
+    }))
+  }
+}
+
 export default function FAQPage() {
+  const faqSchema = generateFaqSchema()
+  
   return (
     <main className="pt-20">
+      {/* FAQ Schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      
       {/* Hero Section */}
       <section className="py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -2,8 +2,8 @@ import Link from 'next/link'
 import SocialLinks from '@/components/SocialLinks'
 
 export const metadata = {
-  title: 'About Us | B&C Roofing and Repair | Rougemont NC',
-  description: 'Meet the team at B&C Roofing and Repair, LLC. Family-owned roofing company serving the NC Triangle since 2018. Owner Randall Butler and certified professionals.',
+  title: 'About Us | NC Roofing Service and Repair | Rougemont NC',
+  description: 'Meet the team at NC Roofing Service and Repair, LLC. Family-owned roofing company serving the NC Triangle since 2018. Owner Randall Butler and certified professionals.',
 }
 
 export default function AboutPage() {
@@ -24,7 +24,7 @@ export default function AboutPage() {
             <span className="text-blue-500 font-semibold text-sm uppercase tracking-wider">About Us</span>
             <h1 className="text-4xl md:text-6xl font-bold text-white mt-2 mb-6">Our Story</h1>
             <p className="text-slate-400 text-xl max-w-3xl mx-auto">
-              &quot;A roof is only as good as the roofer.&quot; — That&apos;s the philosophy that drives everything we do at B&C Roofing and Repair.
+              &quot;A roof is only as good as the roofer.&quot; — That&apos;s the philosophy that drives everything we do at NC Roofing Service and Repair.
             </p>
           </div>
         </div>
@@ -40,7 +40,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-slate-600 text-lg">
                 <p>
-                  B&C Roofing and Repair, LLC was founded in 2018 by <strong className="text-slate-900">Randall Butler</strong>, 
+                  NC Roofing Service and Repair, LLC was founded in 2018 by <strong className="text-slate-900">Randall Butler</strong>, 
                   a Rougemont native with a passion for quality craftsmanship and honest service.
                 </p>
                 <p>
@@ -151,7 +151,7 @@ export default function AboutPage() {
               <h3 className="text-slate-900 font-bold text-xl mb-1">Mike Villarroel</h3>
               <p className="text-blue-600 text-sm font-medium mb-2">Greater Raleigh</p>
               <p className="text-slate-600 text-sm mb-4">
-                Your dedicated expert for the Raleigh metro area. Serving Wake County with the same B&C quality.
+                Your dedicated expert for the Raleigh metro area. Serving Wake County with the same NC Roofing Service quality.
               </p>
               <div className="flex flex-wrap justify-center gap-2">
                 {['Raleigh', 'Cary', 'Wake Forest', 'Apex'].map((city) => (
@@ -182,6 +182,145 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Meet the Crew Section */}
+      <section className="py-24 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+        {/* Subtle background effects - matching site's design language */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header - Centered */}
+          <div className="text-center mb-16">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full text-sm font-medium mb-4">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              The Crew
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mt-2 mb-4">
+              More Than Contractors — <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Your Neighbors</span>
+            </h2>
+            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+              A tight-knit crew of skilled professionals who take pride in protecting the homes in our own community.
+            </p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Image Side */}
+            <div className="relative order-2 lg:order-1">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
+                {/* Placeholder team image - replace with actual team photo */}
+                <img 
+                  src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80"
+                  alt="NC Roofing Service and Repair team on a job site"
+                  className="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
+                
+                {/* Overlay Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-8">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="flex -space-x-3">
+                      <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-700 rounded-full border-2 border-slate-900 flex items-center justify-center">
+                        <span className="text-white font-bold text-sm">RB</span>
+                      </div>
+                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full border-2 border-slate-900 flex items-center justify-center">
+                        <span className="text-white font-bold text-sm">MV</span>
+                      </div>
+                      <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full border-2 border-slate-900 flex items-center justify-center">
+                        <span className="text-white font-bold text-sm">PM</span>
+                      </div>
+                      <div className="w-12 h-12 bg-slate-700 rounded-full border-2 border-slate-900 flex items-center justify-center">
+                        <span className="text-white font-bold text-sm">+</span>
+                      </div>
+                    </div>
+                    <div>
+                      <p className="text-white font-semibold">Your Local Team</p>
+                      <p className="text-slate-400 text-sm">Serving Durham, Raleigh & Chapel Hill</p>
+                    </div>
+                  </div>
+                  <p className="text-slate-300 text-sm italic border-l-2 border-blue-500 pl-4">
+                    *Team photo coming soon — replace this placeholder with your actual crew photo*
+                  </p>
+                </div>
+              </div>
+              
+              {/* Floating Stats */}
+              <div className="absolute -top-4 -right-4 bg-white text-slate-900 p-5 rounded-2xl shadow-xl hidden md:block">
+                <div className="text-4xl font-bold text-blue-600">7+</div>
+                <div className="text-slate-600 text-sm font-medium">Years Serving<br />the Triangle</div>
+              </div>
+            </div>
+            
+            {/* Content Side */}
+            <div className="order-1 lg:order-2">
+              <div className="space-y-6 text-slate-300 text-lg mb-10">
+                <p>
+                  When you hire NC Roofing Service, you&apos;re not getting a faceless corporation or out-of-state 
+                  contractors. You&apos;re getting local professionals who live and work in your community.
+                </p>
+                <p>
+                  Our team members are trained, certified, and committed to the same high standards that 
+                  Randall Butler established when he founded this company. We don&apos;t cut corners, we don&apos;t 
+                  rush jobs, and we treat every home like it belongs to family — because it often does.
+                </p>
+                <p>
+                  From the initial inspection to the final walkthrough, you&apos;ll work with people who know 
+                  your neighborhood, understand local building codes, and genuinely care about doing the 
+                  job right the first time.
+                </p>
+              </div>
+              
+              {/* Team Highlights - 2x2 Grid */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-5 border border-white/10 hover:border-green-500/30 transition-colors">
+                  <div className="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mb-3">
+                    <svg className="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div className="text-white font-semibold mb-1">Background Checked</div>
+                  <div className="text-slate-400 text-sm">Every team member verified</div>
+                </div>
+                
+                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-5 border border-white/10 hover:border-blue-500/30 transition-colors">
+                  <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-3">
+                    <svg className="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div className="text-white font-semibold mb-1">Fully Trained</div>
+                  <div className="text-slate-400 text-sm">Certified installers</div>
+                </div>
+                
+                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-5 border border-white/10 hover:border-amber-500/30 transition-colors">
+                  <div className="w-12 h-12 bg-amber-500/20 rounded-xl flex items-center justify-center mb-3">
+                    <svg className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <div className="text-white font-semibold mb-1">Local Crews</div>
+                  <div className="text-slate-400 text-sm">NC Triangle residents</div>
+                </div>
+                
+                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-5 border border-white/10 hover:border-purple-500/30 transition-colors">
+                  <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-3">
+                    <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  </div>
+                  <div className="text-white font-semibold mb-1">Fully Insured</div>
+                  <div className="text-slate-400 text-sm">$2M liability coverage</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Timeline */}
       <section className="py-24 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -196,7 +335,7 @@ export default function AboutPage() {
                 <span className="text-blue-600 font-bold text-2xl">2018</span>
               </div>
               <h3 className="text-slate-900 font-bold text-lg mb-2">Company Founded</h3>
-              <p className="text-slate-600 text-sm">Randall Butler launches B&C Roofing in Rougemont, NC</p>
+              <p className="text-slate-600 text-sm">Randall Butler launches NC Roofing Service in Rougemont, NC</p>
             </div>
             
             <div className="text-center">
@@ -278,7 +417,7 @@ export default function AboutPage() {
             <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Hiring a Roofer</span>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-4">What to Expect from a Professional Roofer</h2>
             <p className="text-slate-600 text-lg max-w-3xl mx-auto">
-              Not all roofing contractors are created equal. Here&apos;s what you should look for — and what B&C provides.
+              Not all roofing contractors are created equal. Here&apos;s what you should look for — and what NC Roofing Service provides.
             </p>
           </div>
 
@@ -328,7 +467,7 @@ export default function AboutPage() {
                   <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-green-700 font-semibold">B&C Roofing Provides:</span>
+                  <span className="text-green-700 font-semibold">NC Roofing Service Provides:</span>
                 </div>
                 <p className="text-slate-700 text-sm">
                   $2 million general liability coverage with full crew workers&apos; compensation. 
@@ -391,7 +530,7 @@ export default function AboutPage() {
                   <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-green-700 font-semibold">B&C Roofing Provides:</span>
+                  <span className="text-green-700 font-semibold">NC Roofing Service Provides:</span>
                 </div>
                 <p className="text-slate-700 text-sm">
                   Certified by <strong>GAF, Owens Corning, AND CertainTeed</strong> — giving you access to the best 
@@ -481,7 +620,7 @@ export default function AboutPage() {
           <div className="text-center max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">Follow Our Work</h2>
             <p className="text-slate-600 mb-8">
-              See our latest projects, get roofing tips, and stay updated on what&apos;s happening at B&C Roofing. Follow us on social media!
+              See our latest projects, get roofing tips, and stay updated on what&apos;s happening at NC Roofing Service. Follow us on social media!
             </p>
             <SocialLinks size="lg" variant="filled" className="justify-center" />
           </div>

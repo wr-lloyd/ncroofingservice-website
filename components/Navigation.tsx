@@ -24,15 +24,15 @@ export default function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
             <Image
-              src="/images/bnc_logo.png"
-              alt="B&C Roofing"
-              width={48}
-              height={48}
-              className="w-12 h-12"
+              src="/images/logos/NCRoofingLogo_BW.svg"
+              alt="NC Roofing Service"
+              width={144}
+              height={144}
+              className="w-36 h-36"
             />
             <div className="hidden sm:block">
-              <span className="text-slate-900 font-bold text-lg">B&C Roofing Services</span>
-              <span className="text-slate-500 text-xs block -mt-1">Your Local NC Provider</span>
+              <span className="text-slate-900 font-bold text-lg">NC Roofing Service</span>
+              <span className="text-slate-500 text-xs block -mt-1">Your Local NC Roofing and Exterior Systems Provider</span>
             </div>
           </Link>
 

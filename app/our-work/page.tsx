@@ -11,8 +11,8 @@ const projects = [
     location: 'Durham, NC',
     type: 'Residential',
     description: 'Full tear-off and replacement with GAF Timberline HDZ shingles. Included new underlayment, flashing, and ridge vents.',
-    beforeImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
-    afterImage: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80',
+    beforeImage: '/images/projects/durham-replacement-before-800x600.jpg',
+    afterImage: '/images/projects/durham-replacement-after-800x600.jpg',
   },
   {
     title: 'Storm Damage Restoration',

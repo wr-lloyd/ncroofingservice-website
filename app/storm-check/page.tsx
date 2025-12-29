@@ -184,10 +184,44 @@ function StormCheckContent() {
     checkStormData(address)
   }
 
-  const handleScheduleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitSuccess, setSubmitSuccess] = useState(false)
+
+  const handleScheduleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    alert(`Thank you ${formData.name}! We'll call you at ${formData.phone} to schedule your free inspection.`)
-    setShowScheduleForm(false)
+    setIsSubmitting(true)
+    
+    try {
+      // Send to lead API with storm context
+      await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          leadType: 'storm-check',
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email || undefined,
+          address: results?.address || address,
+          preferredTime: formData.preferredTime,
+          stormRisk: results?.overallRisk,
+          stormCount: results?.storms.length,
+          issueType: 'storm-damage',
+          notes: `Storm check results: ${results?.overallRisk?.toUpperCase()} risk, ${results?.storms.length} events detected`,
+          metadata: {
+            urgency: results?.overallRisk === 'severe' || results?.overallRisk === 'high' ? 'priority' : 'normal',
+            timestamp: new Date().toISOString(),
+          }
+        }),
+      })
+      
+      setSubmitSuccess(true)
+      setShowScheduleForm(false)
+    } catch (err) {
+      console.error('Failed to submit lead:', err)
+      alert('Something went wrong. Please call us directly at (919) 475-8841')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -375,13 +409,28 @@ function StormCheckContent() {
                   <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span>B&C can meet with your insurance adjuster to ensure all damage is documented</span>
+                  <span>NC Roofing Service can meet with your insurance adjuster to ensure all damage is documented</span>
                 </li>
               </ul>
             </div>
 
             {/* CTA */}
-            {!showScheduleForm ? (
+            {submitSuccess ? (
+              <div className="bg-gradient-to-r from-green-600 to-green-700 rounded-2xl p-8 text-center shadow-lg">
+                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">Thank You, {formData.name}!</h3>
+                <p className="text-green-100 mb-4">
+                  We&apos;ve received your request and will call you at {formData.phone} to schedule your free inspection.
+                </p>
+                <p className="text-green-200 text-sm">
+                  Need immediate help? Call us now: <a href="tel:+19194758841" className="font-bold underline">(919) 475-8841</a>
+                </p>
+              </div>
+            ) : !showScheduleForm ? (
               <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 text-center shadow-lg">
                 <h3 className="text-2xl font-bold text-white mb-2">Get Your Free Professional Inspection</h3>
                 <p className="text-blue-100 mb-6">
@@ -452,9 +501,20 @@ function StormCheckContent() {
                   <div className="pt-4">
                     <button
                       type="submit"
-                      className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-xl font-semibold transition-colors text-lg shadow-md"
+                      disabled={isSubmitting}
+                      className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-wait text-white px-6 py-4 rounded-xl font-semibold transition-colors text-lg shadow-md flex items-center justify-center gap-2"
                     >
-                      Request Free Inspection
+                      {isSubmitting ? (
+                        <>
+                          <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Submitting...
+                        </>
+                      ) : (
+                        'Request Free Inspection'
+                      )}
                     </button>
                   </div>
                 </form>

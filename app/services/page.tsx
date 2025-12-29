@@ -1,8 +1,8 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Roofing Services | B&C Roofing and Repair | Rougemont NC',
-  description: 'Professional roofing services: roof repair, replacement, FORTIFIED roofing, insurance claim support. GAF, Owens Corning, CertainTeed certified. Free inspections.',
+  title: 'Roofing & Exterior Systems | NC Roofing Service | Rougemont NC',
+  description: 'Professional roofing and exterior system services: roof repair, replacement, FORTIFIED roofing, gutters, soffit & fascia, pergolas, and overhead structures. GAF, Owens Corning, CertainTeed certified.',
 }
 
 const services = [
@@ -72,11 +72,14 @@ export default function ServicesPage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <span className="text-blue-500 font-semibold text-sm uppercase tracking-wider">Our Services</span>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mt-2 mb-6">Roofing Services</h1>
-            <p className="text-slate-400 text-xl max-w-3xl mx-auto">
-              From emergency repairs to complete replacements, we provide the highest level of service 
-              and quality workmanship. Certified by GAF, Owens Corning, and CertainTeed.
+            <span className="text-blue-400 font-semibold text-sm uppercase tracking-wider">Complete Roof & Exterior System Protection</span>
+            <h1 className="text-4xl md:text-6xl font-bold text-white mt-2 mb-6">
+              Roofing & Exterior{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Systems</span>
+            </h1>
+            <p className="text-slate-300 text-xl max-w-3xl mx-auto">
+              From emergency repairs to complete replacements — plus gutters, roofline systems, and overhead exterior structures. 
+              We protect everything above your head with expert craftsmanship.
             </p>
           </div>
         </div>
@@ -103,9 +106,16 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Roofing Services Grid */}
       <section className="py-24 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Roofing Services</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">Professional Roofing Solutions</h2>
+            <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+              Every roofing service includes a full system evaluation — because roof issues rarely exist in isolation.
+            </p>
+          </div>
           <div className="grid md:grid-cols-2 gap-8">
             {services.map((service) => (
               <Link
@@ -146,18 +156,212 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Additional Services */}
+      {/* Exterior Systems Section */}
+      <section className="py-24 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+        {/* Background Effects */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-medium mb-4">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+              Exterior Systems
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mt-2 mb-4">
+              The Systems That Make Your Roof Work
+            </h2>
+            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+              Your roof relies on a network of roofline components, water-management systems, and overhead structures to perform properly. 
+              We design, inspect, and service these systems together — often during the same visit.
+            </p>
+          </div>
+
+          {/* Image Cards Grid */}
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Gutters Card */}
+            <Link href="/services/gutters" className="group relative h-80 rounded-3xl overflow-hidden shadow-2xl">
+              <div 
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80')" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/70 to-slate-900/20 group-hover:via-slate-900/60 transition-all duration-300" />
+              
+              {/* Floating Badge */}
+              <div className="absolute top-4 right-4">
+                <span className="px-3 py-1 bg-cyan-500/90 backdrop-blur-sm text-white text-xs font-bold rounded-full shadow-lg">
+                  Popular Add-On
+                </span>
+              </div>
+
+              <div className="absolute bottom-0 left-0 right-0 p-8">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg shadow-cyan-500/30">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Gutters & Guards</h3>
+                </div>
+                <p className="text-slate-300 mb-4">Seamless aluminum gutters, downspouts, and leaf protection systems. Properly sized and pitched to protect your foundation.</p>
+                <div className="flex items-center justify-between">
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-2 py-1 bg-white/10 text-slate-300 text-xs rounded-md">Seamless Install</span>
+                    <span className="px-2 py-1 bg-white/10 text-slate-300 text-xs rounded-md">Leaf Guards</span>
+                  </div>
+                  <span className="text-cyan-400 font-semibold group-hover:text-cyan-300 inline-flex items-center gap-1 transition-colors">
+                    Learn More
+                    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </Link>
+
+            {/* Overhead Exterior Structures Card */}
+            <Link href="/services/pergolas" className="group relative h-80 rounded-3xl overflow-hidden shadow-2xl">
+              <div 
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80')" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/70 to-slate-900/20 group-hover:via-slate-900/60 transition-all duration-300" />
+              
+              {/* Floating Badge */}
+              <div className="absolute top-4 right-4">
+                <span className="px-3 py-1 bg-emerald-500/90 backdrop-blur-sm text-white text-xs font-bold rounded-full shadow-lg">
+                  Roof-Integrated
+                </span>
+              </div>
+
+              <div className="absolute bottom-0 left-0 right-0 p-8">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-500/30">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Pergolas & Covered Spaces</h3>
+                </div>
+                <p className="text-slate-300 mb-4">We design and build roof-adjacent exterior structures that add shade, protection, and architectural character — engineered to integrate seamlessly with your roofline.</p>
+                <div className="flex items-center justify-between">
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-2 py-1 bg-white/10 text-slate-300 text-xs rounded-md">Pergolas</span>
+                    <span className="px-2 py-1 bg-white/10 text-slate-300 text-xs rounded-md">Deck Roofs</span>
+                    <span className="px-2 py-1 bg-white/10 text-slate-300 text-xs rounded-md">Covered Patios</span>
+                  </div>
+                  <span className="text-emerald-400 font-semibold group-hover:text-emerald-300 inline-flex items-center gap-1 transition-colors">
+                    Learn More
+                    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </Link>
+
+            {/* Soffit & Fascia Card */}
+            <Link href="/services/soffit-fascia" className="group relative h-80 rounded-3xl overflow-hidden shadow-2xl">
+              <div 
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=800&q=80')" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/70 to-slate-900/20 group-hover:via-slate-900/60 transition-all duration-300" />
+              
+              {/* Floating Badge */}
+              <div className="absolute top-4 right-4">
+                <span className="px-3 py-1 bg-amber-500/90 backdrop-blur-sm text-white text-xs font-bold rounded-full shadow-lg">
+                  With Every Roof
+                </span>
+              </div>
+
+              <div className="absolute bottom-0 left-0 right-0 p-8">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-12 h-12 bg-gradient-to-br from-amber-400 to-amber-600 rounded-xl flex items-center justify-center shadow-lg shadow-amber-500/30">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Soffit & Fascia</h3>
+                </div>
+                <p className="text-slate-300 mb-4">Critical for attic ventilation and preventing water damage. We inspect and repair these on every roof job.</p>
+                <div className="flex items-center justify-between">
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-2 py-1 bg-white/10 text-slate-300 text-xs rounded-md">Ventilation</span>
+                    <span className="px-2 py-1 bg-white/10 text-slate-300 text-xs rounded-md">Protection</span>
+                  </div>
+                  <span className="text-amber-400 font-semibold group-hover:text-amber-300 inline-flex items-center gap-1 transition-colors">
+                    Learn More
+                    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          {/* Value Proposition Bar */}
+          <div className="mt-12 bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-sm">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
+                  <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-white font-medium">Bundle & Save</p>
+                  <p className="text-slate-400 text-xs">Bundle roof and exterior system work for better performance and pricing</p>
+                </div>
+              </div>
+              <div className="hidden md:block w-px h-12 bg-white/20"></div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                  <svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-white font-medium">Always Inspected</p>
+                  <p className="text-slate-400 text-xs">Checked during every roof inspection</p>
+                </div>
+              </div>
+              <div className="hidden md:block w-px h-12 bg-white/20"></div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center">
+                  <svg className="w-5 h-5 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-white font-medium">Insurance Claims</p>
+                  <p className="text-slate-400 text-xs">Often covered alongside roof damage</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Additional Quick Services */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-slate-900 text-center mb-8">We Also Provide</h2>
+          <h2 className="text-2xl font-bold text-slate-900 text-center mb-8">Additional Services</h2>
           <div className="grid md:grid-cols-4 gap-6">
             {[
-              { title: 'Free Inspections', desc: 'Thorough roof assessment at no cost' },
-              { title: 'Emergency Service', desc: '24/7 response for urgent issues' },
-              { title: 'Commercial Roofing', desc: 'Flat roofs, TPO, EPDM systems' },
-              { title: 'Gutter Services', desc: 'Installation, repair, and cleaning' },
+              { title: 'Free Inspections', desc: 'Complete roof & exterior assessment', icon: '🔍' },
+              { title: '24/7 Emergency', desc: 'Urgent response for active leaks', icon: '⚡' },
+              { title: 'Commercial', desc: 'Flat roofs, TPO, EPDM systems', icon: '🏢' },
+              { title: 'Skylights', desc: 'Installation, repair, and replacement', icon: '☀️' },
             ].map((item, idx) => (
-              <div key={idx} className="bg-slate-50 rounded-xl p-6 border border-slate-200 text-center shadow-sm">
+              <div key={idx} className="bg-slate-50 rounded-xl p-6 border border-slate-200 text-center shadow-sm hover:shadow-md hover:border-slate-300 transition-all">
+                <span className="text-3xl mb-3 block">{item.icon}</span>
                 <h3 className="text-slate-900 font-semibold mb-2">{item.title}</h3>
                 <p className="text-slate-600 text-sm">{item.desc}</p>
               </div>

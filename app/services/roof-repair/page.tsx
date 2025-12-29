@@ -115,7 +115,7 @@ export default function RoofRepairPage() {
       {/* Benefits */}
       <section className="py-16 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">Why Choose B&C for Repairs</h2>
+          <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">Why Choose NC Roofing Service for Repairs</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
               <div className="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-4">

@@ -11,15 +11,15 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <Image
-                src="/images/bnc_logo.png"
-                alt="B&C Roofing"
+                src="/images/logos/NCRoofingLogo_BW.svg"
+                alt="NC Roofing Service"
                 width={48}
                 height={48}
                 className="w-12 h-12"
               />
               <div>
-                <span className="text-white font-bold text-lg block">B&C Roofing Services</span>
-                <span className="text-slate-500 text-xs">Your Local NC Provider</span>
+                <span className="text-white font-bold text-lg block">NC Roofing Service</span>
+                <span className="text-slate-500 text-xs">Your Local NC Roofing and Exterior Systems Provider</span>
               </div>
             </div>
             <p className="text-slate-400 mb-4 text-sm">
@@ -50,23 +50,21 @@ export default function Footer() {
           {/* Service Areas */}
           <div>
             <h3 className="text-white font-semibold text-lg mb-4">Service Areas</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/contact#triangle-coverage-team" className="text-blue-400 hover:text-blue-300 transition-colors text-sm font-medium">Wake & East Triangle</Link>
-                <span className="text-slate-500 text-xs block">Mike Villarroel</span>
-              </li>
-              <li>
-                <Link href="/contact#triangle-coverage-team" className="text-green-400 hover:text-green-300 transition-colors text-sm font-medium">Durham & North Triangle</Link>
-                <span className="text-slate-500 text-xs block">Randy Butler</span>
-              </li>
-              <li>
-                <Link href="/contact#triangle-coverage-team" className="text-purple-400 hover:text-purple-300 transition-colors text-sm font-medium">Orange & West Triangle</Link>
-                <span className="text-slate-500 text-xs block">Preston Mayo</span>
-              </li>
-              <li className="pt-2">
-                <Link href="/contact#triangle-coverage-team" className="text-slate-400 hover:text-white transition-colors text-sm">View All Service Areas →</Link>
-              </li>
-            </ul>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-4">
+              <Link href="/locations/raleigh" className="text-slate-400 hover:text-white transition-colors text-sm">Raleigh</Link>
+              <Link href="/locations/durham" className="text-slate-400 hover:text-white transition-colors text-sm">Durham</Link>
+              <Link href="/locations/cary" className="text-slate-400 hover:text-white transition-colors text-sm">Cary</Link>
+              <Link href="/locations/chapel-hill" className="text-slate-400 hover:text-white transition-colors text-sm">Chapel Hill</Link>
+              <Link href="/locations/apex" className="text-slate-400 hover:text-white transition-colors text-sm">Apex</Link>
+              <Link href="/locations/wake-forest" className="text-slate-400 hover:text-white transition-colors text-sm">Wake Forest</Link>
+              <Link href="/locations/holly-springs" className="text-slate-400 hover:text-white transition-colors text-sm">Holly Springs</Link>
+              <Link href="/locations/morrisville" className="text-slate-400 hover:text-white transition-colors text-sm">Morrisville</Link>
+              <Link href="/locations/garner" className="text-slate-400 hover:text-white transition-colors text-sm">Garner</Link>
+              <Link href="/locations/hillsborough" className="text-slate-400 hover:text-white transition-colors text-sm">Hillsborough</Link>
+            </div>
+            <Link href="/locations" className="text-blue-400 hover:text-blue-300 transition-colors text-sm font-medium">
+              View All 30+ Cities →
+            </Link>
           </div>
 
           {/* Contact Info */}
@@ -145,7 +143,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
           <p className="text-slate-500">
-            © {new Date().getFullYear()} B&C Roofing and Repair, LLC. All rights reserved.
+            © {new Date().getFullYear()} NC Roofing Service. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link href="/privacy" className="text-slate-500 hover:text-white transition-colors">Privacy Policy</Link>

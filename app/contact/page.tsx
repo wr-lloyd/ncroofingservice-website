@@ -100,10 +100,46 @@ export default function ContactPage() {
     return () => clearTimeout(timer)
   }, [formData.address, formData.city, checkStormDamage])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    const repName = selectedRegion ? selectedRegion.lead.name : 'Our team'
-    alert(`Thank you for contacting B&C Roofing! ${repName} will call you within 30 minutes during business hours.`)
+    setIsSubmitting(true)
+    
+    try {
+      const cityName = cityNameLookup[formData.city] || formData.city
+      
+      await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          leadType: 'estimate',
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email || undefined,
+          address: formData.address,
+          city: cityName,
+          state: 'NC',
+          issueType: formData.service,
+          description: formData.message,
+          stormRisk: stormAlert?.overallRisk,
+          stormCount: stormAlert?.stormCount,
+          notes: stormAlert ? `Storm alert: ${stormAlert.overallRisk} risk, ${stormAlert.stormCount} events` : undefined,
+          metadata: {
+            urgency: stormAlert?.hasHighRisk ? 'priority' : 'normal',
+            timestamp: new Date().toISOString(),
+          }
+        }),
+      })
+      
+      setIsSubmitted(true)
+    } catch (err) {
+      console.error('Failed to submit lead:', err)
+      alert('Something went wrong. Please call us directly at (919) 475-8841')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -148,9 +184,10 @@ export default function ContactPage() {
           
           <div className="grid lg:grid-cols-3 gap-8">
             {regions.map((region) => (
-              <div 
+              <Link 
                 key={region.id}
-                className="group relative"
+                href="/locations"
+                className="group relative block"
                 onMouseEnter={() => setHoveredRegion(region.id)}
                 onMouseLeave={() => setHoveredRegion(null)}
               >
@@ -228,34 +265,33 @@ export default function ContactPage() {
                       </div>
                     </div>
                     
-                    {/* Call Button */}
-                    <a 
-                      href={`tel:${region.lead.phoneRaw}`}
-                      className={`flex items-center justify-center gap-3 w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 ${
-                        region.color === 'green' ? 'bg-gradient-to-r from-green-600 to-emerald-500 hover:from-green-700 hover:to-emerald-600 text-white' :
-                        region.color === 'purple' ? 'bg-gradient-to-r from-purple-600 to-violet-500 hover:from-purple-700 hover:to-violet-600 text-white' :
-                        'bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white'
+                    {/* View Details Button */}
+                    <span 
+                      className={`flex items-center justify-center gap-3 w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg group-hover:shadow-xl transform group-hover:-translate-y-0.5 ${
+                        region.color === 'green' ? 'bg-gradient-to-r from-green-600 to-emerald-500 group-hover:from-green-700 group-hover:to-emerald-600 text-white' :
+                        region.color === 'purple' ? 'bg-gradient-to-r from-purple-600 to-violet-500 group-hover:from-purple-700 group-hover:to-violet-600 text-white' :
+                        'bg-gradient-to-r from-blue-600 to-cyan-500 group-hover:from-blue-700 group-hover:to-cyan-600 text-white'
                       }`}
                     >
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
-                      {region.lead.phone}
-                    </a>
+                      View Service Area →
+                    </span>
                     
                     {/* Email Link */}
-                    <a 
-                      href={`mailto:${region.lead.email}`}
+                    <span 
                       className="flex items-center justify-center gap-2 w-full py-2 mt-3 text-sm text-slate-500 hover:text-slate-700 transition-colors"
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                       {region.lead.email}
-                    </a>
+                    </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
@@ -293,7 +329,7 @@ export default function ContactPage() {
                 Local Experts, Not a Call Center
               </h2>
               <p className="text-slate-600 text-lg mb-8">
-                When you work with B&C Roofing, you&apos;re not just another ticket number. Your local rep knows your neighborhood, 
+                When you work with NC Roofing Service, you&apos;re not just another ticket number. Your local rep knows your neighborhood, 
                 understands local weather patterns, and is invested in their community&apos;s homes.
               </p>
               <div className="space-y-5">
@@ -394,6 +430,40 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Form */}
             <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-xl">
+              {isSubmitted ? (
+                <div className="text-center py-8">
+                  <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h2 className="text-2xl font-bold text-slate-900 mb-2">Thank You, {formData.name}!</h2>
+                  <p className="text-slate-600 mb-6">
+                    {selectedRegion ? selectedRegion.lead.name : 'Our team'} will call you within 30 minutes during business hours.
+                  </p>
+                  <div className="bg-slate-50 rounded-xl p-6 text-left mb-6">
+                    <h4 className="font-semibold text-slate-900 mb-3">What happens next:</h4>
+                    <ol className="space-y-2 text-slate-600">
+                      <li className="flex items-start gap-3">
+                        <span className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 text-xs text-white">1</span>
+                        We&apos;ll call to discuss your needs
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 text-xs text-white">2</span>
+                        Schedule a free on-site inspection
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 text-xs text-white">3</span>
+                        Receive a detailed assessment and options
+                      </li>
+                    </ol>
+                  </div>
+                  <p className="text-slate-500 text-sm">
+                    Can&apos;t wait? Call us: <a href="tel:+19194758841" className="text-blue-600 font-semibold hover:underline">(919) 475-8841</a>
+                  </p>
+                </div>
+              ) : (
+                <>
               <h2 className="text-2xl font-bold text-slate-900 mb-2">Request a Callback</h2>
               <p className="text-slate-600 mb-6">Fill out the form and we&apos;ll connect you with your local expert.</p>
               
@@ -614,9 +684,20 @@ export default function ContactPage() {
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-4 rounded-xl font-bold transition-all text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 disabled:from-blue-400 disabled:to-blue-500 text-white px-6 py-4 rounded-xl font-bold transition-all text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:transform-none disabled:cursor-wait flex items-center justify-center gap-2"
                 >
-                  Request Free Inspection
+                  {isSubmitting ? (
+                    <>
+                      <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Submitting...
+                    </>
+                  ) : (
+                    'Request Free Inspection'
+                  )}
                 </button>
 
                 <div className="flex items-center justify-center gap-4 text-xs text-slate-500 pt-2">
@@ -640,6 +721,8 @@ export default function ContactPage() {
                   </span>
                 </div>
               </form>
+                </>
+              )}
             </div>
 
             {/* Contact Info */}

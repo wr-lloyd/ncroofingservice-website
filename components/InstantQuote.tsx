@@ -124,7 +124,7 @@ export default function InstantQuote() {
           </svg>
         </div>
         <h3 className="text-2xl font-bold text-white mb-2">Request Received!</h3>
-        <p className="text-green-100 mb-4">Thank you for contacting B&C Roofing and Repair.</p>
+        <p className="text-green-100 mb-4">Thank you for contacting NC Roofing Service and Repair.</p>
         <p className="text-green-100 mb-6">
           A roofing specialist will call you within <strong>30 minutes</strong> during business hours to schedule your <strong>FREE inspection</strong>.
         </p>

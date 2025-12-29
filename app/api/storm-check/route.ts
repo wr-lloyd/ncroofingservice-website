@@ -27,7 +27,7 @@ async function geocodeAddress(address: string): Promise<GeocodingResult | null> 
       `https://nominatim.openstreetmap.org/search?q=${encodedAddress}&format=json&addressdetails=1&limit=1`,
       {
         headers: {
-          'User-Agent': 'BandCRoofing/1.0 (contact@bandcroofing.com)',
+          'User-Agent': 'BandCRoofing/1.0 (bandc@ncroofingservice.com)',
         },
       }
     )

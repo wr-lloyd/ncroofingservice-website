@@ -111,7 +111,7 @@ export default function RoofReplacementPage() {
       {/* Benefits */}
       <section className="py-16 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">Why Replace with B&C</h2>
+          <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">Why Replace with NC Roofing Service</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm text-center">
               <div className="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -154,7 +154,7 @@ export default function RoofReplacementPage() {
               More Than Just Shingles
             </h2>
             <p className="text-slate-600 text-lg max-w-3xl mx-auto">
-              At B&C, we believe in the <span className="text-slate-900 font-semibold">complete roofing system</span> approach. 
+              At NC Roofing Service, we believe in the <span className="text-slate-900 font-semibold">complete roofing system</span> approach. 
               While some contractors cut corners, we install all 9 essential components that manufacturers require for maximum protection and warranty coverage.
             </p>
           </div>
