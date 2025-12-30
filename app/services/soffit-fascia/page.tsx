@@ -78,7 +78,7 @@ export default function SoffitFasciaPage() {
         <div className="absolute inset-0">
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=1920&q=80')" }}
+            style={{ backgroundImage: "url('/images/services/heroes/soffit-fascia-hero-1920x1080.jpg')" }}
           />
           <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-slate-900/90 to-amber-900/80" />
         </div>

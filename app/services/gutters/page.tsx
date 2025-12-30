@@ -58,7 +58,7 @@ export default function GuttersPage() {
         <div className="absolute inset-0">
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=1920&q=80')" }}
+            style={{ backgroundImage: "url('/images/services/heroes/gutters-hero-1920x1080.jpg')" }}
           />
           <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-slate-900/90 to-cyan-900/80" />
         </div>

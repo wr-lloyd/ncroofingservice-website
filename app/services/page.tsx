@@ -181,7 +181,7 @@ export default function ServicesPage() {
             <Link href="/services/gutters" className="group relative h-80 rounded-3xl overflow-hidden shadow-2xl">
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80')" }}
+                style={{ backgroundImage: "url('/images/services/cards/gutters-card-800x600.jpg')" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/70 to-slate-900/20 group-hover:via-slate-900/60 transition-all duration-300" />
               
@@ -217,37 +217,37 @@ export default function ServicesPage() {
               </div>
             </Link>
 
-            {/* Siding Card */}
-            <Link href="/services/siding" className="group relative h-80 rounded-3xl overflow-hidden shadow-2xl">
+            {/* Pergolas Card */}
+            <Link href="/services/pergolas" className="group relative h-80 rounded-3xl overflow-hidden shadow-2xl">
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80')" }}
+                style={{ backgroundImage: "url('/images/services/cards/pergolas-card-800x600.jpg')" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/70 to-slate-900/20 group-hover:via-slate-900/60 transition-all duration-300" />
               
               {/* Floating Badge */}
               <div className="absolute top-4 right-4">
-                <span className="px-3 py-1 bg-emerald-500/90 backdrop-blur-sm text-white text-xs font-bold rounded-full shadow-lg">
-                  Storm Damage
+                <span className="px-3 py-1 bg-blue-500/90 backdrop-blur-sm text-white text-xs font-bold rounded-full shadow-lg">
+                  Popular Add-On
                 </span>
               </div>
 
               <div className="absolute bottom-0 left-0 right-0 p-8">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-500/30">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/30">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold text-white">Siding</h3>
+                  <h3 className="text-2xl font-bold text-white">Pergolas & Covered Spaces</h3>
                 </div>
-                <p className="text-slate-300 mb-4">Vinyl, fiber cement, and wood siding repair and replacement. Often covered by insurance when storm-damaged alongside your roof.</p>
+                <p className="text-slate-300 mb-4">Custom pergolas, deck roofs, and covered patios. Designed by roofers to ensure perfect integration and zero leaks.</p>
                 <div className="flex items-center justify-between">
                   <div className="flex flex-wrap gap-2">
-                    <span className="px-2 py-1 bg-white/10 text-slate-300 text-xs rounded-md">Vinyl</span>
-                    <span className="px-2 py-1 bg-white/10 text-slate-300 text-xs rounded-md">Fiber Cement</span>
+                    <span className="px-2 py-1 bg-white/10 text-slate-300 text-xs rounded-md">Custom Build</span>
+                    <span className="px-2 py-1 bg-white/10 text-slate-300 text-xs rounded-md">Roof-Integrated</span>
                   </div>
-                  <span className="text-emerald-400 font-semibold group-hover:text-emerald-300 inline-flex items-center gap-1 transition-colors">
+                  <span className="text-blue-400 font-semibold group-hover:text-blue-300 inline-flex items-center gap-1 transition-colors">
                     Learn More
                     <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -261,7 +261,7 @@ export default function ServicesPage() {
             <Link href="/services/soffit-fascia" className="group relative h-80 rounded-3xl overflow-hidden shadow-2xl">
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80')" }}
+                style={{ backgroundImage: "url('/images/services/cards/soffit-fascia-card-800x600.jpg')" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/70 to-slate-900/20 group-hover:via-slate-900/60 transition-all duration-300" />
               
