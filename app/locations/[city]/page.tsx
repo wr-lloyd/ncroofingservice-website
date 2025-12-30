@@ -462,3 +462,4 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
     </main>
   )
 }
+

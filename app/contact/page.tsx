@@ -612,7 +612,7 @@ export default function ContactPage() {
                     className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-colors"
                   >
                     <option value="">Select a service</option>
-                    <option value="inspection">Free Roof Inspection</option>
+                    <option value="inspection">Storm Check and Free Roof Inspection</option>
                     <option value="repair">Roof Repair</option>
                     <option value="replacement">Roof Replacement</option>
                     <option value="fortified">FORTIFIED Roofing</option>

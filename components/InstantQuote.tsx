@@ -49,8 +49,8 @@ export default function InstantQuote() {
     setIsCheckingStorms(true)
     
     try {
-      const cityName = cityNames[formData.city] || formData.city
-      const fullAddress = `${formData.address}, ${cityName}, NC`
+      // Use the city input directly - it should already include state
+      const fullAddress = `${formData.address}, ${formData.city}`
       
       const response = await fetch('/api/storm-check', {
         method: 'POST',
@@ -81,8 +81,7 @@ export default function InstantQuote() {
 
   // Get full address for storm report link
   const getFullAddress = () => {
-    const cityName = cityNames[formData.city] || formData.city
-    return `${formData.address}, ${cityName}, NC`
+    return `${formData.address}, ${formData.city}`
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -150,7 +149,7 @@ export default function InstantQuote() {
           </svg>
         </div>
         <div>
-          <h3 className="text-lg font-bold text-slate-900">Free Roof Inspection</h3>
+          <h3 className="text-lg font-bold text-slate-900">Storm Check and Free Roof Inspection</h3>
           <p className="text-slate-500 text-xs">Includes storm damage assessment</p>
         </div>
       </div>
@@ -183,25 +182,16 @@ export default function InstantQuote() {
               />
             </div>
             <div>
-              <label className="block text-sm text-slate-600 mb-1 font-medium">City</label>
-              <select
+              <label className="block text-sm text-slate-600 mb-1 font-medium">City, State</label>
+              <input
+                type="text"
                 name="city"
                 value={formData.city}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                placeholder="Raleigh, NC"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
                 required
-              >
-                <option value="">Select your city</option>
-                <option value="rougemont">Rougemont</option>
-                <option value="durham">Durham</option>
-                <option value="raleigh">Raleigh</option>
-                <option value="cary">Cary</option>
-                <option value="chapel-hill">Chapel Hill</option>
-                <option value="hillsborough">Hillsborough</option>
-                <option value="wake-forest">Wake Forest</option>
-                <option value="apex">Apex</option>
-                <option value="other">Other (Triangle Area)</option>
-              </select>
+              />
             </div>
             <div>
               <label className="block text-sm text-slate-600 mb-1 font-medium">What do you need?</label>
@@ -213,7 +203,7 @@ export default function InstantQuote() {
                 required
               >
                 <option value="">Select service needed</option>
-                <option value="inspection">Free Roof Inspection</option>
+                <option value="inspection">Storm Check and Free Roof Inspection</option>
                 <option value="repair">Roof Repair</option>
                 <option value="replacement">Roof Replacement</option>
                 <option value="storm">Storm Damage</option>

@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Free Storm Damage Check | NC Roofing Service | NC Triangle',
-  description: 'Check if recent storms damaged your roof. Enter your NC address to see storm history and damage risk. Free professional inspections available. Insurance claim help.',
+  description: 'Check if recent storms damaged your roof. Enter your US address to see storm history and damage risk. Free professional inspections available. Insurance claim help.',
   keywords: 'storm damage roof NC, hail damage check, wind damage roof Raleigh, storm damage inspection Durham, roof insurance claim NC',
   openGraph: {
     title: 'Did a Storm Damage Your Roof? | Free Storm Check Tool',
@@ -18,3 +18,4 @@ export default function StormCheckLayout({
 }) {
   return children
 }
+

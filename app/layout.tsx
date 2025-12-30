@@ -9,7 +9,7 @@ import './globals.css'
 export const metadata: Metadata = {
   metadataBase: new URL('https://ncroofingservice.com'),
   title: {
-    default: 'NC Roofing Service and Repair | Rougemont NC | Free Roof Inspections',
+    default: 'NC Roofing Service and Repair | Rougemont NC | Storm Check and Free Roof Inspections',
     template: '%s | NC Roofing Service NC',
   },
   description: 'Certified roofing contractor in Rougemont, NC. GAF, Owens Corning & CertainTeed certified. FORTIFIED roofing specialists. Free inspections, insurance claim help. Call (919) 475-8841.',
@@ -195,7 +195,7 @@ export default function RootLayout({
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Free Roof Inspection",
+                      "name": "Storm Check and Free Roof Inspection",
                       "description": "Complimentary roof inspection and consultation"
                     }
                   }

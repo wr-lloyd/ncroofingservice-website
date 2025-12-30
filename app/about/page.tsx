@@ -60,8 +60,12 @@ export default function AboutPage() {
             
             <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-lg">
               <div className="text-center mb-8">
-                <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg">
-                  <span className="text-white font-bold text-4xl">RB</span>
+                <div className="w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden shadow-lg ring-4 ring-blue-500/20">
+                  <img 
+                    src="/images/team/randy-north-400x400.jpg"
+                    alt="Randall Butler"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <h3 className="text-slate-900 font-bold text-2xl">Randall Butler</h3>
                 <p className="text-blue-600">Owner & Founder</p>
@@ -124,10 +128,12 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Randy Butler */}
             <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center shadow-sm">
-              <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-700 rounded-full mx-auto mb-4 flex items-center justify-center shadow-md">
-                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
+              <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden shadow-md ring-2 ring-green-500/20">
+                <img 
+                  src="/images/team/randy-north-400x400.jpg"
+                  alt="Randy Butler"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-slate-900 font-bold text-xl mb-1">Randy Butler</h3>
               <p className="text-green-600 text-sm font-medium mb-2">Owner & Greater Durham</p>
@@ -143,10 +149,12 @@ export default function AboutPage() {
 
             {/* Mike Villarroel */}
             <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center shadow-sm">
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full mx-auto mb-4 flex items-center justify-center shadow-md">
-                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
+              <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden shadow-md ring-2 ring-blue-500/20">
+                <img 
+                  src="/images/team/mike-east-400x400.jpg"
+                  alt="Mike Villarroel"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-slate-900 font-bold text-xl mb-1">Mike Villarroel</h3>
               <p className="text-blue-600 text-sm font-medium mb-2">Greater Raleigh</p>
@@ -162,10 +170,12 @@ export default function AboutPage() {
 
             {/* Preston Mayo */}
             <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center shadow-sm">
-              <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full mx-auto mb-4 flex items-center justify-center shadow-md">
-                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
+              <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden shadow-md ring-2 ring-purple-500/20">
+                <img 
+                  src="/images/team/preston-south-400x400.jpg"
+                  alt="Preston Mayo"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-slate-900 font-bold text-xl mb-1">Preston Mayo</h3>
               <p className="text-purple-600 text-sm font-medium mb-2">Greater Chapel Hill</p>
@@ -211,9 +221,8 @@ export default function AboutPage() {
             {/* Image Side */}
             <div className="relative order-2 lg:order-1">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
-                {/* Placeholder team image - replace with actual team photo */}
                 <img 
-                  src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80"
+                  src="/images/about/team-jobsite-800x600.jpg"
                   alt="NC Roofing Service and Repair team on a job site"
                   className="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -223,14 +232,26 @@ export default function AboutPage() {
                 <div className="absolute bottom-0 left-0 right-0 p-8">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="flex -space-x-3">
-                      <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-700 rounded-full border-2 border-slate-900 flex items-center justify-center">
-                        <span className="text-white font-bold text-sm">RB</span>
+                      <div className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-green-500/30">
+                        <img 
+                          src="/images/team/randy-north-400x400.jpg"
+                          alt="Randy Butler"
+                          className="w-full h-full object-cover"
+                        />
                       </div>
-                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full border-2 border-slate-900 flex items-center justify-center">
-                        <span className="text-white font-bold text-sm">MV</span>
+                      <div className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-blue-500/30">
+                        <img 
+                          src="/images/team/mike-east-400x400.jpg"
+                          alt="Mike Villarroel"
+                          className="w-full h-full object-cover"
+                        />
                       </div>
-                      <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full border-2 border-slate-900 flex items-center justify-center">
-                        <span className="text-white font-bold text-sm">PM</span>
+                      <div className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-purple-500/30">
+                        <img 
+                          src="/images/team/preston-south-400x400.jpg"
+                          alt="Preston Mayo"
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                       <div className="w-12 h-12 bg-slate-700 rounded-full border-2 border-slate-900 flex items-center justify-center">
                         <span className="text-white font-bold text-sm">+</span>
@@ -241,9 +262,6 @@ export default function AboutPage() {
                       <p className="text-slate-400 text-sm">Serving Durham, Raleigh & Chapel Hill</p>
                     </div>
                   </div>
-                  <p className="text-slate-300 text-sm italic border-l-2 border-blue-500 pl-4">
-                    *Team photo coming soon — replace this placeholder with your actual crew photo*
-                  </p>
                 </div>
               </div>
               

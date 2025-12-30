@@ -1,8 +1,8 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Roofing & Exterior Systems | NC Roofing Service | Rougemont NC',
-  description: 'Professional roofing and exterior system services: roof repair, replacement, FORTIFIED roofing, gutters, soffit & fascia, pergolas, and overhead structures. GAF, Owens Corning, CertainTeed certified.',
+  title: 'Roofing & Exterior Services | NC Roofing Service and Repair | Rougemont NC',
+  description: 'Professional roofing and exterior services: roof repair, replacement, FORTIFIED roofing, gutters, siding, soffit & fascia. GAF, Owens Corning, CertainTeed certified.',
 }
 
 const services = [
@@ -72,14 +72,14 @@ export default function ServicesPage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <span className="text-blue-400 font-semibold text-sm uppercase tracking-wider">Complete Roof & Exterior System Protection</span>
+            <span className="text-blue-400 font-semibold text-sm uppercase tracking-wider">Complete Home Protection</span>
             <h1 className="text-4xl md:text-6xl font-bold text-white mt-2 mb-6">
               Roofing & Exterior{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Systems</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Services</span>
             </h1>
             <p className="text-slate-300 text-xl max-w-3xl mx-auto">
-              From emergency repairs to complete replacements — plus gutters, roofline systems, and overhead exterior structures. 
-              We protect everything above your head with expert craftsmanship.
+              From emergency repairs to complete replacements, plus gutters, siding, and more. 
+              We protect your entire home envelope with expert craftsmanship.
             </p>
           </div>
         </div>
@@ -106,16 +106,9 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Roofing Services Grid */}
+      {/* Services Grid */}
       <section className="py-24 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Roofing Services</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">Professional Roofing Solutions</h2>
-            <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-              Every roofing service includes a full system evaluation — because roof issues rarely exist in isolation.
-            </p>
-          </div>
           <div className="grid md:grid-cols-2 gap-8">
             {services.map((service) => (
               <Link
@@ -174,11 +167,11 @@ export default function ServicesPage() {
               Exterior Systems
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-white mt-2 mb-4">
-              The Systems That Make Your Roof Work
+              Beyond the Roof
             </h2>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-              Your roof relies on a network of roofline components, water-management systems, and overhead structures to perform properly. 
-              We design, inspect, and service these systems together — often during the same visit.
+              Your roof works together with gutters, siding, and fascia to protect your home. 
+              We service the complete exterior system — often during the same visit.
             </p>
           </div>
 
@@ -224,18 +217,18 @@ export default function ServicesPage() {
               </div>
             </Link>
 
-            {/* Overhead Exterior Structures Card */}
-            <Link href="/services/pergolas" className="group relative h-80 rounded-3xl overflow-hidden shadow-2xl">
+            {/* Siding Card */}
+            <Link href="/services/siding" className="group relative h-80 rounded-3xl overflow-hidden shadow-2xl">
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80')" }}
+                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80')" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/70 to-slate-900/20 group-hover:via-slate-900/60 transition-all duration-300" />
               
               {/* Floating Badge */}
               <div className="absolute top-4 right-4">
                 <span className="px-3 py-1 bg-emerald-500/90 backdrop-blur-sm text-white text-xs font-bold rounded-full shadow-lg">
-                  Roof-Integrated
+                  Storm Damage
                 </span>
               </div>
 
@@ -243,17 +236,16 @@ export default function ServicesPage() {
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-500/30">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6z" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold text-white">Pergolas & Covered Spaces</h3>
+                  <h3 className="text-2xl font-bold text-white">Siding</h3>
                 </div>
-                <p className="text-slate-300 mb-4">We design and build roof-adjacent exterior structures that add shade, protection, and architectural character — engineered to integrate seamlessly with your roofline.</p>
+                <p className="text-slate-300 mb-4">Vinyl, fiber cement, and wood siding repair and replacement. Often covered by insurance when storm-damaged alongside your roof.</p>
                 <div className="flex items-center justify-between">
                   <div className="flex flex-wrap gap-2">
-                    <span className="px-2 py-1 bg-white/10 text-slate-300 text-xs rounded-md">Pergolas</span>
-                    <span className="px-2 py-1 bg-white/10 text-slate-300 text-xs rounded-md">Deck Roofs</span>
-                    <span className="px-2 py-1 bg-white/10 text-slate-300 text-xs rounded-md">Covered Patios</span>
+                    <span className="px-2 py-1 bg-white/10 text-slate-300 text-xs rounded-md">Vinyl</span>
+                    <span className="px-2 py-1 bg-white/10 text-slate-300 text-xs rounded-md">Fiber Cement</span>
                   </div>
                   <span className="text-emerald-400 font-semibold group-hover:text-emerald-300 inline-flex items-center gap-1 transition-colors">
                     Learn More
@@ -269,7 +261,7 @@ export default function ServicesPage() {
             <Link href="/services/soffit-fascia" className="group relative h-80 rounded-3xl overflow-hidden shadow-2xl">
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=800&q=80')" }}
+                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80')" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/70 to-slate-900/20 group-hover:via-slate-900/60 transition-all duration-300" />
               
@@ -317,7 +309,7 @@ export default function ServicesPage() {
                 </div>
                 <div>
                   <p className="text-white font-medium">Bundle & Save</p>
-                  <p className="text-slate-400 text-xs">Bundle roof and exterior system work for better performance and pricing</p>
+                  <p className="text-slate-400 text-xs">Combine with roof work for better pricing</p>
                 </div>
               </div>
               <div className="hidden md:block w-px h-12 bg-white/20"></div>

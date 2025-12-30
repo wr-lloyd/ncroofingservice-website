@@ -76,6 +76,11 @@ Create a `.env.local` file in the root directory:
 
 # Calendar Integration (optional)
 # CALENDLY_URL=https://calendly.com/bandc-roofing
+
+# NOAA Storm Events API (optional - for real-time storm data)
+# Register for a free token at: https://www.ncdc.noaa.gov/cdo-web/token
+# If not provided, the system will use hardcoded storm data as fallback
+# NOAA_API_TOKEN=your_noaa_token_here
 ```
 
 ### Environment Variable Descriptions
@@ -88,6 +93,7 @@ Create a `.env.local` file in the root directory:
 | `SUPABASE_ANON_KEY` | Optional | Supabase anonymous key |
 | `NEXT_PUBLIC_GA_ID` | Optional | Google Analytics 4 measurement ID |
 | `CALENDLY_URL` | Optional | Calendly scheduling URL |
+| `NOAA_API_TOKEN` | Optional | NOAA Storm Events Database API token. Register at https://www.ncdc.noaa.gov/cdo-web/token. If not provided, uses hardcoded storm data. |
 
 ## Architecture
 
