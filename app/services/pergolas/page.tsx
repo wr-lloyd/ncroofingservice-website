@@ -37,7 +37,7 @@ export default function PergolasPage() {
     {
       name: 'Pergolas',
       desc: 'Open-air structures with slatted roofs that provide partial shade and define outdoor living spaces.',
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+      image: '/images/services/cards/pergolas-card-800x600.jpg',
       features: ['Partial shade with airflow', 'Architectural character', 'Perfect for vines & plants', 'Customizable designs'],
       popular: true,
     },
