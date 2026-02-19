@@ -20,8 +20,8 @@ export default function TrustBadges() {
                 </svg>
               </div>
               <div>
-                <div className="text-slate-800 font-semibold text-sm">{badge.name}</div>
-                <div className="text-slate-500 text-xs">{badge.description}</div>
+                <div className="text-[#111111] font-semibold text-sm">{badge.name}</div>
+                <div className="text-[#444444] text-xs">{badge.description}</div>
               </div>
             </div>
           ))}

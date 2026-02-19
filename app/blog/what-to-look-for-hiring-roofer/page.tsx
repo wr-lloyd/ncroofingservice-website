@@ -11,7 +11,7 @@ export default function HiringRooferArticle() {
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/blog" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 mb-6 transition-colors">
+          <Link href="/blog" className="inline-flex items-center gap-2 text-[#C8102E] hover:text-[#a50d25] mb-6 transition-colors">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
@@ -55,7 +55,7 @@ export default function HiringRooferArticle() {
             {/* Insurance Section */}
             <section className="mb-16">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
-                <span className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-lg">1</span>
+                <span className="w-10 h-10 bg-[#C8102E] rounded-[2px] flex items-center justify-center text-lg">1</span>
                 Proper Insurance Coverage
               </h2>
               
@@ -75,7 +75,7 @@ export default function HiringRooferArticle() {
               <h3 className="text-xl font-bold text-white mb-4">What to Verify:</h3>
               
               <div className="space-y-6">
-                <div className="bg-slate-900/30 rounded-xl p-6 border-l-4 border-blue-500">
+                <div className="bg-slate-900/30 rounded-xl p-6 border-l-4 border-[#C8102E]">
                   <h4 className="text-lg font-bold text-white mb-2">General Liability Insurance</h4>
                   <ul className="space-y-2 text-slate-400">
                     <li className="flex items-start gap-2">
@@ -141,7 +141,7 @@ export default function HiringRooferArticle() {
             {/* Certification Section */}
             <section className="mb-16">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
-                <span className="w-10 h-10 bg-amber-600 rounded-lg flex items-center justify-center text-lg">2</span>
+                <span className="w-10 h-10 bg-[#111111] rounded-[2px] flex items-center justify-center text-lg">2</span>
                 Manufacturer Certifications
               </h2>
               
@@ -175,7 +175,7 @@ export default function HiringRooferArticle() {
 
                 <div className="bg-slate-900/30 rounded-xl p-6">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-[#C8102E] rounded-[2px] flex items-center justify-center">
                       <span className="text-white text-sm font-bold">2</span>
                     </div>
                     <h4 className="text-lg font-bold text-white">Master Elite (GAF) / SELECT ShingleMaster (CertainTeed)</h4>
@@ -213,7 +213,7 @@ export default function HiringRooferArticle() {
             {/* Red Flags Section */}
             <section className="mb-16">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
-                <span className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center text-lg">3</span>
+                <span className="w-10 h-10 bg-[#C8102E] rounded-[2px] flex items-center justify-center text-lg">3</span>
                 Red Flags: Spotting &quot;Storm Chasers&quot;
               </h2>
               
@@ -294,23 +294,23 @@ export default function HiringRooferArticle() {
           </div>
 
           {/* NC Roofing Service CTA Box */}
-          <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 mt-12">
+          <div className="bg-gradient-to-r from-[#C8102E] to-[#a50d25] rounded-[2px] p-8 mt-12">
             <div className="text-center">
               <h3 className="text-2xl font-bold text-white mb-4">NC Roofing Service Meets Every Requirement</h3>
-              <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+              <p className="text-white/80 mb-6 max-w-2xl mx-auto">
                 $2M liability coverage. Full crew workers&apos; comp. Certified by GAF, Owens Corning, AND CertainTeed. 
                 FORTIFIED certified. BBB A+ rated. Local to Rougemont since 2018.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-blue-600 px-8 py-4 rounded-lg font-semibold transition-colors"
+                  className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-[#C8102E] px-8 py-4 rounded-[2px] font-semibold transition-colors"
                 >
                   Schedule Free Inspection
                 </Link>
                 <a
                   href="tel:+19194758841"
-                  className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-lg font-semibold transition-colors"
+                  className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-[2px] font-semibold transition-colors"
                 >
                   Call (919) 475-8841
                 </a>
@@ -341,16 +341,16 @@ export default function HiringRooferArticle() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-white mb-8">Related Articles</h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <Link href="/blog" className="bg-slate-800/50 rounded-xl p-6 border border-white/5 hover:border-blue-500/30 transition-all group">
+            <Link href="/blog" className="bg-slate-800/50 rounded-xl p-6 border border-white/5 hover:border-[#C8102E]/30 transition-all group">
               <span className="text-green-400 text-sm font-medium">FORTIFIED</span>
-              <h3 className="text-white font-bold mt-2 mb-2 group-hover:text-blue-400 transition-colors">
+              <h3 className="text-white font-bold mt-2 mb-2 group-hover:text-[#C8102E] transition-colors">
                 What is FORTIFIED Roofing?
               </h3>
               <p className="text-slate-400 text-sm">Learn about storm-resistant roofing standards.</p>
             </Link>
-            <Link href="/blog" className="bg-slate-800/50 rounded-xl p-6 border border-white/5 hover:border-blue-500/30 transition-all group">
-              <span className="text-blue-400 text-sm font-medium">Insurance</span>
-              <h3 className="text-white font-bold mt-2 mb-2 group-hover:text-blue-400 transition-colors">
+            <Link href="/blog" className="bg-slate-800/50 rounded-xl p-6 border border-white/5 hover:border-[#C8102E]/30 transition-all group">
+              <span className="text-[#C8102E] text-sm font-medium">Insurance</span>
+              <h3 className="text-white font-bold mt-2 mb-2 group-hover:text-[#C8102E] transition-colors">
                 How to File a Roof Insurance Claim
               </h3>
               <p className="text-slate-400 text-sm">Step-by-step guide to the claims process.</p>

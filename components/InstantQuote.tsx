@@ -116,20 +116,20 @@ export default function InstantQuote() {
 
   if (showEstimate) {
     return (
-      <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-2xl p-8 text-center shadow-xl">
-        <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+      <div className="bg-[#111111] rounded-2xl p-8 text-center shadow-xl">
+        <div className="w-16 h-16 bg-[#C8102E] rounded-[2px] flex items-center justify-center mx-auto mb-4">
           <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
         <h3 className="text-2xl font-bold text-white mb-2">Request Received!</h3>
-        <p className="text-green-100 mb-4">Thank you for contacting NC Roofing Service and Repair.</p>
-        <p className="text-green-100 mb-6">
-          A roofing specialist will call you within <strong>30 minutes</strong> during business hours to schedule your <strong>FREE inspection</strong>.
+        <p className="text-white/80 mb-4">Thank you for contacting NC Roofing Service and Repair.</p>
+        <p className="text-white/80 mb-6">
+          A roofing specialist will call you within <strong className="text-white">30 minutes</strong> during business hours to schedule your <strong className="text-white">FREE assessment</strong>.
         </p>
         <a 
           href="tel:+19194758841"
-          className="inline-flex items-center gap-2 bg-white text-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors"
+          className="inline-flex items-center gap-2 bg-[#C8102E] hover:bg-[#a50d25] text-white px-6 py-3 rounded-[2px] font-semibold transition-colors"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -143,7 +143,7 @@ export default function InstantQuote() {
   return (
     <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-xl">
       <div className="flex items-center gap-3 mb-4">
-        <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center shadow-md">
+        <div className="w-10 h-10 bg-[#C8102E] rounded-[2px] flex items-center justify-center shadow-md">
           <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
           </svg>
@@ -160,7 +160,7 @@ export default function InstantQuote() {
           <div 
             key={s}
             className={`h-1.5 flex-1 rounded-full transition-colors ${
-              s <= step ? 'bg-blue-500' : 'bg-slate-200'
+              s <= step ? 'bg-[#C8102E]' : 'bg-slate-200'
             }`}
           />
         ))}
@@ -177,7 +177,7 @@ export default function InstantQuote() {
                 value={formData.address}
                 onChange={handleChange}
                 placeholder="123 Main St"
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20"
                 required
               />
             </div>
@@ -189,7 +189,7 @@ export default function InstantQuote() {
                 value={formData.city}
                 onChange={handleChange}
                 placeholder="Raleigh, NC"
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20"
                 required
               />
             </div>
@@ -199,7 +199,7 @@ export default function InstantQuote() {
                 name="projectType"
                 value={formData.projectType}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20"
                 required
               >
                 <option value="">Select service needed</option>
@@ -216,7 +216,7 @@ export default function InstantQuote() {
               type="button"
               onClick={handleContinue}
               disabled={isCheckingStorms || !formData.address || !formData.city || !formData.projectType}
-              className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 disabled:cursor-not-allowed text-white py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 shadow-md"
+              className="w-full bg-[#C8102E] hover:bg-[#a50d25] disabled:bg-[#C8102E]/50 disabled:cursor-not-allowed text-white py-3 rounded-[2px] font-semibold transition-colors flex items-center justify-center gap-2 shadow-md"
             >
               {isCheckingStorms ? (
                 <>
@@ -264,7 +264,7 @@ export default function InstantQuote() {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="John Smith"
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20"
                 required
               />
             </div>
@@ -276,7 +276,7 @@ export default function InstantQuote() {
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="(919) 555-1234"
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20"
                 required
               />
             </div>
@@ -288,7 +288,7 @@ export default function InstantQuote() {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="john@example.com"
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20"
               />
             </div>
             <div className="flex gap-3">
@@ -296,14 +296,14 @@ export default function InstantQuote() {
                 type="button"
                 onClick={() => setStep(1)}
                 disabled={isSubmitting}
-                className="flex-1 border-2 border-slate-200 hover:bg-slate-50 text-slate-700 py-3 rounded-lg font-semibold transition-colors disabled:opacity-50"
+                className="flex-1 border-2 border-[#111111] hover:bg-[#f2f2f2] text-[#111111] py-3 rounded-[2px] font-semibold transition-colors disabled:opacity-50"
               >
                 ← Back
               </button>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="flex-1 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white py-3 rounded-lg font-semibold transition-all disabled:opacity-50 flex items-center justify-center gap-2 shadow-md"
+                className="flex-1 bg-[#C8102E] hover:bg-[#a50d25] text-white py-3 rounded-[2px] font-semibold transition-all disabled:opacity-50 flex items-center justify-center gap-2 shadow-md"
               >
                 {isSubmitting ? (
                   <>

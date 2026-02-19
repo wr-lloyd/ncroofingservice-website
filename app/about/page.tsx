@@ -21,7 +21,7 @@ export default function AboutPage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <span className="text-blue-500 font-semibold text-sm uppercase tracking-wider">About Us</span>
+            <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">About Us</span>
             <h1 className="text-4xl md:text-6xl font-bold text-white mt-2 mb-6">Our Story</h1>
             <p className="text-slate-400 text-xl max-w-3xl mx-auto">
               &quot;A roof is only as good as the roofer.&quot; — That&apos;s the philosophy that drives everything we do at NC Roofing Service and Repair.
@@ -68,7 +68,7 @@ export default function AboutPage() {
                   />
                 </div>
                 <h3 className="text-slate-900 font-bold text-2xl">Randall Butler</h3>
-                <p className="text-blue-600">Owner & Founder</p>
+                <p className="text-[#C8102E]">Owner & Founder</p>
               </div>
               
               <div className="space-y-4">
@@ -101,7 +101,7 @@ export default function AboutPage() {
               <div className="mt-6 pt-6 border-t border-slate-200">
                 <a 
                   href="tel:+19194758841"
-                  className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-colors shadow-md"
+                  className="flex items-center justify-center gap-2 bg-[#C8102E] hover:bg-[#a50d25] text-white py-3 rounded-[2px] font-semibold transition-colors shadow-md"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -118,7 +118,7 @@ export default function AboutPage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Our Team</span>
+            <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">Our Team</span>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-4">Your Local Roofing Experts</h2>
             <p className="text-slate-600 text-lg max-w-2xl mx-auto">
               Meet the local experts who serve your community. Not a call center — real people who know your neighborhood.
@@ -157,7 +157,7 @@ export default function AboutPage() {
                 />
               </div>
               <h3 className="text-slate-900 font-bold text-xl mb-1">Mike Villarroel</h3>
-              <p className="text-blue-600 text-sm font-medium mb-2">Greater Raleigh</p>
+              <p className="text-[#C8102E] text-sm font-medium mb-2">Greater Raleigh</p>
               <p className="text-slate-600 text-sm mb-4">
                 Your dedicated expert for the Raleigh metro area. Serving Wake County with the same NC Roofing Service quality.
               </p>
@@ -196,14 +196,14 @@ export default function AboutPage() {
       <section className="py-24 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
         {/* Subtle background effects - matching site's design language */}
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#C8102E]/20 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header - Centered */}
           <div className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full text-sm font-medium mb-4">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#C8102E]/20 text-[#C8102E] rounded-full text-sm font-medium mb-4">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
@@ -267,7 +267,7 @@ export default function AboutPage() {
               
               {/* Floating Stats */}
               <div className="absolute -top-4 -right-4 bg-white text-slate-900 p-5 rounded-2xl shadow-xl hidden md:block">
-                <div className="text-4xl font-bold text-blue-600">7+</div>
+                <div className="text-4xl font-bold text-[#C8102E]">7+</div>
                 <div className="text-slate-600 text-sm font-medium">Years Serving<br />the Triangle</div>
               </div>
             </div>
@@ -304,8 +304,8 @@ export default function AboutPage() {
                 </div>
                 
                 <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-5 border border-white/10 hover:border-blue-500/30 transition-colors">
-                  <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-3">
-                    <svg className="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="w-12 h-12 bg-[#C8102E]/20 rounded-xl flex items-center justify-center mb-3">
+                    <svg className="w-6 h-6 text-[#C8102E]" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                   </div>
@@ -343,14 +343,14 @@ export default function AboutPage() {
       <section className="py-24 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Our Journey</span>
+            <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">Our Journey</span>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-2">Building Trust Since 2018</h2>
           </div>
           
           <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-blue-200">
-                <span className="text-blue-600 font-bold text-2xl">2018</span>
+                <span className="text-[#C8102E] font-bold text-2xl">2018</span>
               </div>
               <h3 className="text-slate-900 font-bold text-lg mb-2">Company Founded</h3>
               <p className="text-slate-600 text-sm">Randall Butler launches NC Roofing Service in Rougemont, NC</p>
@@ -358,7 +358,7 @@ export default function AboutPage() {
             
             <div className="text-center">
               <div className="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-blue-200">
-                <span className="text-blue-600 font-bold text-2xl">2020</span>
+                <span className="text-[#C8102E] font-bold text-2xl">2020</span>
               </div>
               <h3 className="text-slate-900 font-bold text-lg mb-2">Certifications Earned</h3>
               <p className="text-slate-600 text-sm">GAF, Owens Corning, and CertainTeed certified</p>
@@ -366,7 +366,7 @@ export default function AboutPage() {
             
             <div className="text-center">
               <div className="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-blue-200">
-                <span className="text-blue-600 font-bold text-2xl">2023</span>
+                <span className="text-[#C8102E] font-bold text-2xl">2023</span>
               </div>
               <h3 className="text-slate-900 font-bold text-lg mb-2">BBB Accredited</h3>
               <p className="text-slate-600 text-sm">Earned BBB A+ accreditation in May 2023</p>
@@ -387,7 +387,7 @@ export default function AboutPage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Our Technology</span>
+            <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">Our Technology</span>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-4">Modern Tools, Better Results</h2>
             <p className="text-slate-600 text-lg max-w-2xl mx-auto">
               We invest in the latest technology to provide accurate assessments and superior service.
@@ -397,7 +397,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200 text-center shadow-sm">
               <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-8 h-8 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
@@ -432,7 +432,7 @@ export default function AboutPage() {
       <section className="py-24 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Hiring a Roofer</span>
+            <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">Hiring a Roofer</span>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-4">What to Expect from a Professional Roofer</h2>
             <p className="text-slate-600 text-lg max-w-3xl mx-auto">
               Not all roofing contractors are created equal. Here&apos;s what you should look for — and what NC Roofing Service provides.
@@ -444,7 +444,7 @@ export default function AboutPage() {
             <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center">
-                  <svg className="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-7 h-7 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 </div>
@@ -532,7 +532,7 @@ export default function AboutPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div className="w-6 h-6 bg-[#C8102E] rounded-[2px] flex items-center justify-center flex-shrink-0 mt-0.5">
                       <span className="text-white text-xs font-bold">★</span>
                     </div>
                     <div>
@@ -584,14 +584,14 @@ export default function AboutPage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Our Values</span>
+            <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">Our Values</span>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-4">What We Stand For</h2>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <svg className="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-10 h-10 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                 </svg>
               </div>
@@ -646,22 +646,22 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-blue-600 to-blue-700">
+      <section className="py-24 bg-gradient-to-r from-[#C8102E] to-[#a50d25]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Work With Us?</h2>
-          <p className="text-blue-100 text-xl mb-10 max-w-2xl mx-auto">
-            Get a free roof inspection and consultation. No obligation, no pressure — just honest advice from local experts.
+          <p className="text-white/80 text-xl mb-10 max-w-2xl mx-auto">
+            Get a free assessment and consultation. No obligation, no pressure — just honest advice from local experts.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-blue-600 px-8 py-4 rounded-lg font-semibold transition-all hover:scale-105 text-lg"
+              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-[#C8102E] px-8 py-4 rounded-[2px] font-semibold transition-all hover:scale-105 text-lg"
             >
-              Schedule Free Inspection
+              Schedule Assessment
             </Link>
             <a
               href="tel:+19194758841"
-              className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-lg font-semibold transition-all text-lg"
+              className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-[2px] font-semibold transition-all text-lg"
             >
               Call (919) 475-8841
             </a>

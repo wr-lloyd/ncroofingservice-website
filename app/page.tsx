@@ -15,8 +15,8 @@ export default function Home() {
             style={{ backgroundImage: "url('https://images.unsplash.com/photo-1632759145351-1d592919f522?w=1920&q=80')" }}
           />
           <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-slate-900/90 to-slate-800/85" />
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#C8102E]/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#C8102E]/10 rounded-full blur-3xl"></div>
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
@@ -35,7 +35,7 @@ export default function Home() {
               
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                 Certified, Licensed &{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C8102E] to-[#a50d25]">
                   Insured
                 </span>
               </h1>
@@ -52,21 +52,21 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link
                   href="/contact"
-                  className="group flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold transition-all hover:scale-105 text-lg shadow-lg shadow-blue-600/25"
+                  className="group flex items-center justify-center gap-2 bg-[#C8102E] hover:bg-[#a50d25] text-white px-8 py-4 rounded-[2px] font-semibold transition-all hover:scale-105 text-lg shadow-lg shadow-[#C8102E]/25"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                   </svg>
-                  Free Roof Inspection
+                  Schedule Assessment
                   <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
                 <a
                   href="tel:+19194758841"
-                  className="flex items-center justify-center gap-2 border-2 border-white/20 hover:bg-white/10 text-white px-8 py-4 rounded-xl font-semibold transition-all text-lg"
+                  className="flex items-center justify-center gap-2 border-2 border-white/20 hover:bg-white/10 text-white px-8 py-4 rounded-[2px] font-semibold transition-all text-lg"
                 >
-                  <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                   (919) 475-8841
@@ -118,21 +118,21 @@ export default function Home() {
       <TrustBadges />
 
       {/* Roofing Journey CTA */}
-      <section className="py-12 bg-gradient-to-r from-green-600 to-green-700">
+      <section className="py-12 bg-[#111111]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center text-2xl">
+              <div className="w-14 h-14 bg-white/10 rounded-[2px] flex items-center justify-center text-2xl">
                 🧭
               </div>
               <div>
                 <h3 className="text-xl font-bold text-white">Not sure where to start?</h3>
-                <p className="text-green-100">We&apos;ll guide you to the right solution in minutes.</p>
+                <p className="text-white/70">We&apos;ll guide you to the right solution in minutes.</p>
               </div>
             </div>
             <Link
               href="/start"
-              className="inline-flex items-center gap-2 bg-white hover:bg-green-50 text-green-700 px-8 py-4 rounded-xl font-semibold transition-colors shadow-lg"
+              className="inline-flex items-center gap-2 bg-[#C8102E] hover:bg-[#a50d25] text-white px-8 py-4 rounded-[2px] font-semibold transition-colors shadow-lg"
             >
               Start Your Roofing Journey
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -147,7 +147,7 @@ export default function Home() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">What We Do</span>
+            <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">What We Do</span>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-4">Roofing and Exterior System Services</h2>
             <p className="text-slate-600 text-lg max-w-2xl mx-auto">
               From free inspections to complete replacements, we provide the highest level of service 
@@ -185,15 +185,15 @@ export default function Home() {
 
             {/* Insurance Claims */}
             <Link href="/services/storm-damage-insurance" className="group">
-              <div className="bg-white rounded-2xl p-8 border border-slate-200 hover:border-blue-300 transition-all h-full shadow-sm hover:shadow-lg">
-                <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-white rounded-2xl p-8 border border-slate-200 hover:border-[#C8102E]/30 transition-all h-full shadow-sm hover:shadow-lg">
+                <div className="w-16 h-16 bg-[#C8102E]/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <svg className="w-8 h-8 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Insurance Claims</h3>
-                <p className="text-slate-600 mb-4">We help document damage, meet with adjusters, and advocate for fair compensation on your claim.</p>
-                <span className="text-blue-600 font-medium group-hover:text-blue-700 transition-colors inline-flex items-center gap-2">
+                <h3 className="text-xl font-bold text-[#111111] mb-3">Insurance Claims</h3>
+                <p className="text-[#444444] mb-4">We help document damage, meet with adjusters, and advocate for fair compensation on your claim.</p>
+                <span className="text-[#C8102E] font-medium group-hover:text-[#a50d25] transition-colors inline-flex items-center gap-2">
                   Get Help
                   <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -204,15 +204,15 @@ export default function Home() {
 
             {/* Roof Replacement */}
             <Link href="/services/roof-replacement" className="group">
-              <div className="bg-white rounded-2xl p-8 border border-slate-200 hover:border-blue-300 transition-all h-full shadow-sm hover:shadow-lg">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-md">
+              <div className="bg-white rounded-2xl p-8 border border-slate-200 hover:border-[#111111]/30 transition-all h-full shadow-sm hover:shadow-lg">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#111111] to-[#333333] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-md">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Roof Replacement</h3>
-                <p className="text-slate-600 mb-4">Complete roof replacement with premium materials. Extended warranties from GAF, Owens Corning & more.</p>
-                <span className="text-blue-600 font-medium group-hover:text-blue-700 transition-colors inline-flex items-center gap-2">
+                <h3 className="text-xl font-bold text-[#111111] mb-3">Roof Replacement</h3>
+                <p className="text-[#444444] mb-4">Complete roof replacement with premium materials. Extended warranties from GAF, Owens Corning & more.</p>
+                <span className="text-[#C8102E] font-medium group-hover:text-[#a50d25] transition-colors inline-flex items-center gap-2">
                   Learn More
                   <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -289,7 +289,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 border-2 border-slate-300 hover:border-blue-500 hover:bg-blue-50 text-slate-700 hover:text-blue-700 px-8 py-3 rounded-lg font-semibold transition-all"
+              className="inline-flex items-center gap-2 border-2 border-[#111111] hover:border-[#C8102E] hover:bg-[#C8102E]/5 text-[#111111] hover:text-[#C8102E] px-8 py-3 rounded-[2px] font-semibold transition-all"
             >
               View All Services
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -305,7 +305,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Why Choose Us</span>
+              <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">Why Choose Us</span>
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-6">
                 The NC Roofing Service Difference
               </h2>
@@ -342,7 +342,7 @@ export default function Home() {
                 
                 <div className="flex gap-4">
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
@@ -369,9 +369,9 @@ export default function Home() {
             
             {/* Stats */}
             <div className="grid grid-cols-2 gap-6">
-              <div className="bg-white rounded-2xl p-8 text-center border border-blue-200 shadow-sm">
-                <div className="text-5xl font-bold text-blue-600 mb-2">7+</div>
-                <div className="text-slate-600">Years in Business</div>
+              <div className="bg-white rounded-2xl p-8 text-center border border-[#C8102E]/20 shadow-sm">
+                <div className="text-5xl font-bold text-[#C8102E] mb-2">7+</div>
+                <div className="text-[#444444]">Years in Business</div>
               </div>
               <div className="bg-white rounded-2xl p-8 text-center border border-green-200 shadow-sm">
                 <div className="text-5xl font-bold text-green-600 mb-2">A+</div>
@@ -397,7 +397,7 @@ export default function Home() {
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Service Areas</span>
+            <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">Service Areas</span>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-4">Serving the NC Triangle</h2>
             <p className="text-slate-600 text-lg max-w-2xl mx-auto">
               Based in Rougemont, we provide roofing services throughout the Triangle and surrounding areas.
@@ -409,46 +409,46 @@ export default function Home() {
               <Link 
                 key={city}
                 href="/contact#triangle-coverage-team"
-                className="bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-300 rounded-xl p-4 text-center transition-all group shadow-sm"
+                className="bg-white hover:bg-[#C8102E]/5 border border-slate-200 hover:border-[#C8102E]/30 rounded-xl p-4 text-center transition-all group shadow-sm"
               >
-                <span className="text-slate-800 font-medium group-hover:text-blue-600 transition-colors">{city}</span>
+                <span className="text-[#111111] font-medium group-hover:text-[#C8102E] transition-colors">{city}</span>
                 <span className="text-slate-400 text-sm block">NC</span>
               </Link>
             ))}
           </div>
 
           <div className="text-center mt-8">
-            <Link href="/contact#triangle-coverage-team" className="text-blue-600 hover:underline text-sm font-medium">
+            <Link href="/contact#triangle-coverage-team" className="text-[#C8102E] hover:underline text-sm font-medium">
               View all service areas →
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Final CTA Section - Keep gradient */}
-      <section className="py-24 bg-gradient-to-r from-blue-600 to-blue-700 relative overflow-hidden">
+      {/* Final CTA Section */}
+      <section className="py-24 bg-gradient-to-r from-[#C8102E] to-[#a50d25] relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Ready to Protect Your Home?
           </h2>
-          <p className="text-blue-100 text-xl mb-10 max-w-2xl mx-auto">
-            Schedule your free inspection today. No obligation, no pressure — just honest advice from 
+          <p className="text-white/80 text-xl mb-10 max-w-2xl mx-auto">
+            Schedule your assessment today. No obligation, no pressure — just honest advice from 
             local roofing professionals you can trust.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-blue-600 px-8 py-4 rounded-xl font-semibold transition-all hover:scale-105 text-lg shadow-xl"
+              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-[#C8102E] px-8 py-4 rounded-[2px] font-semibold transition-all hover:scale-105 text-lg shadow-xl"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
-              Schedule Free Inspection
+              Schedule Assessment
             </Link>
             <a
               href="tel:+19194758841"
-              className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-xl font-semibold transition-all text-lg"
+              className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-[2px] font-semibold transition-all text-lg"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -456,8 +456,8 @@ export default function Home() {
               Call (919) 475-8841
             </a>
           </div>
-          <p className="text-blue-200 mt-8 text-sm">
-            ✓ Licensed & Insured &nbsp;&nbsp; ✓ GAF • Owens Corning • CertainTeed Certified &nbsp;&nbsp; ✓ BBB A+ Rated
+          <p className="text-white/70 mt-8 text-sm">
+            Licensed & Insured | GAF, Owens Corning & CertainTeed Certified | BBB A+ Rated
           </p>
         </div>
       </section>

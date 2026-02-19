@@ -49,7 +49,7 @@ export default function RoofReplacementPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <Link href="/services" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 mb-4 transition-colors text-sm">
+              <Link href="/services" className="inline-flex items-center gap-2 text-[#C8102E] hover:text-[#a50d25] mb-4 transition-colors text-sm">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
@@ -70,7 +70,7 @@ export default function RoofReplacementPage() {
                   </svg>
                   Triple Certified
                 </span>
-                <span className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full text-sm">
+                <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#C8102E]/20 text-[#C8102E] rounded-full text-sm">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
@@ -81,13 +81,13 @@ export default function RoofReplacementPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => setShowScheduler(true)}
-                  className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-xl font-semibold transition-colors shadow-lg"
+                  className="flex items-center justify-center gap-2 bg-[#C8102E] hover:bg-[#a50d25] text-white px-6 py-4 rounded-[2px] font-semibold transition-colors shadow-lg"
                 >
                   Get Free Quote
                 </button>
                 <a
                   href="tel:+19194758841"
-                  className="flex items-center justify-center gap-2 border border-white/20 hover:bg-white/5 text-white px-6 py-4 rounded-xl font-semibold transition-colors"
+                  className="flex items-center justify-center gap-2 border border-white/20 hover:bg-white/5 text-white px-6 py-4 rounded-[2px] font-semibold transition-colors"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -123,8 +123,8 @@ export default function RoofReplacementPage() {
               <p className="text-slate-600">Our certifications unlock manufacturer warranties up to 50 years — including workmanship coverage.</p>
             </div>
             <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-16 h-16 bg-[#C8102E]/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                 </svg>
               </div>
@@ -149,7 +149,7 @@ export default function RoofReplacementPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Our Philosophy</span>
+            <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">Our Philosophy</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">
               More Than Just Shingles
             </h2>
@@ -162,10 +162,10 @@ export default function RoofReplacementPage() {
           {/* 9 Parts Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {/* 1. Roof Deck */}
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-blue-300 transition-colors group">
+            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-[#C8102E]/30 transition-colors group">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 transition-colors">
-                  <span className="text-blue-600 font-bold text-lg">1</span>
+                <div className="w-12 h-12 bg-[#C8102E]/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#C8102E]/20 transition-colors">
+                  <span className="text-[#C8102E] font-bold text-lg">1</span>
                 </div>
                 <div>
                   <h3 className="text-slate-900 font-bold text-lg mb-1">Roof Deck</h3>
@@ -175,10 +175,10 @@ export default function RoofReplacementPage() {
             </div>
 
             {/* 2. Drip Edge */}
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-blue-300 transition-colors group">
+            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-[#C8102E]/30 transition-colors group">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 transition-colors">
-                  <span className="text-blue-600 font-bold text-lg">2</span>
+                <div className="w-12 h-12 bg-[#C8102E]/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#C8102E]/20 transition-colors">
+                  <span className="text-[#C8102E] font-bold text-lg">2</span>
                 </div>
                 <div>
                   <h3 className="text-slate-900 font-bold text-lg mb-1">Drip Edge</h3>
@@ -188,10 +188,10 @@ export default function RoofReplacementPage() {
             </div>
 
             {/* 3. Ice & Water Shield */}
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-blue-300 transition-colors group">
+            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-[#C8102E]/30 transition-colors group">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 transition-colors">
-                  <span className="text-blue-600 font-bold text-lg">3</span>
+                <div className="w-12 h-12 bg-[#C8102E]/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#C8102E]/20 transition-colors">
+                  <span className="text-[#C8102E] font-bold text-lg">3</span>
                 </div>
                 <div>
                   <h3 className="text-slate-900 font-bold text-lg mb-1">Ice & Water Shield</h3>
@@ -201,10 +201,10 @@ export default function RoofReplacementPage() {
             </div>
 
             {/* 4. Underlayment */}
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-blue-300 transition-colors group">
+            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-[#C8102E]/30 transition-colors group">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 transition-colors">
-                  <span className="text-blue-600 font-bold text-lg">4</span>
+                <div className="w-12 h-12 bg-[#C8102E]/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#C8102E]/20 transition-colors">
+                  <span className="text-[#C8102E] font-bold text-lg">4</span>
                 </div>
                 <div>
                   <h3 className="text-slate-900 font-bold text-lg mb-1">Underlayment</h3>
@@ -214,10 +214,10 @@ export default function RoofReplacementPage() {
             </div>
 
             {/* 5. Flashing */}
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-blue-300 transition-colors group">
+            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-[#C8102E]/30 transition-colors group">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 transition-colors">
-                  <span className="text-blue-600 font-bold text-lg">5</span>
+                <div className="w-12 h-12 bg-[#C8102E]/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#C8102E]/20 transition-colors">
+                  <span className="text-[#C8102E] font-bold text-lg">5</span>
                 </div>
                 <div>
                   <h3 className="text-slate-900 font-bold text-lg mb-1">Flashing</h3>
@@ -227,10 +227,10 @@ export default function RoofReplacementPage() {
             </div>
 
             {/* 6. Starter Strip */}
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-blue-300 transition-colors group">
+            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-[#C8102E]/30 transition-colors group">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 transition-colors">
-                  <span className="text-blue-600 font-bold text-lg">6</span>
+                <div className="w-12 h-12 bg-[#C8102E]/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#C8102E]/20 transition-colors">
+                  <span className="text-[#C8102E] font-bold text-lg">6</span>
                 </div>
                 <div>
                   <h3 className="text-slate-900 font-bold text-lg mb-1">Starter Strip</h3>
@@ -240,10 +240,10 @@ export default function RoofReplacementPage() {
             </div>
 
             {/* 7. Shingles */}
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-blue-300 transition-colors group">
+            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-[#C8102E]/30 transition-colors group">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 transition-colors">
-                  <span className="text-blue-600 font-bold text-lg">7</span>
+                <div className="w-12 h-12 bg-[#C8102E]/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#C8102E]/20 transition-colors">
+                  <span className="text-[#C8102E] font-bold text-lg">7</span>
                 </div>
                 <div>
                   <h3 className="text-slate-900 font-bold text-lg mb-1">Shingles</h3>
@@ -253,10 +253,10 @@ export default function RoofReplacementPage() {
             </div>
 
             {/* 8. Ventilation */}
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-blue-300 transition-colors group">
+            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-[#C8102E]/30 transition-colors group">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 transition-colors">
-                  <span className="text-blue-600 font-bold text-lg">8</span>
+                <div className="w-12 h-12 bg-[#C8102E]/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#C8102E]/20 transition-colors">
+                  <span className="text-[#C8102E] font-bold text-lg">8</span>
                 </div>
                 <div>
                   <h3 className="text-slate-900 font-bold text-lg mb-1">Ventilation</h3>
@@ -266,10 +266,10 @@ export default function RoofReplacementPage() {
             </div>
 
             {/* 9. Ridge Cap */}
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-blue-300 transition-colors group">
+            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-[#C8102E]/30 transition-colors group">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 transition-colors">
-                  <span className="text-blue-600 font-bold text-lg">9</span>
+                <div className="w-12 h-12 bg-[#C8102E]/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#C8102E]/20 transition-colors">
+                  <span className="text-[#C8102E] font-bold text-lg">9</span>
                 </div>
                 <div>
                   <h3 className="text-slate-900 font-bold text-lg mb-1">Ridge Cap</h3>
@@ -292,7 +292,7 @@ export default function RoofReplacementPage() {
                 <p className="text-slate-700 text-lg mb-4">
                   Most roof failures don&apos;t happen because of bad shingles — they happen because one of these system components was <span className="text-slate-900 font-semibold">skipped, rushed, or installed incorrectly</span>.
                 </p>
-                <p className="text-blue-700 font-medium">
+                <p className="text-[#C8102E] font-medium">
                   A roof only performs as well as its weakest part. We don&apos;t cut corners.
                 </p>
               </div>
@@ -349,20 +349,20 @@ export default function RoofReplacementPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700">
+      <section className="py-16 bg-gradient-to-r from-[#C8102E] to-[#a50d25]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready for a New Roof?</h2>
-          <p className="text-blue-100 text-lg mb-8">Get a free inspection and detailed quote. No obligation.</p>
+          <p className="text-white/80 text-lg mb-8">Get a free inspection and detailed quote. No obligation.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-blue-600 px-8 py-4 rounded-xl font-semibold transition-colors shadow-lg"
+              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-[#C8102E] px-8 py-4 rounded-[2px] font-semibold transition-colors shadow-lg"
             >
               Get Your Free Quote
             </Link>
             <a
               href="tel:+19194758841"
-              className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
+              className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-[2px] font-semibold transition-colors"
             >
               Call (919) 475-8841
             </a>

@@ -151,7 +151,7 @@ export default function ProblemFinder({ onSelectAction, compact = false }: Probl
         {selectedProblem.nextStep.action === 'call' ? (
           <a
             href="tel:+19194758841"
-            className="flex items-center justify-center gap-2 w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-xl font-semibold transition-colors text-lg"
+            className="flex items-center justify-center gap-2 w-full bg-[#C8102E] hover:bg-[#a50d25] text-white py-4 rounded-[2px] font-semibold transition-colors text-lg"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -161,7 +161,7 @@ export default function ProblemFinder({ onSelectAction, compact = false }: Probl
         ) : (
           <button
             onClick={handleAction}
-            className="flex items-center justify-center gap-2 w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl font-semibold transition-colors text-lg"
+            className="flex items-center justify-center gap-2 w-full bg-[#C8102E] hover:bg-[#a50d25] text-white py-4 rounded-[2px] font-semibold transition-colors text-lg"
           >
             {selectedProblem.nextStep.label}
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -172,7 +172,7 @@ export default function ProblemFinder({ onSelectAction, compact = false }: Probl
 
         {/* Alternative */}
         <p className="text-center text-slate-500 text-sm mt-4">
-          Or call anytime: <a href="tel:+19194758841" className="text-blue-600 hover:underline">(919) 475-8841</a>
+          Or call anytime: <a href="tel:+19194758841" className="text-[#C8102E] hover:underline">(919) 475-8841</a>
         </p>
       </div>
     )
@@ -190,9 +190,9 @@ export default function ProblemFinder({ onSelectAction, compact = false }: Probl
           <button
             key={problem.id}
             onClick={() => handleSelect(problem)}
-            className="flex flex-col items-center gap-3 p-4 bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-blue-300 rounded-xl transition-all group text-center"
+            className="flex flex-col items-center gap-3 p-4 bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-[#C8102E]/30 rounded-xl transition-all group text-center"
           >
-            <div className="text-slate-500 group-hover:text-blue-600 transition-colors">
+            <div className="text-slate-500 group-hover:text-[#C8102E] transition-colors">
               {problem.icon}
             </div>
             <span className="text-slate-900 font-medium text-sm">{problem.label}</span>

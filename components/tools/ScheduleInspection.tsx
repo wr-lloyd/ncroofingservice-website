@@ -90,21 +90,21 @@ export default function ScheduleInspection({ onSubmit, urgency = 'normal', prefi
           <h4 className="text-slate-900 font-semibold mb-2">What happens next:</h4>
           <ol className="text-slate-600 text-sm text-left space-y-2">
             <li className="flex items-start gap-2">
-              <span className="w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 text-xs text-white shadow-sm">1</span>
+              <span className="w-5 h-5 bg-[#C8102E] rounded-[2px] flex items-center justify-center flex-shrink-0 text-xs text-white shadow-sm">1</span>
               We&apos;ll call to confirm your preferred date and time
             </li>
             <li className="flex items-start gap-2">
-              <span className="w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 text-xs text-white shadow-sm">2</span>
+              <span className="w-5 h-5 bg-[#C8102E] rounded-[2px] flex items-center justify-center flex-shrink-0 text-xs text-white shadow-sm">2</span>
               A certified inspector will visit your property
             </li>
             <li className="flex items-start gap-2">
-              <span className="w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 text-xs text-white shadow-sm">3</span>
+              <span className="w-5 h-5 bg-[#C8102E] rounded-[2px] flex items-center justify-center flex-shrink-0 text-xs text-white shadow-sm">3</span>
               You&apos;ll receive a detailed assessment and options
             </li>
           </ol>
         </div>
         <p className="text-slate-500 text-sm">
-          Can&apos;t wait? Call us directly: <a href="tel:+19194758841" className="text-blue-600 hover:underline">(919) 475-8841</a>
+          Can&apos;t wait? Call us directly: <a href="tel:+19194758841" className="text-[#C8102E] hover:underline">(919) 475-8841</a>
         </p>
       </div>
     )
@@ -135,7 +135,7 @@ export default function ScheduleInspection({ onSubmit, urgency = 'normal', prefi
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+              className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20"
               placeholder="John Smith"
             />
           </div>
@@ -148,7 +148,7 @@ export default function ScheduleInspection({ onSubmit, urgency = 'normal', prefi
               value={formData.phone}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+              className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20"
               placeholder="(919) 555-1234"
             />
           </div>
@@ -162,7 +162,7 @@ export default function ScheduleInspection({ onSubmit, urgency = 'normal', prefi
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+            className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20"
             placeholder="john@example.com"
           />
         </div>
@@ -177,7 +177,7 @@ export default function ScheduleInspection({ onSubmit, urgency = 'normal', prefi
               value={formData.address}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+              className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20"
               placeholder="123 Main St"
             />
           </div>
@@ -189,7 +189,7 @@ export default function ScheduleInspection({ onSubmit, urgency = 'normal', prefi
               value={formData.city}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+              className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20"
             >
               <option value="">Select city</option>
               <option value="Rougemont">Rougemont</option>
@@ -216,7 +216,7 @@ export default function ScheduleInspection({ onSubmit, urgency = 'normal', prefi
               onChange={handleChange}
               min={minDate}
               required
-              className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+              className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20"
             />
           </div>
           <div>
@@ -227,7 +227,7 @@ export default function ScheduleInspection({ onSubmit, urgency = 'normal', prefi
               value={formData.preferredTime}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+              className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20"
             >
               <option value="">Select time</option>
               <option value="morning">Morning (8am - 12pm)</option>
@@ -245,7 +245,7 @@ export default function ScheduleInspection({ onSubmit, urgency = 'normal', prefi
             value={formData.notes}
             onChange={handleChange}
             rows={3}
-            className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 resize-none"
+            className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20 resize-none"
             placeholder="Describe any issues you've noticed..."
           />
         </div>
@@ -259,7 +259,7 @@ export default function ScheduleInspection({ onSubmit, urgency = 'normal', prefi
           className={`w-full py-4 rounded-xl font-semibold text-lg transition-all flex items-center justify-center gap-2 shadow-md ${
             urgency === 'priority'
               ? 'bg-orange-600 hover:bg-orange-700 text-white'
-              : 'bg-blue-600 hover:bg-blue-700 text-white'
+              : 'bg-[#C8102E] hover:bg-[#a50d25] text-white'
           } disabled:opacity-50 disabled:cursor-not-allowed`}
         >
           {isSubmitting ? (

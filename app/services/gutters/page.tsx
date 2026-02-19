@@ -97,13 +97,13 @@ export default function GuttersPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => setShowForm(true)}
-                  className="flex items-center justify-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-4 rounded-xl font-semibold transition-colors shadow-lg"
+                  className="flex items-center justify-center gap-2 bg-[#C8102E] hover:bg-[#a50d25] text-white px-6 py-4 rounded-[2px] font-semibold transition-colors shadow-lg"
                 >
                   Get Free Estimate
                 </button>
                 <a
                   href="tel:+19194758841"
-                  className="flex items-center justify-center gap-2 border border-white/20 hover:bg-white/5 text-white px-6 py-4 rounded-xl font-semibold transition-colors"
+                  className="flex items-center justify-center gap-2 border border-white/20 hover:bg-white/5 text-white px-6 py-4 rounded-[2px] font-semibold transition-colors"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -121,7 +121,7 @@ export default function GuttersPage() {
                   <p className="text-slate-600 mb-6">We&apos;ll measure your home and provide a detailed quote.</p>
                   <Link 
                     href="/contact" 
-                    className="block w-full bg-cyan-600 hover:bg-cyan-700 text-white text-center px-6 py-4 rounded-xl font-semibold transition-colors"
+                    className="block w-full bg-[#C8102E] hover:bg-[#a50d25] text-white text-center px-6 py-4 rounded-[2px] font-semibold transition-colors"
                   >
                     Continue to Form →
                   </Link>
@@ -198,7 +198,7 @@ export default function GuttersPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="text-cyan-600 font-semibold text-sm uppercase tracking-wider">Stop Cleaning Forever</span>
+              <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">Stop Cleaning Forever</span>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-6">
                 Gutter Guard Systems
               </h2>
@@ -229,7 +229,7 @@ export default function GuttersPage() {
 
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-3 rounded-xl font-semibold transition-colors"
+                className="inline-flex items-center gap-2 bg-[#C8102E] hover:bg-[#a50d25] text-white px-6 py-3 rounded-[2px] font-semibold transition-colors"
               >
                 Get Guard Quote
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -283,7 +283,7 @@ export default function GuttersPage() {
               { step: 4, title: 'Test', desc: 'We test water flow to ensure proper drainage away from your home.' },
             ].map((item) => (
               <div key={item.step} className="text-center">
-                <div className="w-12 h-12 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg shadow-lg">
+                <div className="w-12 h-12 bg-[#C8102E] rounded-[2px] flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg shadow-lg">
                   {item.step}
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h3>
@@ -317,26 +317,26 @@ export default function GuttersPage() {
       </section>
 
       {/* Bundle CTA */}
-      <section className="py-16 bg-gradient-to-r from-cyan-600 to-cyan-700">
+      <section className="py-16 bg-gradient-to-r from-[#C8102E] to-[#a50d25]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 rounded-full text-cyan-100 text-sm font-medium mb-6">
             <span>💡</span> Pro Tip
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Bundle Gutters with Your New Roof</h2>
-          <p className="text-cyan-100 text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
             Getting a roof replacement? This is the perfect time to upgrade your gutters. 
             We can ensure seamless integration and often offer bundled pricing.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-cyan-50 text-cyan-700 px-8 py-4 rounded-xl font-semibold transition-colors shadow-lg"
+              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-[#C8102E] px-8 py-4 rounded-[2px] font-semibold transition-colors shadow-lg"
             >
               Get Bundled Quote
             </Link>
             <a
               href="tel:+19194758841"
-              className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
+              className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-[2px] font-semibold transition-colors"
             >
               Call (919) 475-8841
             </a>

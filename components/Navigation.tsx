@@ -44,8 +44,8 @@ export default function Navigation() {
                 href={link.href}
                 className={`transition-colors font-medium text-sm flex items-center gap-1 ${
                   link.highlight 
-                    ? 'text-orange-600 hover:text-orange-700' 
-                    : 'text-slate-600 hover:text-slate-900'
+                    ? 'text-[#C8102E] hover:text-[#a50d25]' 
+                    : 'text-[#444444] hover:text-[#111111]'
                 }`}
               >
                 {link.badge && <span>{link.badge}</span>}
@@ -54,7 +54,7 @@ export default function Navigation() {
             ))}
             <a
               href="tel:+19194758841"
-              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-semibold transition-colors shadow-md shadow-blue-600/20"
+              className="flex items-center gap-2 bg-[#C8102E] hover:bg-[#a50d25] text-white px-5 py-2.5 rounded-[2px] font-semibold transition-colors shadow-md shadow-[#C8102E]/20"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -67,7 +67,7 @@ export default function Navigation() {
           <div className="flex items-center gap-3 lg:hidden">
             <a
               href="tel:+19194758841"
-              className="flex items-center justify-center w-10 h-10 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+              className="flex items-center justify-center w-10 h-10 bg-[#C8102E] hover:bg-[#a50d25] text-white rounded-[2px] transition-colors"
               aria-label="Call us"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -98,7 +98,7 @@ export default function Navigation() {
                 key={link.href}
                 href={link.href}
                 className={`block py-3 transition-colors font-medium border-b border-slate-100 ${
-                  link.highlight ? 'text-orange-600' : 'text-slate-600 hover:text-slate-900'
+                  link.highlight ? 'text-[#C8102E]' : 'text-[#444444] hover:text-[#111111]'
                 }`}
                 onClick={() => setIsOpen(false)}
               >
@@ -109,7 +109,7 @@ export default function Navigation() {
             <div className="mt-4 space-y-3">
               <a
                 href="tel:+19194758841"
-                className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                className="flex items-center justify-center gap-2 bg-[#C8102E] hover:bg-[#a50d25] text-white px-6 py-3 rounded-[2px] font-semibold transition-colors"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -118,10 +118,10 @@ export default function Navigation() {
               </a>
               <Link
                 href="/contact"
-                className="flex items-center justify-center gap-2 border-2 border-slate-200 hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-lg font-semibold transition-colors"
+                className="flex items-center justify-center gap-2 border-2 border-[#111111] hover:bg-[#f2f2f2] text-[#111111] px-6 py-3 rounded-[2px] font-semibold transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                Free Inspection
+                Schedule Assessment
               </Link>
             </div>
           </div>

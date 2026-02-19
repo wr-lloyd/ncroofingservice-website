@@ -68,7 +68,7 @@ export default function BlogPage() {
       <section className="py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <span className="text-blue-500 font-semibold text-sm uppercase tracking-wider">Blog</span>
+            <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">Blog</span>
             <h1 className="text-4xl md:text-6xl font-bold text-white mt-2 mb-6">Roofing Tips & News</h1>
             <p className="text-slate-400 text-xl max-w-3xl mx-auto">
               Expert advice and information to help you make informed decisions about your roof.
@@ -127,7 +127,7 @@ export default function BlogPage() {
             {posts.filter(post => !post.featured).map((post, idx) => (
               <article 
                 key={idx}
-                className="bg-slate-900/50 rounded-2xl overflow-hidden border border-white/5 hover:border-blue-500/30 transition-all group"
+                className="bg-slate-900/50 rounded-2xl overflow-hidden border border-white/5 hover:border-[#C8102E]/30 transition-all group"
               >
                 {/* Image Placeholder */}
                 <div className="aspect-video bg-slate-700 relative">
@@ -140,7 +140,7 @@ export default function BlogPage() {
                     <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
                       post.category === 'Guide' ? 'bg-red-500/20 text-red-400' :
                       post.category === 'FORTIFIED' ? 'bg-green-500/20 text-green-400' :
-                      post.category === 'Insurance' ? 'bg-blue-500/20 text-blue-400' :
+                      post.category === 'Insurance' ? 'bg-blue-500/20 text-[#C8102E]' :
                       post.category === 'Materials' ? 'bg-purple-500/20 text-purple-400' :
                       post.category === 'Maintenance' ? 'bg-amber-500/20 text-amber-400' :
                       'bg-slate-500/20 text-slate-400'
@@ -152,11 +152,11 @@ export default function BlogPage() {
                 
                 <div className="p-6">
                   <p className="text-slate-500 text-sm mb-2">{post.date}</p>
-                  <h2 className="text-lg font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                  <h2 className="text-lg font-bold text-white mb-3 group-hover:text-[#C8102E] transition-colors">
                     {post.title}
                   </h2>
                   <p className="text-slate-400 text-sm mb-4">{post.excerpt}</p>
-                  <span className="inline-flex items-center gap-2 text-blue-400 font-medium text-sm group-hover:text-blue-300 transition-colors">
+                  <span className="inline-flex items-center gap-2 text-[#C8102E] font-medium text-sm group-hover:text-[#a50d25] transition-colors">
                     Read More
                     <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -170,7 +170,7 @@ export default function BlogPage() {
           {/* Coming Soon Note */}
           <div className="mt-12 text-center">
             <p className="text-slate-500">
-              Full articles coming soon. Have a question? <Link href="/contact" className="text-blue-400 hover:underline">Contact us</Link> or check our <Link href="/faq" className="text-blue-400 hover:underline">FAQ</Link>.
+              Full articles coming soon. Have a question? <Link href="/contact" className="text-[#C8102E] hover:underline">Contact us</Link> or check our <Link href="/faq" className="text-[#C8102E] hover:underline">FAQ</Link>.
             </p>
           </div>
         </div>
@@ -179,21 +179,21 @@ export default function BlogPage() {
       {/* CTA Section */}
       <section className="py-24 bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-8 md:p-12 text-center">
+          <div className="bg-gradient-to-r from-[#C8102E] to-[#a50d25] rounded-[2px] p-8 md:p-12 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Have Roofing Questions?</h2>
-            <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
+            <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
               We&apos;re happy to answer your questions. Schedule a free consultation or give us a call.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-blue-600 px-8 py-4 rounded-lg font-semibold transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-[#C8102E] px-8 py-4 rounded-[2px] font-semibold transition-colors"
               >
                 Contact Us
               </Link>
               <a
                 href="tel:+19194758841"
-                className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-lg font-semibold transition-colors"
+                className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-[2px] font-semibold transition-colors"
               >
                 Call (919) 475-8841
               </a>

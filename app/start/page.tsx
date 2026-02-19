@@ -104,7 +104,7 @@ const toolCategories: ToolCategory[] = [
     id: 'schedule',
     title: 'Schedule',
     icon: '📅',
-    color: 'text-green-400',
+    color: 'text-[#C8102E]',
     tools: [
       { id: 'schedule-inspection', name: 'Book Inspection', href: '#schedule-inspection' },
     ],
@@ -210,7 +210,7 @@ export default function StartPage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <span className="text-green-400 font-semibold text-sm uppercase tracking-wider">
+            <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">
               {selectedSituation ? 'Your Journey' : 'Start Here'}
             </span>
             <h1 className="text-4xl md:text-6xl font-bold text-white mt-2 mb-6">
@@ -264,19 +264,19 @@ export default function StartPage() {
                     <button
                       key={situation.id}
                       onClick={() => handleSituationSelect(situation.id)}
-                      className={`text-left p-6 rounded-2xl border-2 border-slate-200 bg-white hover:border-blue-300 hover:shadow-lg transition-all group`}
+                      className={`text-left p-6 rounded-2xl border-2 border-slate-200 bg-white hover:border-[#C8102E]/30 hover:shadow-lg transition-all group`}
                     >
                       <div className="flex items-start gap-4">
                         <div className={`w-12 h-12 bg-gradient-to-br ${situation.color} rounded-xl flex items-center justify-center text-xl flex-shrink-0 shadow-md`}>
                           {situation.icon}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h3 className="text-lg font-bold text-slate-900 mb-1 group-hover:text-blue-600 transition-colors">
+                          <h3 className="text-lg font-bold text-slate-900 mb-1 group-hover:text-[#C8102E] transition-colors">
                             {situation.title}
                           </h3>
                           <p className="text-slate-500 text-sm">{situation.subtitle}</p>
                         </div>
-                        <svg className="w-5 h-5 text-slate-400 group-hover:text-blue-500 group-hover:translate-x-1 transition-all mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 text-slate-400 group-hover:text-[#C8102E] group-hover:translate-x-1 transition-all mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                       </div>
@@ -290,7 +290,7 @@ export default function StartPage() {
                   <Link
                     href="#schedule-inspection"
                     onClick={(e) => { e.preventDefault(); scrollToSection('schedule-inspection'); }}
-                    className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors"
+                    className="inline-flex items-center gap-2 text-[#C8102E] hover:text-[#a50d25] font-medium transition-colors"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -321,7 +321,7 @@ export default function StartPage() {
                       <div
                         key={idx}
                         className={`h-2 flex-1 rounded-full transition-colors ${
-                          idx + 1 <= currentStep ? 'bg-blue-500' : 'bg-slate-200'
+                          idx + 1 <= currentStep ? 'bg-[#C8102E]' : 'bg-slate-200'
                         }`}
                       />
                     ))}
@@ -361,7 +361,7 @@ export default function StartPage() {
                 {/* Header */}
                 <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-b border-slate-200 px-5 py-4">
                   <h3 className="font-bold text-slate-900 flex items-center gap-2">
-                    <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                     </svg>
                     Jump to Tools
@@ -397,7 +397,7 @@ export default function StartPage() {
                                 onClick={() => scrollToSection(tool.id)}
                                 className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors ${
                                   activeSection === tool.id
-                                    ? 'bg-blue-50 text-blue-600'
+                                    ? 'bg-[#C8102E]/5 text-[#C8102E]'
                                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                                 }`}
                               >
@@ -520,7 +520,7 @@ export default function StartPage() {
       <div className="lg:hidden fixed bottom-20 right-4 z-40">
         <button
           onClick={() => setShowMobileToolbar(!showMobileToolbar)}
-          className="w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg shadow-blue-600/30 flex items-center justify-center transition-all"
+          className="w-14 h-14 bg-[#C8102E] hover:bg-[#a50d25] text-white rounded-[2px] shadow-lg shadow-[#C8102E]/30 flex items-center justify-center transition-all"
         >
           {showMobileToolbar ? (
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -652,7 +652,7 @@ function FortifiedExplainer() {
 
       <Link
         href="/services/fortified-roofing"
-        className="flex items-center justify-center gap-2 w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-semibold transition-colors shadow-md"
+        className="flex items-center justify-center gap-2 w-full bg-[#C8102E] hover:bg-[#a50d25] text-white py-3 rounded-[2px] font-semibold transition-colors shadow-md"
       >
         Learn More About FORTIFIED
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

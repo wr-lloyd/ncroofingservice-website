@@ -35,7 +35,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li><Link href="/" className="text-slate-400 hover:text-white transition-colors text-sm">Home</Link></li>
               <li>
-                <Link href="/storm-check" className="text-orange-400 hover:text-orange-300 transition-colors text-sm font-medium flex items-center gap-1">
+                <Link href="/storm-check" className="text-[#C8102E] hover:text-[#a50d25] transition-colors text-sm font-medium flex items-center gap-1">
                   ⚡ Storm Damage Check
                 </Link>
               </li>
@@ -62,7 +62,7 @@ export default function Footer() {
               <Link href="/locations/garner" className="text-slate-400 hover:text-white transition-colors text-sm">Garner</Link>
               <Link href="/locations/hillsborough" className="text-slate-400 hover:text-white transition-colors text-sm">Hillsborough</Link>
             </div>
-            <Link href="/locations" className="text-blue-400 hover:text-blue-300 transition-colors text-sm font-medium">
+            <Link href="/locations" className="text-[#C8102E] hover:text-[#a50d25] transition-colors text-sm font-medium">
               View All 30+ Cities →
             </Link>
           </div>
@@ -72,26 +72,26 @@ export default function Footer() {
             <h3 className="text-white font-semibold text-lg mb-4">Contact Us</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-slate-400">
-                <svg className="w-5 h-5 mt-0.5 flex-shrink-0 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 mt-0.5 flex-shrink-0 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
                 <span className="text-sm">5950 Mt. Harmony Church Rd<br />Rougemont, NC 27572</span>
               </li>
               <li className="flex items-center gap-3 text-slate-400">
-                <svg className="w-5 h-5 flex-shrink-0 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 flex-shrink-0 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
                 <a href="tel:+19194758841" className="hover:text-white transition-colors text-sm">(919) 475-8841</a>
               </li>
               <li className="flex items-center gap-3 text-slate-400">
-                <svg className="w-5 h-5 flex-shrink-0 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 flex-shrink-0 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 <a href="mailto:bandc@ncroofingservice.com" className="hover:text-white transition-colors text-sm">bandc@ncroofingservice.com</a>
               </li>
               <li className="flex items-start gap-3 text-slate-400">
-                <svg className="w-5 h-5 mt-0.5 flex-shrink-0 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 mt-0.5 flex-shrink-0 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <div className="text-sm">
@@ -132,7 +132,7 @@ export default function Footer() {
               FORTIFIED by IBHS
             </div>
             <div className="flex items-center gap-2 text-slate-400 text-sm">
-              <svg className="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-5 h-5 text-[#C8102E]" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
               BBB A+ Rated

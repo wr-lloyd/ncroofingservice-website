@@ -270,13 +270,13 @@ function StormCheckContent() {
         
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#C8102E]/10 rounded-full blur-3xl animate-pulse-slow"></div>
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-bold text-xs uppercase tracking-[0.2em] mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#C8102E]/10 border border-[#C8102E]/20 text-[#C8102E] font-bold text-xs uppercase tracking-[0.2em] mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
@@ -298,7 +298,7 @@ function StormCheckContent() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-xl max-w-lg mx-auto">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center shadow-md">
+              <div className="w-10 h-10 bg-[#C8102E] rounded-[2px] flex items-center justify-center shadow-md">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                 </svg>
@@ -311,7 +311,7 @@ function StormCheckContent() {
 
             {/* Progress Bar (Visual only for consistency) */}
             <div className="flex gap-2 mb-6">
-              <div className="h-1.5 flex-1 rounded-full bg-blue-500" />
+              <div className="h-1.5 flex-1 rounded-full bg-[#C8102E]" />
               <div className="h-1.5 flex-1 rounded-full bg-slate-200" />
             </div>
 
@@ -325,7 +325,7 @@ function StormCheckContent() {
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
                     placeholder="123 Main St, Raleigh, NC"
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-base"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20 transition-all text-base"
                     required
                   />
                   {address && (
@@ -350,7 +350,7 @@ function StormCheckContent() {
                     id="months"
                     value={months}
                     onChange={(e) => setMonths(Number(e.target.value))}
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all text-base appearance-none cursor-pointer"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20 transition-all text-base appearance-none cursor-pointer"
                   >
                     <option value={3}>Past 3 Months</option>
                     <option value={6}>Past 6 Months</option>
@@ -369,7 +369,7 @@ function StormCheckContent() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 disabled:cursor-not-allowed text-white py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 shadow-md"
+                className="w-full bg-[#C8102E] hover:bg-[#a50d25] disabled:bg-[#C8102E]/50 disabled:cursor-not-allowed text-white py-3 rounded-[2px] font-semibold transition-colors flex items-center justify-center gap-2 shadow-md"
               >
                 {isLoading ? (
                   <>
@@ -561,7 +561,7 @@ function StormCheckContent() {
                               <div className="flex items-start gap-6">
                                 <div className={`w-14 h-14 rounded-2xl ${
                                   storm.type === 'hail' ? 'bg-cyan-50 text-cyan-600' :
-                                  storm.type === 'wind' ? 'bg-blue-50 text-blue-600' :
+                                  storm.type === 'wind' ? 'bg-blue-50 text-[#C8102E]' :
                                   'bg-red-50 text-red-600'
                                 } flex items-center justify-center flex-shrink-0 shadow-inner`}>
                                   {stormIcons[storm.type]}
@@ -616,7 +616,7 @@ function StormCheckContent() {
                     </div>
                     Professional Expert Advice
                   </h3>
-                  <p className="text-blue-50 text-xl font-medium leading-relaxed mb-6">
+                  <p className="text-white/90 text-xl font-medium leading-relaxed mb-6">
                     &ldquo;{results.recommendation}&rdquo;
                   </p>
                   <div className="flex flex-wrap gap-4">
@@ -633,13 +633,13 @@ function StormCheckContent() {
               </div>
 
               <div className="bg-slate-900 rounded-3xl p-8 text-white shadow-xl flex flex-col justify-center">
-                <h3 className="text-lg font-black mb-4 uppercase tracking-widest text-blue-400">Claims Tip</h3>
+                <h3 className="text-lg font-black mb-4 uppercase tracking-widest text-[#C8102E]">Claims Tip</h3>
                 <p className="text-slate-300 font-medium leading-relaxed mb-6">
                   Most homeowners in North Carolina have up to <span className="text-white font-black underline decoration-blue-500">2 years</span> to file a claim. However, waiting increases the risk of claim denial.
                 </p>
                 <div className="pt-6 border-t border-slate-800">
                   <div className="flex items-center gap-3 text-sm font-black text-slate-400">
-                    <svg className="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     AVG CLAIM: $14,000+
@@ -731,19 +731,19 @@ function StormCheckContent() {
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
                 <div className="relative z-10">
                   <h3 className="text-3xl font-black text-white mb-4 tracking-tight">Schedule Your Free On-Site Inspection</h3>
-                  <p className="text-blue-100 text-xl font-medium mb-8 max-w-2xl mx-auto">
+                  <p className="text-white/80 text-xl font-medium mb-8 max-w-2xl mx-auto">
                     A digital report is just the start. Our certified inspectors will perform a 21-point physical assessment to document damage for your claim.
                   </p>
                   <button
                     onClick={() => setShowScheduleForm(true)}
-                    className="bg-white hover:bg-slate-50 active:scale-95 text-blue-600 px-10 py-5 rounded-2xl font-black text-xl transition-all shadow-xl hover:shadow-2xl flex items-center gap-3 mx-auto"
+                    className="bg-white hover:bg-slate-50 active:scale-95 text-[#C8102E] px-10 py-5 rounded-2xl font-black text-xl transition-all shadow-xl hover:shadow-2xl flex items-center gap-3 mx-auto"
                   >
                     Get Free Inspection
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </button>
-                  <p className="text-blue-200 text-sm font-bold mt-6 flex items-center justify-center gap-2">
+                  <p className="text-white/70 text-sm font-bold mt-6 flex items-center justify-center gap-2">
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 00-1.02.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.2a1.019 1.019 0 00.24-1.02c-.37-1.12-.57-2.32-.57-3.57 0-.55-.45-1-1-1H7c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z" />
                     </svg>
@@ -821,7 +821,7 @@ function StormCheckContent() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-wait text-white px-8 py-5 rounded-2xl font-black text-xl transition-all shadow-xl shadow-blue-600/20 flex items-center justify-center gap-3 active:scale-[0.98]"
+                      className="w-full bg-[#C8102E] hover:bg-[#a50d25] disabled:bg-[#C8102E]/50 disabled:cursor-wait text-white px-8 py-5 rounded-[2px] font-black text-xl transition-all shadow-xl shadow-[#C8102E]/20 flex items-center justify-center gap-3 active:scale-[0.98]"
                     >
                       {isSubmitting ? (
                         <>
@@ -887,7 +887,7 @@ function StormCheckContent() {
             </div>
 
             <div className="mt-24 bg-slate-900 rounded-[3rem] p-8 md:p-16 overflow-hidden relative">
-              <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-600/10 blur-[120px] pointer-events-none"></div>
+              <div className="absolute top-0 right-0 w-1/2 h-full bg-[#C8102E]/10 blur-[120px] pointer-events-none"></div>
               <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
                 <div>
                   <h3 className="text-3xl md:text-4xl font-black text-white mb-8 tracking-tight">Why check your roof now?</h3>
@@ -916,7 +916,7 @@ function StormCheckContent() {
                   </div>
                 </div>
                 <div className="bg-white/5 backdrop-blur-md rounded-3xl p-10 border border-white/10 text-center">
-                  <div className="text-7xl font-black text-blue-500 mb-4 tracking-tighter">68%</div>
+                  <div className="text-7xl font-black text-[#C8102E] mb-4 tracking-tighter">68%</div>
                   <p className="text-white text-xl font-medium mb-6 leading-relaxed">
                     of NC homeowners have storm damage they are currently unaware of.
                   </p>
@@ -932,7 +932,7 @@ function StormCheckContent() {
       {/* Trust Section */}
       <section className="py-24 bg-slate-50 border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-sm font-black text-blue-600 uppercase tracking-[0.3em] mb-4">Quality & Reliability</h2>
+          <h2 className="text-sm font-black text-[#C8102E] uppercase tracking-[0.3em] mb-4">Quality & Reliability</h2>
           <h3 className="text-3xl md:text-4xl font-black text-slate-900 mb-12 tracking-tight">Trusted by North Carolina Homeowners</h3>
           
           <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-10">
@@ -956,7 +956,7 @@ function StormCheckContent() {
 
             <div className="flex flex-col items-center gap-4 group">
               <div className="w-16 h-16 rounded-2xl bg-white shadow-md flex items-center justify-center group-hover:scale-110 group-hover:shadow-xl transition-all duration-300">
-                <svg className="w-8 h-8 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-8 h-8 text-[#C8102E]" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
               </div>

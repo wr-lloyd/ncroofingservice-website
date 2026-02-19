@@ -162,7 +162,7 @@ export default function ContactPage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <span className="text-blue-400 font-semibold text-sm uppercase tracking-wider">Local Support, Right Where You Are</span>
+            <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">Local Support, Right Where You Are</span>
             <h1 className="text-4xl md:text-6xl font-bold text-white mt-2 mb-6">Meet Your Local Expert</h1>
             <p className="text-slate-300 text-xl max-w-3xl mx-auto">
               We have dedicated local leads who understand the resources, providers, and realities of your community. 
@@ -218,7 +218,7 @@ export default function ContactPage() {
                       <span className={`px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-white backdrop-blur-sm ${
                         region.color === 'green' ? 'bg-green-600/80' :
                         region.color === 'purple' ? 'bg-purple-600/80' :
-                        'bg-blue-600/80'
+                        'bg-[#C8102E]/80'
                       }`}>
                         {region.shortLabel}
                       </span>
@@ -230,7 +230,7 @@ export default function ContactPage() {
                       <p className={`text-sm font-medium ${
                         region.color === 'green' ? 'text-green-300' :
                         region.color === 'purple' ? 'text-purple-300' :
-                        'text-blue-300'
+                        'text-[#C8102E]'
                       }`}>{region.label}</p>
                     </div>
                   </div>
@@ -324,7 +324,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Why It Matters</span>
+              <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">Why It Matters</span>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-6">
                 Local Experts, Not a Call Center
               </h2>
@@ -445,15 +445,15 @@ export default function ContactPage() {
                     <h4 className="font-semibold text-slate-900 mb-3">What happens next:</h4>
                     <ol className="space-y-2 text-slate-600">
                       <li className="flex items-start gap-3">
-                        <span className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 text-xs text-white">1</span>
+                        <span className="w-6 h-6 bg-[#C8102E] rounded-[2px] flex items-center justify-center flex-shrink-0 text-xs text-white">1</span>
                         We&apos;ll call to discuss your needs
                       </li>
                       <li className="flex items-start gap-3">
-                        <span className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 text-xs text-white">2</span>
+                        <span className="w-6 h-6 bg-[#C8102E] rounded-[2px] flex items-center justify-center flex-shrink-0 text-xs text-white">2</span>
                         Schedule a free on-site inspection
                       </li>
                       <li className="flex items-start gap-3">
-                        <span className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 text-xs text-white">3</span>
+                        <span className="w-6 h-6 bg-[#C8102E] rounded-[2px] flex items-center justify-center flex-shrink-0 text-xs text-white">3</span>
                         Receive a detailed assessment and options
                       </li>
                     </ol>
@@ -522,7 +522,7 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-colors"
+                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20 transition-colors"
                       placeholder="John Smith"
                     />
                   </div>
@@ -537,7 +537,7 @@ export default function ContactPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-colors"
+                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20 transition-colors"
                       placeholder="(919) 555-1234"
                     />
                   </div>
@@ -553,7 +553,7 @@ export default function ContactPage() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-colors"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20 transition-colors"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -570,7 +570,7 @@ export default function ContactPage() {
                       value={formData.address}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-colors"
+                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20 transition-colors"
                       placeholder="123 Main St"
                     />
                   </div>
@@ -584,7 +584,7 @@ export default function ContactPage() {
                       value={formData.city}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-colors"
+                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20 transition-colors"
                     >
                       <option value="">Select city</option>
                       {cityGroups.map((group) => (
@@ -609,7 +609,7 @@ export default function ContactPage() {
                     value={formData.service}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-colors"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20 transition-colors"
                   >
                     <option value="">Select a service</option>
                     <option value="inspection">Storm Check and Free Roof Inspection</option>
@@ -633,7 +633,7 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={handleChange}
                     rows={4}
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20 transition-colors resize-none"
                     placeholder="Describe your roofing needs or any damage you've noticed..."
                   ></textarea>
                 </div>
@@ -668,7 +668,7 @@ export default function ContactPage() {
                       <a 
                         href={`tel:${selectedRegion.lead.phoneRaw}`}
                         className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-bold transition-colors shadow-md ${
-                          selectedRegion.color === 'blue' ? 'bg-blue-600 hover:bg-blue-700 text-white' :
+                          selectedRegion.color === 'blue' ? 'bg-[#C8102E] hover:bg-[#a50d25] text-white' :
                           selectedRegion.color === 'green' ? 'bg-green-600 hover:bg-green-700 text-white' :
                           'bg-purple-600 hover:bg-purple-700 text-white'
                         }`}
@@ -685,7 +685,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 disabled:from-blue-400 disabled:to-blue-500 text-white px-6 py-4 rounded-xl font-bold transition-all text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:transform-none disabled:cursor-wait flex items-center justify-center gap-2"
+                  className="w-full bg-[#C8102E] hover:bg-[#a50d25] disabled:bg-[#C8102E]/50 text-white px-6 py-4 rounded-[2px] font-bold transition-all text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:transform-none disabled:cursor-wait flex items-center justify-center gap-2"
                 >
                   {isSubmitting ? (
                     <>
@@ -734,14 +734,14 @@ export default function ContactPage() {
               
               <div className="space-y-6 mb-12">
                 <div className="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-200 shadow-sm">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-12 h-12 bg-[#C8102E]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg className="w-6 h-6 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-slate-900 font-semibold text-lg">Main Office</h3>
-                    <a href="tel:+19194758841" className="text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors">
+                    <h3 className="text-[#111111] font-semibold text-lg">Main Office</h3>
+                    <a href="tel:+19194758841" className="text-2xl font-bold text-[#C8102E] hover:text-[#a50d25] transition-colors">
                       (919) 475-8841
                     </a>
                     <p className="text-slate-500 text-sm mt-1">Call or text anytime</p>
@@ -750,13 +750,13 @@ export default function ContactPage() {
                 
                 <div className="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-200 shadow-sm">
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
                   <div>
                     <h3 className="text-slate-900 font-semibold text-lg">Email</h3>
-                    <a href="mailto:bandc@ncroofingservice.com" className="text-blue-600 hover:text-blue-700 transition-colors">
+                    <a href="mailto:bandc@ncroofingservice.com" className="text-[#C8102E] hover:text-[#a50d25] transition-colors">
                       bandc@ncroofingservice.com
                     </a>
                     <p className="text-slate-500 text-sm mt-1">We respond within 24 hours</p>
@@ -765,7 +765,7 @@ export default function ContactPage() {
                 
                 <div className="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-200 shadow-sm">
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
@@ -781,7 +781,7 @@ export default function ContactPage() {
                 
                 <div className="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-200 shadow-sm">
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
@@ -846,7 +846,7 @@ export default function ContactPage() {
             </a>
             <Link
               href="/storm-check"
-              className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 text-lg shadow-xl"
+              className="inline-flex items-center justify-center gap-3 bg-[#C8102E] hover:bg-[#a50d25] text-white px-8 py-4 rounded-[2px] font-bold transition-all hover:scale-105 text-lg shadow-xl"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />

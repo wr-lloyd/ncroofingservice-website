@@ -1,25 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Light Mode Color Scheme for NC Roofing Service */
+/* NC Roofing Service Brand Color Scheme - v1.2 */
 :root {
-  --background: 248 250 252; /* slate-50 */
-  --foreground: 15 23 42; /* slate-900 */
-  --muted: 241 245 249; /* slate-100 */
-  --muted-foreground: 100 116 139; /* slate-500 */
+  /* Primary Brand Colors */
+  --background: 255 255 255;           /* #FFFFFF - White (primary bg) */
+  --background-muted: 242 242 242;     /* #F2F2F2 - Light Gray */
+  --foreground: 17 17 17;              /* #111111 - Primary Black */
+  --foreground-muted: 68 68 68;        /* #444444 - Supporting Gray */
+  
+  /* UI Elements */
   --card: 255 255 255;
-  --card-foreground: 30 41 59; /* slate-800 */
-  --border: 226 232 240; /* slate-200 */
-  --primary: 37 99 235; /* blue-600 */
+  --card-foreground: 17 17 17;
+  --border: 17 17 17;                  /* Heavy black borders per brand */
+  
+  /* Primary Action Color */
+  --primary: 200 16 46;                /* #C8102E - Accent Red */
   --primary-foreground: 255 255 255;
-  --accent: 249 115 22; /* orange-500 */
+  
+  /* Regional Campaign Colors (for targeted campaigns) */
+  --duke-blue: 1 33 105;               /* #012169 - Durham */
+  --carolina-blue: 75 156 211;         /* #4B9CD3 - Chapel Hill */
+  --wolfpack-red: 204 0 0;             /* #CC0000 - Raleigh */
+  --ecu-purple: 89 42 138;             /* #592A8A - Greenville */
+  --wf-gold: 158 126 56;               /* #9E7E38 - Winston-Salem */
+  --uncg-navy: 4 30 66;                /* #041E42 - Greensboro */
+  --seahawk-teal: 0 118 128;           /* #007680 - Wilmington */
 }
 
 body {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: 'Inter', 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
   background-color: rgb(var(--background));
   color: rgb(var(--foreground));
+  line-height: 1.6;
 }
 
 /* Smooth scrolling */
@@ -27,10 +43,10 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom selection colors */
+/* Custom selection colors - Brand Red */
 ::selection {
-  background-color: rgba(37, 99, 235, 0.2);
-  color: rgb(15, 23, 42);
+  background-color: rgba(200, 16, 46, 0.2);
+  color: rgb(17, 17, 17);
 }
 
 /* Form input styling for light mode */
@@ -40,7 +56,7 @@ input, select, textarea {
 
 /* Gradient overlays for hero sections */
 .hero-gradient-light {
-  background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.9) 50%, rgba(241,245,249,0.85) 100%);
+  background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(242,242,242,0.9) 50%, rgba(255,255,255,0.85) 100%);
 }
 
 /* Card hover effect */
@@ -54,10 +70,36 @@ input, select, textarea {
 
 /* Subtle gradient backgrounds */
 .bg-gradient-subtle {
-  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #f2f2f2 100%);
 }
 
 /* Mobile safe area */
 .safe-area-pb {
   padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* Brand button base styles */
+.btn-primary {
+  background-color: #C8102E;
+  color: white;
+  border-radius: 2px;
+  min-height: 44px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+.btn-primary:hover {
+  background-color: #a50d25;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: #111111;
+  border: 2px solid #111111;
+  border-radius: 2px;
+  min-height: 44px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+.btn-secondary:hover {
+  background-color: #f2f2f2;
 }

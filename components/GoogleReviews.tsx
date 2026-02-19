@@ -49,7 +49,7 @@ export default function GoogleReviews() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Customer Reviews</span>
+          <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">Customer Reviews</span>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-4">What Our Customers Say</h2>
           
           {/* Aggregate Rating */}
@@ -122,9 +122,9 @@ export default function GoogleReviews() {
           <p className="text-slate-500 mb-4">Join hundreds of satisfied homeowners across NC</p>
           <Link 
             href="/contact"
-            className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-md"
+            className="inline-flex items-center gap-2 bg-[#C8102E] hover:bg-[#a50d25] text-white px-8 py-3 rounded-[2px] font-semibold transition-colors shadow-md"
           >
-            Get Your Free Inspection
+            Schedule Your Assessment
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>

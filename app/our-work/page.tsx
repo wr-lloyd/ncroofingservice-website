@@ -84,7 +84,7 @@ export default function OurWorkPage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <span className="text-blue-500 font-semibold text-sm uppercase tracking-wider">Our Work</span>
+            <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">Our Work</span>
             <h1 className="text-4xl md:text-6xl font-bold text-white mt-2 mb-6">Project Gallery</h1>
             <p className="text-slate-400 text-xl max-w-3xl mx-auto">
               See examples of our work across the Triangle. Drag the slider on each image to compare before & after results.
@@ -100,7 +100,7 @@ export default function OurWorkPage() {
             {projects.map((project, idx) => (
               <div 
                 key={idx}
-                className="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all group"
+                className="bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-[#C8102E]/30 hover:shadow-lg transition-all group"
               >
                 {/* Before/After Slider */}
                 <div className="relative">
@@ -136,7 +136,7 @@ export default function OurWorkPage() {
                 
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-slate-900 mb-1">{project.title}</h3>
-                  <p className="text-blue-600 text-sm mb-3">{project.location}</p>
+                  <p className="text-[#C8102E] text-sm mb-3">{project.location}</p>
                   <p className="text-slate-600 text-sm">{project.description}</p>
                 </div>
               </div>
@@ -145,7 +145,7 @@ export default function OurWorkPage() {
 
           {/* Note about photos */}
           <div className="mt-12 bg-white rounded-2xl p-8 border border-slate-200 text-center shadow-sm">
-            <svg className="w-12 h-12 text-blue-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-12 h-12 text-[#C8102E] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
@@ -155,7 +155,7 @@ export default function OurWorkPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 text-blue-600 font-medium hover:text-blue-700 transition-colors"
+              className="inline-flex items-center gap-2 text-[#C8102E] font-medium hover:text-[#a50d25] transition-colors"
             >
               Schedule Your Free Consultation
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -170,7 +170,7 @@ export default function OurWorkPage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Our Process</span>
+            <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">Our Process</span>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-4">How We Work</h2>
             <p className="text-slate-600 text-lg max-w-2xl mx-auto">
               From first contact to final walk-through, we ensure a smooth experience with clear communication every step of the way.
@@ -179,17 +179,17 @@ export default function OurWorkPage() {
 
           <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-white font-bold text-2xl shadow-md">1</div>
+              <div className="w-16 h-16 bg-[#C8102E] rounded-[2px] flex items-center justify-center mx-auto mb-6 text-white font-bold text-2xl shadow-md">1</div>
               <h3 className="text-slate-900 font-bold text-lg mb-2">Free Inspection</h3>
               <p className="text-slate-600 text-sm">We thoroughly assess your roof and document our findings with photos.</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-white font-bold text-2xl shadow-md">2</div>
+              <div className="w-16 h-16 bg-[#C8102E] rounded-[2px] flex items-center justify-center mx-auto mb-6 text-white font-bold text-2xl shadow-md">2</div>
               <h3 className="text-slate-900 font-bold text-lg mb-2">Detailed Estimate</h3>
               <p className="text-slate-600 text-sm">You receive a clear, itemized estimate with material and labor costs.</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-white font-bold text-2xl shadow-md">3</div>
+              <div className="w-16 h-16 bg-[#C8102E] rounded-[2px] flex items-center justify-center mx-auto mb-6 text-white font-bold text-2xl shadow-md">3</div>
               <h3 className="text-slate-900 font-bold text-lg mb-2">Professional Install</h3>
               <p className="text-slate-600 text-sm">Our certified crew completes the work with attention to every detail.</p>
             </div>
@@ -203,22 +203,22 @@ export default function OurWorkPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-blue-600 to-blue-700">
+      <section className="py-24 bg-gradient-to-r from-[#C8102E] to-[#a50d25]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Start Your Project?</h2>
-          <p className="text-blue-100 text-xl mb-10 max-w-2xl mx-auto">
+          <p className="text-white/80 text-xl mb-10 max-w-2xl mx-auto">
             Get a free inspection and consultation. We&apos;ll assess your roof and provide an honest recommendation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-blue-600 px-8 py-4 rounded-lg font-semibold transition-all hover:scale-105 text-lg"
+              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-[#C8102E] px-8 py-4 rounded-[2px] font-semibold transition-all hover:scale-105 text-lg"
             >
               Schedule Free Inspection
             </Link>
             <a
               href="tel:+19194758841"
-              className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-lg font-semibold transition-all text-lg"
+              className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-[2px] font-semibold transition-all text-lg"
             >
               Call (919) 475-8841
             </a>

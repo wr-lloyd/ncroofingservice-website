@@ -54,8 +54,8 @@ export default function ChatWidget() {
       {/* Chat Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full shadow-2xl flex items-center justify-center transition-all hover:scale-110 ${
-          isOpen ? 'bg-slate-600' : 'bg-blue-600 hover:bg-blue-700'
+        className={`fixed bottom-6 right-6 z-50 w-16 h-16 rounded-[2px] shadow-2xl flex items-center justify-center transition-all hover:scale-110 ${
+          isOpen ? 'bg-[#111111]' : 'bg-[#C8102E] hover:bg-[#a50d25]'
         }`}
         aria-label="Chat with us"
       >
@@ -79,14 +79,14 @@ export default function ChatWidget() {
       {isOpen && (
         <div className="fixed bottom-24 right-6 z-50 w-[360px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden">
           {/* Header */}
-          <div className="bg-blue-600 p-4">
+          <div className="bg-[#111111] p-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+              <div className="w-10 h-10 bg-[#C8102E] rounded-[2px] flex items-center justify-center">
                 <span className="text-white font-bold">NC</span>
               </div>
               <div>
                 <div className="text-white font-semibold">NC Roofing Service & Repair</div>
-                <div className="text-blue-200 text-sm flex items-center gap-1">
+                <div className="text-white/60 text-sm flex items-center gap-1">
                   <span className="w-2 h-2 bg-green-400 rounded-full"></span>
                   Online • Rougemont, NC
                 </div>
@@ -99,10 +99,10 @@ export default function ChatWidget() {
             {messages.map((msg, idx) => (
               <div key={idx} className={`flex ${msg.from === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`max-w-[80%] ${msg.from === 'user' ? 'order-2' : ''}`}>
-                  <div className={`rounded-2xl px-4 py-2 ${
+                  <div className={`rounded-lg px-4 py-2 ${
                     msg.from === 'user' 
-                      ? 'bg-blue-600 text-white rounded-br-md'
-                      : 'bg-white text-slate-700 rounded-bl-md border border-slate-200 shadow-sm'
+                      ? 'bg-[#C8102E] text-white rounded-br-sm'
+                      : 'bg-white text-[#111111] rounded-bl-sm border border-slate-200 shadow-sm'
                   }`}>
                     {msg.text}
                   </div>
@@ -112,7 +112,7 @@ export default function ChatWidget() {
                         <button
                           key={option}
                           onClick={() => handleOptionClick(option)}
-                          className="block w-full text-left px-4 py-2 bg-white hover:bg-blue-50 text-blue-600 rounded-lg text-sm transition-colors border border-slate-200 shadow-sm"
+                          className="block w-full text-left px-4 py-2 bg-white hover:bg-[#C8102E]/5 text-[#C8102E] rounded-[2px] text-sm transition-colors border border-slate-200 shadow-sm"
                         >
                           {option}
                         </button>
@@ -133,11 +133,11 @@ export default function ChatWidget() {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                 placeholder="Type a message..."
-                className="flex-1 px-4 py-2 bg-slate-100 border border-slate-200 rounded-full text-slate-800 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                className="flex-1 px-4 py-2 bg-slate-100 border border-slate-200 rounded-full text-[#111111] placeholder-slate-400 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20"
               />
               <button
                 onClick={handleSend}
-                className="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-colors shadow-md"
+                className="w-10 h-10 bg-[#C8102E] hover:bg-[#a50d25] rounded-[2px] flex items-center justify-center transition-colors shadow-md"
               >
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
@@ -145,7 +145,7 @@ export default function ChatWidget() {
               </button>
             </div>
             <p className="text-center text-xs text-slate-400 mt-2">
-              Or call <a href="tel:+19194758841" className="text-blue-600 hover:underline">(919) 475-8841</a>
+              Or call <a href="tel:+19194758841" className="text-[#C8102E] hover:underline">(919) 475-8841</a>
             </p>
           </div>
         </div>

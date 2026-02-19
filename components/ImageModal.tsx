@@ -54,7 +54,7 @@ export default function ImageModal({
         <div className="flex items-center justify-between p-4 border-b border-white/10">
           <div>
             {title && <h3 className="text-white font-bold text-lg">{title}</h3>}
-            {location && <p className="text-blue-400 text-sm">{location}</p>}
+            {location && <p className="text-[#C8102E] text-sm">{location}</p>}
           </div>
           <button
             onClick={onClose}

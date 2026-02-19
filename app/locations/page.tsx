@@ -85,7 +85,7 @@ export default function LocationsPage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <span className="text-blue-400 font-semibold text-sm uppercase tracking-wider">NC Triangle Coverage</span>
+            <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">NC Triangle Coverage</span>
             <h1 className="text-4xl md:text-6xl font-bold text-white mt-2 mb-6">
               Areas We Serve
             </h1>
@@ -101,15 +101,15 @@ export default function LocationsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6 text-center">
             <div className="bg-white rounded-2xl p-6 border border-slate-200">
-              <div className="text-4xl font-bold text-blue-600 mb-2">8</div>
+              <div className="text-4xl font-bold text-[#C8102E] mb-2">8</div>
               <div className="text-slate-600">Counties Served</div>
             </div>
             <div className="bg-white rounded-2xl p-6 border border-slate-200">
-              <div className="text-4xl font-bold text-blue-600 mb-2">30+</div>
+              <div className="text-4xl font-bold text-[#C8102E] mb-2">30+</div>
               <div className="text-slate-600">Cities & Towns</div>
             </div>
             <div className="bg-white rounded-2xl p-6 border border-slate-200">
-              <div className="text-4xl font-bold text-blue-600 mb-2">3</div>
+              <div className="text-4xl font-bold text-[#C8102E] mb-2">3</div>
               <div className="text-slate-600">Regional Experts</div>
             </div>
           </div>
@@ -142,7 +142,7 @@ export default function LocationsPage() {
                         href={`tel:${region.phoneRaw}`}
                         className={`inline-flex items-center gap-2 mt-2 font-semibold ${
                           region.color === 'green' ? 'text-green-600' :
-                          region.color === 'blue' ? 'text-blue-600' :
+                          region.color === 'blue' ? 'text-[#C8102E]' :
                           'text-purple-600'
                         }`}
                       >
@@ -209,7 +209,7 @@ export default function LocationsPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="tel:+19194758841"
-              className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold transition-colors text-lg"
+              className="inline-flex items-center justify-center gap-2 bg-[#C8102E] hover:bg-[#a50d25] text-white px-8 py-4 rounded-[2px] font-bold transition-colors text-lg"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -218,7 +218,7 @@ export default function LocationsPage() {
             </a>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-900 px-8 py-4 rounded-xl font-bold transition-colors text-lg"
+              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-900 px-8 py-4 rounded-[2px] font-bold transition-colors text-lg"
             >
               Request a Callback
             </Link>
@@ -228,4 +228,7 @@ export default function LocationsPage() {
     </main>
   )
 }
+
+
+
 

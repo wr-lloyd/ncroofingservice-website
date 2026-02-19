@@ -266,7 +266,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <span className="text-blue-400 font-semibold text-sm uppercase tracking-wider">{data.county} • {data.region}</span>
+            <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">{data.county} • {data.region}</span>
             <h1 className="text-4xl md:text-6xl font-bold text-white mt-2 mb-6">
               Roofing Services in {data.name}, NC
             </h1>
@@ -276,7 +276,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href={`tel:${data.regionLead.phoneRaw}`}
-                className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold transition-colors text-lg"
+                className="inline-flex items-center justify-center gap-2 bg-[#C8102E] hover:bg-[#a50d25] text-white px-8 py-4 rounded-[2px] font-bold transition-colors text-lg"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -285,7 +285,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-900 px-8 py-4 rounded-xl font-bold transition-colors text-lg"
+                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-900 px-8 py-4 rounded-[2px] font-bold transition-colors text-lg"
               >
                 Free Inspection
               </Link>
@@ -316,9 +316,9 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
               <Link
                 key={idx}
                 href={service.href}
-                className="group bg-slate-50 hover:bg-blue-50 rounded-2xl p-6 border border-slate-200 hover:border-blue-200 transition-all"
+                className="group bg-slate-50 hover:bg-[#C8102E]/5 rounded-2xl p-6 border border-slate-200 hover:border-[#C8102E]/20 transition-all"
               >
-                <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-[#C8102E] transition-colors">
                   {service.title}
                 </h3>
                 <p className="text-slate-600 text-sm">{service.desc}</p>
@@ -351,7 +351,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
               </div>
               <p className="text-slate-600">
                 Don&apos;t see your neighborhood? We likely serve it too! Call us at{' '}
-                <a href={`tel:${data.regionLead.phoneRaw}`} className="text-blue-600 font-semibold hover:underline">
+                <a href={`tel:${data.regionLead.phoneRaw}`} className="text-[#C8102E] font-semibold hover:underline">
                   {data.regionLead.phone}
                 </a>{' '}
                 to confirm service in your area.
@@ -373,7 +373,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
                     <Link
                       key={idx}
                       href={`/locations/${slug}`}
-                      className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
+                      className="flex items-center gap-2 text-[#C8102E] hover:text-[#a50d25] font-medium"
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -398,20 +398,20 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
       {/* Your Local Expert */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-8 md:p-12 text-center">
+          <div className="bg-gradient-to-r from-[#C8102E] to-[#a50d25] rounded-[2px] p-8 md:p-12 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Your {data.region} Roofing Expert
             </h2>
-            <p className="text-blue-100 text-lg mb-2">
+            <p className="text-white/80 text-lg mb-2">
               {data.regionLead.name} serves {data.name} and surrounding areas
             </p>
-            <p className="text-blue-100 mb-8">
+            <p className="text-white/80 mb-8">
               Local knowledge, professional service, honest pricing
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href={`tel:${data.regionLead.phoneRaw}`}
-                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-blue-600 px-8 py-4 rounded-xl font-bold transition-colors text-lg"
+                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-[#C8102E] px-8 py-4 rounded-[2px] font-bold transition-colors text-lg"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -420,7 +420,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
               </a>
               <Link
                 href="/storm-check"
-                className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-xl font-bold transition-colors text-lg"
+                className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-[2px] font-bold transition-colors text-lg"
               >
                 Check Storm Damage
               </Link>
@@ -447,7 +447,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
               { title: 'Quality Materials', desc: 'Premium shingles from GAF, Owens Corning & CertainTeed' },
             ].map((item, idx) => (
               <div key={idx} className="text-center">
-                <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-[#C8102E] rounded-[2px] flex items-center justify-center mx-auto mb-4">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
@@ -462,4 +462,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
     </main>
   )
 }
+
+
+
 

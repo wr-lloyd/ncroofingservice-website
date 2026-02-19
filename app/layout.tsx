@@ -1,10 +1,17 @@
 import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import EmergencyBanner from '@/components/EmergencyBanner'
 import ChatWidget from '@/components/ChatWidget'
 import MobileCTA from '@/components/MobileCTA'
 import './globals.css'
+
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ncroofingservice.com'),
@@ -218,7 +225,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-slate-50">
+      <body className={`${inter.variable} font-sans bg-white`}>
         <EmergencyBanner />
         <Navigation />
         {children}

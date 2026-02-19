@@ -121,7 +121,7 @@ export default function FAQPage() {
       <section className="py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <span className="text-blue-500 font-semibold text-sm uppercase tracking-wider">FAQ</span>
+            <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">FAQ</span>
             <h1 className="text-4xl md:text-6xl font-bold text-white mt-2 mb-6">Frequently Asked Questions</h1>
             <p className="text-slate-400 text-xl max-w-3xl mx-auto">
               Got questions about roofing? We&apos;ve got answers. If you don&apos;t see what you&apos;re looking for, give us a call.
@@ -136,7 +136,7 @@ export default function FAQPage() {
           {faqs.map((section, sectionIdx) => (
             <div key={sectionIdx} className="mb-16">
               <h2 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                <span className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-sm">
+                <span className="w-8 h-8 bg-[#C8102E] rounded-[2px] flex items-center justify-center text-sm">
                   {sectionIdx + 1}
                 </span>
                 {section.category}
@@ -150,7 +150,7 @@ export default function FAQPage() {
                   >
                     <div className="p-6">
                       <h3 className="text-lg font-semibold text-white mb-3 flex items-start gap-3">
-                        <span className="text-blue-500 flex-shrink-0">Q:</span>
+                        <span className="text-[#C8102E] flex-shrink-0">Q:</span>
                         {faq.q}
                       </h3>
                       <p className="text-slate-400 leading-relaxed pl-7">
@@ -168,16 +168,16 @@ export default function FAQPage() {
       {/* Still Have Questions CTA */}
       <section className="py-24 bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-8 md:p-12 text-center">
+          <div className="bg-gradient-to-r from-[#C8102E] to-[#a50d25] rounded-[2px] p-8 md:p-12 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Still Have Questions?</h2>
-            <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
+            <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
               We&apos;re here to help. Call or text Randall directly, or schedule a free inspection 
               and we&apos;ll answer all your questions in person.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:+19194758841"
-                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-blue-600 px-8 py-4 rounded-lg font-semibold transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-[#C8102E] px-8 py-4 rounded-[2px] font-semibold transition-colors"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -186,7 +186,7 @@ export default function FAQPage() {
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-lg font-semibold transition-colors"
+                className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-[2px] font-semibold transition-colors"
               >
                 Schedule Free Inspection
               </Link>
