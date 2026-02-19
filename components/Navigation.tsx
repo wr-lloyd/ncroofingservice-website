@@ -24,7 +24,7 @@ export default function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
             <Image
-              src="/images/logos/NCRoofingLogo_BW.svg"
+              src="/images/logos/NCRoofingLogo.jpg"
               alt="NC Roofing Service"
               width={144}
               height={144}
