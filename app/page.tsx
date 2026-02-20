@@ -1,117 +1,78 @@
 import Link from 'next/link'
-import TrustBadges from '@/components/TrustBadges'
+import Image from 'next/image'
 import InstantQuote from '@/components/InstantQuote'
 import GoogleReviews from '@/components/GoogleReviews'
 
 export default function Home() {
   return (
     <main>
-      {/* Hero Section - Keep dark with image overlay */}
+      {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background with roof image */}
+        {/* Background with video */}
         <div className="absolute inset-0">
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1632759145351-1d592919f522?w=1920&q=80')" }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-slate-900/90 to-slate-800/85" />
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-red/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-red/10 rounded-full blur-3xl"></div>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/videos/home-hero-1920x1080.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/60 to-slate-900/40" />
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Column - Content */}
+          <div className="grid lg:grid-cols-[65fr_35fr] gap-8 items-center">
+            {/* Left Column - Content (65%) */}
             <div>
-              <div className="flex flex-wrap items-center gap-3 mb-6">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/10 text-white/90 rounded-full text-sm font-medium">
-                  ✓ Residential & Commercial
-                </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/10 text-white/90 rounded-full text-sm font-medium">
-                  ✓ GAF / Owens Corning / CertainTeed Certified
-                </span>
-              </div>
-              
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                Professional Roofing &{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-red-dark">
-                  Exterior Systems
-                </span>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-5xl font-bold text-white mb-6 leading-tight">
+                <span className="block whitespace-nowrap">Protecting <span className="text-brand-red">North Carolina</span> Homes</span>
+                <span className="block whitespace-nowrap">with Strength and Integrity.</span>
               </h1>
               
-              <p className="text-2xl text-slate-300 mb-4 font-medium">
-                For Homes and Commercial Properties
+              <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-2xl">
+                Proudly serving the greater NC Triangle since 2018. We provide free inspections, 
+                straightforward pricing, and dependable craftsmanship on every project.
               </p>
               
-              <p className="text-lg text-slate-400 mb-8 leading-relaxed">
-                Certified installation. Documented assessments. Durable results.
-                Serving residential and commercial clients throughout the NC Triangle since 2018.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <div className="flex flex-col sm:flex-row gap-4 mb-24">
                 <Link
                   href="/contact"
-                  className="group flex items-center justify-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white px-8 py-4 rounded-[2px] font-semibold transition-all hover:scale-105 text-lg shadow-lg shadow-brand-red/25"
+                  className="flex items-center justify-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white px-8 py-4 rounded-[2px] font-semibold transition-all text-lg shadow-lg"
                 >
+                  Request Free Estimate
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                  </svg>
-                  Request Assessment
-                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
                 <a
                   href="tel:+19194758841"
-                  className="flex items-center justify-center gap-2 border-2 border-white/20 hover:bg-white/10 text-white px-8 py-4 rounded-[2px] font-semibold transition-all text-lg"
+                  className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-[2px] font-semibold transition-all text-lg backdrop-blur-sm"
                 >
-                  <svg className="w-5 h-5 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                   (919) 475-8841
                 </a>
               </div>
 
-              {/* Trust Indicators */}
-              <div className="flex flex-wrap items-center gap-6 text-sm text-slate-400">
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span>Certified Installations</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span>Documented Assessments</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span>Residential & Commercial</span>
-                </div>
+              {/* Trusted & Certified By Industry Leaders */}
+              <div className="flex flex-wrap items-center gap-6">
+                <Image src="/images/certifications/gaf-master-elite.png" alt="GAF Master Elite" width={120} height={80} className="h-14 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" />
+                <Image src="/images/certifications/owens-corning.png" alt="Owens Corning Preferred Contractor" width={140} height={60} className="h-14 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" />
+                <Image src="/images/certifications/certainteed.png" alt="CertainTeed Master Craftsman" width={120} height={80} className="h-14 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" />
+                <Image src="/images/certifications/fortified.png" alt="FORTIFIED Roof" width={100} height={80} className="h-14 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" />
               </div>
             </div>
 
-            {/* Right Column - Instant Quote Form */}
-            <div className="lg:pl-8">
+            {/* Right Column - Instant Quote Form (35%) */}
+            <div>
               <InstantQuote />
             </div>
           </div>
         </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden lg:block">
-          <svg className="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </div>
       </section>
-
-      {/* Trust Badges */}
-      <TrustBadges />
 
       {/* Serving Both Markets */}
       <section className="py-16 bg-brand-black">
