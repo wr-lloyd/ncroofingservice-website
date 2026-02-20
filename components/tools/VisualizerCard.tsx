@@ -48,16 +48,16 @@ export default function VisualizerCard() {
             href={viz.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-4 p-4 bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-[#C8102E]/30 rounded-xl transition-all group"
+            className="flex items-center gap-4 p-4 bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-brand-red/30 rounded-xl transition-all group"
           >
             <div className={`w-12 h-12 bg-gradient-to-br ${viz.color} rounded-lg flex items-center justify-center flex-shrink-0 shadow-md`}>
               <span className="text-white font-bold text-sm">{viz.logo}</span>
             </div>
             <div className="flex-1 min-w-0">
-              <h4 className="text-slate-900 font-medium group-hover:text-[#C8102E] transition-colors">{viz.name}</h4>
+              <h4 className="text-slate-900 font-medium group-hover:text-brand-red transition-colors">{viz.name}</h4>
               <p className="text-slate-500 text-sm truncate">{viz.description}</p>
             </div>
-            <svg className="w-5 h-5 text-slate-400 group-hover:text-[#C8102E] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 text-slate-400 group-hover:text-brand-red group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
           </a>

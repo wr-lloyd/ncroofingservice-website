@@ -49,7 +49,7 @@ export default function GoogleReviews() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">Customer Reviews</span>
+          <span className="text-brand-red font-semibold text-sm uppercase tracking-wider">Customer Reviews</span>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-4">What Our Customers Say</h2>
           
           {/* Aggregate Rating */}
@@ -122,7 +122,7 @@ export default function GoogleReviews() {
           <p className="text-slate-500 mb-4">Join hundreds of satisfied homeowners across NC</p>
           <Link 
             href="/contact"
-            className="inline-flex items-center gap-2 bg-[#C8102E] hover:bg-[#a50d25] text-white px-8 py-3 rounded-[2px] font-semibold transition-colors shadow-md"
+            className="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white px-8 py-3 rounded-[2px] font-semibold transition-colors shadow-md"
           >
             Schedule Your Assessment
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -55,7 +55,7 @@ export default function ChatWidget() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`fixed bottom-6 right-6 z-50 w-16 h-16 rounded-[2px] shadow-2xl flex items-center justify-center transition-all hover:scale-110 ${
-          isOpen ? 'bg-[#111111]' : 'bg-[#C8102E] hover:bg-[#a50d25]'
+          isOpen ? 'bg-brand-black' : 'bg-brand-red hover:bg-brand-red-dark'
         }`}
         aria-label="Chat with us"
       >
@@ -79,9 +79,9 @@ export default function ChatWidget() {
       {isOpen && (
         <div className="fixed bottom-24 right-6 z-50 w-[360px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden">
           {/* Header */}
-          <div className="bg-[#111111] p-4">
+          <div className="bg-brand-black p-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-[#C8102E] rounded-[2px] flex items-center justify-center">
+              <div className="w-10 h-10 bg-brand-red rounded-[2px] flex items-center justify-center">
                 <span className="text-white font-bold">NC</span>
               </div>
               <div>
@@ -101,8 +101,8 @@ export default function ChatWidget() {
                 <div className={`max-w-[80%] ${msg.from === 'user' ? 'order-2' : ''}`}>
                   <div className={`rounded-lg px-4 py-2 ${
                     msg.from === 'user' 
-                      ? 'bg-[#C8102E] text-white rounded-br-sm'
-                      : 'bg-white text-[#111111] rounded-bl-sm border border-slate-200 shadow-sm'
+                      ? 'bg-brand-red text-white rounded-br-sm'
+                      : 'bg-white text-brand-black rounded-bl-sm border border-slate-200 shadow-sm'
                   }`}>
                     {msg.text}
                   </div>
@@ -112,7 +112,7 @@ export default function ChatWidget() {
                         <button
                           key={option}
                           onClick={() => handleOptionClick(option)}
-                          className="block w-full text-left px-4 py-2 bg-white hover:bg-[#C8102E]/5 text-[#C8102E] rounded-[2px] text-sm transition-colors border border-slate-200 shadow-sm"
+                          className="block w-full text-left px-4 py-2 bg-white hover:bg-brand-red/5 text-brand-red rounded-[2px] text-sm transition-colors border border-slate-200 shadow-sm"
                         >
                           {option}
                         </button>
@@ -133,11 +133,11 @@ export default function ChatWidget() {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                 placeholder="Type a message..."
-                className="flex-1 px-4 py-2 bg-slate-100 border border-slate-200 rounded-full text-[#111111] placeholder-slate-400 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20"
+                className="flex-1 px-4 py-2 bg-slate-100 border border-slate-200 rounded-full text-brand-black placeholder-slate-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
               />
               <button
                 onClick={handleSend}
-                className="w-10 h-10 bg-[#C8102E] hover:bg-[#a50d25] rounded-[2px] flex items-center justify-center transition-colors shadow-md"
+                className="w-10 h-10 bg-brand-red hover:bg-brand-red-dark rounded-[2px] flex items-center justify-center transition-colors shadow-md"
               >
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
@@ -145,7 +145,7 @@ export default function ChatWidget() {
               </button>
             </div>
             <p className="text-center text-xs text-slate-400 mt-2">
-              Or call <a href="tel:+19194758841" className="text-[#C8102E] hover:underline">(919) 475-8841</a>
+              Or call <a href="tel:+19194758841" className="text-brand-red hover:underline">(919) 475-8841</a>
             </p>
           </div>
         </div>

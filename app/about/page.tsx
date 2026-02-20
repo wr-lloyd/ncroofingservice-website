@@ -21,10 +21,10 @@ export default function AboutPage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">About Us</span>
+            <span className="text-brand-red font-semibold text-sm uppercase tracking-wider">About Us</span>
             <h1 className="text-4xl md:text-6xl font-bold text-white mt-2 mb-6">Our Story</h1>
             <p className="text-slate-400 text-xl max-w-3xl mx-auto">
-              &quot;A roof is only as good as the roofer.&quot; — That&apos;s the philosophy that drives everything we do at NC Roofing Service and Repair.
+              We combine manufacturer certifications with a commitment to clear communication and documented quality.
             </p>
           </div>
         </div>
@@ -36,7 +36,7 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                Local Roofers You Can Trust
+                Professional Roofing Since 2018
               </h2>
               <div className="space-y-4 text-slate-600 text-lg">
                 <p>
@@ -68,7 +68,7 @@ export default function AboutPage() {
                   />
                 </div>
                 <h3 className="text-slate-900 font-bold text-2xl">Randall Butler</h3>
-                <p className="text-[#C8102E]">Owner & Founder</p>
+                <p className="text-brand-red">Owner & Founder</p>
               </div>
               
               <div className="space-y-4">
@@ -657,7 +657,7 @@ export default function AboutPage() {
               href="/contact"
               className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-[#C8102E] px-8 py-4 rounded-[2px] font-semibold transition-all hover:scale-105 text-lg"
             >
-              Schedule Assessment
+              Request Assessment
             </Link>
             <a
               href="tel:+19194758841"

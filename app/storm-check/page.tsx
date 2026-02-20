@@ -304,7 +304,7 @@ function StormCheckContent() {
                 </svg>
               </div>
               <div>
-                <h3 className="text-lg font-bold text-slate-900">Storm Check and Free Roof Inspection</h3>
+                <h3 className="text-lg font-bold text-slate-900">Free Roof Inspection</h3>
                 <p className="text-slate-500 text-xs">Includes storm damage assessment</p>
               </div>
             </div>

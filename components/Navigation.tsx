@@ -4,70 +4,128 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
+const residentialLinks = [
+  { href: '/services/roof-replacement', label: 'Roof Replacement' },
+  { href: '/services/roof-repair', label: 'Roof Repair' },
+  { href: '/services/storm-damage-insurance', label: 'Storm Damage Support' },
+  { href: '/services/gutters', label: 'Gutters & Exteriors' },
+  { href: '/services/fortified-roofing', label: 'FORTIFIED Roofing' },
+]
+
+const commercialLinks = [
+  { href: '/services/commercial', label: 'Commercial Roofing' },
+  { href: '/services/commercial#flat-roofing', label: 'Flat Roofing Systems' },
+  { href: '/services/commercial#maintenance', label: 'Preventative Maintenance' },
+  { href: '/services/commercial#property-management', label: 'Property Management' },
+]
+
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
-
-  const navLinks: { href: string; label: string; highlight?: boolean; badge?: string }[] = [
-    { href: '/', label: 'Home' },
-    { href: '/storm-check', label: 'Storm Check', highlight: true, badge: '⚡' },
-    { href: '/start', label: 'Start Here' },
-    { href: '/services', label: 'Services' },
-    { href: '/our-work', label: 'Our Work' },
-    { href: '/about', label: 'About' },
-    { href: '/contact', label: 'Contact' },
-  ]
+  const [residentialOpen, setResidentialOpen] = useState(false)
+  const [commercialOpen, setCommercialOpen] = useState(false)
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center">
             <Image
               src="/images/logos/NCRoofingLogo.jpg"
               alt="NC Roofing Service"
-              width={144}
-              height={144}
-              className="w-36 h-36"
+              width={200}
+              height={80}
+              className="h-16 w-auto object-contain"
+              priority
             />
-            <div className="hidden sm:block">
-              <span className="text-slate-900 font-bold text-lg">NC Roofing Service</span>
-              <span className="text-slate-500 text-xs block -mt-1">Your Local NC Roofing and Exterior Systems Provider</span>
-            </div>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`transition-colors font-medium text-sm flex items-center gap-1 ${
-                  link.highlight 
-                    ? 'text-[#C8102E] hover:text-[#a50d25]' 
-                    : 'text-[#444444] hover:text-[#111111]'
-                }`}
-              >
-                {link.badge && <span>{link.badge}</span>}
-                {link.label}
-              </Link>
-            ))}
-            <a
-              href="tel:+19194758841"
-              className="flex items-center gap-2 bg-[#C8102E] hover:bg-[#a50d25] text-white px-5 py-2.5 rounded-[2px] font-semibold transition-colors shadow-md shadow-[#C8102E]/20"
+            <Link
+              href="/"
+              className="transition-colors font-medium text-sm text-brand-gray hover:text-brand-black"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-              (919) 475-8841
-            </a>
+              Home
+            </Link>
+
+            {/* Residential Dropdown */}
+            <div className="relative group">
+              <button
+                className="flex items-center gap-1 transition-colors font-medium text-sm text-brand-gray hover:text-brand-black"
+              >
+                Residential
+                <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div className="bg-white rounded-lg shadow-xl border border-slate-200 py-2 min-w-[220px]">
+                  {residentialLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="block px-4 py-2 text-sm text-brand-gray hover:bg-brand-red/5 hover:text-brand-red transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Commercial Dropdown */}
+            <div className="relative group">
+              <button
+                className="flex items-center gap-1 transition-colors font-medium text-sm text-brand-gray hover:text-brand-black"
+              >
+                Commercial
+                <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div className="bg-white rounded-lg shadow-xl border border-slate-200 py-2 min-w-[220px]">
+                  {commercialLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="block px-4 py-2 text-sm text-brand-gray hover:bg-brand-red/5 hover:text-brand-red transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <Link
+              href="/about"
+              className="transition-colors font-medium text-sm text-brand-gray hover:text-brand-black"
+            >
+              About
+            </Link>
+
+            <Link
+              href="/contact"
+              className="transition-colors font-medium text-sm text-brand-gray hover:text-brand-black"
+            >
+              Contact
+            </Link>
+
+            <Link
+              href="/contact"
+              className="flex items-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white px-5 py-2.5 rounded-[2px] font-semibold transition-colors shadow-md shadow-brand-red/20"
+            >
+              Request Assessment
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="flex items-center gap-3 lg:hidden">
             <a
               href="tel:+19194758841"
-              className="flex items-center justify-center w-10 h-10 bg-[#C8102E] hover:bg-[#a50d25] text-white rounded-[2px] transition-colors"
+              className="flex items-center justify-center w-10 h-10 bg-brand-red hover:bg-brand-red-dark text-white rounded-[2px] transition-colors"
               aria-label="Call us"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -93,23 +151,88 @@ export default function Navigation() {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="lg:hidden pb-4 bg-white">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`block py-3 transition-colors font-medium border-b border-slate-100 ${
-                  link.highlight ? 'text-[#C8102E]' : 'text-[#444444] hover:text-[#111111]'
-                }`}
-                onClick={() => setIsOpen(false)}
+            <Link
+              href="/"
+              className="block py-3 transition-colors font-medium border-b border-slate-100 text-brand-gray hover:text-brand-black"
+              onClick={() => setIsOpen(false)}
+            >
+              Home
+            </Link>
+
+            {/* Mobile Residential Section */}
+            <div className="border-b border-slate-100">
+              <button
+                onClick={() => setResidentialOpen(!residentialOpen)}
+                className="flex items-center justify-between w-full py-3 transition-colors font-medium text-brand-gray"
               >
-                {link.badge && <span className="mr-1">{link.badge}</span>}
-                {link.label}
-              </Link>
-            ))}
+                Residential
+                <svg className={`w-4 h-4 transition-transform ${residentialOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {residentialOpen && (
+                <div className="pl-4 pb-2">
+                  {residentialLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="block py-2 text-sm text-brand-gray hover:text-brand-red transition-colors"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Mobile Commercial Section */}
+            <div className="border-b border-slate-100">
+              <button
+                onClick={() => setCommercialOpen(!commercialOpen)}
+                className="flex items-center justify-between w-full py-3 transition-colors font-medium text-brand-gray"
+              >
+                Commercial
+                <svg className={`w-4 h-4 transition-transform ${commercialOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {commercialOpen && (
+                <div className="pl-4 pb-2">
+                  {commercialLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="block py-2 text-sm text-brand-gray hover:text-brand-red transition-colors"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <Link
+              href="/about"
+              className="block py-3 transition-colors font-medium border-b border-slate-100 text-brand-gray hover:text-brand-black"
+              onClick={() => setIsOpen(false)}
+            >
+              About
+            </Link>
+
+            <Link
+              href="/contact"
+              className="block py-3 transition-colors font-medium border-b border-slate-100 text-brand-gray hover:text-brand-black"
+              onClick={() => setIsOpen(false)}
+            >
+              Contact
+            </Link>
+
             <div className="mt-4 space-y-3">
               <a
                 href="tel:+19194758841"
-                className="flex items-center justify-center gap-2 bg-[#C8102E] hover:bg-[#a50d25] text-white px-6 py-3 rounded-[2px] font-semibold transition-colors"
+                className="flex items-center justify-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white px-6 py-3 rounded-[2px] font-semibold transition-colors"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -118,10 +241,10 @@ export default function Navigation() {
               </a>
               <Link
                 href="/contact"
-                className="flex items-center justify-center gap-2 border-2 border-[#111111] hover:bg-[#f2f2f2] text-[#111111] px-6 py-3 rounded-[2px] font-semibold transition-colors"
+                className="flex items-center justify-center gap-2 border-2 border-brand-black hover:bg-slate-100 text-brand-black px-6 py-3 rounded-[2px] font-semibold transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                Schedule Assessment
+                Request Assessment
               </Link>
             </div>
           </div>

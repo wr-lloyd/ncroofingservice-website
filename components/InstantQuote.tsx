@@ -116,8 +116,8 @@ export default function InstantQuote() {
 
   if (showEstimate) {
     return (
-      <div className="bg-[#111111] rounded-2xl p-8 text-center shadow-xl">
-        <div className="w-16 h-16 bg-[#C8102E] rounded-[2px] flex items-center justify-center mx-auto mb-4">
+      <div className="bg-brand-black rounded-2xl p-8 text-center shadow-xl">
+        <div className="w-16 h-16 bg-brand-red rounded-[2px] flex items-center justify-center mx-auto mb-4">
           <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
@@ -129,7 +129,7 @@ export default function InstantQuote() {
         </p>
         <a 
           href="tel:+19194758841"
-          className="inline-flex items-center gap-2 bg-[#C8102E] hover:bg-[#a50d25] text-white px-6 py-3 rounded-[2px] font-semibold transition-colors"
+          className="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white px-6 py-3 rounded-[2px] font-semibold transition-colors"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -143,14 +143,14 @@ export default function InstantQuote() {
   return (
     <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-xl">
       <div className="flex items-center gap-3 mb-4">
-        <div className="w-10 h-10 bg-[#C8102E] rounded-[2px] flex items-center justify-center shadow-md">
+        <div className="w-10 h-10 bg-brand-red rounded-[2px] flex items-center justify-center shadow-md">
           <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
           </svg>
         </div>
         <div>
-          <h3 className="text-lg font-bold text-slate-900">Storm Check and Free Roof Inspection</h3>
-          <p className="text-slate-500 text-xs">Includes storm damage assessment</p>
+          <h3 className="text-lg font-bold text-slate-900">Free Roof Inspection</h3>
+          <p className="text-slate-500 text-xs">No obligation, includes storm damage assessment</p>
         </div>
       </div>
 
@@ -160,7 +160,7 @@ export default function InstantQuote() {
           <div 
             key={s}
             className={`h-1.5 flex-1 rounded-full transition-colors ${
-              s <= step ? 'bg-[#C8102E]' : 'bg-slate-200'
+              s <= step ? 'bg-brand-red' : 'bg-slate-200'
             }`}
           />
         ))}
@@ -177,7 +177,7 @@ export default function InstantQuote() {
                 value={formData.address}
                 onChange={handleChange}
                 placeholder="123 Main St"
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
                 required
               />
             </div>
@@ -189,7 +189,7 @@ export default function InstantQuote() {
                 value={formData.city}
                 onChange={handleChange}
                 placeholder="Raleigh, NC"
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
                 required
               />
             </div>
@@ -199,11 +199,11 @@ export default function InstantQuote() {
                 name="projectType"
                 value={formData.projectType}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
                 required
               >
                 <option value="">Select service needed</option>
-                <option value="inspection">Storm Check and Free Roof Inspection</option>
+                <option value="inspection">Free Roof Inspection</option>
                 <option value="repair">Roof Repair</option>
                 <option value="replacement">Roof Replacement</option>
                 <option value="storm">Storm Damage</option>
@@ -216,7 +216,7 @@ export default function InstantQuote() {
               type="button"
               onClick={handleContinue}
               disabled={isCheckingStorms || !formData.address || !formData.city || !formData.projectType}
-              className="w-full bg-[#C8102E] hover:bg-[#a50d25] disabled:bg-[#C8102E]/50 disabled:cursor-not-allowed text-white py-3 rounded-[2px] font-semibold transition-colors flex items-center justify-center gap-2 shadow-md"
+              className="w-full bg-brand-red hover:bg-brand-red-dark disabled:bg-brand-red/50 disabled:cursor-not-allowed text-white py-3 rounded-[2px] font-semibold transition-colors flex items-center justify-center gap-2 shadow-md"
             >
               {isCheckingStorms ? (
                 <>
@@ -264,7 +264,7 @@ export default function InstantQuote() {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="John Smith"
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
                 required
               />
             </div>
@@ -276,7 +276,7 @@ export default function InstantQuote() {
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="(919) 555-1234"
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
                 required
               />
             </div>
@@ -288,7 +288,7 @@ export default function InstantQuote() {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="john@example.com"
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
               />
             </div>
             <div className="flex gap-3">
@@ -296,14 +296,14 @@ export default function InstantQuote() {
                 type="button"
                 onClick={() => setStep(1)}
                 disabled={isSubmitting}
-                className="flex-1 border-2 border-[#111111] hover:bg-[#f2f2f2] text-[#111111] py-3 rounded-[2px] font-semibold transition-colors disabled:opacity-50"
+                className="flex-1 border-2 border-brand-black hover:bg-slate-100 text-brand-black py-3 rounded-[2px] font-semibold transition-colors disabled:opacity-50"
               >
                 ← Back
               </button>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="flex-1 bg-[#C8102E] hover:bg-[#a50d25] text-white py-3 rounded-[2px] font-semibold transition-all disabled:opacity-50 flex items-center justify-center gap-2 shadow-md"
+                className="flex-1 bg-brand-red hover:bg-brand-red-dark text-white py-3 rounded-[2px] font-semibold transition-all disabled:opacity-50 flex items-center justify-center gap-2 shadow-md"
               >
                 {isSubmitting ? (
                   <>
