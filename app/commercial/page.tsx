@@ -174,51 +174,58 @@ export default function CommercialServicesPage() {
           
           <div className="grid md:grid-cols-2 gap-8">
             {commercialServices.map((service) => {
-              const ServiceWrapper = service.slug ? Link : 'div'
-              const wrapperProps = service.slug ? { href: `/commercial/${service.slug}` } : {}
-              
-              return (
-                <ServiceWrapper
-                  key={service.title}
-                  {...wrapperProps}
-                  className={`bg-slate-50 rounded-2xl p-8 border border-slate-200 transition-all ${
-                    service.slug ? 'hover:border-brand-red/30 hover:shadow-lg cursor-pointer group' : ''
-                  }`}
-                >
-                  <div className="flex items-start gap-6">
-                    <div className={`w-16 h-16 bg-slate-100 border border-slate-200 rounded-xl flex items-center justify-center flex-shrink-0 text-slate-700 ${
-                      service.slug ? 'group-hover:bg-brand-red/10 group-hover:text-brand-red transition-colors' : ''
-                    }`}>
-                      {service.icon}
-                    </div>
-                    <div className="flex-1">
-                      <h3 className={`text-xl font-bold text-slate-900 mb-2 ${
-                        service.slug ? 'group-hover:text-brand-red transition-colors' : ''
-                      }`}>
-                        {service.title}
-                      </h3>
-                      <p className="text-slate-600 mb-4">{service.description}</p>
-                      <ul className="space-y-2">
-                        {service.features.map((feature) => (
-                          <li key={feature} className="flex items-center gap-2 text-sm text-slate-600">
-                            <svg className="w-4 h-4 text-brand-red flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                            </svg>
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                      {service.slug && (
-                        <span className="inline-flex items-center gap-2 text-brand-red font-medium mt-4 group-hover:text-brand-red-dark transition-colors">
-                          Learn More
-                          <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                          </svg>
-                        </span>
-                      )}
-                    </div>
+              const cardContent = (
+                <div className="flex items-start gap-6">
+                  <div className={`w-16 h-16 bg-slate-100 border border-slate-200 rounded-xl flex items-center justify-center flex-shrink-0 text-slate-700 ${
+                    service.slug ? 'group-hover:bg-brand-red/10 group-hover:text-brand-red transition-colors' : ''
+                  }`}>
+                    {service.icon}
                   </div>
-                </ServiceWrapper>
+                  <div className="flex-1">
+                    <h3 className={`text-xl font-bold text-slate-900 mb-2 ${
+                      service.slug ? 'group-hover:text-brand-red transition-colors' : ''
+                    }`}>
+                      {service.title}
+                    </h3>
+                    <p className="text-slate-600 mb-4">{service.description}</p>
+                    <ul className="space-y-2">
+                      {service.features.map((feature) => (
+                        <li key={feature} className="flex items-center gap-2 text-sm text-slate-600">
+                          <svg className="w-4 h-4 text-brand-red flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                    {service.slug && (
+                      <span className="inline-flex items-center gap-2 text-brand-red font-medium mt-4 group-hover:text-brand-red-dark transition-colors">
+                        Learn More
+                        <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </span>
+                    )}
+                  </div>
+                </div>
+              )
+              
+              const cardClassName = `bg-slate-50 rounded-2xl p-8 border border-slate-200 transition-all ${
+                service.slug ? 'hover:border-brand-red/30 hover:shadow-lg cursor-pointer group' : ''
+              }`
+              
+              return service.slug ? (
+                <Link
+                  key={service.title}
+                  href={`/commercial/${service.slug}`}
+                  className={cardClassName}
+                >
+                  {cardContent}
+                </Link>
+              ) : (
+                <div key={service.title} className={cardClassName}>
+                  {cardContent}
+                </div>
               )
             })}
           </div>
