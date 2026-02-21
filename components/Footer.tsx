@@ -28,21 +28,21 @@ export default function Footer() {
             <SocialLinks size="sm" />
           </div>
 
-          {/* Quick Links */}
+          {/* Services */}
           <div>
-            <h3 className="text-white font-semibold text-lg mb-4">Quick Links</h3>
+            <h3 className="text-white font-semibold text-lg mb-4">Services</h3>
             <ul className="space-y-3">
-              <li><Link href="/" className="text-slate-400 hover:text-white transition-colors text-sm">Home</Link></li>
+              <li><Link href="/residential" className="text-slate-400 hover:text-white transition-colors text-sm">Residential Roofing</Link></li>
+              <li><Link href="/residential/roof-replacement" className="text-slate-400 hover:text-white transition-colors text-sm">Roof Replacement</Link></li>
+              <li><Link href="/residential/roof-repair" className="text-slate-400 hover:text-white transition-colors text-sm">Roof Repair</Link></li>
+              <li><Link href="/residential/storm-damage" className="text-slate-400 hover:text-white transition-colors text-sm">Storm Damage</Link></li>
               <li>
-                <Link href="/services/commercial" className="text-brand-red hover:text-brand-red-dark transition-colors text-sm font-medium flex items-center gap-1">
-                  Commercial Services
+                <Link href="/commercial" className="text-brand-red hover:text-brand-red-dark transition-colors text-sm font-medium">
+                  Commercial Roofing
                 </Link>
               </li>
-              <li><Link href="/services" className="text-slate-400 hover:text-white transition-colors text-sm">Residential Services</Link></li>
-              <li><Link href="/services" className="text-slate-400 hover:text-white transition-colors text-sm">Services</Link></li>
               <li><Link href="/our-work" className="text-slate-400 hover:text-white transition-colors text-sm">Our Work</Link></li>
-              <li><Link href="/about" className="text-slate-400 hover:text-white transition-colors text-sm">About Us</Link></li>
-              <li><Link href="/contact" className="text-slate-400 hover:text-white transition-colors text-sm">Contact</Link></li>
+              <li><Link href="/certifications" className="text-slate-400 hover:text-white transition-colors text-sm">Certifications</Link></li>
             </ul>
           </div>
 
@@ -50,20 +50,25 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold text-lg mb-4">Service Areas</h3>
             <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-4">
-              <Link href="/locations/raleigh" className="text-slate-400 hover:text-white transition-colors text-sm">Raleigh</Link>
-              <Link href="/locations/durham" className="text-slate-400 hover:text-white transition-colors text-sm">Durham</Link>
-              <Link href="/locations/cary" className="text-slate-400 hover:text-white transition-colors text-sm">Cary</Link>
-              <Link href="/locations/chapel-hill" className="text-slate-400 hover:text-white transition-colors text-sm">Chapel Hill</Link>
-              <Link href="/locations/apex" className="text-slate-400 hover:text-white transition-colors text-sm">Apex</Link>
-              <Link href="/locations/wake-forest" className="text-slate-400 hover:text-white transition-colors text-sm">Wake Forest</Link>
-              <Link href="/locations/holly-springs" className="text-slate-400 hover:text-white transition-colors text-sm">Holly Springs</Link>
-              <Link href="/locations/morrisville" className="text-slate-400 hover:text-white transition-colors text-sm">Morrisville</Link>
-              <Link href="/locations/garner" className="text-slate-400 hover:text-white transition-colors text-sm">Garner</Link>
-              <Link href="/locations/hillsborough" className="text-slate-400 hover:text-white transition-colors text-sm">Hillsborough</Link>
+              <Link href="/locations/raleigh-nc" className="text-slate-400 hover:text-white transition-colors text-sm">Raleigh</Link>
+              <Link href="/locations/durham-nc" className="text-slate-400 hover:text-white transition-colors text-sm">Durham</Link>
+              <Link href="/locations/cary-nc" className="text-slate-400 hover:text-white transition-colors text-sm">Cary</Link>
+              <Link href="/locations/chapel-hill-nc" className="text-slate-400 hover:text-white transition-colors text-sm">Chapel Hill</Link>
+              <Link href="/locations/apex-nc" className="text-slate-400 hover:text-white transition-colors text-sm">Apex</Link>
+              <Link href="/locations/wake-forest-nc" className="text-slate-400 hover:text-white transition-colors text-sm">Wake Forest</Link>
+              <Link href="/locations/holly-springs-nc" className="text-slate-400 hover:text-white transition-colors text-sm">Holly Springs</Link>
+              <Link href="/locations/morrisville-nc" className="text-slate-400 hover:text-white transition-colors text-sm">Morrisville</Link>
+              <Link href="/locations/garner-nc" className="text-slate-400 hover:text-white transition-colors text-sm">Garner</Link>
+              <Link href="/locations/hillsborough-nc" className="text-slate-400 hover:text-white transition-colors text-sm">Hillsborough</Link>
             </div>
-            <Link href="/locations" className="text-brand-red hover:text-brand-red-dark transition-colors text-sm font-medium">
-              View All 30+ Cities →
-            </Link>
+            <div className="space-y-2">
+              <Link href="/locations" className="text-brand-red hover:text-brand-red-dark transition-colors text-sm font-medium block">
+                View All Locations →
+              </Link>
+              <Link href="/resources" className="text-slate-400 hover:text-white transition-colors text-sm block">
+                Resources & Guides
+              </Link>
+            </div>
           </div>
 
           {/* Contact Info */}

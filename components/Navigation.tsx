@@ -5,37 +5,48 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const residentialLinks = [
-  { href: '/services/roof-replacement', label: 'Roof Replacement' },
-  { href: '/services/roof-repair', label: 'Roof Repair' },
-  { href: '/services/storm-damage-insurance', label: 'Storm Damage Support' },
-  { href: '/services/gutters', label: 'Gutters & Exteriors' },
-  { href: '/services/fortified-roofing', label: 'FORTIFIED Roofing' },
+  { href: '/residential', label: 'All Residential Services' },
+  { href: '/residential/roof-replacement', label: 'Roof Replacement' },
+  { href: '/residential/roof-repair', label: 'Roof Repair' },
+  { href: '/residential/storm-damage', label: 'Storm Damage & Insurance' },
+  { href: '/residential/fortified-roofing', label: 'FORTIFIED Roofing' },
+  { href: '/residential/metal-roofing', label: 'Metal Roofing' },
 ]
 
 const commercialLinks = [
-  { href: '/services/commercial', label: 'Commercial Roofing' },
-  { href: '/services/commercial#flat-roofing', label: 'Flat Roofing Systems' },
-  { href: '/services/commercial#maintenance', label: 'Preventative Maintenance' },
-  { href: '/services/commercial#property-management', label: 'Property Management' },
+  { href: '/commercial', label: 'All Commercial Services' },
+  { href: '/commercial/flat-roofing', label: 'Flat Roofing Systems' },
+  { href: '/commercial/maintenance-programs', label: 'Maintenance Programs' },
+]
+
+const locationLinks = [
+  { href: '/locations', label: 'All Locations' },
+  { href: '/locations/raleigh-nc', label: 'Raleigh' },
+  { href: '/locations/durham-nc', label: 'Durham' },
+  { href: '/locations/cary-nc', label: 'Cary' },
+  { href: '/locations/chapel-hill-nc', label: 'Chapel Hill' },
+  { href: '/locations/apex-nc', label: 'Apex' },
+  { href: '/locations/wake-forest-nc', label: 'Wake Forest' },
 ]
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [residentialOpen, setResidentialOpen] = useState(false)
   const [commercialOpen, setCommercialOpen] = useState(false)
+  const [locationsOpen, setLocationsOpen] = useState(false)
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center flex-1 max-w-[400px]">
             <Image
-              src="/images/logos/NCRoofingLogo.jpg"
+              src="/images/logos/NC ROOFING SERVICE-01.png"
               alt="NC Roofing Service"
-              width={200}
+              width={400}
               height={80}
-              className="h-16 w-auto object-contain"
+              className="h-14 w-full object-contain object-left"
               priority
             />
           </Link>
@@ -99,6 +110,38 @@ export default function Navigation() {
               </div>
             </div>
 
+            {/* Locations Dropdown */}
+            <div className="relative group">
+              <button
+                className="flex items-center gap-1 transition-colors font-medium text-sm text-brand-gray hover:text-brand-black"
+              >
+                Locations
+                <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div className="bg-white rounded-lg shadow-xl border border-slate-200 py-2 min-w-[180px]">
+                  {locationLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="block px-4 py-2 text-sm text-brand-gray hover:bg-brand-red/5 hover:text-brand-red transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <Link
+              href="/our-work"
+              className="transition-colors font-medium text-sm text-brand-gray hover:text-brand-black"
+            >
+              Our Work
+            </Link>
+
             <Link
               href="/about"
               className="transition-colors font-medium text-sm text-brand-gray hover:text-brand-black"
@@ -108,16 +151,9 @@ export default function Navigation() {
 
             <Link
               href="/contact"
-              className="transition-colors font-medium text-sm text-brand-gray hover:text-brand-black"
-            >
-              Contact
-            </Link>
-
-            <Link
-              href="/contact"
               className="flex items-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white px-5 py-2.5 rounded-[2px] font-semibold transition-colors shadow-md shadow-brand-red/20"
             >
-              Request Assessment
+              Free Inspection
             </Link>
           </div>
 
@@ -213,20 +249,47 @@ export default function Navigation() {
               )}
             </div>
 
+            {/* Mobile Locations Section */}
+            <div className="border-b border-slate-100">
+              <button
+                onClick={() => setLocationsOpen(!locationsOpen)}
+                className="flex items-center justify-between w-full py-3 transition-colors font-medium text-brand-gray"
+              >
+                Locations
+                <svg className={`w-4 h-4 transition-transform ${locationsOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {locationsOpen && (
+                <div className="pl-4 pb-2">
+                  {locationLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="block py-2 text-sm text-brand-gray hover:text-brand-red transition-colors"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <Link
+              href="/our-work"
+              className="block py-3 transition-colors font-medium border-b border-slate-100 text-brand-gray hover:text-brand-black"
+              onClick={() => setIsOpen(false)}
+            >
+              Our Work
+            </Link>
+
             <Link
               href="/about"
               className="block py-3 transition-colors font-medium border-b border-slate-100 text-brand-gray hover:text-brand-black"
               onClick={() => setIsOpen(false)}
             >
               About
-            </Link>
-
-            <Link
-              href="/contact"
-              className="block py-3 transition-colors font-medium border-b border-slate-100 text-brand-gray hover:text-brand-black"
-              onClick={() => setIsOpen(false)}
-            >
-              Contact
             </Link>
 
             <div className="mt-4 space-y-3">
@@ -244,7 +307,7 @@ export default function Navigation() {
                 className="flex items-center justify-center gap-2 border-2 border-brand-black hover:bg-slate-100 text-brand-black px-6 py-3 rounded-[2px] font-semibold transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                Request Assessment
+                Free Inspection
               </Link>
             </div>
           </div>

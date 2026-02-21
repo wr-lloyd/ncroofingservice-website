@@ -9,6 +9,10 @@ export const metadata: Metadata = {
     description: 'Enter your address to see recent hail, wind, and storm activity near your home. Find out if you qualify for an insurance claim.',
     type: 'website',
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function StormCheckLayout({

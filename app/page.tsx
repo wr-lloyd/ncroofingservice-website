@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
         {/* Background with video */}
         <div className="absolute inset-0">
           <video
@@ -36,7 +36,7 @@ export default function Home() {
                 straightforward pricing, and dependable craftsmanship on every project.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 mb-24">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/contact"
                   className="flex items-center justify-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white px-8 py-4 rounded-[2px] font-semibold transition-all text-lg shadow-lg"
@@ -56,19 +56,77 @@ export default function Home() {
                   (919) 475-8841
                 </a>
               </div>
-
-              {/* Trusted & Certified By Industry Leaders */}
-              <div className="flex flex-wrap items-center gap-6">
-                <Image src="/images/certifications/gaf-master-elite.png" alt="GAF Master Elite" width={120} height={80} className="h-14 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" />
-                <Image src="/images/certifications/owens-corning.png" alt="Owens Corning Preferred Contractor" width={140} height={60} className="h-14 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" />
-                <Image src="/images/certifications/certainteed.png" alt="CertainTeed Master Craftsman" width={120} height={80} className="h-14 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" />
-                <Image src="/images/certifications/fortified.png" alt="FORTIFIED Roof" width={100} height={80} className="h-14 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" />
-              </div>
             </div>
 
             {/* Right Column - Instant Quote Form (35%) */}
-            <div>
-              <InstantQuote />
+            <div className="flex justify-end">
+              <div className="w-[90%]">
+                <InstantQuote />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trusted & Certified Banner */}
+      <section className="py-6 bg-slate-800 border-y border-slate-700">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-slate-400 text-sm mb-4">Trusted & Certified By Industry Leaders</p>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-white font-semibold text-sm">GAF Certified</p>
+                <p className="text-slate-400 text-xs">Factory-Certified Installer</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-white font-semibold text-sm">Owens Corning</p>
+                <p className="text-slate-400 text-xs">Certified Contractor</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-white font-semibold text-sm">CertainTeed</p>
+                <p className="text-slate-400 text-xs">Credentialed Installer</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-white font-semibold text-sm">FORTIFIED</p>
+                <p className="text-slate-400 text-xs">IBHS Certified</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-white font-semibold text-sm">BBB A+ Rated</p>
+                <p className="text-slate-400 text-xs">Accredited Since 2023</p>
+              </div>
             </div>
           </div>
         </div>
@@ -102,7 +160,7 @@ export default function Home() {
                 </li>
               </ul>
               <Link
-                href="/services/roof-replacement"
+                href="/residential"
                 className="inline-flex items-center gap-2 text-brand-red hover:text-white transition-colors font-medium"
               >
                 Explore Residential
@@ -134,7 +192,7 @@ export default function Home() {
                 </li>
               </ul>
               <Link
-                href="/services/commercial"
+                href="/commercial"
                 className="inline-flex items-center gap-2 text-brand-red hover:text-white transition-colors font-medium"
               >
                 Explore Commercial
@@ -161,7 +219,7 @@ export default function Home() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* FORTIFIED Roofing - Featured */}
-            <Link href="/services/fortified-roofing" className="group md:col-span-2 lg:col-span-1">
+            <Link href="/residential/fortified-roofing" className="group md:col-span-2 lg:col-span-1">
               <div className="bg-gradient-to-br from-green-50 to-white rounded-2xl p-8 border-2 border-green-200 hover:border-green-400 transition-all h-full relative overflow-hidden shadow-sm hover:shadow-lg">
                 <div className="absolute top-4 right-4">
                   <span className="inline-flex items-center gap-1 px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">
@@ -188,7 +246,7 @@ export default function Home() {
             </Link>
 
             {/* Insurance Claims */}
-            <Link href="/services/storm-damage-insurance" className="group">
+            <Link href="/residential/storm-damage" className="group">
               <div className="bg-white rounded-2xl p-8 border border-slate-200 hover:border-brand-red/30 transition-all h-full shadow-sm hover:shadow-lg">
                 <div className="w-16 h-16 bg-brand-red/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <svg className="w-8 h-8 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -207,7 +265,7 @@ export default function Home() {
             </Link>
 
             {/* Roof Replacement */}
-            <Link href="/services/roof-replacement" className="group">
+            <Link href="/residential/roof-replacement" className="group">
               <div className="bg-white rounded-2xl p-8 border border-slate-200 hover:border-brand-black/30 transition-all h-full shadow-sm hover:shadow-lg">
                 <div className="w-16 h-16 bg-gradient-to-br from-brand-black to-slate-700 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-md">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -226,7 +284,7 @@ export default function Home() {
             </Link>
 
             {/* Roof Repair */}
-            <Link href="/services/roof-repair" className="group">
+            <Link href="/residential/roof-repair" className="group">
               <div className="bg-white rounded-2xl p-8 border border-slate-200 hover:border-amber-300 transition-all h-full shadow-sm hover:shadow-lg">
                 <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-md">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -246,7 +304,7 @@ export default function Home() {
             </Link>
 
             {/* Emergency Services */}
-            <Link href="/services/roof-repair" className="group">
+            <Link href="/residential/roof-repair" className="group">
               <div className="bg-white rounded-2xl p-8 border-2 border-red-200 hover:border-red-400 transition-all h-full relative overflow-hidden shadow-sm hover:shadow-lg">
                 <div className="absolute top-4 right-4">
                   <span className="inline-flex items-center gap-1 px-2 py-1 bg-red-100 text-red-600 rounded-full text-xs font-medium">
@@ -292,7 +350,7 @@ export default function Home() {
 
           <div className="text-center mt-12">
             <Link
-              href="/services"
+              href="/residential"
               className="inline-flex items-center gap-2 border-2 border-brand-black hover:border-brand-red hover:bg-brand-red/5 text-brand-black hover:text-brand-red px-8 py-3 rounded-[2px] font-semibold transition-all"
             >
               View All Services
@@ -409,20 +467,33 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {['Rougemont', 'Durham', 'Raleigh', 'Chapel Hill', 'Cary', 'Hillsborough', 'Wake Forest', 'Apex', 'Butner', 'Creedmoor', 'Oxford', 'Mebane'].map((city) => (
+            {[
+              { name: 'Durham', slug: 'durham-nc' },
+              { name: 'Raleigh', slug: 'raleigh-nc' },
+              { name: 'Chapel Hill', slug: 'chapel-hill-nc' },
+              { name: 'Cary', slug: 'cary-nc' },
+              { name: 'Hillsborough', slug: 'hillsborough-nc' },
+              { name: 'Wake Forest', slug: 'wake-forest-nc' },
+              { name: 'Apex', slug: 'apex-nc' },
+              { name: 'Holly Springs', slug: 'holly-springs-nc' },
+              { name: 'Garner', slug: 'garner-nc' },
+              { name: 'Morrisville', slug: 'morrisville-nc' },
+              { name: 'Creedmoor', slug: 'creedmoor-nc' },
+              { name: 'Butner', slug: 'butner-nc' },
+            ].map((city) => (
               <Link 
-                key={city}
-                href="/contact#triangle-coverage-team"
+                key={city.slug}
+                href={`/locations/${city.slug}`}
                 className="bg-white hover:bg-brand-red/5 border border-slate-200 hover:border-brand-red/30 rounded-xl p-4 text-center transition-all group shadow-sm"
               >
-                <span className="text-brand-black font-medium group-hover:text-brand-red transition-colors">{city}</span>
+                <span className="text-brand-black font-medium group-hover:text-brand-red transition-colors">{city.name}</span>
                 <span className="text-slate-400 text-sm block">NC</span>
               </Link>
             ))}
           </div>
 
           <div className="text-center mt-8">
-            <Link href="/contact#triangle-coverage-team" className="text-brand-red hover:underline text-sm font-medium">
+            <Link href="/locations" className="text-brand-red hover:underline text-sm font-medium">
               View all service areas →
             </Link>
           </div>

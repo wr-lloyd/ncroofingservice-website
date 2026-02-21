@@ -1,18 +1,16 @@
 import { MetadataRoute } from 'next'
 
-// All city slugs for location pages
 const cities = [
-  'durham', 'raleigh', 'cary', 'chapel-hill', 'apex', 'wake-forest',
-  'hillsborough', 'holly-springs', 'garner', 'morrisville', 'carrboro',
-  'pittsboro', 'fuquay-varina', 'knightdale', 'clayton', 'smithfield',
-  'mebane', 'roxboro', 'oxford'
+  'raleigh-nc', 'durham-nc', 'cary-nc', 'chapel-hill-nc', 'apex-nc', 'wake-forest-nc',
+  'hillsborough-nc', 'holly-springs-nc', 'garner-nc', 'morrisville-nc', 'carrboro-nc',
+  'pittsboro-nc', 'fuquay-varina-nc', 'knightdale-nc', 'clayton-nc', 'smithfield-nc',
+  'mebane-nc', 'roxboro-nc', 'creedmoor-nc', 'butner-nc'
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://ncroofingservice.com'
   const currentDate = new Date()
 
-  // Main pages
   const mainPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
@@ -21,13 +19,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/services`,
+      url: `${baseUrl}/residential`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/contact`,
+      url: `${baseUrl}/commercial`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.9,
@@ -39,15 +37,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/resources`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/about`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/start`,
+      url: `${baseUrl}/our-work`,
       lastModified: currentDate,
-      changeFrequency: 'monthly',
+      changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
@@ -57,48 +67,88 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/our-work`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
       url: `${baseUrl}/faq`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
-  ]
-
-  // Service pages
-  const servicePages: MetadataRoute.Sitemap = [
     {
-      url: `${baseUrl}/services/roof-repair`,
+      url: `${baseUrl}/certifications`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/services/roof-replacement`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/services/fortified-roofing`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/services/storm-damage-insurance`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.7,
     },
   ]
 
-  // Location/City pages
+  const resourcePages: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/resources/roof-replacement-cost-guide`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/resources/insurance-claim-guide`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/resources/metal-roofing-guide`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+  ]
+
+  const residentialPages: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/residential/roof-replacement`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/residential/roof-repair`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/residential/storm-damage`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/residential/fortified-roofing`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/residential/metal-roofing`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+  ]
+
+  const commercialPages: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/commercial/flat-roofing`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/commercial/maintenance-programs`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+  ]
+
   const locationPages: MetadataRoute.Sitemap = cities.map(city => ({
     url: `${baseUrl}/locations/${city}`,
     lastModified: currentDate,
@@ -106,25 +156,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  // Blog pages
-  const blogPages: MetadataRoute.Sitemap = [
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blog/what-to-look-for-hiring-roofer`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.5,
-    },
+  const priorityCities = [
+    'raleigh-nc', 'durham-nc', 'cary-nc', 'chapel-hill-nc',
+    'apex-nc', 'wake-forest-nc', 'holly-springs-nc', 'morrisville-nc'
   ]
+  const serviceTypes = ['roof-replacement', 'roof-repair', 'storm-damage']
 
-  return [...mainPages, ...servicePages, ...locationPages, ...blogPages]
+  const serviceCityPages: MetadataRoute.Sitemap = priorityCities.flatMap(city =>
+    serviceTypes.map(service => ({
+      url: `${baseUrl}/locations/${city}/${service}`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    }))
+  )
+
+  return [...mainPages, ...residentialPages, ...commercialPages, ...resourcePages, ...locationPages, ...serviceCityPages]
 }
-
-
-
-

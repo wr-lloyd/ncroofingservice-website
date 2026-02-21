@@ -12,7 +12,7 @@ const cityData: Record<string, {
   highlights: string[]
   nearbyAreas: string[]
 }> = {
-  'durham': {
+  'durham-nc': {
     name: 'Durham',
     county: 'Durham County',
     region: 'North Triangle',
@@ -21,7 +21,7 @@ const cityData: Record<string, {
     highlights: ['Downtown Durham', 'Duke University area', 'Hope Valley', 'Southpoint', 'Research Triangle Park'],
     nearbyAreas: ['Chapel Hill', 'Raleigh', 'Cary', 'Hillsborough', 'Morrisville'],
   },
-  'raleigh': {
+  'raleigh-nc': {
     name: 'Raleigh',
     county: 'Wake County',
     region: 'East Triangle',
@@ -30,7 +30,7 @@ const cityData: Record<string, {
     highlights: ['North Hills', 'Brier Creek', 'Downtown Raleigh', 'North Raleigh', 'Five Points'],
     nearbyAreas: ['Cary', 'Durham', 'Wake Forest', 'Garner', 'Knightdale'],
   },
-  'cary': {
+  'cary-nc': {
     name: 'Cary',
     county: 'Wake County',
     region: 'East Triangle',
@@ -39,7 +39,7 @@ const cityData: Record<string, {
     highlights: ['Preston', 'Lochmere', 'MacGregor', 'Waverly Place', 'Park West'],
     nearbyAreas: ['Raleigh', 'Apex', 'Morrisville', 'Holly Springs', 'Durham'],
   },
-  'chapel-hill': {
+  'chapel-hill-nc': {
     name: 'Chapel Hill',
     county: 'Orange County',
     region: 'West Triangle',
@@ -48,7 +48,7 @@ const cityData: Record<string, {
     highlights: ['Downtown Chapel Hill', 'Southern Village', 'Meadowmont', 'UNC Campus area', 'Governors Club'],
     nearbyAreas: ['Carrboro', 'Durham', 'Hillsborough', 'Pittsboro', 'Cary'],
   },
-  'apex': {
+  'apex-nc': {
     name: 'Apex',
     county: 'Wake County',
     region: 'East Triangle',
@@ -57,7 +57,7 @@ const cityData: Record<string, {
     highlights: ['Downtown Apex', 'Beaver Creek', 'Scotts Mill', 'Haddon Hall', 'Salem Village'],
     nearbyAreas: ['Cary', 'Holly Springs', 'Fuquay-Varina', 'Raleigh', 'Morrisville'],
   },
-  'wake-forest': {
+  'wake-forest-nc': {
     name: 'Wake Forest',
     county: 'Wake County',
     region: 'East Triangle',
@@ -66,7 +66,7 @@ const cityData: Record<string, {
     highlights: ['Downtown Wake Forest', 'Heritage', 'Wakefield', 'Traditions', 'The Factory'],
     nearbyAreas: ['Raleigh', 'Rolesville', 'Youngsville', 'Knightdale', 'Durham'],
   },
-  'hillsborough': {
+  'hillsborough-nc': {
     name: 'Hillsborough',
     county: 'Orange County',
     region: 'West Triangle',
@@ -75,7 +75,7 @@ const cityData: Record<string, {
     highlights: ['Historic District', 'Churton Street', 'Collins Ridge', 'Waterstone', 'Forest Ridge'],
     nearbyAreas: ['Chapel Hill', 'Durham', 'Mebane', 'Carrboro', 'Efland'],
   },
-  'holly-springs': {
+  'holly-springs-nc': {
     name: 'Holly Springs',
     county: 'Wake County',
     region: 'East Triangle',
@@ -84,7 +84,7 @@ const cityData: Record<string, {
     highlights: ['Downtown Holly Springs', '12 Oaks', 'Sunset Ridge', 'Bridgewater', 'Harmony'],
     nearbyAreas: ['Apex', 'Fuquay-Varina', 'Cary', 'Raleigh', 'Angier'],
   },
-  'garner': {
+  'garner-nc': {
     name: 'Garner',
     county: 'Wake County',
     region: 'East Triangle',
@@ -93,7 +93,7 @@ const cityData: Record<string, {
     highlights: ['Downtown Garner', 'White Oak', 'Cleveland', 'Timber Drive area', 'Lake Benson'],
     nearbyAreas: ['Raleigh', 'Clayton', 'Smithfield', 'Cary', 'Fuquay-Varina'],
   },
-  'morrisville': {
+  'morrisville-nc': {
     name: 'Morrisville',
     county: 'Wake County',
     region: 'East Triangle',
@@ -102,7 +102,7 @@ const cityData: Record<string, {
     highlights: ['Park West', 'Breckenridge', 'Kitts Creek', 'Preston', 'Weston'],
     nearbyAreas: ['Cary', 'Durham', 'Raleigh', 'RTP', 'Apex'],
   },
-  'carrboro': {
+  'carrboro-nc': {
     name: 'Carrboro',
     county: 'Orange County',
     region: 'West Triangle',
@@ -111,7 +111,7 @@ const cityData: Record<string, {
     highlights: ['Downtown Carrboro', 'Lake Hogan Farms', 'Winmore', 'Claremont', 'Quarterpath Trace'],
     nearbyAreas: ['Chapel Hill', 'Hillsborough', 'Durham', 'Pittsboro', 'Mebane'],
   },
-  'pittsboro': {
+  'pittsboro-nc': {
     name: 'Pittsboro',
     county: 'Chatham County',
     region: 'West Triangle',
@@ -120,7 +120,7 @@ const cityData: Record<string, {
     highlights: ['Downtown Pittsboro', 'The Veranda', 'Chatham Park', 'Powell Place', 'Fearrington'],
     nearbyAreas: ['Chapel Hill', 'Siler City', 'Sanford', 'Cary', 'Apex'],
   },
-  'fuquay-varina': {
+  'fuquay-varina-nc': {
     name: 'Fuquay-Varina',
     county: 'Wake County',
     region: 'East Triangle',
@@ -129,7 +129,7 @@ const cityData: Record<string, {
     highlights: ['Downtown Fuquay', 'Downtown Varina', 'Bentwinds', 'Sunset Lake', 'Mills Park'],
     nearbyAreas: ['Holly Springs', 'Apex', 'Garner', 'Angier', 'Lillington'],
   },
-  'knightdale': {
+  'knightdale-nc': {
     name: 'Knightdale',
     county: 'Wake County',
     region: 'East Triangle',
@@ -138,7 +138,7 @@ const cityData: Record<string, {
     highlights: ['Downtown Knightdale', 'Widewaters', 'Planters Walk', 'Mingo Creek', 'Knightdale Station'],
     nearbyAreas: ['Raleigh', 'Wake Forest', 'Zebulon', 'Wendell', 'Rolesville'],
   },
-  'clayton': {
+  'clayton-nc': {
     name: 'Clayton',
     county: 'Johnston County',
     region: 'East Triangle',
@@ -147,7 +147,7 @@ const cityData: Record<string, {
     highlights: ['Downtown Clayton', 'Flowers Plantation', 'Riverwood', 'Glen Laurel', 'The Meadows'],
     nearbyAreas: ['Garner', 'Smithfield', 'Raleigh', 'Selma', 'Fuquay-Varina'],
   },
-  'smithfield': {
+  'smithfield-nc': {
     name: 'Smithfield',
     county: 'Johnston County',
     region: 'East Triangle',
@@ -156,7 +156,7 @@ const cityData: Record<string, {
     highlights: ['Downtown Smithfield', 'Outlet Mall area', 'Buffalo Road', 'Booker Dairy', 'Four Oaks'],
     nearbyAreas: ['Clayton', 'Selma', 'Garner', 'Benson', 'Raleigh'],
   },
-  'mebane': {
+  'mebane-nc': {
     name: 'Mebane',
     county: 'Orange County',
     region: 'West Triangle',
@@ -165,7 +165,7 @@ const cityData: Record<string, {
     highlights: ['Downtown Mebane', 'Cates Farm', 'Hawfields', 'Mill Creek', 'Cameron Heights'],
     nearbyAreas: ['Hillsborough', 'Burlington', 'Graham', 'Chapel Hill', 'Durham'],
   },
-  'roxboro': {
+  'roxboro-nc': {
     name: 'Roxboro',
     county: 'Person County',
     region: 'North Triangle',
@@ -174,14 +174,23 @@ const cityData: Record<string, {
     highlights: ['Downtown Roxboro', 'Hyco Lake area', 'Bushy Fork', 'Helena', 'Timberlake'],
     nearbyAreas: ['Durham', 'Oxford', 'South Boston VA', 'Danville VA', 'Yanceyville'],
   },
-  'oxford': {
-    name: 'Oxford',
+  'creedmoor-nc': {
+    name: 'Creedmoor',
     county: 'Granville County',
     region: 'North Triangle',
     regionLead: { name: 'Randy Butler', phone: '(919) 475-8841', phoneRaw: '+19194758841' },
-    description: 'Oxford and Granville County homeowners count on NC Roofing Service for quality work. We serve Oxford with professional roofing services and honest pricing.',
-    highlights: ['Downtown Oxford', 'Stovall', 'Creedmoor', 'Butner', 'Stem'],
-    nearbyAreas: ['Durham', 'Roxboro', 'Henderson', 'Wake Forest', 'Louisburg'],
+    description: 'Creedmoor and northern Granville County homeowners count on NC Roofing Service for quality work. We serve Creedmoor with professional roofing services and honest pricing.',
+    highlights: ['Downtown Creedmoor', 'Butner', 'Stem', 'Falls Lake area'],
+    nearbyAreas: ['Durham', 'Roxboro', 'Wake Forest', 'Oxford', 'Louisburg'],
+  },
+  'butner-nc': {
+    name: 'Butner',
+    county: 'Granville County',
+    region: 'North Triangle',
+    regionLead: { name: 'Randy Butler', phone: '(919) 475-8841', phoneRaw: '+19194758841' },
+    description: 'Butner homeowners trust NC Roofing Service for reliable roofing services. We provide professional inspections, repairs, and replacements throughout Butner.',
+    highlights: ['Downtown Butner', 'Lake Holt area', 'Stem', 'Creedmoor'],
+    nearbyAreas: ['Durham', 'Creedmoor', 'Oxford', 'Wake Forest', 'Roxboro'],
   },
 }
 
@@ -308,10 +317,10 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: 'Roof Repair', desc: 'Quick fixes for leaks, missing shingles, and storm damage', href: '/services/roof-repair' },
-              { title: 'Roof Replacement', desc: 'Complete tear-off and installation with premium materials', href: '/services/roof-replacement' },
-              { title: 'Storm Damage', desc: 'Emergency repairs and insurance claim assistance', href: '/services/storm-damage-insurance' },
-              { title: 'FORTIFIED Roofing', desc: 'Storm-resistant roofs with insurance discounts', href: '/services/fortified-roofing' },
+              { title: 'Roof Repair', desc: 'Quick fixes for leaks, missing shingles, and storm damage', href: '/residential/roof-repair' },
+              { title: 'Roof Replacement', desc: 'Complete tear-off and installation with premium materials', href: '/residential/roof-replacement' },
+              { title: 'Storm Damage', desc: 'Emergency repairs and insurance claim assistance', href: '/residential/storm-damage' },
+              { title: 'FORTIFIED Roofing', desc: 'Storm-resistant roofs with insurance discounts', href: '/residential/fortified-roofing' },
             ].map((service, idx) => (
               <Link
                 key={idx}
@@ -367,7 +376,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
               </p>
               <div className="grid grid-cols-2 gap-3">
                 {data.nearbyAreas.map((area, idx) => {
-                  const slug = area.toLowerCase().replace(/\s+/g, '-')
+                  const slug = area.toLowerCase().replace(/\s+/g, '-') + '-nc'
                   const hasPage = cityData[slug]
                   return hasPage ? (
                     <Link
