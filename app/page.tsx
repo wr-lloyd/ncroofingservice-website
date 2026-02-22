@@ -25,18 +25,18 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
           <div className="grid lg:grid-cols-[65fr_35fr] gap-8 items-center">
             {/* Left Column - Content (65%) */}
-            <div>
+            <div className="text-center lg:text-left">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-5xl font-bold text-white mb-6 leading-tight">
-                <span className="block whitespace-nowrap">Protecting <span className="text-brand-red">North Carolina</span> Homes</span>
-                <span className="block whitespace-nowrap">with Strength and Integrity.</span>
+                <span className="block lg:whitespace-nowrap">Protecting <span className="text-brand-red">North Carolina</span> Homes</span>
+                <span className="block lg:whitespace-nowrap">with Strength and Integrity.</span>
               </h1>
               
-              <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-2xl">
+              <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 Proudly serving the greater NC Triangle since 2018. We provide free inspections, 
                 straightforward pricing, and dependable craftsmanship on every project.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link
                   href="/contact"
                   className="flex items-center justify-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white px-8 py-4 rounded-[2px] font-semibold transition-all text-lg shadow-lg"
@@ -59,8 +59,8 @@ export default function Home() {
             </div>
 
             {/* Right Column - Instant Quote Form (35%) */}
-            <div className="flex justify-end">
-              <div className="w-[90%]">
+            <div className="flex justify-center lg:justify-end">
+              <div className="w-full sm:w-[90%] lg:w-[90%]">
                 <InstantQuote />
               </div>
             </div>
