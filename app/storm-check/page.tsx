@@ -115,7 +115,7 @@ function StormCheckContent() {
   const [address, setAddress] = useState('')
   const [city, setCity] = useState('')
   const [zip, setZip] = useState('')
-  const [months, setMonths] = useState(6)
+  const [months, setMonths] = useState(24)
   const [isLoading, setIsLoading] = useState(false)
   const [results, setResults] = useState<StormResults | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -129,6 +129,7 @@ function StormCheckContent() {
   })
   
   const resultsRef = useRef<HTMLElement>(null)
+  const loadingRef = useRef<HTMLElement>(null)
   const [expandedDates, setExpandedDates] = useState<Set<string>>(new Set())
 
   const toggleDate = (date: string) => {
@@ -233,10 +234,18 @@ function StormCheckContent() {
     }
   }, [searchParams, hasAutoChecked, checkStormData, months])
   
+  // Auto-scroll to loading section when check starts
+  useEffect(() => {
+    if (isLoading && loadingRef.current) {
+      setTimeout(() => {
+        loadingRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }, 100)
+    }
+  }, [isLoading])
+
   // Auto-scroll to results when they load
   useEffect(() => {
     if (results && resultsRef.current) {
-      // Small delay to ensure the DOM has updated
       setTimeout(() => {
         resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
       }, 100)
@@ -454,7 +463,7 @@ function StormCheckContent() {
 
       {/* Loading Section - Shows when checking storm data */}
       {isLoading && !results && (
-        <section className="py-20 bg-white">
+        <section ref={loadingRef} className="py-20 bg-white scroll-mt-20">
           <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="bg-slate-50 rounded-3xl p-12 border border-slate-200 shadow-lg">
               <div className="w-20 h-20 mx-auto mb-8 relative">
