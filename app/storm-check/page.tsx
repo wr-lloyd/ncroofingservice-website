@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback, Suspense, useMemo } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
+import AddressInput, { type AddressValue, type CitySource } from '@/components/AddressInput'
 
 interface StormEvent {
   date: string
@@ -112,10 +113,14 @@ const stormIcons = {
 
 function StormCheckContent() {
   const searchParams = useSearchParams()
-  const [address, setAddress] = useState('')
-  const [city, setCity] = useState('')
-  const [zip, setZip] = useState('')
-  const [months, setMonths] = useState(24)
+  const [addressData, setAddressData] = useState<AddressValue>({
+    streetAddress: '',
+    zip: '',
+    city: '',
+    county: '',
+    citySource: 'manual_entry',
+  })
+  const months = 24
   const [isLoading, setIsLoading] = useState(false)
   const [results, setResults] = useState<StormResults | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -163,17 +168,17 @@ function StormCheckContent() {
   }, [results?.storms])
   
   // Function to check storm data
-  const checkStormData = useCallback(async (addressToCheck: string, cityToCheck: string, zipToCheck: string, monthsToCheck: number = 6) => {
-    if (!addressToCheck.trim()) return
+  const checkStormData = useCallback(async (addressToCheck: AddressValue, monthsToCheck: number = 24) => {
+    if (!addressToCheck.streetAddress.trim()) return
 
     setIsLoading(true)
     setError(null)
     setResults(null)
     
     // Build full address for API call
-    const fullAddress = cityToCheck && zipToCheck 
-      ? `${addressToCheck}, ${cityToCheck}, NC ${zipToCheck}`
-      : addressToCheck
+    const fullAddress = addressToCheck.city && addressToCheck.zip 
+      ? `${addressToCheck.streetAddress}, ${addressToCheck.city}, NC ${addressToCheck.zip}`
+      : addressToCheck.streetAddress
     
     try {
       const response = await fetch('/api/storm-check', {
@@ -198,9 +203,11 @@ function StormCheckContent() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             type: 'storm-check',
-            address: addressToCheck,
-            city: cityToCheck || 'Unknown',
-            zip: zipToCheck || 'Unknown',
+            address: addressToCheck.streetAddress,
+            city: addressToCheck.city || 'Unknown',
+            zip: addressToCheck.zip || 'Unknown',
+            county: addressToCheck.county || '',
+            citySource: addressToCheck.citySource,
             stormResults: data.storms ? {
               stormCount: data.storms.length,
               overallRisk: data.overallRisk
@@ -223,14 +230,21 @@ function StormCheckContent() {
     const urlAddress = searchParams.get('address')
     const urlCity = searchParams.get('city')
     const urlZip = searchParams.get('zip')
+    const urlCounty = searchParams.get('county')
+    const urlCitySource = searchParams.get('citySource') as CitySource | null
     
     if (urlAddress && !hasAutoChecked) {
-      setAddress(urlAddress)
-      if (urlCity) setCity(urlCity)
-      if (urlZip) setZip(urlZip)
+      const newAddressData: AddressValue = {
+        streetAddress: urlAddress,
+        city: urlCity || '',
+        zip: urlZip || '',
+        county: urlCounty || '',
+        citySource: urlCitySource || 'manual_entry',
+      }
+      setAddressData(newAddressData)
       setHasAutoChecked(true)
       // Auto-run the check after setting the address
-      checkStormData(urlAddress, urlCity || '', urlZip || '', months)
+      checkStormData(newAddressData, months)
     }
   }, [searchParams, hasAutoChecked, checkStormData, months])
   
@@ -254,7 +268,7 @@ function StormCheckContent() {
 
   const handleCheck = async (e: React.FormEvent) => {
     e.preventDefault()
-    checkStormData(address, city, zip, months)
+    checkStormData(addressData, months)
   }
 
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -274,7 +288,7 @@ function StormCheckContent() {
           name: formData.name,
           phone: formData.phone,
           email: formData.email || undefined,
-          address: results?.address || address,
+          address: results?.address || `${addressData.streetAddress}, ${addressData.city}, NC ${addressData.zip}`,
           preferredTime: formData.preferredTime,
           stormRisk: results?.overallRisk,
           stormCount: results?.storms.length,
@@ -337,125 +351,56 @@ function StormCheckContent() {
       {/* Address Input Section */}
       <section className="py-16 bg-slate-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-xl max-w-lg mx-auto">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-[#C8102E] rounded-[2px] flex items-center justify-center shadow-md">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-slate-900">Free Roof Inspection</h3>
-                <p className="text-slate-500 text-xs">Includes storm damage assessment</p>
-              </div>
+          <div className="bg-white rounded-lg overflow-hidden shadow-xl max-w-lg mx-auto">
+            {/* Bold Red Header */}
+            <div className="bg-[#C8102E] px-6 py-4">
+              <h3 className="text-lg font-bold text-white uppercase tracking-wide">Storm Damage Check</h3>
             </div>
 
-            {/* Progress Bar (Visual only for consistency) */}
-            <div className="flex gap-2 mb-6">
-              <div className="h-1.5 flex-1 rounded-full bg-[#C8102E]" />
-              <div className="h-1.5 flex-1 rounded-full bg-slate-200" />
-            </div>
+            <div className="p-6">
+              <p className="text-sm text-slate-600 mb-4">
+                Scan official NOAA storm reports for the past 24 months near your address.
+              </p>
 
-            <form onSubmit={handleCheck} className="space-y-4">
-              <div>
-                <label htmlFor="address" className="block text-sm text-slate-600 mb-1 font-medium">Property Address</label>
-                <div className="relative group">
-                  <input
-                    type="text"
-                    id="address"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    placeholder="123 Main St, Raleigh, NC"
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20 transition-all text-base"
-                    required
-                  />
-                  {address && (
-                    <button
-                      type="button"
-                      onClick={() => setAddress('')}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1"
-                      title="Clear address"
-                    >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <form onSubmit={handleCheck} className="space-y-4">
+                <AddressInput
+                  value={addressData}
+                  onChange={setAddressData}
+                />
+
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full bg-[#C8102E] hover:bg-[#a50d25] disabled:bg-[#C8102E]/50 disabled:cursor-not-allowed text-white py-3 rounded-[2px] font-semibold transition-colors flex items-center justify-center gap-2 shadow-md"
+                >
+                  {isLoading ? (
+                    <>
+                      <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
-                    </button>
+                      <span className="text-sm">Checking NOAA storm data...</span>
+                    </>
+                  ) : (
+                    <>
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                      </svg>
+                      Check My Roof
+                    </>
                   )}
+                </button>
+              </form>
+
+              {error && (
+                <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm text-center font-medium animate-in fade-in slide-in-from-top-2 duration-300">
+                  {error}
                 </div>
-              </div>
+              )}
 
-              <div>
-                <label htmlFor="months" className="block text-sm text-slate-600 mb-1 font-medium">Search Period</label>
-                <div className="relative">
-                  <select
-                    id="months"
-                    value={months}
-                    onChange={(e) => setMonths(Number(e.target.value))}
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:border-[#C8102E] focus:ring-2 focus:ring-[#C8102E]/20 transition-all text-base appearance-none cursor-pointer"
-                  >
-                    <option value={3}>Past 3 Months</option>
-                    <option value={6}>Past 6 Months</option>
-                    <option value={12}>Past 12 Months</option>
-                    <option value={18}>Past 18 Months</option>
-                    <option value={24}>Past 24 Months</option>
-                  </select>
-                  <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
-              <button
-                type="submit"
-                disabled={isLoading}
-                className="w-full bg-[#C8102E] hover:bg-[#a50d25] disabled:bg-[#C8102E]/50 disabled:cursor-not-allowed text-white py-3 rounded-[2px] font-semibold transition-colors flex items-center justify-center gap-2 shadow-md"
-              >
-                {isLoading ? (
-                  <>
-                    <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    <span className="text-sm">Checking NOAA storm data...</span>
-                  </>
-                ) : (
-                  <>
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                    Check My Roof
-                  </>
-                )}
-              </button>
-            </form>
-
-            {error && (
-              <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm text-center font-medium animate-in fade-in slide-in-from-top-2 duration-300">
-                {error}
-              </div>
-            )}
-
-            <div className="mt-6 pt-4 border-t border-slate-200 flex items-center justify-center gap-4 text-xs text-slate-500 font-medium">
-              <span className="flex items-center gap-1">
-                <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                Licensed & Insured
-              </span>
-              <span className="flex items-center gap-1">
-                <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                No Obligation
-              </span>
-              <span className="flex items-center gap-1">
-                <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                BBB A+
-              </span>
+              <p className="text-center text-xs text-slate-400 mt-4">
+                Free instant results • No contact info required
+              </p>
             </div>
           </div>
         </div>

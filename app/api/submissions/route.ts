@@ -1,11 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+type CitySource = 'zip_autofill' | 'typeahead_selection' | 'manual_entry' | 'manual_kept_after_mismatch'
+
 interface Submission {
   id: string
   type: 'storm-check' | 'inspection'
   address: string
   zip: string
   city: string
+  county?: string
+  citySource?: CitySource
+  state: 'NC'
   reason?: string
   name?: string
   email?: string
@@ -30,7 +35,7 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
     
-    const { type, address, zip, city, reason, name, email, phone, notes, stormResults } = body
+    const { type, address, zip, city, county, citySource, reason, name, email, phone, notes, stormResults } = body
     
     if (!type || !address || !zip || !city) {
       return NextResponse.json(
@@ -52,8 +57,13 @@ export async function POST(request: NextRequest) {
       address,
       zip,
       city,
+      state: 'NC',
       timestamp: new Date().toISOString(),
     }
+    
+    // Add optional address fields
+    if (county) submission.county = county
+    if (citySource) submission.citySource = citySource as CitySource
     
     if (type === 'inspection') {
       if (reason) submission.reason = reason
@@ -71,7 +81,9 @@ export async function POST(request: NextRequest) {
     
     console.log(`[Submission] New ${type} submission:`, {
       id: submission.id,
-      address: `${address}, ${city} ${zip}`,
+      address: `${address}, ${city}, NC ${zip}`,
+      county: county || 'N/A',
+      citySource: citySource || 'N/A',
       type,
       timestamp: submission.timestamp,
     })

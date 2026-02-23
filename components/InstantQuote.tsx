@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import AddressInput, { type AddressValue } from '@/components/AddressInput'
 
 type TabType = 'storm-check' | 'inspection'
 
@@ -17,63 +18,65 @@ const inspectionReasons = [
 export default function InstantQuote() {
   const router = useRouter()
   const [activeTab, setActiveTab] = useState<TabType>('storm-check')
-  const [formData, setFormData] = useState({
-    address: '',
+  const [addressData, setAddressData] = useState<AddressValue>({
+    streetAddress: '',
     zip: '',
     city: '',
-    reason: '',
+    county: '',
+    citySource: 'manual_entry',
   })
+  const [reason, setReason] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
 
   const handleStormCheck = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!formData.address || !formData.zip || !formData.city) return
+    if (!addressData.streetAddress || !addressData.zip || !addressData.city) return
     
     setIsSubmitting(true)
     const params = new URLSearchParams({
-      address: formData.address,
-      zip: formData.zip,
-      city: formData.city,
+      address: addressData.streetAddress,
+      zip: addressData.zip,
+      city: addressData.city,
+      county: addressData.county || '',
+      citySource: addressData.citySource,
     })
     router.push(`/storm-check?${params.toString()}`)
   }
 
   const handleInspectionRequest = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!formData.address || !formData.zip || !formData.city || !formData.reason) return
+    if (!addressData.streetAddress || !addressData.zip || !addressData.city || !reason) return
     
     setIsSubmitting(true)
     const params = new URLSearchParams({
-      address: formData.address,
-      zip: formData.zip,
-      city: formData.city,
-      reason: formData.reason,
+      address: addressData.streetAddress,
+      zip: addressData.zip,
+      city: addressData.city,
+      county: addressData.county || '',
+      citySource: addressData.citySource,
+      reason: reason,
     })
     router.push(`/request-inspection?${params.toString()}`)
   }
 
-  const isStormCheckValid = formData.address && formData.zip && formData.city
-  const isInspectionValid = formData.address && formData.zip && formData.city && formData.reason
+  const isStormCheckValid = addressData.streetAddress && addressData.zip && addressData.city
+  const isInspectionValid = addressData.streetAddress && addressData.zip && addressData.city && reason
 
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-xl">
       {/* Tab Header */}
-      <div className="flex">
+      <div className="grid grid-cols-2">
         <button
           type="button"
           onClick={() => setActiveTab('storm-check')}
-          className={`flex-1 px-4 py-3 font-bold text-sm uppercase tracking-wide transition-colors ${
+          className={`px-3 py-3.5 font-bold text-xs uppercase tracking-wider transition-colors ${
             activeTab === 'storm-check'
               ? 'bg-brand-red text-white'
-              : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+              : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
           }`}
         >
-          <span className="flex items-center justify-center gap-2">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <span className="flex items-center justify-center gap-1.5">
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
             Storm Check
@@ -82,14 +85,14 @@ export default function InstantQuote() {
         <button
           type="button"
           onClick={() => setActiveTab('inspection')}
-          className={`flex-1 px-4 py-3 font-bold text-sm uppercase tracking-wide transition-colors ${
+          className={`px-3 py-3.5 font-bold text-xs uppercase tracking-wider transition-colors ${
             activeTab === 'inspection'
               ? 'bg-brand-red text-white'
-              : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+              : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
           }`}
         >
-          <span className="flex items-center justify-center gap-2">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <span className="flex items-center justify-center gap-1.5">
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
             </svg>
             Inspection
@@ -105,46 +108,10 @@ export default function InstantQuote() {
               Check if recent storms may have damaged your roof using NOAA weather data.
             </p>
             
-            <div>
-              <label className="block text-sm text-slate-600 mb-1 font-medium">Street Address</label>
-              <input
-                type="text"
-                name="address"
-                value={formData.address}
-                onChange={handleChange}
-                placeholder="123 Main St"
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
-                required
-              />
-            </div>
-            
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="block text-sm text-slate-600 mb-1 font-medium">City</label>
-                <input
-                  type="text"
-                  name="city"
-                  value={formData.city}
-                  onChange={handleChange}
-                  placeholder="Raleigh"
-                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm text-slate-600 mb-1 font-medium">Zip Code</label>
-                <input
-                  type="text"
-                  name="zip"
-                  value={formData.zip}
-                  onChange={handleChange}
-                  placeholder="27601"
-                  maxLength={5}
-                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
-                  required
-                />
-              </div>
-            </div>
+            <AddressInput
+              value={addressData}
+              onChange={setAddressData}
+            />
             
             <button
               type="submit"
@@ -182,60 +149,27 @@ export default function InstantQuote() {
               Schedule a free professional roof inspection with our certified team.
             </p>
             
-            <div>
-              <label className="block text-sm text-slate-600 mb-1 font-medium">Street Address</label>
-              <input
-                type="text"
-                name="address"
-                value={formData.address}
-                onChange={handleChange}
-                placeholder="123 Main St"
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
-                required
-              />
-            </div>
-            
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="block text-sm text-slate-600 mb-1 font-medium">City</label>
-                <input
-                  type="text"
-                  name="city"
-                  value={formData.city}
-                  onChange={handleChange}
-                  placeholder="Raleigh"
-                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm text-slate-600 mb-1 font-medium">Zip Code</label>
-                <input
-                  type="text"
-                  name="zip"
-                  value={formData.zip}
-                  onChange={handleChange}
-                  placeholder="27601"
-                  maxLength={5}
-                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
-                  required
-                />
-              </div>
-            </div>
+            <AddressInput
+              value={addressData}
+              onChange={setAddressData}
+            />
             
             <div>
-              <label className="block text-sm text-slate-600 mb-1 font-medium">Reason for Inspection</label>
+              <label htmlFor="reason" className="block text-sm font-medium text-slate-700 mb-1">
+                Reason for Inspection
+              </label>
               <select
+                id="reason"
                 name="reason"
-                value={formData.reason}
-                onChange={handleChange}
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
+                value={reason}
+                onChange={(e) => setReason(e.target.value)}
+                className="w-full px-4 py-3 border border-slate-200 bg-white rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-transparent transition-colors"
                 required
               >
                 <option value="">Select a reason</option>
-                {inspectionReasons.map((reason) => (
-                  <option key={reason.value} value={reason.value}>
-                    {reason.label}
+                {inspectionReasons.map((r) => (
+                  <option key={r.value} value={r.value}>
+                    {r.label}
                   </option>
                 ))}
               </select>

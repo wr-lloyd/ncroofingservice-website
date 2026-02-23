@@ -8,6 +8,9 @@ interface Submission {
   address: string
   zip: string
   city: string
+  county?: string
+  citySource?: string
+  state?: string
   reason?: string
   name?: string
   email?: string

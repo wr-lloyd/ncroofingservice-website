@@ -3,6 +3,7 @@
 import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
+import AddressInput, { type AddressValue, type CitySource } from '@/components/AddressInput'
 
 const reasonLabels: Record<string, string> = {
   'free-inspection': 'Free Roof Inspection',
@@ -13,15 +14,40 @@ const reasonLabels: Record<string, string> = {
   'other': 'Other',
 }
 
+const inspectionReasons = [
+  { value: 'free-inspection', label: 'Free Roof Inspection' },
+  { value: 'repair-estimate', label: 'Roof Repair Estimate' },
+  { value: 'replacement-estimate', label: 'Roof Replacement Estimate' },
+  { value: 'storm-damage', label: 'Storm Damage Assessment' },
+  { value: 'insurance-help', label: 'Insurance Claim Help' },
+  { value: 'other', label: 'Other' },
+]
+
 function RequestInspectionContent() {
   const searchParams = useSearchParams()
   
+  // Track if address info was provided via URL params
+  const [hasUrlParams, setHasUrlParams] = useState(false)
+  
+  // For URL param case: read-only address display
   const [addressInfo, setAddressInfo] = useState({
     address: '',
     city: '',
     zip: '',
+    county: '',
+    citySource: 'manual_entry' as CitySource,
     reason: '',
   })
+  
+  // For direct navigation case: editable address input
+  const [addressData, setAddressData] = useState<AddressValue>({
+    streetAddress: '',
+    zip: '',
+    city: '',
+    county: '',
+    citySource: 'manual_entry',
+  })
+  const [reason, setReason] = useState('')
   
   const [formData, setFormData] = useState({
     name: '',
@@ -35,12 +61,27 @@ function RequestInspectionContent() {
   const [error, setError] = useState<string | null>(null)
   
   useEffect(() => {
-    setAddressInfo({
-      address: searchParams.get('address') || '',
-      city: searchParams.get('city') || '',
-      zip: searchParams.get('zip') || '',
-      reason: searchParams.get('reason') || '',
-    })
+    const urlAddress = searchParams.get('address')
+    const urlCity = searchParams.get('city')
+    const urlZip = searchParams.get('zip')
+    const urlCounty = searchParams.get('county')
+    const urlCitySource = searchParams.get('citySource') as CitySource | null
+    const urlReason = searchParams.get('reason')
+    
+    // Check if we have URL params
+    if (urlAddress || urlReason) {
+      setHasUrlParams(true)
+      setAddressInfo({
+        address: urlAddress || '',
+        city: urlCity || '',
+        zip: urlZip || '',
+        county: urlCounty || '',
+        citySource: urlCitySource || 'manual_entry',
+        reason: urlReason || '',
+      })
+    } else {
+      setHasUrlParams(false)
+    }
   }, [searchParams])
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -52,16 +93,26 @@ function RequestInspectionContent() {
     setIsSubmitting(true)
     setError(null)
     
+    // Determine which address data to use
+    const finalAddress = hasUrlParams ? addressInfo.address : addressData.streetAddress
+    const finalCity = hasUrlParams ? addressInfo.city : addressData.city
+    const finalZip = hasUrlParams ? addressInfo.zip : addressData.zip
+    const finalCounty = hasUrlParams ? addressInfo.county : addressData.county
+    const finalCitySource = hasUrlParams ? addressInfo.citySource : addressData.citySource
+    const finalReason = hasUrlParams ? addressInfo.reason : reason
+    
     try {
       const response = await fetch('/api/submissions', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           type: 'inspection',
-          address: addressInfo.address,
-          city: addressInfo.city,
-          zip: addressInfo.zip,
-          reason: addressInfo.reason,
+          address: finalAddress,
+          city: finalCity,
+          zip: finalZip,
+          county: finalCounty,
+          citySource: finalCitySource,
+          reason: finalReason,
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
@@ -82,11 +133,15 @@ function RequestInspectionContent() {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
-          address: `${addressInfo.address}, ${addressInfo.city}, NC ${addressInfo.zip}`,
-          issueType: addressInfo.reason,
+          address: `${finalAddress}, ${finalCity}, NC ${finalZip}`,
+          city: finalCity,
+          zip: finalZip,
+          county: finalCounty,
+          issueType: finalReason,
           notes: formData.notes,
           metadata: {
             source: 'request-inspection',
+            citySource: finalCitySource,
             timestamp: new Date().toISOString(),
           }
         }),
@@ -101,7 +156,13 @@ function RequestInspectionContent() {
     }
   }
   
-  const fullAddress = [addressInfo.address, addressInfo.city, addressInfo.zip ? `NC ${addressInfo.zip}` : '']
+  // Compute full address for display
+  const displayAddress = hasUrlParams ? addressInfo.address : addressData.streetAddress
+  const displayCity = hasUrlParams ? addressInfo.city : addressData.city
+  const displayZip = hasUrlParams ? addressInfo.zip : addressData.zip
+  const displayReason = hasUrlParams ? addressInfo.reason : reason
+  
+  const fullAddress = [displayAddress, displayCity, displayZip ? `NC ${displayZip}` : '']
     .filter(Boolean)
     .join(', ')
 
@@ -185,8 +246,8 @@ function RequestInspectionContent() {
       <section className="py-16 bg-slate-100">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-            {/* Address Summary */}
-            {(addressInfo.address || addressInfo.reason) && (
+            {/* Address Summary - Show when URL params provided */}
+            {hasUrlParams && (addressInfo.address || addressInfo.reason) && (
               <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
                 <p className="text-sm text-slate-500 mb-2">Inspection Details</p>
                 {fullAddress && (
@@ -210,6 +271,39 @@ function RequestInspectionContent() {
             )}
             
             <div className="p-6 md:p-8">
+              {/* Address Input - Show when no URL params (direct navigation) */}
+              {!hasUrlParams && (
+                <div className="mb-8">
+                  <h2 className="text-2xl font-bold text-slate-900 mb-6">Property Information</h2>
+                  
+                  <AddressInput
+                    value={addressData}
+                    onChange={setAddressData}
+                  />
+                  
+                  <div className="mt-4">
+                    <label htmlFor="reason" className="block text-sm font-medium text-slate-700 mb-1">
+                      Reason for Inspection <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      id="reason"
+                      name="reason"
+                      value={reason}
+                      onChange={(e) => setReason(e.target.value)}
+                      required
+                      className="w-full px-4 py-3 border border-slate-200 bg-white rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-transparent transition-colors"
+                    >
+                      <option value="">Select a reason</option>
+                      {inspectionReasons.map((r) => (
+                        <option key={r.value} value={r.value}>
+                          {r.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+              )}
+              
               <h2 className="text-2xl font-bold text-slate-900 mb-6">Contact Information</h2>
               
               <form onSubmit={handleSubmit} className="space-y-5">
