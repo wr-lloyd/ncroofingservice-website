@@ -1,168 +1,110 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
-interface StormAlert {
-  stormCount: number
-  overallRisk: 'low' | 'moderate' | 'high' | 'severe'
-  hasHighRisk: boolean
-}
+type TabType = 'storm-check' | 'inspection'
 
-// City name mapping
-const cityNames: Record<string, string> = {
-  'raleigh': 'Raleigh',
-  'cary': 'Cary',
-  'wake-forest': 'Wake Forest',
-  'apex': 'Apex',
-  'durham': 'Durham',
-  'rougemont': 'Rougemont',
-  'chapel-hill': 'Chapel Hill',
-  'hillsborough': 'Hillsborough',
-  'other': 'NC',
-}
+const inspectionReasons = [
+  { value: 'free-inspection', label: 'Free Roof Inspection' },
+  { value: 'repair-estimate', label: 'Roof Repair Estimate' },
+  { value: 'replacement-estimate', label: 'Roof Replacement Estimate' },
+  { value: 'storm-damage', label: 'Storm Damage Assessment' },
+  { value: 'insurance-help', label: 'Insurance Claim Help' },
+  { value: 'other', label: 'Other' },
+]
 
 export default function InstantQuote() {
-  const [step, setStep] = useState(1)
+  const router = useRouter()
+  const [activeTab, setActiveTab] = useState<TabType>('storm-check')
   const [formData, setFormData] = useState({
     address: '',
+    zip: '',
     city: '',
-    roofType: '',
-    projectType: '',
-    name: '',
-    phone: '',
-    email: '',
+    reason: '',
   })
-  const [showEstimate, setShowEstimate] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [stormAlert, setStormAlert] = useState<StormAlert | null>(null)
-  const [isCheckingStorms, setIsCheckingStorms] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  // Check storm data when continuing to step 2
-  const handleContinue = async () => {
-    if (!formData.address || !formData.city || !formData.projectType) return
-    
-    setIsCheckingStorms(true)
-    
-    try {
-      // Use the city input directly - it should already include state
-      const fullAddress = `${formData.address}, ${formData.city}`
-      
-      const response = await fetch('/api/storm-check', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ address: fullAddress }),
-      })
-      
-      if (response.ok) {
-        const data = await response.json()
-        if (data.storms && data.storms.length > 0) {
-          const hasHighRisk = data.storms.some((s: { damageRisk: string }) => 
-            s.damageRisk === 'high' || s.damageRisk === 'severe'
-          )
-          setStormAlert({
-            stormCount: data.storms.length,
-            overallRisk: data.overallRisk,
-            hasHighRisk,
-          })
-        }
-      }
-    } catch (error) {
-      console.error('Storm check error:', error)
-    } finally {
-      setIsCheckingStorms(false)
-      setStep(2)
-    }
-  }
-
-  // Get full address for storm report link
-  const getFullAddress = () => {
-    return `${formData.address}, ${formData.city}`
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleStormCheck = (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitting(true)
+    if (!formData.address || !formData.zip || !formData.city) return
     
-    try {
-      const response = await fetch('/api/lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          leadType: 'estimate',
-          ...formData,
-          metadata: {
-            userAgent: navigator.userAgent,
-            timestamp: new Date().toISOString(),
-            source: 'instant-quote',
-          }
-        })
-      })
-      
-      if (response.ok) {
-        setShowEstimate(true)
-      }
-    } catch (error) {
-      console.error('Error submitting:', error)
-      setShowEstimate(true) // Show success anyway for UX
-    } finally {
-      setIsSubmitting(false)
-    }
+    setIsSubmitting(true)
+    const params = new URLSearchParams({
+      address: formData.address,
+      zip: formData.zip,
+      city: formData.city,
+    })
+    router.push(`/storm-check?${params.toString()}`)
   }
 
-  if (showEstimate) {
-    return (
-      <div className="bg-brand-black rounded-2xl p-8 text-center shadow-xl">
-        <div className="w-16 h-16 bg-brand-red rounded-[2px] flex items-center justify-center mx-auto mb-4">
-          <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-          </svg>
-        </div>
-        <h3 className="text-2xl font-bold text-white mb-2">Request Received!</h3>
-        <p className="text-white/80 mb-4">Thank you for contacting NC Roofing Service and Repair.</p>
-        <p className="text-white/80 mb-6">
-          A roofing specialist will call you within <strong className="text-white">30 minutes</strong> during business hours to schedule your <strong className="text-white">FREE assessment</strong>.
-        </p>
-        <a 
-          href="tel:+19194758841"
-          className="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white px-6 py-3 rounded-[2px] font-semibold transition-colors"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-          </svg>
-          Can&apos;t Wait? Call (919) 475-8841
-        </a>
-      </div>
-    )
+  const handleInspectionRequest = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!formData.address || !formData.zip || !formData.city || !formData.reason) return
+    
+    setIsSubmitting(true)
+    const params = new URLSearchParams({
+      address: formData.address,
+      zip: formData.zip,
+      city: formData.city,
+      reason: formData.reason,
+    })
+    router.push(`/request-inspection?${params.toString()}`)
   }
+
+  const isStormCheckValid = formData.address && formData.zip && formData.city
+  const isInspectionValid = formData.address && formData.zip && formData.city && formData.reason
 
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-xl">
-      {/* Bold Red Header */}
-      <div className="bg-brand-red px-6 py-4">
-        <h3 className="text-lg font-bold text-white uppercase tracking-wide">Free Estimates & Inspections</h3>
+      {/* Tab Header */}
+      <div className="flex">
+        <button
+          type="button"
+          onClick={() => setActiveTab('storm-check')}
+          className={`flex-1 px-4 py-3 font-bold text-sm uppercase tracking-wide transition-colors ${
+            activeTab === 'storm-check'
+              ? 'bg-brand-red text-white'
+              : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+          }`}
+        >
+          <span className="flex items-center justify-center gap-2">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Storm Check
+          </span>
+        </button>
+        <button
+          type="button"
+          onClick={() => setActiveTab('inspection')}
+          className={`flex-1 px-4 py-3 font-bold text-sm uppercase tracking-wide transition-colors ${
+            activeTab === 'inspection'
+              ? 'bg-brand-red text-white'
+              : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+          }`}
+        >
+          <span className="flex items-center justify-center gap-2">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+            </svg>
+            Inspection
+          </span>
+        </button>
       </div>
       
       <div className="p-6">
-      {/* Progress Bar */}
-      <div className="flex gap-2 mb-6">
-        {[1, 2].map((s) => (
-          <div 
-            key={s}
-            className={`h-1.5 flex-1 rounded-full transition-colors ${
-              s <= step ? 'bg-brand-red' : 'bg-slate-200'
-            }`}
-          />
-        ))}
-      </div>
-
-      <form onSubmit={handleSubmit}>
-        {step === 1 && (
-          <div className="space-y-4">
+        {/* Storm Check Tab */}
+        {activeTab === 'storm-check' && (
+          <form onSubmit={handleStormCheck} className="space-y-4">
+            <p className="text-sm text-slate-600 mb-4">
+              Check if recent storms may have damaged your roof using NOAA weather data.
+            </p>
+            
             <div>
               <label className="block text-sm text-slate-600 mb-1 font-medium">Street Address</label>
               <input
@@ -175,150 +117,158 @@ export default function InstantQuote() {
                 required
               />
             </div>
-            <div>
-              <label className="block text-sm text-slate-600 mb-1 font-medium">City, State</label>
-              <input
-                type="text"
-                name="city"
-                value={formData.city}
-                onChange={handleChange}
-                placeholder="Raleigh, NC"
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
-                required
-              />
+            
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className="block text-sm text-slate-600 mb-1 font-medium">City</label>
+                <input
+                  type="text"
+                  name="city"
+                  value={formData.city}
+                  onChange={handleChange}
+                  placeholder="Raleigh"
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm text-slate-600 mb-1 font-medium">Zip Code</label>
+                <input
+                  type="text"
+                  name="zip"
+                  value={formData.zip}
+                  onChange={handleChange}
+                  placeholder="27601"
+                  maxLength={5}
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
+                  required
+                />
+              </div>
             </div>
-            <div>
-              <label className="block text-sm text-slate-600 mb-1 font-medium">What do you need?</label>
-              <select
-                name="projectType"
-                value={formData.projectType}
-                onChange={handleChange}
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
-                required
-              >
-                <option value="">Select service needed</option>
-                <option value="inspection">Free Roof Inspection</option>
-                <option value="repair">Roof Repair</option>
-                <option value="replacement">Roof Replacement</option>
-                <option value="storm">Storm Damage</option>
-                <option value="leak">Leak Repair (Urgent)</option>
-                <option value="insurance">Insurance Claim Help</option>
-                <option value="fortified">FORTIFIED Roofing</option>
-              </select>
-            </div>
+            
             <button
-              type="button"
-              onClick={handleContinue}
-              disabled={isCheckingStorms || !formData.address || !formData.city || !formData.projectType}
+              type="submit"
+              disabled={isSubmitting || !isStormCheckValid}
               className="w-full bg-brand-red hover:bg-brand-red-dark disabled:bg-brand-red/50 disabled:cursor-not-allowed text-white py-3 rounded-[2px] font-semibold transition-colors flex items-center justify-center gap-2 shadow-md"
             >
-              {isCheckingStorms ? (
+              {isSubmitting ? (
                 <>
                   <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
-                  Checking...
+                  Loading...
                 </>
               ) : (
-                'Continue →'
+                <>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                  Check for Storm Damage
+                </>
               )}
             </button>
-          </div>
+            
+            <p className="text-center text-xs text-slate-400">
+              Free instant results • No contact info required
+            </p>
+          </form>
         )}
 
-        {step === 2 && (
-          <div className="space-y-4">
-            {/* Storm Alert Banner */}
-            {stormAlert && (
-              <Link 
-                href={`/storm-check?address=${encodeURIComponent(getFullAddress())}`}
-                className="block bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl p-3 text-white hover:from-orange-600 hover:to-orange-700 transition-all shadow-md"
-              >
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg">⚡</span>
-                    <div>
-                      <span className="font-bold">{stormAlert.stormCount} Storm{stormAlert.stormCount > 1 ? 's' : ''} Detected</span>
-                      {stormAlert.hasHighRisk && (
-                        <span className="text-orange-100 text-xs block">You may qualify for insurance coverage</span>
-                      )}
-                    </div>
-                  </div>
-                  <span className="text-sm font-medium whitespace-nowrap">View Report →</span>
-                </div>
-              </Link>
-            )}
-
+        {/* Inspection Tab */}
+        {activeTab === 'inspection' && (
+          <form onSubmit={handleInspectionRequest} className="space-y-4">
+            <p className="text-sm text-slate-600 mb-4">
+              Schedule a free professional roof inspection with our certified team.
+            </p>
+            
             <div>
-              <label className="block text-sm text-slate-600 mb-1 font-medium">Your Name</label>
+              <label className="block text-sm text-slate-600 mb-1 font-medium">Street Address</label>
               <input
                 type="text"
-                name="name"
-                value={formData.name}
+                name="address"
+                value={formData.address}
                 onChange={handleChange}
-                placeholder="John Smith"
+                placeholder="123 Main St"
                 className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
                 required
               />
             </div>
+            
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className="block text-sm text-slate-600 mb-1 font-medium">City</label>
+                <input
+                  type="text"
+                  name="city"
+                  value={formData.city}
+                  onChange={handleChange}
+                  placeholder="Raleigh"
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm text-slate-600 mb-1 font-medium">Zip Code</label>
+                <input
+                  type="text"
+                  name="zip"
+                  value={formData.zip}
+                  onChange={handleChange}
+                  placeholder="27601"
+                  maxLength={5}
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
+                  required
+                />
+              </div>
+            </div>
+            
             <div>
-              <label className="block text-sm text-slate-600 mb-1 font-medium">Phone Number</label>
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
+              <label className="block text-sm text-slate-600 mb-1 font-medium">Reason for Inspection</label>
+              <select
+                name="reason"
+                value={formData.reason}
                 onChange={handleChange}
-                placeholder="(919) 555-1234"
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
                 required
-              />
-            </div>
-            <div>
-              <label className="block text-sm text-slate-600 mb-1 font-medium">Email (Optional)</label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="john@example.com"
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
-              />
-            </div>
-            <div className="flex gap-3">
-              <button
-                type="button"
-                onClick={() => setStep(1)}
-                disabled={isSubmitting}
-                className="flex-1 border-2 border-brand-black hover:bg-slate-100 text-brand-black py-3 rounded-[2px] font-semibold transition-colors disabled:opacity-50"
               >
-                ← Back
-              </button>
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="flex-1 bg-brand-red hover:bg-brand-red-dark text-white py-3 rounded-[2px] font-semibold transition-all disabled:opacity-50 flex items-center justify-center gap-2 shadow-md"
-              >
-                {isSubmitting ? (
-                  <>
-                    <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    Submitting...
-                  </>
-                ) : (
-                  'Get Free Inspection'
-                )}
-              </button>
+                <option value="">Select a reason</option>
+                {inspectionReasons.map((reason) => (
+                  <option key={reason.value} value={reason.value}>
+                    {reason.label}
+                  </option>
+                ))}
+              </select>
             </div>
+            
+            <button
+              type="submit"
+              disabled={isSubmitting || !isInspectionValid}
+              className="w-full bg-brand-red hover:bg-brand-red-dark disabled:bg-brand-red/50 disabled:cursor-not-allowed text-white py-3 rounded-[2px] font-semibold transition-colors flex items-center justify-center gap-2 shadow-md"
+            >
+              {isSubmitting ? (
+                <>
+                  <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Loading...
+                </>
+              ) : (
+                <>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                  </svg>
+                  Request Free Inspection
+                </>
+              )}
+            </button>
+            
             <p className="text-center text-xs text-slate-400">
               🔒 Your information is secure and will never be shared
             </p>
-          </div>
+          </form>
         )}
-      </form>
-
       </div>
     </div>
   )
