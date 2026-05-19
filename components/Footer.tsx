@@ -9,19 +9,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
+            <Link href="/" aria-label="NC Roofing Service — (336) ROOFING" className="inline-block mb-4">
               <Image
-                src="/images/logos/NC ROOFING SERVICE-01.png"
-                alt="NC Roofing Service"
-                width={48}
-                height={48}
-                className="w-12 h-12"
+                src="/images/logos/logo-number.png"
+                alt="NC Roofing Service — (336) ROOFING"
+                width={520}
+                height={180}
+                className="h-16 w-auto"
               />
-              <div>
-                <span className="text-white font-bold text-lg block">NC Roofing Service</span>
-                <span className="text-slate-500 text-xs">Your Local NC Roofing and Exterior Systems Provider</span>
-              </div>
-            </div>
+            </Link>
+            <p className="text-slate-500 text-xs mb-3">Your Local NC Roofing and Exterior Systems Provider</p>
             <p className="text-slate-400 mb-4 text-sm">
               Professional roofing and exterior systems. Serving residential and commercial clients throughout the Triangle since 2018.
             </p>
