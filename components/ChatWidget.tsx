@@ -43,7 +43,7 @@ export default function ChatWidget() {
       { from: 'user', text: inputValue },
       { 
         from: 'bot', 
-        text: "Thanks for reaching out! We'll get back to you shortly. For faster service, call us at (336) ROOFING or email bandc@ncroofingservice.com."
+        text: "Thanks for reaching out! We'll get back to you shortly. For faster service, call us at (336) ROOFING or email info@ncroofingservice.com."
       }
     ])
     setInputValue('')

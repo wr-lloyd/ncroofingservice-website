@@ -1,4 +1,4 @@
-# Lead Capture Setup Guide
+﻿# Lead Capture Setup Guide
 
 Your website is now configured to capture leads via email and Google Sheets. Follow the steps below to activate.
 
@@ -32,12 +32,12 @@ Add these to your `.env.local` file (and in Vercel dashboard for production):
 ```
 RESEND_API_KEY=re_your_api_key_here
 RESEND_FROM_EMAIL=leads@ncroofingservice.com
-LEAD_NOTIFICATION_EMAIL=bandc@ncroofingservice.com
+LEAD_NOTIFICATION_EMAIL=info@ncroofingservice.com
 ```
 
 Notes:
 - `RESEND_FROM_EMAIL`: The "from" address (must be verified domain or use onboarding@resend.dev for testing)
-- `LEAD_NOTIFICATION_EMAIL`: Where lead notifications are sent (currently set to bandc@ncroofingservice.com)
+- `LEAD_NOTIFICATION_EMAIL`: Where lead notifications are sent (currently set to info@ncroofingservice.com)
 
 ---
 

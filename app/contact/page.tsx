@@ -776,8 +776,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-slate-900 font-semibold text-lg">Email</h3>
-                    <a href="mailto:bandc@ncroofingservice.com" className="text-[#C8102E] hover:text-[#a50d25] transition-colors">
-                      bandc@ncroofingservice.com
+                    <a href="mailto:info@ncroofingservice.com" className="text-[#C8102E] hover:text-[#a50d25] transition-colors">
+                      info@ncroofingservice.com
                     </a>
                     <p className="text-slate-500 text-sm mt-1">We respond within 24 hours</p>
                   </div>

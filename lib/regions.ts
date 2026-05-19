@@ -39,7 +39,7 @@ export const regions: Region[] = [
       title: 'Regional Lead',
       phone: '(336) ROOFING',
       phoneRaw: '+13367663464',
-      email: 'bandc@ncroofingservice.com',
+      email: 'info@ncroofingservice.com',
       photo: '/images/team/randy-north-400x400.jpg',
       bio: 'Born and raised in Durham County, Randy knows every neighborhood and building code in the North Triangle. 15+ years in roofing.',
     },
@@ -81,7 +81,7 @@ export const regions: Region[] = [
       title: 'Owner & Regional Lead',
       phone: '(336) ROOFING',
       phoneRaw: '+13367663464',
-      email: 'bandc@ncroofingservice.com',
+      email: 'info@ncroofingservice.com',
       photo: '/images/team/randy-north-400x400.jpg',
       bio: 'Randy personally leads our Orange and Chatham County work — from historic Chapel Hill homes to new builds in Pittsboro. Same direct line, same standards as the Durham region.',
     },
@@ -187,7 +187,7 @@ export const defaultContact = {
   label: 'Triangle Support Team',
   phone: '(336) ROOFING',
   phoneRaw: '+13367663464',
-  email: 'bandc@ncroofingservice.com',
+  email: 'info@ncroofingservice.com',
 }
 
 // Helper functions

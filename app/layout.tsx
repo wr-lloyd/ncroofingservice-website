@@ -90,7 +90,7 @@ export default function RootLayout({
               "image": "https://ncroofingservice.com/logo.png",
               "url": "https://ncroofingservice.com",
               "telephone": "+1-336-766-3464",
-              "email": "bandc@ncroofingservice.com",
+              "email": "info@ncroofingservice.com",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "5950 Mt. Harmony Church Rd",
