@@ -40,13 +40,13 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center flex-1 max-w-[400px]">
+          <Link href="/" className="flex items-center flex-1 max-w-[440px]">
             <Image
-              src="/images/logos/NC ROOFING SERVICE-01.png"
-              alt="NC Roofing Service"
-              width={400}
-              height={80}
-              className="h-14 w-full object-contain object-left"
+              src="/images/logos/header-banner.svg"
+              alt="NC Roofing Service — (336) ROOFING"
+              width={1280}
+              height={282}
+              className="h-16 w-auto object-contain object-left"
               priority
             />
           </Link>
