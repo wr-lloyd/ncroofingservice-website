@@ -1,4 +1,4 @@
-import { Metadata } from 'next'
+﻿import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -12,22 +12,53 @@ export const metadata: Metadata = {
   },
 }
 
-const regions = [
+type RegionColor = 'green' | 'blue' | 'purple' | 'amber'
+
+const regions: Array<{
+  name: string
+  lead: string
+  phone: string
+  phoneRaw: string
+  counties: string[]
+  color: RegionColor
+  cities: Array<{ name: string; slug: string | null; featured: boolean }>
+}> = [
   {
     name: 'Durham & North Triangle',
     lead: 'Randy Butler',
-    phone: '(919) 475-8841',
-    phoneRaw: '+19194758841',
-    counties: ['Durham County', 'Granville County', 'Person County'],
+    phone: '(336) ROOFING',
+    phoneRaw: '+13367663464',
+    counties: ['Durham County', 'Person County'],
     color: 'green',
     cities: [
       { name: 'Durham', slug: 'durham', featured: true },
       { name: 'Roxboro', slug: 'roxboro', featured: false },
-      { name: 'Oxford', slug: 'oxford', featured: false },
-      { name: 'Butner', slug: null, featured: false },
-      { name: 'Creedmoor', slug: null, featured: false },
       { name: 'Bahama', slug: null, featured: false },
       { name: 'Rougemont', slug: null, featured: false },
+      { name: 'Timberlake', slug: null, featured: false },
+      { name: 'Hurdle Mills', slug: null, featured: false },
+    ],
+  },
+  {
+    name: 'Greater Granville',
+    lead: 'Marvin Jackson',
+    phone: '(336) ROOFING',
+    phoneRaw: '+13367663464',
+    counties: ['Granville County'],
+    color: 'amber',
+    cities: [
+      { name: 'Oxford', slug: 'oxford', featured: true },
+      { name: 'Creedmoor', slug: null, featured: false },
+      { name: 'Butner', slug: null, featured: false },
+      { name: 'Stem', slug: null, featured: false },
+      { name: 'Stovall', slug: null, featured: false },
+      { name: 'Wilton', slug: null, featured: false },
+      { name: 'Berea', slug: null, featured: false },
+      { name: 'Bullock', slug: null, featured: false },
+      { name: 'Brassfield', slug: null, featured: false },
+      { name: 'Tar River', slug: null, featured: false },
+      { name: 'Cornwall', slug: null, featured: false },
+      { name: 'Knap of Reeds', slug: null, featured: false },
     ],
   },
   {
@@ -54,7 +85,7 @@ const regions = [
   },
   {
     name: 'Orange & West Triangle',
-    lead: 'Preston Mayo',
+    lead: 'Makenzie Flack',
     phone: '(919) 525-1862',
     phoneRaw: '+19195251862',
     counties: ['Orange County', 'Chatham County'],
@@ -105,11 +136,11 @@ export default function LocationsPage() {
               <div className="text-slate-600">Counties Served</div>
             </div>
             <div className="bg-white rounded-2xl p-6 border border-slate-200">
-              <div className="text-4xl font-bold text-[#C8102E] mb-2">30+</div>
+              <div className="text-4xl font-bold text-[#C8102E] mb-2">40+</div>
               <div className="text-slate-600">Cities & Towns</div>
             </div>
             <div className="bg-white rounded-2xl p-6 border border-slate-200">
-              <div className="text-4xl font-bold text-[#C8102E] mb-2">3</div>
+              <div className="text-4xl font-bold text-[#C8102E] mb-2">4</div>
               <div className="text-slate-600">Regional Experts</div>
             </div>
           </div>
@@ -128,6 +159,7 @@ export default function LocationsPage() {
                     <div className={`inline-block px-4 py-1 rounded-full text-sm font-semibold mb-3 ${
                       region.color === 'green' ? 'bg-green-100 text-green-700' :
                       region.color === 'blue' ? 'bg-blue-100 text-blue-700' :
+                      region.color === 'amber' ? 'bg-amber-100 text-amber-800' :
                       'bg-purple-100 text-purple-700'
                     }`}>
                       {region.name}
@@ -143,6 +175,7 @@ export default function LocationsPage() {
                         className={`inline-flex items-center gap-2 mt-2 font-semibold ${
                           region.color === 'green' ? 'text-green-600' :
                           region.color === 'blue' ? 'text-[#C8102E]' :
+                          region.color === 'amber' ? 'text-amber-700' :
                           'text-purple-600'
                         }`}
                       >
@@ -167,6 +200,7 @@ export default function LocationsPage() {
                               city.featured 
                                 ? region.color === 'green' ? 'bg-green-50 border-green-200 hover:border-green-400' :
                                   region.color === 'blue' ? 'bg-blue-50 border-blue-200 hover:border-blue-400' :
+                                  region.color === 'amber' ? 'bg-amber-50 border-amber-200 hover:border-amber-400' :
                                   'bg-purple-50 border-purple-200 hover:border-purple-400'
                                 : 'bg-slate-50 border-slate-200 hover:border-slate-400'
                             }`}
@@ -208,13 +242,13 @@ export default function LocationsPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+19194758841"
+              href="tel:+13367663464"
               className="inline-flex items-center justify-center gap-2 bg-[#C8102E] hover:bg-[#a50d25] text-white px-8 py-4 rounded-[2px] font-bold transition-colors text-lg"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              Call (919) 475-8841
+              Call (336) ROOFING
             </a>
             <Link
               href="/contact"

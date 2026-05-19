@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState, useEffect, useRef, useCallback, Suspense, useMemo } from 'react'
 import { useSearchParams } from 'next/navigation'
@@ -227,7 +227,7 @@ function StormCheckContent() {
       setShowScheduleForm(false)
     } catch (err) {
       console.error('Failed to submit lead:', err)
-      alert('Something went wrong. Please call us directly at (919) 475-8841')
+      alert('Something went wrong. Please call us directly at (336) ROOFING')
     } finally {
       setIsSubmitting(false)
     }
@@ -653,13 +653,13 @@ function StormCheckContent() {
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <a 
-                    href="tel:+19194758841" 
+                    href="tel:+13367663464" 
                     className="bg-white text-green-700 px-8 py-4 rounded-2xl font-black text-lg hover:bg-green-50 transition-colors shadow-lg flex items-center gap-3"
                   >
                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 00-1.02.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.2a1.019 1.019 0 00.24-1.02c-.37-1.12-.57-2.32-.57-3.57 0-.55-.45-1-1-1H7c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1zM19 12c.55 0 1-.45 1-1 0-3.31-2.69-6-6-6-.55 0-1 .45-1 1s.45 1 1 1c2.21 0 4 1.79 4 4 0 .55.45 1 1 1z" />
                     </svg>
-                    (919) 475-8841
+                    (336) ROOFING
                   </a>
                 </div>
               </div>
@@ -684,7 +684,7 @@ function StormCheckContent() {
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 00-1.02.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.2a1.019 1.019 0 00.24-1.02c-.37-1.12-.57-2.32-.57-3.57 0-.55-.45-1-1-1H7c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z" />
                     </svg>
-                    OR CALL NOW: <a href="tel:+19194758841" className="hover:text-white underline">(919) 475-8841</a>
+                    OR CALL NOW: <a href="tel:+13367663464" className="hover:text-white underline">(336) ROOFING</a>
                   </p>
                 </div>
               </div>

@@ -1,4 +1,4 @@
-# NC Roofing Service and Repair - Website
+﻿# NC Roofing Service and Repair - Website
 
 A modern, conversion-optimized website for NC Roofing Service and Repair, built with Next.js 14, TypeScript, and Tailwind CSS.
 
@@ -132,7 +132,7 @@ Each lead is automatically tagged with a routing priority:
 
 - **Company**: NC Roofing Service and Repair, LLC
 - **Owner**: Randall Butler
-- **Phone**: (919) 475-8841
+- **Phone**: (336) ROOFING
 - **Email**: bandc@ncroofingservice.com
 - **Address**: 5950 Mt. Harmony Church Rd, Rougemont, NC 27572
 - **Service Area**: Durham, Raleigh, Chapel Hill, Cary, and surrounding Triangle areas

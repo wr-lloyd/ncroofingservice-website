@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 import Link from 'next/link'
@@ -150,7 +150,7 @@ export default function ProblemFinder({ onSelectAction, compact = false }: Probl
         {/* Action Button */}
         {selectedProblem.nextStep.action === 'call' ? (
           <a
-            href="tel:+19194758841"
+            href="tel:+13367663464"
             className="flex items-center justify-center gap-2 w-full bg-brand-red hover:bg-brand-red-dark text-white py-4 rounded-[2px] font-semibold transition-colors text-lg"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -172,7 +172,7 @@ export default function ProblemFinder({ onSelectAction, compact = false }: Probl
 
         {/* Alternative */}
         <p className="text-center text-slate-500 text-sm mt-4">
-          Or call anytime: <a href="tel:+19194758841" className="text-brand-red hover:underline">(919) 475-8841</a>
+          Or call anytime: <a href="tel:+13367663464" className="text-brand-red hover:underline">(336) ROOFING</a>
         </p>
       </div>
     )

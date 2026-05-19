@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 
@@ -16,10 +16,10 @@ export default function EmergencyBanner() {
         </span>
         <span className="font-medium">🚨 24/7 Emergency Roof Repair Available</span>
         <span className="hidden md:inline text-red-200">—</span>
-        <a href="tel:+19194758841" className="font-bold hover:underline hidden md:inline">
-          Call Now: (919) 475-8841
+        <a href="tel:+13367663464" className="font-bold hover:underline hidden md:inline">
+          Call Now: (336) ROOFING
         </a>
-        <a href="tel:+19194758841" className="md:hidden font-bold bg-white text-red-600 px-3 py-1 rounded-full text-xs ml-2">
+        <a href="tel:+13367663464" className="md:hidden font-bold bg-white text-red-600 px-3 py-1 rounded-full text-xs ml-2">
           CALL NOW
         </a>
         <button 

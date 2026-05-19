@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -154,7 +154,7 @@ export default function InsuranceClaimGuidePage() {
             </div>
             <div>
               <p className="font-semibold text-slate-900">Have active roof damage?</p>
-              <p className="text-slate-600 text-sm">Call us at <a href="tel:+19194758841" className="text-brand-red font-medium">(919) 475-8841</a> for emergency tarping and a free inspection.</p>
+              <p className="text-slate-600 text-sm">Call us at <a href="tel:+13367663464" className="text-brand-red font-medium">(336) ROOFING</a> for emergency tarping and a free inspection.</p>
             </div>
           </div>
         </div>

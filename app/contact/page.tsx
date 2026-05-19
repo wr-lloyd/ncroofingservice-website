@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState, useMemo, useEffect, useCallback } from 'react'
 import Image from 'next/image'
@@ -148,7 +148,7 @@ export default function ContactPage() {
       setIsSubmitted(true)
     } catch (err) {
       console.error('Failed to submit lead:', err)
-      alert('Something went wrong. Please call us directly at (919) 475-8841')
+      alert('Something went wrong. Please call us directly at (336) ROOFING')
     } finally {
       setIsSubmitting(false)
     }
@@ -194,7 +194,7 @@ export default function ContactPage() {
             </p>
           </div>
           
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {regions.map((region) => (
               <Link 
                 key={region.id}
@@ -211,6 +211,7 @@ export default function ContactPage() {
                   <div className={`h-2 ${
                     region.color === 'green' ? 'bg-gradient-to-r from-green-500 to-emerald-400' :
                     region.color === 'purple' ? 'bg-gradient-to-r from-purple-500 to-violet-400' :
+                    region.color === 'amber' ? 'bg-gradient-to-r from-amber-500 to-orange-400' :
                     'bg-gradient-to-r from-blue-500 to-cyan-400'
                   }`} />
                   
@@ -230,6 +231,7 @@ export default function ContactPage() {
                       <span className={`px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-white backdrop-blur-sm ${
                         region.color === 'green' ? 'bg-green-600/80' :
                         region.color === 'purple' ? 'bg-purple-600/80' :
+                        region.color === 'amber' ? 'bg-amber-600/80' :
                         'bg-[#C8102E]/80'
                       }`}>
                         {region.shortLabel}
@@ -242,6 +244,7 @@ export default function ContactPage() {
                       <p className={`text-sm font-medium ${
                         region.color === 'green' ? 'text-green-300' :
                         region.color === 'purple' ? 'text-purple-300' :
+                        region.color === 'amber' ? 'text-amber-300' :
                         'text-[#C8102E]'
                       }`}>{region.label}</p>
                     </div>
@@ -282,6 +285,7 @@ export default function ContactPage() {
                       className={`flex items-center justify-center gap-3 w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg group-hover:shadow-xl transform group-hover:-translate-y-0.5 ${
                         region.color === 'green' ? 'bg-gradient-to-r from-green-600 to-emerald-500 group-hover:from-green-700 group-hover:to-emerald-600 text-white' :
                         region.color === 'purple' ? 'bg-gradient-to-r from-purple-600 to-violet-500 group-hover:from-purple-700 group-hover:to-violet-600 text-white' :
+                        region.color === 'amber' ? 'bg-gradient-to-r from-amber-600 to-orange-500 group-hover:from-amber-700 group-hover:to-orange-600 text-white' :
                         'bg-gradient-to-r from-blue-600 to-cyan-500 group-hover:from-blue-700 group-hover:to-cyan-600 text-white'
                       }`}
                     >
@@ -311,15 +315,15 @@ export default function ContactPage() {
           <div className="mt-16 bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-8 shadow-xl">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               <div>
-                <div className="text-4xl font-bold text-white mb-1">3</div>
+                <div className="text-4xl font-bold text-white mb-1">4</div>
                 <div className="text-slate-400 text-sm">Regional Experts</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-white mb-1">6</div>
+                <div className="text-4xl font-bold text-white mb-1">8</div>
                 <div className="text-slate-400 text-sm">Counties Covered</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-white mb-1">30+</div>
+                <div className="text-4xl font-bold text-white mb-1">40+</div>
                 <div className="text-slate-400 text-sm">Cities Served</div>
               </div>
               <div>
@@ -398,6 +402,7 @@ export default function ContactPage() {
                       className={`flex items-center justify-between p-4 rounded-xl transition-all duration-300 ${
                         region.color === 'green' ? 'bg-green-50 hover:bg-green-100 border border-green-200' :
                         region.color === 'purple' ? 'bg-purple-50 hover:bg-purple-100 border border-purple-200' :
+                        region.color === 'amber' ? 'bg-amber-50 hover:bg-amber-100 border border-amber-200' :
                         'bg-blue-50 hover:bg-blue-100 border border-blue-200'
                       }`}
                     >
@@ -405,6 +410,7 @@ export default function ContactPage() {
                         <div className={`w-10 h-10 rounded-full overflow-hidden ring-2 ${
                           region.color === 'green' ? 'ring-green-400' :
                           region.color === 'purple' ? 'ring-purple-400' :
+                          region.color === 'amber' ? 'ring-amber-400' :
                           'ring-blue-400'
                         }`}>
                           <Image
@@ -423,6 +429,7 @@ export default function ContactPage() {
                       <div className={`px-3 py-1.5 rounded-lg text-sm font-semibold ${
                         region.color === 'green' ? 'bg-green-500 text-white' :
                         region.color === 'purple' ? 'bg-purple-500 text-white' :
+                        region.color === 'amber' ? 'bg-amber-500 text-white' :
                         'bg-blue-500 text-white'
                       }`}>
                         Call
@@ -471,7 +478,7 @@ export default function ContactPage() {
                     </ol>
                   </div>
                   <p className="text-slate-500 text-sm">
-                    Can&apos;t wait? Call us: <a href="tel:+19194758841" className="text-blue-600 font-semibold hover:underline">(919) 475-8841</a>
+                    Can&apos;t wait? Call us: <a href="tel:+13367663464" className="text-blue-600 font-semibold hover:underline">(336) ROOFING</a>
                   </p>
                 </div>
               ) : (
@@ -754,8 +761,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-[#111111] font-semibold text-lg">Main Office</h3>
-                    <a href="tel:+19194758841" className="text-2xl font-bold text-[#C8102E] hover:text-[#a50d25] transition-colors">
-                      (919) 475-8841
+                    <a href="tel:+13367663464" className="text-2xl font-bold text-[#C8102E] hover:text-[#a50d25] transition-colors">
+                      (336) ROOFING
                     </a>
                     <p className="text-slate-500 text-sm mt-1">Call or text anytime</p>
                   </div>
@@ -849,13 +856,13 @@ export default function ContactPage() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+19194758841"
+              href="tel:+13367663464"
               className="inline-flex items-center justify-center gap-3 bg-white hover:bg-slate-100 text-slate-900 px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 text-lg shadow-xl"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              Call (919) 475-8841
+              Call (336) ROOFING
             </a>
             <Link
               href="/storm-check"

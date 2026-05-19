@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 
@@ -26,7 +26,7 @@ export default function ChatWidget() {
       { 
         from: 'bot', 
         text: option === 'Report Emergency' 
-          ? "🚨 For emergencies, please call us immediately at (919) 475-8841. We're available 24/7 for urgent roof issues!"
+          ? "🚨 For emergencies, please call us immediately at (336) ROOFING. We're available 24/7 for urgent roof issues!"
           : option === 'Schedule Free Inspection'
           ? "Great! We offer free roof inspections throughout the Triangle area. What city are you located in?"
           : option === 'Get Repair Quote'
@@ -43,7 +43,7 @@ export default function ChatWidget() {
       { from: 'user', text: inputValue },
       { 
         from: 'bot', 
-        text: "Thanks for reaching out! We'll get back to you shortly. For faster service, call us at (919) 475-8841 or email bandc@ncroofingservice.com."
+        text: "Thanks for reaching out! We'll get back to you shortly. For faster service, call us at (336) ROOFING or email bandc@ncroofingservice.com."
       }
     ])
     setInputValue('')
@@ -150,7 +150,7 @@ export default function ChatWidget() {
               </button>
             </div>
             <p className="text-center text-xs text-slate-400 mt-2">
-              Or call <a href="tel:+19194758841" className="text-brand-red hover:underline">(919) 475-8841</a>
+              Or call <a href="tel:+13367663464" className="text-brand-red hover:underline">(336) ROOFING</a>
             </p>
           </div>
         </div>

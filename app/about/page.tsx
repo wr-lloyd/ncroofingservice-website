@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import SocialLinks from '@/components/SocialLinks'
 
 export const metadata = {
@@ -100,13 +100,13 @@ export default function AboutPage() {
 
               <div className="mt-6 pt-6 border-t border-slate-200">
                 <a 
-                  href="tel:+19194758841"
+                  href="tel:+13367663464"
                   className="flex items-center justify-center gap-2 bg-[#C8102E] hover:bg-[#a50d25] text-white py-3 rounded-[2px] font-semibold transition-colors shadow-md"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
-                  Call Randall: (919) 475-8841
+                  Call Randall: (336) ROOFING
                 </a>
               </div>
             </div>
@@ -125,7 +125,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Randy Butler */}
             <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center shadow-sm">
               <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden shadow-md ring-2 ring-green-500/20">
@@ -141,7 +141,28 @@ export default function AboutPage() {
                 Company founder and Rougemont native. Leads the Durham region with a personal commitment to quality.
               </p>
               <div className="flex flex-wrap justify-center gap-2">
-                {['Durham', 'Rougemont', 'Butner', 'Creedmoor'].map((city) => (
+                {['Durham', 'Rougemont', 'Roxboro', 'Bahama'].map((city) => (
+                  <span key={city} className="px-2 py-1 bg-slate-200 text-slate-600 text-xs rounded-full">{city}</span>
+                ))}
+              </div>
+            </div>
+
+            {/* Marvin Jackson */}
+            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center shadow-sm">
+              <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden shadow-md ring-2 ring-amber-500/20">
+                <img 
+                  src="/images/team/marvin-granville-400x400.svg"
+                  alt="Marvin Jackson"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-slate-900 font-bold text-xl mb-1">Marvin Jackson</h3>
+              <p className="text-amber-700 text-sm font-medium mb-2">Greater Granville</p>
+              <p className="text-slate-600 text-sm mb-4">
+                Granville County native with deep roots in Oxford. Trusted across the Greater Granville area for quality roofing.
+              </p>
+              <div className="flex flex-wrap justify-center gap-2">
+                {['Oxford', 'Creedmoor', 'Butner', 'Stem'].map((city) => (
                   <span key={city} className="px-2 py-1 bg-slate-200 text-slate-600 text-xs rounded-full">{city}</span>
                 ))}
               </div>
@@ -168,16 +189,16 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Preston Mayo */}
+            {/* Makenzie Flack */}
             <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center shadow-sm">
               <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden shadow-md ring-2 ring-purple-500/20">
                 <img 
                   src="/images/team/preston-south-400x400.jpg"
-                  alt="Preston Mayo"
+                  alt="Makenzie Flack"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-slate-900 font-bold text-xl mb-1">Preston Mayo</h3>
+              <h3 className="text-slate-900 font-bold text-xl mb-1">Makenzie Flack</h3>
               <p className="text-purple-600 text-sm font-medium mb-2">Greater Chapel Hill</p>
               <p className="text-slate-600 text-sm mb-4">
                 Covering Orange County with expertise and care. Your local connection in the Chapel Hill area.
@@ -249,7 +270,14 @@ export default function AboutPage() {
                       <div className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-purple-500/30">
                         <img 
                           src="/images/team/preston-south-400x400.jpg"
-                          alt="Preston Mayo"
+                          alt="Makenzie Flack"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-amber-500/30">
+                        <img 
+                          src="/images/team/marvin-granville-400x400.svg"
+                          alt="Marvin Jackson"
                           className="w-full h-full object-cover"
                         />
                       </div>
@@ -259,7 +287,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <p className="text-white font-semibold">Your Local Team</p>
-                      <p className="text-slate-400 text-sm">Serving Durham, Raleigh & Chapel Hill</p>
+                      <p className="text-slate-400 text-sm">Serving Durham, Raleigh, Chapel Hill & Oxford</p>
                     </div>
                   </div>
                 </div>
@@ -660,10 +688,10 @@ export default function AboutPage() {
               Request Assessment
             </Link>
             <a
-              href="tel:+19194758841"
+              href="tel:+13367663464"
               className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-[2px] font-semibold transition-all text-lg"
             >
-              Call (919) 475-8841
+              Call (336) ROOFING
             </a>
           </div>
         </div>

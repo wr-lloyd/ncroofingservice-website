@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 
 export const metadata = {
   title: 'Roofing Blog | NC Roofing Service and Repair | Tips & News',
@@ -192,10 +192,10 @@ export default function BlogPage() {
                 Contact Us
               </Link>
               <a
-                href="tel:+19194758841"
+                href="tel:+13367663464"
                 className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-[2px] font-semibold transition-colors"
               >
-                Call (919) 475-8841
+                Call (336) ROOFING
               </a>
             </div>
           </div>

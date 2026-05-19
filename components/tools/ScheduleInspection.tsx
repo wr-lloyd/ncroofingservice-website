@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 import { useHoneypot, HoneypotField } from '@/components/Honeypot'
@@ -107,7 +107,7 @@ export default function ScheduleInspection({ onSubmit, urgency = 'normal', prefi
           </ol>
         </div>
         <p className="text-slate-500 text-sm">
-          Can&apos;t wait? Call us directly: <a href="tel:+19194758841" className="text-brand-red hover:underline">(919) 475-8841</a>
+          Can&apos;t wait? Call us directly: <a href="tel:+13367663464" className="text-brand-red hover:underline">(336) ROOFING</a>
         </p>
       </div>
     )

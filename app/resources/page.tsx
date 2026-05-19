@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -218,10 +218,10 @@ export default function ResourcesPage() {
               Get Free Consultation
             </Link>
             <a
-              href="tel:+19194758841"
+              href="tel:+13367663464"
               className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-[2px] font-semibold transition-colors"
             >
-              Call (919) 475-8841
+              Call (336) ROOFING
             </a>
           </div>
         </div>

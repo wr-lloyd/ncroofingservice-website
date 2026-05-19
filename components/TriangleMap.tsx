@@ -1,7 +1,7 @@
 'use client'
 
 interface TriangleMapProps {
-  highlightedRegion: 'raleigh' | 'durham' | 'chapel-hill'
+  highlightedRegion: 'raleigh' | 'durham' | 'chapel-hill' | 'granville'
   className?: string
 }
 
@@ -49,16 +49,18 @@ const counties = {
 }
 
 // Which counties each rep covers
-const regionCounties = {
+const regionCounties: Record<TriangleMapProps['highlightedRegion'], string[]> = {
   raleigh: ['wake', 'franklin', 'johnston', 'harnett'], // Mike - Wake County area
-  durham: ['durham', 'person', 'granville'], // Randy - Durham/north
-  'chapel-hill': ['orange', 'chatham', 'alamance', 'lee'], // Preston - Orange County area
+  durham: ['durham', 'person'], // Randy - Durham + Person
+  'chapel-hill': ['orange', 'chatham', 'alamance', 'lee'], // Makenzie - Orange County area
+  granville: ['granville'], // Marvin - Granville County
 }
 
-const regionColors = {
+const regionColors: Record<TriangleMapProps['highlightedRegion'], { fill: string; stroke: string }> = {
   raleigh: { fill: 'rgb(37, 99, 235)', stroke: 'rgb(59, 130, 246)' }, // blue
   durham: { fill: 'rgb(22, 163, 74)', stroke: 'rgb(34, 197, 94)' }, // green
   'chapel-hill': { fill: 'rgb(147, 51, 234)', stroke: 'rgb(168, 85, 247)' }, // purple
+  granville: { fill: 'rgb(217, 119, 6)', stroke: 'rgb(245, 158, 11)' }, // amber
 }
 
 export default function TriangleMap({ highlightedRegion, className = '' }: TriangleMapProps) {
@@ -104,6 +106,9 @@ export default function TriangleMap({ highlightedRegion, className = '' }: Trian
       )}
       {highlightedRegion === 'chapel-hill' && (
         <text x="65" y="115" fill={colors.stroke} fontSize="8" fontWeight="bold" opacity="0.4">ORANGE</text>
+      )}
+      {highlightedRegion === 'granville' && (
+        <text x="190" y="50" fill={colors.stroke} fontSize="8" fontWeight="bold" opacity="0.4">GRANVILLE</text>
       )}
     </svg>
   )

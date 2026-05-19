@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     default: 'NC Roofing Service and Repair | Rougemont NC | Professional Roofing & Exterior Systems',
     template: '%s | NC Roofing Service NC',
   },
-  description: 'Certified roofing contractor in Rougemont, NC. GAF, Owens Corning & CertainTeed certified. FORTIFIED roofing specialists. Free inspections, insurance claim help. Call (919) 475-8841.',
+  description: 'Certified roofing contractor in Rougemont, NC. GAF, Owens Corning & CertainTeed certified. FORTIFIED roofing specialists. Free inspections, insurance claim help. Call (336) ROOFING.',
   keywords: 'roofing Rougemont NC, roof repair Durham, roof replacement Raleigh, FORTIFIED roofing NC, storm damage roof repair, insurance claim roofing, Triangle roofing contractor',
   authors: [{ name: 'NC Roofing Service and Repair, LLC' }],
   creator: 'NC Roofing Service and Repair, LLC',
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'NC Roofing Service and Repair | NC Triangle Roofing Experts',
-    description: 'Certified roofing contractor serving Rougemont, Durham, Raleigh & the NC Triangle. Free inspections. Call (919) 475-8841.',
+    description: 'Certified roofing contractor serving Rougemont, Durham, Raleigh & the NC Triangle. Free inspections. Call (336) ROOFING.',
     images: ['/images/logos/bnc_logo.png'],
   },
   robots: {
@@ -89,7 +89,7 @@ export default function RootLayout({
               "name": "NC Roofing Service and Repair, LLC",
               "image": "https://ncroofingservice.com/logo.png",
               "url": "https://ncroofingservice.com",
-              "telephone": "+1-919-475-8841",
+              "telephone": "+1-336-766-3464",
               "email": "bandc@ncroofingservice.com",
               "address": {
                 "@type": "PostalAddress",

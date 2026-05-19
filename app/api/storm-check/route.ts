@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server'
+﻿import { NextRequest, NextResponse } from 'next/server'
 
 // On Vercel Hobby, function timeout caps at 10s. We aim to finish in ~9s
 // to leave room for response serialization. Pro/Enterprise can bump this to 60.
@@ -746,7 +746,7 @@ export async function POST(request: NextRequest) {
     if (controller.signal.aborted) {
       console.warn('[Storm Check] Request exceeded time budget')
       return NextResponse.json(
-        { error: 'Storm data lookup is taking longer than expected. Please try again, or call us at (919) 475-8841.' },
+        { error: 'Storm data lookup is taking longer than expected. Please try again, or call us at (336) ROOFING.' },
         { status: 504 }
       )
     }

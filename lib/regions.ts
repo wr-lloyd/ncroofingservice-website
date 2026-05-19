@@ -1,4 +1,4 @@
-// lib/regions.ts
+﻿// lib/regions.ts
 // Centralized region configuration - Single source of truth for all regional data
 
 export interface RegionLead {
@@ -20,8 +20,8 @@ export interface Region {
   anchorCity: string
   displayCities: string[]
   lead: RegionLead
-  color: 'green' | 'purple' | 'blue'
-  mapRegion: 'durham' | 'chapel-hill' | 'raleigh'
+  color: 'green' | 'purple' | 'blue' | 'amber'
+  mapRegion: 'durham' | 'chapel-hill' | 'raleigh' | 'granville'
 }
 
 export const regions: Region[] = [
@@ -29,22 +29,43 @@ export const regions: Region[] = [
     id: 'durham-north',
     label: 'Durham & North Triangle',
     shortLabel: 'North Triangle',
-    counties: ['Durham', 'Granville', 'Person'],
+    counties: ['Durham', 'Person'],
     primaryCounty: 'Durham',
     anchorCity: 'Durham',
-    // Top 12 by population
-    displayCities: ['Durham', 'Roxboro', 'Oxford', 'Butner', 'Creedmoor', 'Bahama', 'Timberlake', 'Rougemont', 'Stem', 'Stovall', 'Hurdle Mills', 'Gorman'],
+    // Top 12 across Durham + Person counties
+    displayCities: ['Durham', 'Roxboro', 'Bahama', 'Timberlake', 'Rougemont', 'Hurdle Mills', 'Gorman', 'Hester', 'Allensville', 'Helena', 'Bethel Hill', 'Mount Tirzah'],
     lead: {
       name: 'Randy Butler',
       title: 'Regional Lead',
-      phone: '(919) 475-8841',
-      phoneRaw: '+19194758841',
+      phone: '(336) ROOFING',
+      phoneRaw: '+13367663464',
       email: 'bandc@ncroofingservice.com',
       photo: '/images/team/randy-north-400x400.jpg',
       bio: 'Born and raised in Durham County, Randy knows every neighborhood and building code in the North Triangle. 15+ years in roofing.',
     },
     color: 'green',
     mapRegion: 'durham',
+  },
+  {
+    id: 'greater-granville',
+    label: 'Greater Granville',
+    shortLabel: 'Granville',
+    counties: ['Granville'],
+    primaryCounty: 'Granville',
+    anchorCity: 'Oxford',
+    // Top 12 across Granville County (incorporated + recognized communities)
+    displayCities: ['Oxford', 'Creedmoor', 'Butner', 'Stem', 'Stovall', 'Wilton', 'Berea', 'Bullock', 'Brassfield', 'Tar River', 'Cornwall', 'Knap of Reeds'],
+    lead: {
+      name: 'Marvin Jackson',
+      title: 'Regional Lead',
+      phone: '(336) ROOFING',
+      phoneRaw: '+13367663464',
+      email: 'marvin@ncroofingservice.com',
+      photo: '/images/team/marvin-granville-400x400.svg',
+      bio: 'Granville County native with deep roots in Oxford and the surrounding communities. Trusted across the Greater Granville area for honest, quality work.',
+    },
+    color: 'amber',
+    mapRegion: 'granville',
   },
   {
     id: 'orange-west',
@@ -56,11 +77,11 @@ export const regions: Region[] = [
     // Top 12 by population
     displayCities: ['Chapel Hill', 'Carrboro', 'Mebane', 'Hillsborough', 'Siler City', 'Pittsboro', 'Fearrington Village', 'Efland', 'Cedar Grove', 'Goldston', 'Bennett', 'Bynum'],
     lead: {
-      name: 'Preston Mayo',
+      name: 'Makenzie Flack',
       title: 'Regional Lead',
       phone: '(919) 525-1862',
       phoneRaw: '+19195251862',
-      email: 'preston@ncroofingservice.com',
+      email: 'makenzie@ncroofingservice.com',
       photo: '/images/team/preston-south-400x400.jpg',
       bio: 'Chapel Hill resident specializing in historic homes and modern builds. Trusted by homeowners across Orange and Chatham counties.',
     },
@@ -93,8 +114,8 @@ export const regions: Region[] = [
 // County → Region ID lookup (source of truth for routing)
 export const countyToRegionId: Record<string, string> = {
   'Durham': 'durham-north',
-  'Granville': 'durham-north',
   'Person': 'durham-north',
+  'Granville': 'greater-granville',
   'Orange': 'orange-west',
   'Chatham': 'orange-west',
   'Wake': 'wake-east',
@@ -104,20 +125,34 @@ export const countyToRegionId: Record<string, string> = {
 
 // City → Region ID lookup (for form dropdown routing)
 export const cityToRegionId: Record<string, string> = {
-  // Durham & North Triangle (Durham, Granville, Person counties)
+  // Durham & North Triangle (Durham, Person counties)
   'durham': 'durham-north',
   'roxboro': 'durham-north',
-  'oxford': 'durham-north',
-  'butner': 'durham-north',
-  'creedmoor': 'durham-north',
   'bahama': 'durham-north',
   'timberlake': 'durham-north',
   'rougemont': 'durham-north',
-  'stem': 'durham-north',
-  'stovall': 'durham-north',
   'hurdle-mills': 'durham-north',
   'gorman': 'durham-north',
-  
+  'hester': 'durham-north',
+  'allensville': 'durham-north',
+  'helena': 'durham-north',
+  'bethel-hill': 'durham-north',
+  'mount-tirzah': 'durham-north',
+
+  // Greater Granville (Granville County)
+  'oxford': 'greater-granville',
+  'creedmoor': 'greater-granville',
+  'butner': 'greater-granville',
+  'stem': 'greater-granville',
+  'stovall': 'greater-granville',
+  'wilton': 'greater-granville',
+  'berea': 'greater-granville',
+  'bullock': 'greater-granville',
+  'brassfield': 'greater-granville',
+  'tar-river': 'greater-granville',
+  'cornwall': 'greater-granville',
+  'knap-of-reeds': 'greater-granville',
+
   // Orange & West Triangle (Orange, Chatham counties)
   'chapel-hill': 'orange-west',
   'carrboro': 'orange-west',
@@ -150,8 +185,8 @@ export const cityToRegionId: Record<string, string> = {
 // Default fallback for unknown locations
 export const defaultContact = {
   label: 'Triangle Support Team',
-  phone: '(919) 475-8841',
-  phoneRaw: '+19194758841',
+  phone: '(336) ROOFING',
+  phoneRaw: '+13367663464',
   email: 'bandc@ncroofingservice.com',
 }
 
