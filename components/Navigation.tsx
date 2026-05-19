@@ -143,13 +143,6 @@ export default function Navigation() {
             </Link>
 
             <Link
-              href="/team"
-              className="transition-colors font-medium text-sm text-brand-gray hover:text-brand-black"
-            >
-              Team
-            </Link>
-
-            <Link
               href="/about"
               className="transition-colors font-medium text-sm text-brand-gray hover:text-brand-black"
             >
@@ -293,14 +286,6 @@ export default function Navigation() {
               onClick={() => setIsOpen(false)}
             >
               Our Work
-            </Link>
-
-            <Link
-              href="/team"
-              className="block py-3 transition-colors font-medium border-b border-slate-100 text-brand-gray hover:text-brand-black"
-              onClick={() => setIsOpen(false)}
-            >
-              Team
             </Link>
 
             <Link

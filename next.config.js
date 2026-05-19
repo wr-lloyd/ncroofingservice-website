@@ -47,6 +47,18 @@ const nextConfig = {
       },
     ]
   },
+  async redirects() {
+    return [
+      // The /team index page was retired in favor of the About#crew section.
+      // Individual profile pages at /team/[slug] still exist and are NOT
+      // redirected (this rule uses an exact `/team` source, no wildcard).
+      {
+        source: '/team',
+        destination: '/about#crew',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig

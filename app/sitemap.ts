@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { getAllTeamSlugs } from '@/lib/team'
 
 const cities = [
   'raleigh-nc', 'durham-nc', 'cary-nc', 'chapel-hill-nc', 'apex-nc', 'wake-forest-nc',
@@ -195,5 +196,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   )
 
-  return [...mainPages, ...residentialPages, ...commercialPages, ...resourcePages, ...locationPages, ...serviceCityPages]
+  const teamProfilePages: MetadataRoute.Sitemap = getAllTeamSlugs().map((slug) => ({
+    url: `${baseUrl}/team/${slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }))
+
+  return [
+    ...mainPages,
+    ...residentialPages,
+    ...commercialPages,
+    ...resourcePages,
+    ...locationPages,
+    ...serviceCityPages,
+    ...teamProfilePages,
+  ]
 }
