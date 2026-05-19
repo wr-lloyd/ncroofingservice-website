@@ -88,16 +88,16 @@ export default function TeamProfilePage({ params }: { params: { slug: string } }
   }
 
   return (
-    <main className="pt-20 bg-slate-50 min-h-screen">
+    <main className="bg-slate-50 min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="max-w-md mx-auto px-4 py-8 sm:py-12">
+      <div className="max-w-md mx-auto px-4 pt-6 pb-10 sm:pt-10 sm:pb-14">
         <Link
           href="/about#crew"
-          className="inline-flex items-center gap-1 text-sm text-brand-gray hover:text-brand-red transition-colors mb-4"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-gray hover:text-brand-red transition-colors mb-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-red focus-visible:outline-offset-2 rounded"
         >
           <Icon name="chevron-left" className="w-4 h-4" />
           Back to the team
@@ -211,11 +211,14 @@ export default function TeamProfilePage({ params }: { params: { slug: string } }
         <div className="mt-8 text-center">
           <Link
             href="/about#crew"
-            className="inline-flex items-center gap-2 text-sm text-brand-gray hover:text-brand-red transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-medium text-brand-gray hover:text-brand-red transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-red focus-visible:outline-offset-2 rounded"
           >
-            <Icon name="users" className="w-4 h-4" />
-            Meet the rest of the team
+            <Icon name="arrow-back" className="w-4 h-4" />
+            Back to the team
           </Link>
+          <p className="text-[11px] text-slate-400 mt-3">
+            ncroofingservice.com — Triangle, NC
+          </p>
         </div>
       </div>
     </main>
