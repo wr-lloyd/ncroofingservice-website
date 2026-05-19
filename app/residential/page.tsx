@@ -262,7 +262,7 @@ export default function ResidentialPage() {
               </h2>
               <p className="text-slate-600 text-lg mb-8">
                 We&apos;re not a franchise or a fly-by-night operation. NC Roofing Service is locally owned 
-                and operated in Rougemont, NC. Owner Randall Butler lives and works in this community — 
+                and operated in Rougemont, NC. Owner <Link href="/team/randy-butler" className="font-semibold text-slate-900 underline decoration-brand-red/40 underline-offset-4 hover:decoration-brand-red transition-colors">Randall Butler</Link> lives and works in this community — 
                 our reputation matters to us.
               </p>
               

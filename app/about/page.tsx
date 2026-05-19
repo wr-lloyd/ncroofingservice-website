@@ -1,5 +1,8 @@
 ﻿import Link from 'next/link'
 import SocialLinks from '@/components/SocialLinks'
+import { team } from '@/lib/team'
+
+const memberBySlug = Object.fromEntries(team.map((m) => [m.slug, m]))
 
 export const metadata = {
   title: 'About Us | NC Roofing Service and Repair | Rougemont NC',
@@ -40,8 +43,14 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-slate-600 text-lg">
                 <p>
-                  NC Roofing Service and Repair, LLC was founded in 2018 by <strong className="text-slate-900">Randall Butler</strong>, 
-                  a Rougemont native with a passion for quality craftsmanship and honest service.
+                  NC Roofing Service and Repair, LLC was founded in 2018 by{' '}
+                  <Link
+                    href="/team/randy-butler"
+                    className="font-semibold text-slate-900 underline decoration-brand-red/40 underline-offset-4 hover:decoration-brand-red transition-colors"
+                  >
+                    Randall Butler
+                  </Link>
+                  , a Rougemont native with a passion for quality craftsmanship and honest service.
                 </p>
                 <p>
                   What started as a commitment to serve our neighbors has grown into one of the 
@@ -59,17 +68,23 @@ export default function AboutPage() {
             </div>
             
             <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-lg">
-              <div className="text-center mb-8">
-                <div className="w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden shadow-lg ring-4 ring-blue-500/20">
-                  <img 
+              <Link href="/team/randy-butler" className="block text-center mb-8 group">
+                <div className="w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden shadow-lg ring-4 ring-blue-500/20 group-hover:ring-brand-red/40 transition-all">
+                  <img
                     src="/images/team/randy-north-400x400.jpg"
                     alt="Randall Butler"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-slate-900 font-bold text-2xl">Randall Butler</h3>
+                <h3 className="text-slate-900 font-bold text-2xl group-hover:text-brand-red transition-colors">Randall Butler</h3>
                 <p className="text-brand-red">Owner & Founder</p>
-              </div>
+                <span className="inline-flex items-center gap-1 text-xs font-semibold text-brand-red mt-2 group-hover:gap-2 transition-all">
+                  View Randy&apos;s card
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </Link>
               
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-slate-600">
@@ -126,68 +141,41 @@ export default function AboutPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Randy Butler */}
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center shadow-sm">
-              <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden shadow-md ring-2 ring-green-500/20">
-                <img
-                  src="/images/team/randy-north-400x400.jpg"
-                  alt="Randy Butler"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-slate-900 font-bold text-xl mb-1">Randy Butler</h3>
-              <p className="text-green-600 text-sm font-medium mb-2">Owner &amp; Greater Durham + Chapel Hill</p>
-              <p className="text-slate-600 text-sm mb-4">
-                Company founder and Rougemont native. Personally leads both the Durham and Chapel Hill regions with a hands-on commitment to quality.
-              </p>
-              <div className="flex flex-wrap justify-center gap-2">
-                {['Durham', 'Rougemont', 'Chapel Hill', 'Hillsborough'].map((city) => (
-                  <span key={city} className="px-2 py-1 bg-slate-200 text-slate-600 text-xs rounded-full">{city}</span>
-                ))}
-              </div>
-            </div>
-
-            {/* Marvin Jackson */}
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center shadow-sm">
-              <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden shadow-md ring-2 ring-amber-500/20">
-                <img
-                  src="/images/team/marvin-granville-400x400.jpg"
-                  alt="Marvin Jackson"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-slate-900 font-bold text-xl mb-1">Marvin Jackson</h3>
-              <p className="text-amber-700 text-sm font-medium mb-2">Greater Granville</p>
-              <p className="text-slate-600 text-sm mb-4">
-                Granville County native with deep roots in Oxford. Trusted across the Greater Granville area for quality roofing.
-              </p>
-              <div className="flex flex-wrap justify-center gap-2">
-                {['Oxford', 'Creedmoor', 'Butner', 'Stem'].map((city) => (
-                  <span key={city} className="px-2 py-1 bg-slate-200 text-slate-600 text-xs rounded-full">{city}</span>
-                ))}
-              </div>
-            </div>
-
-            {/* Mike Villarroel */}
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center shadow-sm">
-              <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden shadow-md ring-2 ring-blue-500/20">
-                <img
-                  src="/images/team/mike-east-400x400.jpg"
-                  alt="Mike Villarroel"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-slate-900 font-bold text-xl mb-1">Mike Villarroel</h3>
-              <p className="text-[#C8102E] text-sm font-medium mb-2">Greater Raleigh</p>
-              <p className="text-slate-600 text-sm mb-4">
-                Your dedicated expert for the Raleigh metro area. Serving Wake County with the same NC Roofing Service quality.
-              </p>
-              <div className="flex flex-wrap justify-center gap-2">
-                {['Raleigh', 'Cary', 'Wake Forest', 'Apex'].map((city) => (
-                  <span key={city} className="px-2 py-1 bg-slate-200 text-slate-600 text-xs rounded-full">{city}</span>
-                ))}
-              </div>
-            </div>
+            {(['randy-butler', 'marvin-jackson', 'mike-villarreal'] as const).map((slug) => {
+              const m = memberBySlug[slug]
+              if (!m) return null
+              return (
+                <Link
+                  key={m.slug}
+                  href={`/team/${m.slug}`}
+                  className="group block bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center shadow-sm hover:shadow-xl hover:border-brand-red hover:-translate-y-0.5 transition-all"
+                >
+                  <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden shadow-md ring-2 ring-brand-red/20 group-hover:ring-brand-red/50 transition-all">
+                    <img
+                      src={m.photo}
+                      alt={m.fullName}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h3 className="text-slate-900 font-bold text-xl mb-1">{m.fullName}</h3>
+                  <p className="text-brand-red text-sm font-medium mb-2">
+                    {m.role === 'Owner & Founder' ? `Owner & ${m.territory}` : m.territory}
+                  </p>
+                  <p className="text-slate-600 text-sm mb-4 line-clamp-3">{m.bio}</p>
+                  <div className="flex flex-wrap justify-center gap-2 mb-4">
+                    {m.cities?.slice(0, 4).map((city) => (
+                      <span key={city} className="px-2 py-1 bg-slate-200 text-slate-600 text-xs rounded-full">{city}</span>
+                    ))}
+                  </div>
+                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-brand-red group-hover:gap-2 transition-all">
+                    View {m.firstName}&apos;s card
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </Link>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -204,40 +192,153 @@ export default function AboutPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Bill Lloyd */}
-            <div className="bg-white rounded-2xl p-8 border border-slate-200 text-center shadow-sm">
-              <div className="w-24 h-24 rounded-full mx-auto mb-5 overflow-hidden shadow-md ring-2 ring-[#C8102E]/30">
-                <img
-                  src="/images/team/bill-operations-400x400.jpg"
-                  alt="Bill Lloyd"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-slate-900 font-bold text-2xl mb-1">Bill Lloyd</h3>
-              <p className="text-[#C8102E] text-sm font-semibold uppercase tracking-wider mb-4">Operating Partner</p>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Bill helps lead the business — from long-term planning to making sure every customer gets the experience NC Roofing Service is known for. He&apos;s the partner ensuring we run as well as we roof.
-              </p>
-            </div>
-
-            {/* Makenzie Flack */}
-            <div className="bg-white rounded-2xl p-8 border border-slate-200 text-center shadow-sm">
-              <div className="w-24 h-24 rounded-full mx-auto mb-5 overflow-hidden shadow-md ring-2 ring-slate-400/40">
-                <img
-                  src="/images/team/makenzie-operations-400x400.jpg"
-                  alt="Makenzie Flack"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-slate-900 font-bold text-2xl mb-1">Makenzie Flack</h3>
-              <p className="text-slate-700 text-sm font-semibold uppercase tracking-wider mb-4">Operations</p>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Makenzie keeps the day-to-day moving — scheduling, communication, and customer follow-through. When you call or message us, she&apos;s often who makes sure nothing slips through the cracks.
-              </p>
-            </div>
+            {(['bill-lloyd', 'makenzie-flack'] as const).map((slug) => {
+              const m = memberBySlug[slug]
+              if (!m) return null
+              return (
+                <Link
+                  key={m.slug}
+                  href={`/team/${m.slug}`}
+                  className="group block bg-white rounded-2xl p-8 border border-slate-200 text-center shadow-sm hover:shadow-xl hover:border-brand-red hover:-translate-y-0.5 transition-all"
+                >
+                  <div className="w-24 h-24 rounded-full mx-auto mb-5 overflow-hidden shadow-md ring-2 ring-brand-red/30 group-hover:ring-brand-red/60 transition-all">
+                    <img
+                      src={m.photo}
+                      alt={m.fullName}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h3 className="text-slate-900 font-bold text-2xl mb-1">{m.fullName}</h3>
+                  <p className="text-brand-red text-sm font-semibold uppercase tracking-wider mb-4">{m.role}</p>
+                  <p className="text-slate-600 text-sm leading-relaxed mb-5">{m.bio}</p>
+                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-brand-red group-hover:gap-2 transition-all">
+                    View {m.firstName}&apos;s card
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </Link>
+              )
+            })}
           </div>
         </div>
       </section>
+
+      {/* Aerial & Drone — Max Taylor spotlight */}
+      {memberBySlug['max-taylor'] && (
+        <section className="py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">Aerial &amp; Drone Inspections</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-4">
+                Meet &ldquo;The Drone Guy&rdquo;
+              </h2>
+              <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+                Every NC Roofing Service inspection includes high-resolution aerial imaging — flown by our in-house FAA Part 107 pilot.
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-5 gap-10 items-stretch">
+              {/* Drone Guy card */}
+              <Link
+                href="/team/max-taylor"
+                className="group lg:col-span-2 block bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-8 text-center shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all border border-slate-700 hover:border-brand-red"
+              >
+                <div className="w-32 h-32 rounded-full mx-auto mb-5 overflow-hidden shadow-lg ring-4 ring-brand-red/40 group-hover:ring-brand-red transition-all">
+                  <img
+                    src={memberBySlug['max-taylor'].photo}
+                    alt={memberBySlug['max-taylor'].fullName}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-white font-bold text-2xl mb-1">
+                  {memberBySlug['max-taylor'].fullName}
+                </h3>
+                <p className="text-brand-red text-xs font-semibold uppercase tracking-[0.18em] mb-2">
+                  &ldquo;The Drone Guy&rdquo;
+                </p>
+                <p className="text-slate-400 text-sm italic mb-5">
+                  &ldquo;{memberBySlug['max-taylor'].tagline}&rdquo;
+                </p>
+                <div className="flex flex-wrap justify-center gap-2 mb-5">
+                  {memberBySlug['max-taylor'].certifications?.map((c) => (
+                    <span key={c} className="px-2.5 py-1 bg-white/10 text-slate-200 text-[11px] rounded-full border border-white/10">
+                      {c}
+                    </span>
+                  ))}
+                </div>
+                <span className="inline-flex items-center gap-1 text-xs font-semibold text-brand-red group-hover:gap-2 transition-all">
+                  View Max&apos;s card
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </Link>
+
+              {/* What drone inspections mean for you */}
+              <div className="lg:col-span-3 bg-slate-50 rounded-2xl p-8 border border-slate-200">
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                  Why drone-first inspections matter
+                </h3>
+                <p className="text-slate-600 mb-6">
+                  Old-school roof inspections meant a ladder, a guess, and a few photos taken with one hand. With{' '}
+                  <Link href="/team/max-taylor" className="font-semibold text-slate-900 underline decoration-brand-red/40 underline-offset-4 hover:decoration-brand-red transition-colors">
+                    Max
+                  </Link>{' '}
+                  flying every job, your inspection is documented from above with the kind of detail an insurance adjuster, a manufacturer warranty rep, and you can all trust.
+                </p>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-9 h-9 bg-brand-red/10 text-brand-red rounded-lg flex items-center justify-center flex-shrink-0">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-slate-900 font-semibold text-sm">High-res photo &amp; 4K video</p>
+                      <p className="text-slate-600 text-sm">Every slope, valley, and flashing — captured in detail you can zoom into.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-9 h-9 bg-amber-100 text-amber-700 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-slate-900 font-semibold text-sm">Safer for our crew &amp; your roof</p>
+                      <p className="text-slate-600 text-sm">Fewer ladder hours, fewer footprints on aging shingles.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-9 h-9 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-slate-900 font-semibold text-sm">Storm response, fast</p>
+                      <p className="text-slate-600 text-sm">After hail or wind, Max is up first to map damage across the Triangle.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-9 h-9 bg-green-100 text-green-700 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-6h13M9 11V5a2 2 0 00-2-2H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-2" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-slate-900 font-semibold text-sm">Insurance-ready documentation</p>
+                      <p className="text-slate-600 text-sm">Aerial reports your adjuster won&apos;t need to ask twice for.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Meet the Crew Section */}
       <section className="py-24 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
@@ -279,44 +380,51 @@ export default function AboutPage() {
                 <div className="absolute bottom-0 left-0 right-0 p-8">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="flex -space-x-3">
-                      <div className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-green-500/30">
+                      <Link href="/team/randy-butler" aria-label="View Randy Butler's profile" className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-green-500/30 hover:ring-green-400 hover:z-10 transition-all">
                         <img
                           src="/images/team/randy-north-400x400.jpg"
                           alt="Randy Butler"
                           className="w-full h-full object-cover"
                         />
-                      </div>
-                      <div className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-amber-500/30">
+                      </Link>
+                      <Link href="/team/marvin-jackson" aria-label="View Marvin Jackson's profile" className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-amber-500/30 hover:ring-amber-400 hover:z-10 transition-all">
                         <img
                           src="/images/team/marvin-granville-400x400.jpg"
                           alt="Marvin Jackson"
                           className="w-full h-full object-cover"
                         />
-                      </div>
-                      <div className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-blue-500/30">
+                      </Link>
+                      <Link href="/team/mike-villarreal" aria-label="View Mike Villarreal's profile" className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-blue-500/30 hover:ring-blue-400 hover:z-10 transition-all">
                         <img
                           src="/images/team/mike-east-400x400.jpg"
-                          alt="Mike Villarroel"
+                          alt="Mike Villarreal"
                           className="w-full h-full object-cover"
                         />
-                      </div>
-                      <div className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-[#C8102E]/40">
+                      </Link>
+                      <Link href="/team/bill-lloyd" aria-label="View Bill Lloyd's profile" className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-[#C8102E]/40 hover:ring-[#C8102E] hover:z-10 transition-all">
                         <img
                           src="/images/team/bill-operations-400x400.jpg"
                           alt="Bill Lloyd"
                           className="w-full h-full object-cover"
                         />
-                      </div>
-                      <div className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-slate-400/40">
+                      </Link>
+                      <Link href="/team/makenzie-flack" aria-label="View Makenzie Flack's profile" className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-slate-400/40 hover:ring-slate-200 hover:z-10 transition-all">
                         <img
                           src="/images/team/makenzie-operations-400x400.jpg"
                           alt="Makenzie Flack"
                           className="w-full h-full object-cover"
                         />
-                      </div>
-                      <div className="w-12 h-12 bg-slate-700 rounded-full border-2 border-slate-900 flex items-center justify-center">
+                      </Link>
+                      <Link href="/team/max-taylor" aria-label="View Max Taylor's profile — The Drone Guy" className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-purple-500/40 hover:ring-purple-300 hover:z-10 transition-all">
+                        <img
+                          src="/images/team/max-drone-400x400.jpg"
+                          alt="Max Taylor — The Drone Guy"
+                          className="w-full h-full object-cover"
+                        />
+                      </Link>
+                      <Link href="/team" aria-label="Meet the rest of the team" className="w-12 h-12 bg-slate-700 hover:bg-brand-red rounded-full border-2 border-slate-900 flex items-center justify-center transition-colors">
                         <span className="text-white font-bold text-sm">+</span>
-                      </div>
+                      </Link>
                     </div>
                     <div>
                       <p className="text-white font-semibold">Your Local Team</p>
@@ -342,7 +450,7 @@ export default function AboutPage() {
                 </p>
                 <p>
                   Our team members are trained, certified, and committed to the same high standards that 
-                  Randall Butler established when he founded this company. We don&apos;t cut corners, we don&apos;t 
+                  <Link href="/team/randy-butler" className="font-semibold text-white underline decoration-white/40 underline-offset-4 hover:decoration-white transition-colors">Randall Butler</Link> established when he founded this company. We don&apos;t cut corners, we don&apos;t 
                   rush jobs, and we treat every home like it belongs to family — because it often does.
                 </p>
                 <p>
@@ -414,7 +522,12 @@ export default function AboutPage() {
                 <span className="text-[#C8102E] font-bold text-2xl">2018</span>
               </div>
               <h3 className="text-slate-900 font-bold text-lg mb-2">Company Founded</h3>
-              <p className="text-slate-600 text-sm">Randall Butler launches NC Roofing Service in Rougemont, NC</p>
+              <p className="text-slate-600 text-sm">
+                <Link href="/team/randy-butler" className="font-semibold text-slate-900 underline decoration-brand-red/40 underline-offset-4 hover:decoration-brand-red transition-colors">
+                  Randall Butler
+                </Link>{' '}
+                launches NC Roofing Service in Rougemont, NC
+              </p>
             </div>
             
             <div className="text-center">

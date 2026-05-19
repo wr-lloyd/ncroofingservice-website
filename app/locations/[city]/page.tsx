@@ -7,7 +7,7 @@ const cityData: Record<string, {
   name: string
   county: string
   region: string
-  regionLead: { name: string; phone: string; phoneRaw: string }
+  regionLead: { name: string; slug: string; phone: string; phoneRaw: string }
   description: string
   highlights: string[]
   nearbyAreas: string[]
@@ -16,7 +16,7 @@ const cityData: Record<string, {
     name: 'Durham',
     county: 'Durham County',
     region: 'North Triangle',
-    regionLead: { name: 'Randy Butler', phone: '(336) ROOFING', phoneRaw: '+13367663464' },
+    regionLead: { name: 'Randy Butler', slug: 'randy-butler', phone: '(336) ROOFING', phoneRaw: '+13367663464' },
     description: 'Durham homeowners trust NC Roofing Service for quality roof repairs and replacements. From downtown Durham to Hope Valley, we serve all neighborhoods with expert craftsmanship and honest pricing.',
     highlights: ['Downtown Durham', 'Duke University area', 'Hope Valley', 'Southpoint', 'Research Triangle Park'],
     nearbyAreas: ['Chapel Hill', 'Raleigh', 'Cary', 'Hillsborough', 'Morrisville'],
@@ -25,7 +25,7 @@ const cityData: Record<string, {
     name: 'Raleigh',
     county: 'Wake County',
     region: 'East Triangle',
-    regionLead: { name: 'Mike Villarroel', phone: '(919) 521-9545', phoneRaw: '+19195219545' },
+    regionLead: { name: 'Mike Villarreal', slug: 'mike-villarreal', phone: '(919) 521-9545', phoneRaw: '+19195219545' },
     description: 'As the capital city grows, NC Roofing Service is proud to serve Raleigh homeowners with professional roofing services. From North Hills to Brier Creek, we provide free inspections and expert installations.',
     highlights: ['North Hills', 'Brier Creek', 'Downtown Raleigh', 'North Raleigh', 'Five Points'],
     nearbyAreas: ['Cary', 'Durham', 'Wake Forest', 'Garner', 'Knightdale'],
@@ -34,7 +34,7 @@ const cityData: Record<string, {
     name: 'Cary',
     county: 'Wake County',
     region: 'East Triangle',
-    regionLead: { name: 'Mike Villarroel', phone: '(919) 521-9545', phoneRaw: '+19195219545' },
+    regionLead: { name: 'Mike Villarreal', slug: 'mike-villarreal', phone: '(919) 521-9545', phoneRaw: '+19195219545' },
     description: 'Cary residents deserve top-quality roofing. NC Roofing Service serves all Cary neighborhoods including Preston, Lochmere, and MacGregor with GAF-certified installations and storm damage repair.',
     highlights: ['Preston', 'Lochmere', 'MacGregor', 'Waverly Place', 'Park West'],
     nearbyAreas: ['Raleigh', 'Apex', 'Morrisville', 'Holly Springs', 'Durham'],
@@ -43,7 +43,7 @@ const cityData: Record<string, {
     name: 'Chapel Hill',
     county: 'Orange County',
     region: 'West Triangle',
-    regionLead: { name: 'Randy Butler', phone: '(336) ROOFING', phoneRaw: '+13367663464' },
+    regionLead: { name: 'Randy Butler', slug: 'randy-butler', phone: '(336) ROOFING', phoneRaw: '+13367663464' },
     description: 'From historic Franklin Street to new developments, NC Roofing Service serves Chapel Hill with care. We specialize in both modern builds and historic home restoration roofing.',
     highlights: ['Downtown Chapel Hill', 'Southern Village', 'Meadowmont', 'UNC Campus area', 'Governors Club'],
     nearbyAreas: ['Carrboro', 'Durham', 'Hillsborough', 'Pittsboro', 'Cary'],
@@ -52,7 +52,7 @@ const cityData: Record<string, {
     name: 'Apex',
     county: 'Wake County',
     region: 'East Triangle',
-    regionLead: { name: 'Mike Villarroel', phone: '(919) 521-9545', phoneRaw: '+19195219545' },
+    regionLead: { name: 'Mike Villarreal', slug: 'mike-villarreal', phone: '(919) 521-9545', phoneRaw: '+19195219545' },
     description: 'The Peak of Good Living deserves peak roofing service. NC Roofing Service has helped hundreds of Apex homeowners with roof replacements, repairs, and storm damage claims.',
     highlights: ['Downtown Apex', 'Beaver Creek', 'Scotts Mill', 'Haddon Hall', 'Salem Village'],
     nearbyAreas: ['Cary', 'Holly Springs', 'Fuquay-Varina', 'Raleigh', 'Morrisville'],
@@ -61,7 +61,7 @@ const cityData: Record<string, {
     name: 'Wake Forest',
     county: 'Wake County',
     region: 'East Triangle',
-    regionLead: { name: 'Mike Villarroel', phone: '(919) 521-9545', phoneRaw: '+19195219545' },
+    regionLead: { name: 'Mike Villarreal', slug: 'mike-villarreal', phone: '(919) 521-9545', phoneRaw: '+19195219545' },
     description: 'Wake Forest families trust NC Roofing Service for their homes. We provide professional roof inspections, repairs, and full replacements throughout Wake Forest and surrounding areas.',
     highlights: ['Downtown Wake Forest', 'Heritage', 'Wakefield', 'Traditions', 'The Factory'],
     nearbyAreas: ['Raleigh', 'Rolesville', 'Youngsville', 'Knightdale', 'Durham'],
@@ -70,7 +70,7 @@ const cityData: Record<string, {
     name: 'Hillsborough',
     county: 'Orange County',
     region: 'West Triangle',
-    regionLead: { name: 'Randy Butler', phone: '(336) ROOFING', phoneRaw: '+13367663464' },
+    regionLead: { name: 'Randy Butler', slug: 'randy-butler', phone: '(336) ROOFING', phoneRaw: '+13367663464' },
     description: 'Historic Hillsborough deserves expert roofing care. NC Roofing Service specializes in both historic preservation and modern roofing solutions for Hillsborough homeowners.',
     highlights: ['Historic District', 'Churton Street', 'Collins Ridge', 'Waterstone', 'Forest Ridge'],
     nearbyAreas: ['Chapel Hill', 'Durham', 'Mebane', 'Carrboro', 'Efland'],
@@ -79,7 +79,7 @@ const cityData: Record<string, {
     name: 'Holly Springs',
     county: 'Wake County',
     region: 'East Triangle',
-    regionLead: { name: 'Mike Villarroel', phone: '(919) 521-9545', phoneRaw: '+19195219545' },
+    regionLead: { name: 'Mike Villarreal', slug: 'mike-villarreal', phone: '(919) 521-9545', phoneRaw: '+19195219545' },
     description: 'Holly Springs is one of the fastest-growing towns in NC, and NC Roofing Service is here to serve. From new construction to aging roofs, we handle it all with expertise.',
     highlights: ['Downtown Holly Springs', '12 Oaks', 'Sunset Ridge', 'Bridgewater', 'Harmony'],
     nearbyAreas: ['Apex', 'Fuquay-Varina', 'Cary', 'Raleigh', 'Angier'],
@@ -88,7 +88,7 @@ const cityData: Record<string, {
     name: 'Garner',
     county: 'Wake County',
     region: 'East Triangle',
-    regionLead: { name: 'Mike Villarroel', phone: '(919) 521-9545', phoneRaw: '+19195219545' },
+    regionLead: { name: 'Mike Villarreal', slug: 'mike-villarreal', phone: '(919) 521-9545', phoneRaw: '+19195219545' },
     description: 'Garner homeowners count on NC Roofing Service for reliable service. We offer free inspections, competitive pricing, and quality workmanship on every roof.',
     highlights: ['Downtown Garner', 'White Oak', 'Cleveland', 'Timber Drive area', 'Lake Benson'],
     nearbyAreas: ['Raleigh', 'Clayton', 'Smithfield', 'Cary', 'Fuquay-Varina'],
@@ -97,7 +97,7 @@ const cityData: Record<string, {
     name: 'Morrisville',
     county: 'Wake County',
     region: 'East Triangle',
-    regionLead: { name: 'Mike Villarroel', phone: '(919) 521-9545', phoneRaw: '+19195219545' },
+    regionLead: { name: 'Mike Villarreal', slug: 'mike-villarreal', phone: '(919) 521-9545', phoneRaw: '+19195219545' },
     description: 'Located at the heart of the Triangle, Morrisville homes deserve quality roofing. NC Roofing Service serves Morrisville with GAF-certified installations and prompt service.',
     highlights: ['Park West', 'Breckenridge', 'Kitts Creek', 'Preston', 'Weston'],
     nearbyAreas: ['Cary', 'Durham', 'Raleigh', 'RTP', 'Apex'],
@@ -106,7 +106,7 @@ const cityData: Record<string, {
     name: 'Carrboro',
     county: 'Orange County',
     region: 'West Triangle',
-    regionLead: { name: 'Randy Butler', phone: '(336) ROOFING', phoneRaw: '+13367663464' },
+    regionLead: { name: 'Randy Butler', slug: 'randy-butler', phone: '(336) ROOFING', phoneRaw: '+13367663464' },
     description: 'Carrboro\'s unique character deserves unique care. NC Roofing Service serves Carrboro homes with attention to detail and respect for the community\'s values.',
     highlights: ['Downtown Carrboro', 'Lake Hogan Farms', 'Winmore', 'Claremont', 'Quarterpath Trace'],
     nearbyAreas: ['Chapel Hill', 'Hillsborough', 'Durham', 'Pittsboro', 'Mebane'],
@@ -115,7 +115,7 @@ const cityData: Record<string, {
     name: 'Pittsboro',
     county: 'Chatham County',
     region: 'West Triangle',
-    regionLead: { name: 'Randy Butler', phone: '(336) ROOFING', phoneRaw: '+13367663464' },
+    regionLead: { name: 'Randy Butler', slug: 'randy-butler', phone: '(336) ROOFING', phoneRaw: '+13367663464' },
     description: 'As Chatham County\'s seat, Pittsboro is growing fast. NC Roofing Service provides professional roofing services to both new and established Pittsboro neighborhoods.',
     highlights: ['Downtown Pittsboro', 'The Veranda', 'Chatham Park', 'Powell Place', 'Fearrington'],
     nearbyAreas: ['Chapel Hill', 'Siler City', 'Sanford', 'Cary', 'Apex'],
@@ -124,7 +124,7 @@ const cityData: Record<string, {
     name: 'Fuquay-Varina',
     county: 'Wake County',
     region: 'East Triangle',
-    regionLead: { name: 'Mike Villarroel', phone: '(919) 521-9545', phoneRaw: '+19195219545' },
+    regionLead: { name: 'Mike Villarreal', slug: 'mike-villarreal', phone: '(919) 521-9545', phoneRaw: '+19195219545' },
     description: 'Fuquay-Varina homeowners trust NC Roofing Service for quality work. From historic downtown to new developments, we serve all FV neighborhoods with professional roofing services.',
     highlights: ['Downtown Fuquay', 'Downtown Varina', 'Bentwinds', 'Sunset Lake', 'Mills Park'],
     nearbyAreas: ['Holly Springs', 'Apex', 'Garner', 'Angier', 'Lillington'],
@@ -133,7 +133,7 @@ const cityData: Record<string, {
     name: 'Knightdale',
     county: 'Wake County',
     region: 'East Triangle',
-    regionLead: { name: 'Mike Villarroel', phone: '(919) 521-9545', phoneRaw: '+19195219545' },
+    regionLead: { name: 'Mike Villarreal', slug: 'mike-villarreal', phone: '(919) 521-9545', phoneRaw: '+19195219545' },
     description: 'Knightdale is growing, and NC Roofing Service is here to help. We provide free roof inspections and expert service to all Knightdale homeowners.',
     highlights: ['Downtown Knightdale', 'Widewaters', 'Planters Walk', 'Mingo Creek', 'Knightdale Station'],
     nearbyAreas: ['Raleigh', 'Wake Forest', 'Zebulon', 'Wendell', 'Rolesville'],
@@ -142,7 +142,7 @@ const cityData: Record<string, {
     name: 'Clayton',
     county: 'Johnston County',
     region: 'East Triangle',
-    regionLead: { name: 'Mike Villarroel', phone: '(919) 521-9545', phoneRaw: '+19195219545' },
+    regionLead: { name: 'Mike Villarreal', slug: 'mike-villarreal', phone: '(919) 521-9545', phoneRaw: '+19195219545' },
     description: 'Clayton homeowners deserve quality roofing at fair prices. NC Roofing Service serves Clayton with professional inspections, repairs, and replacements.',
     highlights: ['Downtown Clayton', 'Flowers Plantation', 'Riverwood', 'Glen Laurel', 'The Meadows'],
     nearbyAreas: ['Garner', 'Smithfield', 'Raleigh', 'Selma', 'Fuquay-Varina'],
@@ -151,7 +151,7 @@ const cityData: Record<string, {
     name: 'Smithfield',
     county: 'Johnston County',
     region: 'East Triangle',
-    regionLead: { name: 'Mike Villarroel', phone: '(919) 521-9545', phoneRaw: '+19195219545' },
+    regionLead: { name: 'Mike Villarreal', slug: 'mike-villarreal', phone: '(919) 521-9545', phoneRaw: '+19195219545' },
     description: 'As Johnston County\'s seat, Smithfield homes deserve expert roofing care. NC Roofing Service provides professional service throughout Smithfield.',
     highlights: ['Downtown Smithfield', 'Outlet Mall area', 'Buffalo Road', 'Booker Dairy', 'Four Oaks'],
     nearbyAreas: ['Clayton', 'Selma', 'Garner', 'Benson', 'Raleigh'],
@@ -160,7 +160,7 @@ const cityData: Record<string, {
     name: 'Mebane',
     county: 'Orange County',
     region: 'West Triangle',
-    regionLead: { name: 'Randy Butler', phone: '(336) ROOFING', phoneRaw: '+13367663464' },
+    regionLead: { name: 'Randy Butler', slug: 'randy-butler', phone: '(336) ROOFING', phoneRaw: '+13367663464' },
     description: 'Mebane sits at the crossroads of the Triangle and Triad. NC Roofing Service serves Mebane homeowners with quality roofing at competitive prices.',
     highlights: ['Downtown Mebane', 'Cates Farm', 'Hawfields', 'Mill Creek', 'Cameron Heights'],
     nearbyAreas: ['Hillsborough', 'Burlington', 'Graham', 'Chapel Hill', 'Durham'],
@@ -169,7 +169,7 @@ const cityData: Record<string, {
     name: 'Roxboro',
     county: 'Person County',
     region: 'North Triangle',
-    regionLead: { name: 'Randy Butler', phone: '(336) ROOFING', phoneRaw: '+13367663464' },
+    regionLead: { name: 'Randy Butler', slug: 'randy-butler', phone: '(336) ROOFING', phoneRaw: '+13367663464' },
     description: 'Person County homeowners in Roxboro trust NC Roofing Service. We provide professional roofing services throughout Roxboro and surrounding rural areas.',
     highlights: ['Downtown Roxboro', 'Hyco Lake area', 'Bushy Fork', 'Helena', 'Timberlake'],
     nearbyAreas: ['Durham', 'Oxford', 'South Boston VA', 'Danville VA', 'Yanceyville'],
@@ -178,7 +178,7 @@ const cityData: Record<string, {
     name: 'Creedmoor',
     county: 'Granville County',
     region: 'Greater Granville',
-    regionLead: { name: 'Marvin Jackson', phone: '(336) ROOFING', phoneRaw: '+13367663464' },
+    regionLead: { name: 'Marvin Jackson', slug: 'marvin-jackson', phone: '(336) ROOFING', phoneRaw: '+13367663464' },
     description: 'Creedmoor and northern Granville County homeowners count on NC Roofing Service for quality work. We serve Creedmoor with professional roofing services and honest pricing.',
     highlights: ['Downtown Creedmoor', 'Butner', 'Stem', 'Falls Lake area'],
     nearbyAreas: ['Oxford', 'Butner', 'Wake Forest', 'Durham', 'Louisburg'],
@@ -187,7 +187,7 @@ const cityData: Record<string, {
     name: 'Butner',
     county: 'Granville County',
     region: 'Greater Granville',
-    regionLead: { name: 'Marvin Jackson', phone: '(336) ROOFING', phoneRaw: '+13367663464' },
+    regionLead: { name: 'Marvin Jackson', slug: 'marvin-jackson', phone: '(336) ROOFING', phoneRaw: '+13367663464' },
     description: 'Butner homeowners trust NC Roofing Service for reliable roofing services. We provide professional inspections, repairs, and replacements throughout Butner.',
     highlights: ['Downtown Butner', 'Lake Holt area', 'Stem', 'Creedmoor'],
     nearbyAreas: ['Oxford', 'Creedmoor', 'Stem', 'Wake Forest', 'Durham'],
@@ -196,7 +196,7 @@ const cityData: Record<string, {
     name: 'Oxford',
     county: 'Granville County',
     region: 'Greater Granville',
-    regionLead: { name: 'Marvin Jackson', phone: '(336) ROOFING', phoneRaw: '+13367663464' },
+    regionLead: { name: 'Marvin Jackson', slug: 'marvin-jackson', phone: '(336) ROOFING', phoneRaw: '+13367663464' },
     description: 'As the seat of Granville County, Oxford homeowners count on NC Roofing Service for trusted, neighborhood-level roofing service. From historic homes near downtown to newer subdivisions, we serve all of Oxford with honest pricing and expert craftsmanship.',
     highlights: ['Downtown Oxford', 'Historic District', 'Cornwall', 'Tar River area', 'College Street'],
     nearbyAreas: ['Creedmoor', 'Butner', 'Stovall', 'Stem', 'Roxboro'],
@@ -420,10 +420,23 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
               Your {data.region} Roofing Expert
             </h2>
             <p className="text-white/80 text-lg mb-2">
-              {data.regionLead.name} serves {data.name} and surrounding areas
+              <Link
+                href={`/team/${data.regionLead.slug}`}
+                className="font-semibold text-white underline decoration-white/40 underline-offset-4 hover:decoration-white transition-colors"
+              >
+                {data.regionLead.name}
+              </Link>{' '}
+              serves {data.name} and surrounding areas
             </p>
             <p className="text-white/80 mb-8">
-              Local knowledge, professional service, honest pricing
+              Local knowledge, professional service, honest pricing —{' '}
+              <Link
+                href={`/team/${data.regionLead.slug}`}
+                className="underline decoration-white/40 underline-offset-4 hover:decoration-white transition-colors"
+              >
+                meet {data.regionLead.name.split(' ')[0]}
+              </Link>
+              .
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

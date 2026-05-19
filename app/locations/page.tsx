@@ -17,6 +17,7 @@ type RegionColor = 'green' | 'blue' | 'purple' | 'amber'
 const regions: Array<{
   name: string
   lead: string
+  leadSlug: string
   phone: string
   phoneRaw: string
   counties: string[]
@@ -26,6 +27,7 @@ const regions: Array<{
   {
     name: 'Durham & North Triangle',
     lead: 'Randy Butler',
+    leadSlug: 'randy-butler',
     phone: '(336) ROOFING',
     phoneRaw: '+13367663464',
     counties: ['Durham County', 'Person County'],
@@ -42,6 +44,7 @@ const regions: Array<{
   {
     name: 'Greater Granville',
     lead: 'Marvin Jackson',
+    leadSlug: 'marvin-jackson',
     phone: '(336) ROOFING',
     phoneRaw: '+13367663464',
     counties: ['Granville County'],
@@ -63,7 +66,8 @@ const regions: Array<{
   },
   {
     name: 'Wake & East Triangle',
-    lead: 'Mike Villarroel',
+    lead: 'Mike Villarreal',
+    leadSlug: 'mike-villarreal',
     phone: '(919) 521-9545',
     phoneRaw: '+19195219545',
     counties: ['Wake County', 'Johnston County', 'Franklin County'],
@@ -86,6 +90,7 @@ const regions: Array<{
   {
     name: 'Orange & West Triangle',
     lead: 'Randy Butler',
+    leadSlug: 'randy-butler',
     phone: '(336) ROOFING',
     phoneRaw: '+13367663464',
     counties: ['Orange County', 'Chatham County'],
@@ -169,10 +174,18 @@ export default function LocationsPage() {
                     </h2>
                     <div className="bg-slate-50 rounded-xl p-4 mb-4">
                       <p className="text-slate-600 text-sm mb-2">Your Local Expert:</p>
-                      <p className="text-slate-900 font-bold">{region.lead}</p>
-                      <a 
+                      <Link
+                        href={`/team/${region.leadSlug}`}
+                        className="flex items-center gap-1 text-slate-900 font-bold hover:text-[#C8102E] transition-colors w-fit"
+                      >
+                        {region.lead}
+                        <svg className="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </Link>
+                      <a
                         href={`tel:${region.phoneRaw}`}
-                        className={`inline-flex items-center gap-2 mt-2 font-semibold ${
+                        className={`flex items-center gap-2 mt-2 font-semibold w-fit ${
                           region.color === 'green' ? 'text-green-600' :
                           region.color === 'blue' ? 'text-[#C8102E]' :
                           region.color === 'amber' ? 'text-amber-700' :

@@ -96,7 +96,7 @@ public/images/
 |----------|--------|----------------|
 | `randy-north-400x400.jpg` | Randy Butler | Owner — Greater Durham + Chapel Hill |
 | `marvin-granville-400x400.jpg` | Marvin Jackson | Greater Granville (Oxford, Granville County) |
-| `mike-east-400x400.jpg` | Mike Villarroel | Greater Raleigh (Wake County) |
+| `mike-east-400x400.jpg` | Mike Villarreal | Greater Raleigh (Wake County) |
 | `bill-operations-400x400.jpg` | Bill Lloyd | Operating Partner |
 | `makenzie-operations-400x400.jpg` | Makenzie Flack | Operations |
 | `max-drone-400x400.jpg` | Max | Drone / Field operator (reserved) |

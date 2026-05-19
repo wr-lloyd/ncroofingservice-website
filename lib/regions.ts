@@ -3,6 +3,8 @@
 
 export interface RegionLead {
   name: string
+  /** Slug used to link to the team member profile at /team/{slug}. */
+  slug: string
   title: string
   phone: string
   phoneRaw: string
@@ -36,6 +38,7 @@ export const regions: Region[] = [
     displayCities: ['Durham', 'Roxboro', 'Bahama', 'Timberlake', 'Rougemont', 'Hurdle Mills', 'Gorman', 'Hester', 'Allensville', 'Helena', 'Bethel Hill', 'Mount Tirzah'],
     lead: {
       name: 'Randy Butler',
+      slug: 'randy-butler',
       title: 'Regional Lead',
       phone: '(336) ROOFING',
       phoneRaw: '+13367663464',
@@ -57,6 +60,7 @@ export const regions: Region[] = [
     displayCities: ['Oxford', 'Creedmoor', 'Butner', 'Stem', 'Stovall', 'Wilton', 'Berea', 'Bullock', 'Brassfield', 'Tar River', 'Cornwall', 'Knap of Reeds'],
     lead: {
       name: 'Marvin Jackson',
+      slug: 'marvin-jackson',
       title: 'Regional Lead',
       phone: '(336) ROOFING',
       phoneRaw: '+13367663464',
@@ -78,6 +82,7 @@ export const regions: Region[] = [
     displayCities: ['Chapel Hill', 'Carrboro', 'Mebane', 'Hillsborough', 'Siler City', 'Pittsboro', 'Fearrington Village', 'Efland', 'Cedar Grove', 'Goldston', 'Bennett', 'Bynum'],
     lead: {
       name: 'Randy Butler',
+      slug: 'randy-butler',
       title: 'Owner & Regional Lead',
       phone: '(336) ROOFING',
       phoneRaw: '+13367663464',
@@ -98,7 +103,8 @@ export const regions: Region[] = [
     // Top 12 by population
     displayCities: ['Raleigh', 'Cary', 'Apex', 'Wake Forest', 'Holly Springs', 'Fuquay-Varina', 'Garner', 'Morrisville', 'Clayton', 'Knightdale', 'Smithfield', 'Rolesville'],
     lead: {
-      name: 'Mike Villarroel',
+      name: 'Mike Villarreal',
+      slug: 'mike-villarreal',
       title: 'Regional Lead',
       phone: '(919) 521-9545',
       phoneRaw: '+19195219545',
