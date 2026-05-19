@@ -379,7 +379,7 @@ export default function Home() {
                   href="/team/randy-butler"
                   className="font-semibold text-slate-900 underline decoration-brand-red/40 underline-offset-4 hover:decoration-brand-red transition-colors"
                 >
-                  Randall Butler
+                  Randy Butler
                 </Link>{' '}
                 lives and works in this community — our reputation matters to us.
               </p>

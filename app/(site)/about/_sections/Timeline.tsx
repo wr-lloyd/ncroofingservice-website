@@ -24,7 +24,7 @@ export default function Timeline() {
                   href="/team/randy-butler"
                   className="font-semibold text-slate-900 underline decoration-brand-red/40 underline-offset-4 hover:decoration-brand-red transition-colors"
                 >
-                  Randall Butler
+                  Randy Butler
                 </Link>{' '}
                 launches NC Roofing Service in Rougemont, NC
               </>

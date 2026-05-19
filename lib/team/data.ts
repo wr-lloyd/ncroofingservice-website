@@ -38,7 +38,7 @@ export const team: TeamMember[] = [
     slug: 'randy-butler',
     firstName: 'Randy',
     lastName: 'Butler',
-    fullName: 'Randall "Randy" Butler',
+    fullName: 'Randy Butler',
     role: 'Owner & Founder',
     department: 'Field Leadership',
     photo: '/images/team/randy-north-400x400.jpg',

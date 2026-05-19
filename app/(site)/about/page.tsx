@@ -17,12 +17,12 @@ import ConnectSocials from './_sections/ConnectSocials'
 export const metadata: Metadata = {
   title: 'About Us | NC Roofing Service and Repair | Rougemont NC',
   description:
-    'Meet the team at NC Roofing Service and Repair, LLC. Family-owned roofing company serving the NC Triangle since 2018. Owner Randall Butler and certified professionals.',
+    'Meet the team at NC Roofing Service and Repair, LLC. Family-owned roofing company serving the NC Triangle since 2018. Owner Randy Butler and certified professionals.',
   alternates: { canonical: '/about' },
   openGraph: {
     title: 'About NC Roofing Service — Family-Owned Roofing in the NC Triangle',
     description:
-      'Founded in 2018 by Randall Butler. GAF, Owens Corning, CertainTeed, and FORTIFIED certified. Meet the crew that protects roofs across Durham, Raleigh, and Chapel Hill.',
+      'Founded in 2018 by Randy Butler. GAF, Owens Corning, CertainTeed, and FORTIFIED certified. Meet the crew that protects roofs across Durham, Raleigh, and Chapel Hill.',
     url: '/about',
     type: 'website',
     images: [
@@ -56,7 +56,7 @@ const businessJsonLd = {
   foundingDate: `${FOUNDED_YEAR}-01-01`,
   founder: {
     '@type': 'Person',
-    name: 'Randall Butler',
+    name: 'Randy Butler',
     url: `${SITE_URL}/team/randy-butler`,
   },
   address: {

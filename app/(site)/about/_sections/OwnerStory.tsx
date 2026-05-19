@@ -23,7 +23,7 @@ export default function OwnerStory() {
                   href={`/team/${RANDY_SLUG}`}
                   className="font-semibold text-slate-900 underline decoration-brand-red/40 underline-offset-4 hover:decoration-brand-red transition-colors"
                 >
-                  Randall Butler
+                  Randy Butler
                 </Link>
                 , a Rougemont native with a passion for quality craftsmanship and honest service.
               </p>
@@ -61,7 +61,7 @@ export default function OwnerStory() {
                   />
                 </div>
                 <h3 className="text-slate-900 font-bold text-2xl group-hover:text-brand-red transition-colors">
-                  Randall Butler
+                  Randy Butler
                 </h3>
                 <p className="text-brand-red">Owner &amp; Founder</p>
                 <span className="inline-flex items-center gap-1 text-xs font-semibold text-brand-red mt-2 group-hover:gap-2 transition-all">

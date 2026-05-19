@@ -171,7 +171,7 @@ export default function FAQPage() {
           <div className="bg-gradient-to-r from-[#C8102E] to-[#a50d25] rounded-[2px] p-8 md:p-12 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Still Have Questions?</h2>
             <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-              We&apos;re here to help. Call or text Randall directly, or schedule a free inspection 
+              We&apos;re here to help. Call or text Randy directly, or schedule a free inspection 
               and we&apos;ll answer all your questions in person.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

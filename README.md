@@ -131,7 +131,7 @@ Each lead is automatically tagged with a routing priority:
 ## Business Information
 
 - **Company**: NC Roofing Service and Repair, LLC
-- **Owner**: Randall Butler
+- **Owner**: Randy Butler
 - **Phone**: (336) ROOFING
 - **Email**: info@ncroofingservice.com
 - **Address**: 5950 Mt. Harmony Church Rd, Rougemont, NC 27572

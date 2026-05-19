@@ -89,7 +89,7 @@ const localBusinessJsonLd = {
     addressCountry: 'US',
   },
   geo: { '@type': 'GeoCoordinates', latitude: 36.2185, longitude: -78.9256 },
-  founder: { '@type': 'Person', name: 'Randall Butler' },
+  founder: { '@type': 'Person', name: 'Randy Butler' },
   foundingDate: '2018',
   openingHoursSpecification: [
     {

@@ -13,7 +13,7 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState<ChatMessage[]>([
     { 
       from: 'bot', 
-      text: "👋 Hi! I'm here to help with your roofing needs. I'm Randall with NC Roofing Service. Would you like to:",
+      text: "👋 Hi! I'm here to help with your roofing needs. I'm Randy with NC Roofing Service. Would you like to:",
       options: ['Schedule Free Inspection', 'Get Repair Quote', 'Report Emergency', 'Ask a Question']
     }
   ])
