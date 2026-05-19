@@ -125,23 +125,23 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {/* Randy Butler */}
             <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center shadow-sm">
               <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden shadow-md ring-2 ring-green-500/20">
-                <img 
+                <img
                   src="/images/team/randy-north-400x400.jpg"
                   alt="Randy Butler"
                   className="w-full h-full object-cover"
                 />
               </div>
               <h3 className="text-slate-900 font-bold text-xl mb-1">Randy Butler</h3>
-              <p className="text-green-600 text-sm font-medium mb-2">Owner & Greater Durham</p>
+              <p className="text-green-600 text-sm font-medium mb-2">Owner &amp; Greater Durham + Chapel Hill</p>
               <p className="text-slate-600 text-sm mb-4">
-                Company founder and Rougemont native. Leads the Durham region with a personal commitment to quality.
+                Company founder and Rougemont native. Personally leads both the Durham and Chapel Hill regions with a hands-on commitment to quality.
               </p>
               <div className="flex flex-wrap justify-center gap-2">
-                {['Durham', 'Rougemont', 'Roxboro', 'Bahama'].map((city) => (
+                {['Durham', 'Rougemont', 'Chapel Hill', 'Hillsborough'].map((city) => (
                   <span key={city} className="px-2 py-1 bg-slate-200 text-slate-600 text-xs rounded-full">{city}</span>
                 ))}
               </div>
@@ -150,8 +150,8 @@ export default function AboutPage() {
             {/* Marvin Jackson */}
             <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center shadow-sm">
               <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden shadow-md ring-2 ring-amber-500/20">
-                <img 
-                  src="/images/team/marvin-granville-400x400.svg"
+                <img
+                  src="/images/team/marvin-granville-400x400.jpg"
                   alt="Marvin Jackson"
                   className="w-full h-full object-cover"
                 />
@@ -171,7 +171,7 @@ export default function AboutPage() {
             {/* Mike Villarroel */}
             <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center shadow-sm">
               <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden shadow-md ring-2 ring-blue-500/20">
-                <img 
+                <img
                   src="/images/team/mike-east-400x400.jpg"
                   alt="Mike Villarroel"
                   className="w-full h-full object-cover"
@@ -188,26 +188,52 @@ export default function AboutPage() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership & Operations Section */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">Leadership &amp; Operations</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-4">The People Behind the Work</h2>
+            <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+              The leadership and operations team that keeps every job on schedule, every quote honest, and every homeowner in the loop.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Bill Lloyd */}
+            <div className="bg-white rounded-2xl p-8 border border-slate-200 text-center shadow-sm">
+              <div className="w-24 h-24 rounded-full mx-auto mb-5 overflow-hidden shadow-md ring-2 ring-[#C8102E]/30">
+                <img
+                  src="/images/team/bill-operations-400x400.jpg"
+                  alt="Bill Lloyd"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-slate-900 font-bold text-2xl mb-1">Bill Lloyd</h3>
+              <p className="text-[#C8102E] text-sm font-semibold uppercase tracking-wider mb-4">Operating Partner</p>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Bill helps lead the business — from long-term planning to making sure every customer gets the experience NC Roofing Service is known for. He&apos;s the partner ensuring we run as well as we roof.
+              </p>
+            </div>
 
             {/* Makenzie Flack */}
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center shadow-sm">
-              <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden shadow-md ring-2 ring-purple-500/20">
-                <img 
-                  src="/images/team/preston-south-400x400.jpg"
+            <div className="bg-white rounded-2xl p-8 border border-slate-200 text-center shadow-sm">
+              <div className="w-24 h-24 rounded-full mx-auto mb-5 overflow-hidden shadow-md ring-2 ring-slate-400/40">
+                <img
+                  src="/images/team/makenzie-operations-400x400.jpg"
                   alt="Makenzie Flack"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-slate-900 font-bold text-xl mb-1">Makenzie Flack</h3>
-              <p className="text-purple-600 text-sm font-medium mb-2">Greater Chapel Hill</p>
-              <p className="text-slate-600 text-sm mb-4">
-                Covering Orange County with expertise and care. Your local connection in the Chapel Hill area.
+              <h3 className="text-slate-900 font-bold text-2xl mb-1">Makenzie Flack</h3>
+              <p className="text-slate-700 text-sm font-semibold uppercase tracking-wider mb-4">Operations</p>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Makenzie keeps the day-to-day moving — scheduling, communication, and customer follow-through. When you call or message us, she&apos;s often who makes sure nothing slips through the cracks.
               </p>
-              <div className="flex flex-wrap justify-center gap-2">
-                {['Chapel Hill', 'Carrboro', 'Hillsborough', 'Mebane'].map((city) => (
-                  <span key={city} className="px-2 py-1 bg-slate-200 text-slate-600 text-xs rounded-full">{city}</span>
-                ))}
-              </div>
             </div>
           </div>
         </div>
@@ -254,30 +280,37 @@ export default function AboutPage() {
                   <div className="flex items-center gap-4 mb-4">
                     <div className="flex -space-x-3">
                       <div className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-green-500/30">
-                        <img 
+                        <img
                           src="/images/team/randy-north-400x400.jpg"
                           alt="Randy Butler"
                           className="w-full h-full object-cover"
                         />
                       </div>
+                      <div className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-amber-500/30">
+                        <img
+                          src="/images/team/marvin-granville-400x400.jpg"
+                          alt="Marvin Jackson"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
                       <div className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-blue-500/30">
-                        <img 
+                        <img
                           src="/images/team/mike-east-400x400.jpg"
                           alt="Mike Villarroel"
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <div className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-purple-500/30">
-                        <img 
-                          src="/images/team/preston-south-400x400.jpg"
-                          alt="Makenzie Flack"
+                      <div className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-[#C8102E]/40">
+                        <img
+                          src="/images/team/bill-operations-400x400.jpg"
+                          alt="Bill Lloyd"
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <div className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-amber-500/30">
-                        <img 
-                          src="/images/team/marvin-granville-400x400.svg"
-                          alt="Marvin Jackson"
+                      <div className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-slate-400/40">
+                        <img
+                          src="/images/team/makenzie-operations-400x400.jpg"
+                          alt="Makenzie Flack"
                           className="w-full h-full object-cover"
                         />
                       </div>
@@ -287,7 +320,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <p className="text-white font-semibold">Your Local Team</p>
-                      <p className="text-slate-400 text-sm">Serving Durham, Raleigh, Chapel Hill & Oxford</p>
+                      <p className="text-slate-400 text-sm">Serving Durham, Raleigh, Chapel Hill &amp; Oxford</p>
                     </div>
                   </div>
                 </div>

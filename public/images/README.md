@@ -92,11 +92,14 @@ public/images/
 
 ### Team Headshots (`team/`)
 
-| Filename | Person | Region |
-|----------|--------|--------|
-| `randy-north-400x400.jpg` | Randy | North Triangle (Durham, Person County) |
-| `preston-south-400x400.jpg` | Preston | South Triangle (Chapel Hill, Orange County) |
-| `mike-east-400x400.jpg` | Mike | East Triangle (Raleigh, Wake County) |
+| Filename | Person | Role / Region |
+|----------|--------|----------------|
+| `randy-north-400x400.jpg` | Randy Butler | Owner — Greater Durham + Chapel Hill |
+| `marvin-granville-400x400.jpg` | Marvin Jackson | Greater Granville (Oxford, Granville County) |
+| `mike-east-400x400.jpg` | Mike Villarroel | Greater Raleigh (Wake County) |
+| `bill-operations-400x400.jpg` | Bill Lloyd | Operating Partner |
+| `makenzie-operations-400x400.jpg` | Makenzie Flack | Operations |
+| `max-drone-400x400.jpg` | Max | Drone / Field operator (reserved) |
 
 ### Project Gallery (`projects/`)
 

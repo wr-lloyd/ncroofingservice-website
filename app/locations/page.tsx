@@ -85,9 +85,9 @@ const regions: Array<{
   },
   {
     name: 'Orange & West Triangle',
-    lead: 'Makenzie Flack',
-    phone: '(919) 525-1862',
-    phoneRaw: '+19195251862',
+    lead: 'Randy Butler',
+    phone: '(336) ROOFING',
+    phoneRaw: '+13367663464',
     counties: ['Orange County', 'Chatham County'],
     color: 'purple',
     cities: [
