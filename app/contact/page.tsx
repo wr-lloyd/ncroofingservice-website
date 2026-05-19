@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import SocialLinks from '@/components/SocialLinks'
 import { regions, cityToRegionId, getRegionById, getCitiesForDropdown } from '@/lib/regions'
+import { useHoneypot, HoneypotField } from '@/components/Honeypot'
 
 interface StormAlert {
   stormCount: number
@@ -26,6 +27,7 @@ export default function ContactPage() {
   const [stormAlert, setStormAlert] = useState<StormAlert | null>(null)
   const [isCheckingStorms, setIsCheckingStorms] = useState(false)
   const [hoveredRegion, setHoveredRegion] = useState<string | null>(null)
+  const honeypot = useHoneypot()
 
   // Get cities grouped by region for dropdown
   const cityGroups = getCitiesForDropdown()
@@ -48,28 +50,33 @@ export default function ContactPage() {
     return regionId ? getRegionById(regionId) : null
   }, [formData.city])
 
-  // Check for storm damage when address and city are filled
-  const checkStormDamage = useCallback(async (address: string, city: string) => {
+  // Check for storm damage when address and city are filled.
+  // Aborts in-flight requests when the user keeps typing so we don't render stale data.
+  const checkStormDamage = useCallback(async (address: string, city: string, signal: AbortSignal) => {
     if (!address || !city || city === 'other') {
       setStormAlert(null)
       return
     }
-    
+
     const cityName = cityNameLookup[city] || city
     const fullAddress = `${address}, ${cityName}, NC`
-    
+
     setIsCheckingStorms(true)
     try {
       const response = await fetch('/api/storm-check', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ address: fullAddress }),
+        signal,
       })
-      
+
+      if (signal.aborted) return
+
       if (response.ok) {
         const data = await response.json()
+        if (signal.aborted) return
         if (data.storms && data.storms.length > 0) {
-          const hasHighRisk = data.storms.some((s: { damageRisk: string }) => 
+          const hasHighRisk = data.storms.some((s: { damageRisk: string }) =>
             s.damageRisk === 'high' || s.damageRisk === 'severe'
           )
           setStormAlert({
@@ -83,21 +90,25 @@ export default function ContactPage() {
         }
       }
     } catch (error) {
+      if ((error as Error).name === 'AbortError') return
       console.error('Storm check error:', error)
     } finally {
-      setIsCheckingStorms(false)
+      if (!signal.aborted) setIsCheckingStorms(false)
     }
   }, [cityNameLookup])
 
-  // Debounced storm check when address or city changes
   useEffect(() => {
+    const controller = new AbortController()
     const timer = setTimeout(() => {
       if (formData.address.length >= 5 && formData.city) {
-        checkStormDamage(formData.address, formData.city)
+        checkStormDamage(formData.address, formData.city, controller.signal)
       }
     }, 800)
-    
-    return () => clearTimeout(timer)
+
+    return () => {
+      clearTimeout(timer)
+      controller.abort()
+    }
   }, [formData.address, formData.city, checkStormDamage])
 
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -126,6 +137,7 @@ export default function ContactPage() {
           stormRisk: stormAlert?.overallRisk,
           stormCount: stormAlert?.stormCount,
           notes: stormAlert ? `Storm alert: ${stormAlert.overallRisk} risk, ${stormAlert.stormCount} events` : undefined,
+          website: honeypot.value,
           metadata: {
             urgency: stormAlert?.hasHighRisk ? 'priority' : 'normal',
             timestamp: new Date().toISOString(),
@@ -468,6 +480,7 @@ export default function ContactPage() {
               <p className="text-slate-600 mb-6">Fill out the form and we&apos;ll connect you with your local expert.</p>
               
               <form onSubmit={handleSubmit} className="space-y-5">
+                <HoneypotField fieldProps={honeypot.fieldProps} />
                 {/* Storm Damage Alert Banner */}
                 {stormAlert && (
                   <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl p-4 text-white animate-in slide-in-from-top duration-300">

@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback, Suspense, useMemo } from 'rea
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import AddressInput, { type AddressValue, type CitySource } from '@/components/AddressInput'
+import { useHoneypot, HoneypotField } from '@/components/Honeypot'
 
 interface StormEvent {
   date: string
@@ -21,65 +22,6 @@ interface StormResults {
   overallRisk: 'low' | 'moderate' | 'high' | 'severe'
   insuranceDeadline?: string
   recommendation: string
-}
-
-// Simulated storm data for NC Triangle area (in production, this would come from NOAA API)
-const simulateStormLookup = (address: string): StormResults => {
-  // Simulate processing delay and return mock data
-  // In production, this would call the NOAA Storm Events API
-  
-  const mockStorms: StormEvent[] = [
-    {
-      date: '2024-11-15',
-      type: 'hail',
-      severity: '1.25" diameter',
-      distance: 2.3,
-      description: 'Quarter-sized hail reported across Wake County',
-      damageRisk: 'high',
-      magnitude: '1.25 inches'
-    },
-    {
-      date: '2024-10-02',
-      type: 'wind',
-      severity: '65 mph gusts',
-      distance: 4.1,
-      description: 'Severe thunderstorm with damaging winds',
-      damageRisk: 'moderate',
-      magnitude: '65 mph'
-    },
-    {
-      date: '2024-08-18',
-      type: 'hail',
-      severity: '0.75" diameter',
-      distance: 1.8,
-      description: 'Dime to penny-sized hail',
-      damageRisk: 'moderate',
-      magnitude: '0.75 inches'
-    },
-    {
-      date: '2024-06-25',
-      type: 'tornado',
-      severity: 'EF-1',
-      distance: 8.5,
-      description: 'Brief tornado touchdown with 90 mph winds',
-      damageRisk: 'high',
-      magnitude: 'EF-1'
-    },
-  ]
-
-  // Calculate deadline (typically 1-2 years from most recent damaging storm)
-  const mostRecentStorm = mockStorms[0]
-  const stormDate = new Date(mostRecentStorm.date)
-  const deadline = new Date(stormDate)
-  deadline.setFullYear(deadline.getFullYear() + 1)
-
-  return {
-    address,
-    storms: mockStorms,
-    overallRisk: 'high',
-    insuranceDeadline: deadline.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
-    recommendation: 'Based on recent storm activity, we strongly recommend a professional roof inspection. Multiple hail events in your area have caused documented damage to roofs.'
-  }
 }
 
 const riskColors = {
@@ -132,6 +74,7 @@ function StormCheckContent() {
     email: '',
     preferredTime: '',
   })
+  const honeypot = useHoneypot()
   
   const resultsRef = useRef<HTMLElement>(null)
   const loadingRef = useRef<HTMLElement>(null)
@@ -195,28 +138,6 @@ function StormCheckContent() {
       }
       
       setResults(data)
-      
-      // Save submission to admin table
-      try {
-        await fetch('/api/submissions', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            type: 'storm-check',
-            address: addressToCheck.streetAddress,
-            city: addressToCheck.city || 'Unknown',
-            zip: addressToCheck.zip || 'Unknown',
-            county: addressToCheck.county || '',
-            citySource: addressToCheck.citySource,
-            stormResults: data.storms ? {
-              stormCount: data.storms.length,
-              overallRisk: data.overallRisk
-            } : null
-          }),
-        })
-      } catch (submissionErr) {
-        console.error('Failed to save submission:', submissionErr)
-      }
     } catch (err) {
       setError('Unable to check storm data. Please try again.')
       console.error('Storm check error:', err)
@@ -294,6 +215,7 @@ function StormCheckContent() {
           stormCount: results?.storms.length,
           issueType: 'storm-damage',
           notes: `Storm check results: ${results?.overallRisk?.toUpperCase()} risk, ${results?.storms.length} events detected`,
+          website: honeypot.value,
           metadata: {
             urgency: results?.overallRisk === 'severe' || results?.overallRisk === 'high' ? 'priority' : 'normal',
             timestamp: new Date().toISOString(),
@@ -777,6 +699,7 @@ function StormCheckContent() {
                   </button>
                 </div>
                 <form onSubmit={handleScheduleSubmit} className="space-y-6">
+                  <HoneypotField fieldProps={honeypot.fieldProps} />
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-widest">Your Name</label>

@@ -4,6 +4,7 @@ import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import AddressInput, { type AddressValue, type CitySource } from '@/components/AddressInput'
+import { useHoneypot, HoneypotField } from '@/components/Honeypot'
 
 const reasonLabels: Record<string, string> = {
   'free-inspection': 'Free Roof Inspection',
@@ -55,6 +56,7 @@ function RequestInspectionContent() {
     phone: '',
     notes: '',
   })
+  const honeypot = useHoneypot()
   
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
@@ -102,34 +104,11 @@ function RequestInspectionContent() {
     const finalReason = hasUrlParams ? addressInfo.reason : reason
     
     try {
-      const response = await fetch('/api/submissions', {
+      const response = await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          type: 'inspection',
-          address: finalAddress,
-          city: finalCity,
-          zip: finalZip,
-          county: finalCounty,
-          citySource: finalCitySource,
-          reason: finalReason,
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          notes: formData.notes || undefined,
-        }),
-      })
-      
-      if (!response.ok) {
-        throw new Error('Failed to submit request')
-      }
-      
-      // Also send to lead API for email notifications
-      await fetch('/api/lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          leadType: 'inspection',
+          leadType: 'schedule',
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
@@ -139,6 +118,7 @@ function RequestInspectionContent() {
           county: finalCounty,
           issueType: finalReason,
           notes: formData.notes,
+          website: honeypot.value,
           metadata: {
             source: 'request-inspection',
             citySource: finalCitySource,
@@ -146,7 +126,11 @@ function RequestInspectionContent() {
           }
         }),
       })
-      
+
+      if (!response.ok) {
+        throw new Error('Failed to submit request')
+      }
+
       setIsSuccess(true)
     } catch (err) {
       console.error('Submit error:', err)
@@ -305,8 +289,9 @@ function RequestInspectionContent() {
               )}
               
               <h2 className="text-2xl font-bold text-slate-900 mb-6">Contact Information</h2>
-              
+
               <form onSubmit={handleSubmit} className="space-y-5">
+                <HoneypotField fieldProps={honeypot.fieldProps} />
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-1">
                     Full Name <span className="text-red-500">*</span>

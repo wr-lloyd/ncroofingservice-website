@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef } from 'react'
+import { useHoneypot, HoneypotField } from '@/components/Honeypot'
 
 interface DamageUploadProps {
   onSubmit?: (data: DamageData) => void
@@ -36,6 +37,7 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
+  const honeypot = useHoneypot()
 
   const handleIssueSelect = (issueId: string) => {
     setFormData({ ...formData, issueType: issueId })
@@ -77,8 +79,6 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
     setIsSubmitting(true)
 
     try {
-      // In production, you'd upload photos to a storage service
-      // and include the URLs in the lead data
       const response = await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -89,6 +89,7 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
           name: formData.name,
           phone: formData.phone,
           photoCount: formData.photos.length,
+          website: honeypot.value,
           metadata: {
             userAgent: navigator.userAgent,
             timestamp: new Date().toISOString(),
@@ -115,9 +116,12 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="text-2xl font-bold text-slate-900 mb-2">Photos Received!</h3>
+        <h3 className="text-2xl font-bold text-slate-900 mb-2">Damage Report Received!</h3>
         <p className="text-slate-600 mb-6">
-          We&apos;ll review your photos and call within 2 hours during business hours with our assessment.
+          We&apos;ll call within 2 hours during business hours.
+          {formData.photos.length > 0 && (
+            <> If you&apos;d like us to review your photos before we call, please text them to <a href="sms:+19194758841" className="text-brand-red hover:underline font-semibold">(919) 475-8841</a>.</>
+          )}
         </p>
         
         {onContinueToSchedule && (
@@ -150,6 +154,7 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
       <p className="text-slate-600 mb-6">Share photos and we&apos;ll assess the damage before your inspection.</p>
 
       <form onSubmit={handleSubmit} className="space-y-6">
+        <HoneypotField fieldProps={honeypot.fieldProps} />
         {/* Issue Type Selection */}
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-3">What type of issue? *</label>
@@ -174,15 +179,19 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
 
         {/* Photo Upload */}
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-3">
-            Upload Photos (up to 5)
+          <label className="block text-sm font-medium text-slate-700 mb-1">
+            Add Photos (optional, up to 5)
           </label>
-          
+          <p className="text-xs text-slate-500 mb-3">
+            Previewed here so you have them ready. Text them to <a href="sms:+19194758841" className="text-brand-red hover:underline">(919) 475-8841</a> to share before your inspection.
+          </p>
+
           {previews.length > 0 && (
             <div className="grid grid-cols-5 gap-2 mb-3">
               {previews.map((preview, index) => (
                 <div key={index} className="relative aspect-square">
-                  <img src={preview} alt={`Preview ${index + 1}`} className="w-full h-full object-cover rounded-lg border border-slate-200" />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={preview} alt={`Damage preview ${index + 1}`} className="w-full h-full object-cover rounded-lg border border-slate-200" />
                   <button
                     type="button"
                     onClick={() => removePhoto(index)}
@@ -274,7 +283,7 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
-              Uploading...
+              Sending...
             </>
           ) : (
             <>

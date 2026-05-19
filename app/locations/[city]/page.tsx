@@ -232,28 +232,27 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
     notFound()
   }
 
-  // Generate local business schema for this city
+  // City-page schema describes the SERVICE in this city — the sitewide
+  // RoofingContractor business schema lives in app/layout.tsx so we don't
+  // duplicate organization markup on every page.
   const localSchema = {
     "@context": "https://schema.org",
-    "@type": "RoofingContractor",
-    "name": "NC Roofing Service and Repair, LLC",
+    "@type": "Service",
+    "serviceType": "Roofing",
     "url": `https://ncroofingservice.com/locations/${city}`,
-    "telephone": data.regionLead.phoneRaw,
+    "provider": {
+      "@type": "RoofingContractor",
+      "name": "NC Roofing Service and Repair, LLC",
+      "telephone": data.regionLead.phoneRaw,
+    },
     "areaServed": {
       "@type": "City",
       "name": data.name,
       "containedInPlace": {
         "@type": "State",
-        "name": "North Carolina"
-      }
+        "name": "North Carolina",
+      },
     },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Rougemont",
-      "addressRegion": "NC",
-      "postalCode": "27572",
-      "addressCountry": "US"
-    }
   }
 
   return (

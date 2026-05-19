@@ -9,12 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "gsap": "^3.12.5",
     "next": "^14.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "resend": "^6.6.0",
-    "three": "^0.160.0"
+    "resend": "^6.6.0"
   },
   "devDependencies": {
     "@types/node": "^20.10.5",

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useHoneypot, HoneypotField } from '@/components/Honeypot'
 
 interface ScheduleInspectionProps {
   onSubmit?: (data: ScheduleData) => void
@@ -34,6 +35,7 @@ export default function ScheduleInspection({ onSubmit, urgency = 'normal', prefi
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const honeypot = useHoneypot()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -50,6 +52,7 @@ export default function ScheduleInspection({ onSubmit, urgency = 'normal', prefi
         body: JSON.stringify({
           leadType: 'schedule',
           ...formData,
+          website: honeypot.value,
           metadata: {
             userAgent: navigator.userAgent,
             timestamp: new Date().toISOString(),
@@ -125,6 +128,7 @@ export default function ScheduleInspection({ onSubmit, urgency = 'normal', prefi
       <p className="text-slate-600 mb-6">Tell us when works best and we&apos;ll confirm your appointment.</p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
+        <HoneypotField fieldProps={honeypot.fieldProps} />
         <div className="grid md:grid-cols-2 gap-4">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-1">Your Name *</label>

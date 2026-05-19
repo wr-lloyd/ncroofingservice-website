@@ -1,5 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+// On Vercel Hobby, function timeout caps at 10s. We aim to finish in ~9s
+// to leave room for response serialization. Pro/Enterprise can bump this to 60.
+export const maxDuration = 10
+export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
+
+const REQUEST_BUDGET_MS = 9000
+const SWDI_FETCH_CONCURRENCY = 6 // limit parallel calls to be polite to NOAA
+const MAX_STORMS_RETURNED = 50
+
 interface StormEvent {
   date: string
   type: 'hail' | 'wind' | 'tornado'
@@ -321,126 +331,80 @@ function cleanExpiredCache(): void {
 // Geocoding
 // =============================================================================
 
+interface NominatimResult {
+  lat: string
+  lon: string
+  display_name: string
+  address?: {
+    house_number?: string
+    road?: string
+    county?: string
+    state?: string
+  }
+}
+
+async function nominatimSearch(query: string, limit: number, signal?: AbortSignal): Promise<NominatimResult[]> {
+  const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query)}&format=json&addressdetails=1&limit=${limit}&countrycodes=us`
+  const response = await fetch(url, {
+    headers: { 'User-Agent': 'BandCRoofing/1.0 (bandc@ncroofingservice.com)' },
+    signal,
+  })
+  if (!response.ok) return []
+  return await response.json() as NominatimResult[]
+}
+
+function pickBestNominatimResult(results: NominatimResult[]): GeocodingResult | null {
+  if (!results.length) return null
+  const preferred = results.find(r => r.address?.house_number && r.address?.road) ?? results[0]
+  const lat = parseFloat(preferred.lat)
+  const lon = parseFloat(preferred.lon)
+  if (Number.isNaN(lat) || Number.isNaN(lon)) return null
+  return {
+    lat,
+    lon,
+    displayName: preferred.display_name,
+    county: preferred.address?.county?.replace(/\s+County$/, '') || preferred.address?.county,
+    state: preferred.address?.state,
+  }
+}
+
 /**
- * Geocode address using Nominatim (free, no API key required)
+ * Geocode address using Nominatim (free, no API key required).
+ * Tries the original address first; only falls back to city/state if it fails.
+ * Avoids artificial delays — each request blocks the user, so latency matters.
  */
-async function geocodeAddress(address: string): Promise<GeocodingResult | null> {
+async function geocodeAddress(address: string, signal?: AbortSignal): Promise<GeocodingResult | null> {
   console.log(`[Geocoding] Attempting to geocode: ${address}`)
-  
-  // Try multiple address variations to improve success rate
-  const addressVariations = [
-    address,
-    address.replace(/\bStreet\b/gi, 'St').replace(/\bRoad\b/gi, 'Rd').replace(/\bAvenue\b/gi, 'Ave').replace(/\bDrive\b/gi, 'Dr').replace(/\bLane\b/gi, 'Ln'),
-    address.replace(/\bSt\b/gi, 'Street').replace(/\bRd\b/gi, 'Road').replace(/\bAve\b/gi, 'Avenue').replace(/\bDr\b/gi, 'Drive').replace(/\bLn\b/gi, 'Lane'),
-  ]
-  
-  // Extract city and state for fallback
+
+  try {
+    const results = await nominatimSearch(address, 5, signal)
+    const picked = pickBestNominatimResult(results)
+    if (picked) {
+      console.log(`[Geocoding] ✓ Success: ${picked.displayName}`)
+      return picked
+    }
+  } catch (error) {
+    if (signal?.aborted) throw error
+    console.error('[Geocoding] Primary lookup error:', error)
+  }
+
+  // Fallback: extract "City, ST" from the tail and try that
   const cityStateMatch = address.match(/,?\s*([^,]+?)\s*,\s*([A-Z]{2}|[A-Za-z\s]+?)(?:\s+\d{5})?$/)
-  let cityStateQuery = null
   if (cityStateMatch) {
-    const city = cityStateMatch[1].trim()
-    const state = cityStateMatch[2].trim()
-    cityStateQuery = `${city}, ${state}`
-    console.log(`[Geocoding] Extracted city/state: ${cityStateQuery}`)
-  }
-  
-  // Try each variation with delays to respect rate limits
-  for (let i = 0; i < addressVariations.length; i++) {
-    const addressToTry = addressVariations[i]
-    
-    if (i > 0) {
-      await new Promise(resolve => setTimeout(resolve, 1100))
-    }
-    
+    const cityStateQuery = `${cityStateMatch[1].trim()}, ${cityStateMatch[2].trim()}`
     try {
-      const encodedAddress = encodeURIComponent(addressToTry)
-      const apiUrl = `https://nominatim.openstreetmap.org/search?q=${encodedAddress}&format=json&addressdetails=1&limit=5&countrycodes=us`
-      
-      console.log(`[Geocoding] Trying variation ${i + 1}/${addressVariations.length}`)
-      
-      const response = await fetch(apiUrl, {
-        headers: {
-          'User-Agent': 'BandCRoofing/1.0 (bandc@ncroofingservice.com)',
-        },
-      })
-      
-      if (!response.ok) {
-        console.error(`[Geocoding] API error:`, response.status)
-        continue
-      }
-      
-      const data = await response.json()
-      
-      if (data && data.length > 0) {
-        let bestMatch = data[0]
-        
-        for (const result of data) {
-          if (result.address?.house_number && result.address?.road) {
-            bestMatch = result
-            break
-          }
-        }
-        
-        const lat = parseFloat(bestMatch.lat)
-        const lon = parseFloat(bestMatch.lon)
-        
-        if (isNaN(lat) || isNaN(lon)) continue
-        
-        console.log(`[Geocoding] ✓ Success: ${bestMatch.display_name}`)
-        return {
-          lat,
-          lon,
-          displayName: bestMatch.display_name,
-          county: bestMatch.address?.county?.replace(/\s+County$/, '') || bestMatch.address?.county,
-          state: bestMatch.address?.state,
-        }
+      const results = await nominatimSearch(cityStateQuery, 1, signal)
+      const picked = pickBestNominatimResult(results)
+      if (picked) {
+        console.log(`[Geocoding] ✓ Success with city/state fallback: ${picked.displayName}`)
+        return picked
       }
     } catch (error) {
-      console.error(`[Geocoding] Error:`, error)
-      continue
+      if (signal?.aborted) throw error
+      console.error('[Geocoding] Fallback error:', error)
     }
   }
-  
-  // Try city/state fallback
-  if (cityStateQuery) {
-    console.log(`[Geocoding] Trying city/state fallback: ${cityStateQuery}`)
-    
-    try {
-      await new Promise(resolve => setTimeout(resolve, 1100))
-      
-      const encodedQuery = encodeURIComponent(cityStateQuery)
-      const apiUrl = `https://nominatim.openstreetmap.org/search?q=${encodedQuery}&format=json&addressdetails=1&limit=1&countrycodes=us`
-      
-      const response = await fetch(apiUrl, {
-        headers: {
-          'User-Agent': 'BandCRoofing/1.0 (bandc@ncroofingservice.com)',
-        },
-      })
-      
-      if (response.ok) {
-        const data = await response.json()
-        if (data && data.length > 0) {
-          const result = data[0]
-          const lat = parseFloat(result.lat)
-          const lon = parseFloat(result.lon)
-          
-          if (!isNaN(lat) && !isNaN(lon)) {
-            console.log(`[Geocoding] ✓ Success with fallback: ${result.display_name}`)
-            return {
-              lat,
-              lon,
-              displayName: result.display_name,
-              county: result.address?.county?.replace(/\s+County$/, '') || result.address?.county,
-              state: result.address?.state,
-            }
-          }
-        }
-      }
-    } catch (error) {
-      console.error(`[Geocoding] Fallback error:`, error)
-    }
-  }
-  
+
   console.error(`[Geocoding] ✗ Failed to geocode: ${address}`)
   return null
 }
@@ -463,129 +427,123 @@ async function geocodeAddress(address: string): Promise<GeocodingResult | null> 
  * @param months - Number of months to look back (default: 6)
  * @returns Array of StormEvent objects
  */
-async function fetchSWDIStormEvents(lat: number, lon: number, months: number = 6): Promise<StormEvent[]> {
-  const allEvents: StormEvent[] = []
-  const dateRanges = generateMonthlyDateRanges(months)
-  
-  // Create bounding box: ±0.25 degrees (~17 mile radius)
-  const bboxBuffer = 0.25
-  const minLon = lon - bboxBuffer
-  const minLat = lat - bboxBuffer
-  const maxLon = lon + bboxBuffer
-  const maxLat = lat + bboxBuffer
-  const bbox = `${minLon.toFixed(4)},${minLat.toFixed(4)},${maxLon.toFixed(4)},${maxLat.toFixed(4)}`
-  
-  // Datasets to query: hail signatures, tornado vortex signatures
-  const datasets = ['nx3hail', 'nx3tvs']
-  
-  console.log(`[SWDI API] Querying with bbox: ${bbox}`)
-  console.log(`[SWDI API] Date ranges: ${dateRanges.length} monthly chunks (${months} months)`)
-  
-  // Use all date ranges for the requested months
-  const recentRanges = dateRanges
-  
-  for (const dataset of datasets) {
-    for (const range of recentRanges) {
-      try {
-        // SWDI API format: /swdiws/csv/{dataset}/{startDate}:{endDate}?bbox={minLon,minLat,maxLon,maxLat}
-        // Dates must be in YYYYMMDD format
-        const apiUrl = `https://www.ncdc.noaa.gov/swdiws/csv/${dataset}/${range.start}:${range.end}?bbox=${bbox}`
-        
-        console.log(`[SWDI API] Fetching ${dataset} ${range.start} to ${range.end}...`)
-        
-        const response = await fetch(apiUrl, {
-          headers: {
-            'User-Agent': 'BandCRoofing/1.0 (bandc@ncroofingservice.com)',
-          },
-        })
-        
-        if (!response.ok) {
-          console.warn(`[SWDI API] Error for ${dataset} ${range.start}-${range.end}: ${response.status}`)
-          continue
-        }
-        
-        const csvText = await response.text()
-        
-        // Check if response contains "summary" (means we got data)
-        if (!csvText.includes('ZTIME') || csvText.includes('count,0')) {
-          continue
-        }
-        
-        const reports = parseCSVResponse(csvText)
-        console.log(`[SWDI API] Found ${reports.length} ${dataset} reports`)
-        
-        // Transform SWDI reports to StormEvent format
-        for (const report of reports) {
-          const reportLat = parseFloat(report.LAT)
-          const reportLon = parseFloat(report.LON)
-          
-          if (isNaN(reportLat) || isNaN(reportLon)) continue
-          
-          // Calculate distance from user's location
-          const distance = calculateDistance(lat, lon, reportLat, reportLon)
-          
-          // Only include events within 20 miles
-          if (distance > 20) continue
-          
-          // Determine event type based on dataset
-          const eventType: 'hail' | 'wind' | 'tornado' = dataset === 'nx3hail' ? 'hail' : 'tornado'
-          
-          // Determine severity and risk
-          const maxSize = parseFloat(report.MAXSIZE || '0')
-          const sevProb = parseInt(report.SEVPROB || '0', 10)
-          
-          let damageRisk: 'low' | 'moderate' | 'high' | 'severe' = 'low'
-          let severity = 'Detected'
-          
-          if (dataset === 'nx3hail') {
-            // Hail size in inches
-            if (maxSize >= 2.0) {
-              damageRisk = 'severe'
-              severity = `${maxSize}" hail (baseball+)`
-            } else if (maxSize >= 1.5) {
-              damageRisk = 'high'
-              severity = `${maxSize}" hail (golf ball)`
-            } else if (maxSize >= 1.0) {
-              damageRisk = 'moderate'
-              severity = `${maxSize}" hail (quarter)`
-            } else if (maxSize >= 0.75) {
-              damageRisk = 'low'
-              severity = `${maxSize}" hail (penny)`
-            } else {
-              severity = `${maxSize}" hail (small)`
-            }
-          } else if (dataset === 'nx3tvs') {
-            // Tornado vortex signature
-            damageRisk = 'severe'
-            severity = 'Tornado Vortex Signature'
-          }
-          
-          // Build description
-          const description = dataset === 'nx3hail'
-            ? `Hail signature detected by radar (${report.WSR_ID || 'NEXRAD'}). Maximum size: ${maxSize}". Severe probability: ${sevProb}%.`
-            : `Tornado vortex signature detected by radar (${report.WSR_ID || 'NEXRAD'}). Immediate severe weather threat.`
-          
-          allEvents.push({
-            date: report.ZTIME,
-            type: eventType,
-            severity,
-            distance: Math.round(distance * 10) / 10,
-            description,
-            damageRisk,
-            magnitude: maxSize > 0 ? `${maxSize}"` : undefined,
-            location: `${Math.round(distance * 10) / 10} miles away`,
-          })
-        }
-        
-        // Small delay between API calls to be respectful
-        await new Promise(resolve => setTimeout(resolve, 200))
-        
-      } catch (error) {
-        console.error(`[SWDI API] Error fetching ${dataset}:`, error)
-        continue
-      }
+function reportsToStormEvents(
+  reports: SWDIStormReport[],
+  dataset: string,
+  userLat: number,
+  userLon: number
+): StormEvent[] {
+  const events: StormEvent[] = []
+  for (const report of reports) {
+    const reportLat = parseFloat(report.LAT)
+    const reportLon = parseFloat(report.LON)
+    if (Number.isNaN(reportLat) || Number.isNaN(reportLon)) continue
+
+    const distance = calculateDistance(userLat, userLon, reportLat, reportLon)
+    if (distance > 20) continue
+
+    const eventType: 'hail' | 'wind' | 'tornado' = dataset === 'nx3hail' ? 'hail' : 'tornado'
+    const maxSize = parseFloat(report.MAXSIZE || '0')
+    const sevProb = parseInt(report.SEVPROB || '0', 10)
+
+    let damageRisk: 'low' | 'moderate' | 'high' | 'severe' = 'low'
+    let severity = 'Detected'
+
+    if (dataset === 'nx3hail') {
+      if (maxSize >= 2.0) { damageRisk = 'severe'; severity = `${maxSize}" hail (baseball+)` }
+      else if (maxSize >= 1.5) { damageRisk = 'high'; severity = `${maxSize}" hail (golf ball)` }
+      else if (maxSize >= 1.0) { damageRisk = 'moderate'; severity = `${maxSize}" hail (quarter)` }
+      else if (maxSize >= 0.75) { damageRisk = 'low'; severity = `${maxSize}" hail (penny)` }
+      else { severity = `${maxSize}" hail (small)` }
+    } else if (dataset === 'nx3tvs') {
+      damageRisk = 'severe'
+      severity = 'Tornado Vortex Signature'
+    }
+
+    const description = dataset === 'nx3hail'
+      ? `Hail signature detected by radar (${report.WSR_ID || 'NEXRAD'}). Maximum size: ${maxSize}". Severe probability: ${sevProb}%.`
+      : `Tornado vortex signature detected by radar (${report.WSR_ID || 'NEXRAD'}). Immediate severe weather threat.`
+
+    events.push({
+      date: report.ZTIME,
+      type: eventType,
+      severity,
+      distance: Math.round(distance * 10) / 10,
+      description,
+      damageRisk,
+      magnitude: maxSize > 0 ? `${maxSize}"` : undefined,
+      location: `${Math.round(distance * 10) / 10} miles away`,
+    })
+  }
+  return events
+}
+
+/** Run async tasks with bounded concurrency. Aborts early if signal trips. */
+async function withConcurrency<T, R>(
+  items: T[],
+  limit: number,
+  worker: (item: T) => Promise<R>,
+  signal?: AbortSignal
+): Promise<R[]> {
+  const results: R[] = new Array(items.length)
+  let cursor = 0
+
+  async function pump() {
+    while (cursor < items.length) {
+      if (signal?.aborted) return
+      const idx = cursor++
+      results[idx] = await worker(items[idx])
     }
   }
+
+  const runners = Array.from({ length: Math.min(limit, items.length) }, () => pump())
+  await Promise.all(runners)
+  return results
+}
+
+async function fetchSWDIStormEvents(
+  lat: number,
+  lon: number,
+  months: number = 6,
+  signal?: AbortSignal
+): Promise<StormEvent[]> {
+  const dateRanges = generateMonthlyDateRanges(months)
+
+  const bboxBuffer = 0.25
+  const bbox = `${(lon - bboxBuffer).toFixed(4)},${(lat - bboxBuffer).toFixed(4)},${(lon + bboxBuffer).toFixed(4)},${(lat + bboxBuffer).toFixed(4)}`
+  const datasets = ['nx3hail', 'nx3tvs']
+
+  console.log(`[SWDI API] bbox=${bbox} months=${months} ranges=${dateRanges.length}`)
+
+  type Job = { dataset: string; range: { start: string; end: string } }
+  const jobs: Job[] = []
+  for (const dataset of datasets) {
+    for (const range of dateRanges) {
+      jobs.push({ dataset, range })
+    }
+  }
+
+  const eventArrays = await withConcurrency(jobs, SWDI_FETCH_CONCURRENCY, async ({ dataset, range }) => {
+    if (signal?.aborted) return [] as StormEvent[]
+    const apiUrl = `https://www.ncdc.noaa.gov/swdiws/csv/${dataset}/${range.start}:${range.end}?bbox=${bbox}`
+    try {
+      const response = await fetch(apiUrl, {
+        headers: { 'User-Agent': 'BandCRoofing/1.0 (bandc@ncroofingservice.com)' },
+        signal,
+      })
+      if (!response.ok) return [] as StormEvent[]
+      const csvText = await response.text()
+      if (!csvText.includes('ZTIME') || csvText.includes('count,0')) return [] as StormEvent[]
+      const reports = parseCSVResponse(csvText)
+      return reportsToStormEvents(reports, dataset, lat, lon)
+    } catch (error) {
+      if (signal?.aborted) return [] as StormEvent[]
+      console.warn(`[SWDI API] ${dataset} ${range.start}-${range.end} failed:`, error)
+      return [] as StormEvent[]
+    }
+  }, signal)
+
+  const allEvents = eventArrays.flat()
   
   // Deduplicate events that are very close in time and location
   const uniqueEvents: StormEvent[] = []
@@ -601,9 +559,12 @@ async function fetchSWDIStormEvents(lat: number, lon: number, months: number = 6
     }
   }
   
-  // Sort by date (newest first)
   uniqueEvents.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-  
+
+  if (uniqueEvents.length > MAX_STORMS_RETURNED) {
+    uniqueEvents.length = MAX_STORMS_RETURNED
+  }
+
   console.log(`[SWDI API] Total unique events found: ${uniqueEvents.length}`)
   return uniqueEvents
 }
@@ -613,32 +574,32 @@ async function fetchSWDIStormEvents(lat: number, lon: number, months: number = 6
  * Uses SWDI API - free, no authentication required
  * @param months - Number of months to look back (default: 6)
  */
-async function getStormEventsForLocation(lat: number, lon: number, months: number = 6): Promise<StormEvent[]> {
-  // Clean expired cache entries periodically
+async function getStormEventsForLocation(
+  lat: number,
+  lon: number,
+  months: number = 6,
+  signal?: AbortSignal
+): Promise<StormEvent[]> {
   cleanExpiredCache()
-  
-  // Create cache key based on location and months (rounded to ~1 mile precision)
+
   const cacheKey = `${lat.toFixed(2)}-${lon.toFixed(2)}-${months}m`
-  
-  // Check cache first
+
   const cachedStorms = getCachedStorms(cacheKey)
   if (cachedStorms !== null) {
     console.log(`[Storm Check] Using cached data (${cachedStorms.length} events, ${months} months)`)
     return cachedStorms
   }
-  
-  // Fetch from SWDI API
+
   let storms: StormEvent[] = []
   try {
-    storms = await fetchSWDIStormEvents(lat, lon, months)
+    storms = await fetchSWDIStormEvents(lat, lon, months, signal)
   } catch (error) {
+    if (signal?.aborted) throw error
     console.error('Error fetching SWDI storm data:', error)
     storms = []
   }
-  
-  // Cache results (even if empty) to avoid repeated API calls
+
   setCachedStorms(cacheKey, storms)
-  
   return storms
 }
 
@@ -700,66 +661,75 @@ function generateRecommendation(storms: StormEvent[], overallRisk: string): stri
 // API Route Handler
 // =============================================================================
 
+const US_STATE_NAMES: readonly string[] = [
+  'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut',
+  'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa',
+  'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan',
+  'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
+  'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
+  'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota',
+  'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia',
+  'Wisconsin', 'Wyoming', 'District of Columbia',
+]
+
+function isUSStateString(state: string | undefined): boolean {
+  if (!state) return false
+  if (US_STATE_NAMES.some(name => state.includes(name))) return true
+  return /\b(?:AL|AK|AZ|AR|CA|CO|CT|DE|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY|DC)\b/.test(state)
+}
+
+const VALID_MONTHS: readonly number[] = [3, 6, 12, 18, 24]
+
 export async function POST(request: NextRequest) {
+  const controller = new AbortController()
+  const budgetTimer = setTimeout(() => controller.abort(), REQUEST_BUDGET_MS)
+
   try {
-    const body = await request.json()
-    const { address, months = 6 } = body
-    
-    // Validate months parameter (must be 3, 6, 12, 18, or 24)
-    const validMonths = [3, 6, 12, 18, 24]
-    const monthsToUse = validMonths.includes(months) ? months : 6
-    
-    if (!address || typeof address !== 'string') {
-      return NextResponse.json(
-        { error: 'Address is required' },
-        { status: 400 }
-      )
+    const body = await request.json().catch(() => null)
+    if (!body || typeof body !== 'object') {
+      return NextResponse.json({ error: 'Invalid request body' }, { status: 400 })
     }
-    
-    // Geocode the address
-    const geoResult = await geocodeAddress(address)
-    
+
+    const address = typeof body.address === 'string' ? body.address.trim() : ''
+    if (!address) {
+      return NextResponse.json({ error: 'Address is required' }, { status: 400 })
+    }
+    if (address.length > 300) {
+      return NextResponse.json({ error: 'Address is too long' }, { status: 400 })
+    }
+
+    const requestedMonths = typeof body.months === 'number' ? body.months : 6
+    const monthsToUse = VALID_MONTHS.includes(requestedMonths) ? requestedMonths : 6
+
+    const geoResult = await geocodeAddress(address, controller.signal)
     if (!geoResult) {
       return NextResponse.json(
         { error: 'Could not find that address. Please try a more specific address including city and state.' },
         { status: 400 }
       )
     }
-    
-    // Check if address is in the US
-    const usStates = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming', 'District of Columbia']
-    const stateAbbreviations = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY', 'DC']
-    
-    const isUSAddress = geoResult.state && (
-      usStates.some(state => geoResult.state?.includes(state)) ||
-      stateAbbreviations.some(abbr => geoResult.state?.includes(abbr))
-    )
-    
-    if (!isUSAddress) {
+
+    if (!isUSStateString(geoResult.state)) {
       return NextResponse.json(
         { error: 'Please enter a valid US address. Storm data is available for all US addresses.' },
         { status: 400 }
       )
     }
-    
-    // Get storm events for this location
-    const storms = await getStormEventsForLocation(geoResult.lat, geoResult.lon, monthsToUse)
+
+    const storms = await getStormEventsForLocation(geoResult.lat, geoResult.lon, monthsToUse, controller.signal)
     const overallRisk = calculateOverallRisk(storms)
-    
-    // Calculate insurance deadline (1 year from most recent damaging storm)
+
     let insuranceDeadline: string | undefined
     const highRiskStorms = storms.filter(s => s.damageRisk === 'high' || s.damageRisk === 'severe')
     if (highRiskStorms.length > 0) {
       const mostRecent = new Date(highRiskStorms[0].date)
       const deadline = new Date(mostRecent)
       deadline.setFullYear(deadline.getFullYear() + 1)
-      
-      // Only show deadline if it hasn't passed
       if (deadline > new Date()) {
         insuranceDeadline = deadline.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
       }
     }
-    
+
     return NextResponse.json({
       success: true,
       address: geoResult.displayName,
@@ -771,12 +741,21 @@ export async function POST(request: NextRequest) {
       insuranceDeadline,
       recommendation: generateRecommendation(storms, overallRisk),
     })
-    
+
   } catch (error) {
+    if (controller.signal.aborted) {
+      console.warn('[Storm Check] Request exceeded time budget')
+      return NextResponse.json(
+        { error: 'Storm data lookup is taking longer than expected. Please try again, or call us at (919) 475-8841.' },
+        { status: 504 }
+      )
+    }
     console.error('Storm check error:', error)
     return NextResponse.json(
       { error: 'An error occurred while checking storm data. Please try again.' },
       { status: 500 }
     )
+  } finally {
+    clearTimeout(budgetTimer)
   }
 }

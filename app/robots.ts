@@ -6,13 +6,10 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/_next/'],
+        disallow: ['/api/', '/_next/', '/_vercel/'],
       },
     ],
     sitemap: 'https://ncroofingservice.com/sitemap.xml',
+    host: 'https://ncroofingservice.com',
   }
 }
-
-
-
-
