@@ -30,7 +30,7 @@ export default function RoofReplacementPage() {
     },
     {
       q: 'Do you offer financing?',
-      a: 'We can discuss payment options during your consultation. Many customers also use insurance for storm-related replacements.'
+      a: 'Yes. We partner with Service Finance Company and Enhancify — prequalify with a soft credit check in about two minutes, no impact to your credit. See real monthly payments and lender details at /financing.'
     },
   ]
 

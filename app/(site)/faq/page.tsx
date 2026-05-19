@@ -79,7 +79,7 @@ const faqs = [
       },
       {
         q: 'Do you offer financing?',
-        a: 'We can discuss payment options during your consultation. We work with homeowners to find solutions that fit their budget, and we\'re experienced in helping customers maximize their insurance claims for covered repairs.'
+        a: 'Yes. We partner with Service Finance Company and Enhancify so you can prequalify with a soft credit check in about two minutes — no impact to your credit score. See real monthly payments, lender details, and a calculator at /financing.'
       },
       {
         q: 'What warranties do you offer?',

@@ -3,6 +3,7 @@
 import ContactCTA from '@/components/ContactCTA'
 import { OFFICE_ADDRESS, OFFICE_EMAIL, OFFICE_PHONE, SITE_URL, FOUNDED_YEAR } from '@/lib/site'
 import { team, memberPhotoUrl, memberProfileUrl } from '@/lib/team'
+import { lenders } from '@/lib/financing'
 import { socialLinks } from '@/components/SocialLinks'
 
 import Hero from './_sections/Hero'
@@ -11,6 +12,7 @@ import TheCrew from './_sections/TheCrew'
 import Timeline from './_sections/Timeline'
 import Technology from './_sections/Technology'
 import WhatToExpect from './_sections/WhatToExpect'
+import Financing from './_sections/Financing'
 import Values from './_sections/Values'
 import ConnectSocials from './_sections/ConnectSocials'
 
@@ -85,6 +87,16 @@ const businessJsonLd = {
     telephone: m.directPhone,
     email: m.email,
   })),
+  makesOffer: lenders.map((l) => ({
+    '@type': 'Offer',
+    name: `Roofing financing via ${l.name}`,
+    url: `${SITE_URL}/financing`,
+    seller: {
+      '@type': 'Organization',
+      name: l.name,
+      url: l.externalUrl,
+    },
+  })),
   sameAs: socialLinks.map((s) => s.href),
 }
 
@@ -101,6 +113,7 @@ export default function AboutPage() {
       <Timeline />
       <Technology />
       <WhatToExpect />
+      <Financing />
       <Values />
       <ConnectSocials />
       <ContactCTA />

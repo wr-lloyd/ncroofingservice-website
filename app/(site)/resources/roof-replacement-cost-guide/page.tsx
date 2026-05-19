@@ -218,7 +218,7 @@ export default function RoofReplacementCostGuidePage() {
                 <svg className="w-6 h-6 text-brand-red flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                <span className="text-slate-600"><strong>Contractor financing:</strong> We can discuss payment options for qualified customers</span>
+                <span className="text-slate-600"><strong>Contractor financing:</strong> We partner with <Link href="/financing" className="text-brand-red underline hover:no-underline">Service Finance Company and Enhancify</Link> — soft credit check, options in about two minutes</span>
               </li>
             </ul>
           </article>
