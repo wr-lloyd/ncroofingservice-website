@@ -129,101 +129,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Local Team Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">Our Team</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-4">Your Local Roofing Experts</h2>
-            <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-              Meet the local experts who serve your community. Not a call center — real people who know your neighborhood.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {(['randy-butler', 'marvin-jackson', 'mike-villarreal'] as const).map((slug) => {
-              const m = memberBySlug[slug]
-              if (!m) return null
-              return (
-                <Link
-                  key={m.slug}
-                  href={`/team/${m.slug}`}
-                  className="group block bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center shadow-sm hover:shadow-xl hover:border-brand-red hover:-translate-y-0.5 transition-all"
-                >
-                  <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden shadow-md ring-2 ring-brand-red/20 group-hover:ring-brand-red/50 transition-all">
-                    <img
-                      src={m.photo}
-                      alt={m.fullName}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <h3 className="text-slate-900 font-bold text-xl mb-1">{m.fullName}</h3>
-                  <p className="text-brand-red text-sm font-medium mb-2">
-                    {m.role === 'Owner & Founder' ? `Owner & ${m.territory}` : m.territory}
-                  </p>
-                  <p className="text-slate-600 text-sm mb-4 line-clamp-3">{m.bio}</p>
-                  <div className="flex flex-wrap justify-center gap-2 mb-4">
-                    {m.cities?.slice(0, 4).map((city) => (
-                      <span key={city} className="px-2 py-1 bg-slate-200 text-slate-600 text-xs rounded-full">{city}</span>
-                    ))}
-                  </div>
-                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-brand-red group-hover:gap-2 transition-all">
-                    View {m.firstName}&apos;s card
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </Link>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Leadership & Operations Section */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-[#C8102E] font-semibold text-sm uppercase tracking-wider">Leadership &amp; Operations</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-2 mb-4">The People Behind the Work</h2>
-            <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-              The leadership and operations team that keeps every job on schedule, every quote honest, and every homeowner in the loop.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {(['bill-lloyd', 'makenzie-flack'] as const).map((slug) => {
-              const m = memberBySlug[slug]
-              if (!m) return null
-              return (
-                <Link
-                  key={m.slug}
-                  href={`/team/${m.slug}`}
-                  className="group block bg-white rounded-2xl p-8 border border-slate-200 text-center shadow-sm hover:shadow-xl hover:border-brand-red hover:-translate-y-0.5 transition-all"
-                >
-                  <div className="w-24 h-24 rounded-full mx-auto mb-5 overflow-hidden shadow-md ring-2 ring-brand-red/30 group-hover:ring-brand-red/60 transition-all">
-                    <img
-                      src={m.photo}
-                      alt={m.fullName}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <h3 className="text-slate-900 font-bold text-2xl mb-1">{m.fullName}</h3>
-                  <p className="text-brand-red text-sm font-semibold uppercase tracking-wider mb-4">{m.role}</p>
-                  <p className="text-slate-600 text-sm leading-relaxed mb-5">{m.bio}</p>
-                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-brand-red group-hover:gap-2 transition-all">
-                    View {m.firstName}&apos;s card
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </Link>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* Aerial & Drone — Max Taylor spotlight */}
       {memberBySlug['max-taylor'] && (
         <section className="py-24 bg-white">
@@ -394,10 +299,10 @@ export default function AboutPage() {
                           className="w-full h-full object-cover"
                         />
                       </Link>
-                      <Link href="/team/mike-villarreal" aria-label="View Mike Villarreal's profile" className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-blue-500/30 hover:ring-blue-400 hover:z-10 transition-all">
+                      <Link href="/team/mike-villarroel" aria-label="View Mike Villarroel's profile" className="w-12 h-12 rounded-full border-2 border-slate-900 overflow-hidden ring-2 ring-blue-500/30 hover:ring-blue-400 hover:z-10 transition-all">
                         <img
                           src="/images/team/mike-east-400x400.jpg"
-                          alt="Mike Villarreal"
+                          alt="Mike Villarroel"
                           className="w-full h-full object-cover"
                         />
                       </Link>
@@ -443,23 +348,31 @@ export default function AboutPage() {
             
             {/* Content Side */}
             <div className="order-1 lg:order-2">
-              <div className="space-y-6 text-slate-300 text-lg mb-10">
+              <div className="space-y-6 text-slate-300 text-lg mb-8">
                 <p>
-                  When you hire NC Roofing Service, you&apos;re not getting a faceless corporation or out-of-state 
-                  contractors. You&apos;re getting local professionals who live and work in your community.
-                </p>
-                <p>
-                  Our team members are trained, certified, and committed to the same high standards that 
-                  <Link href="/team/randy-butler" className="font-semibold text-white underline decoration-white/40 underline-offset-4 hover:decoration-white transition-colors">Randall Butler</Link> established when he founded this company. We don&apos;t cut corners, we don&apos;t 
-                  rush jobs, and we treat every home like it belongs to family — because it often does.
-                </p>
-                <p>
-                  From the initial inspection to the final walkthrough, you&apos;ll work with people who know 
-                  your neighborhood, understand local building codes, and genuinely care about doing the 
+                  When you hire NC Roofing Service, you&apos;re not getting a faceless corporation or out-of-state
+                  contractors. You&apos;re getting local professionals who live and work in your community — people
+                  who know your neighborhood, understand local building codes, and genuinely care about doing the
                   job right the first time.
                 </p>
               </div>
-              
+
+              {/* Meet the team CTA */}
+              <div className="mb-8">
+                <Link
+                  href="/team"
+                  className="group inline-flex items-center gap-3 bg-white text-slate-900 hover:bg-slate-100 px-6 py-3.5 rounded-[2px] font-semibold transition-all shadow-md hover:shadow-lg"
+                >
+                  Meet the full team
+                  <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+                <p className="text-slate-400 text-sm mt-3">
+                  Profiles, direct phone numbers, and one-tap vCard downloads for every territory lead.
+                </p>
+              </div>
+
               {/* Team Highlights - 2x2 Grid */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-5 border border-white/10 hover:border-green-500/30 transition-colors">

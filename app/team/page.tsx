@@ -57,7 +57,7 @@ export default function TeamIndexPage() {
             title="The people behind the work"
             subtitle="The crew that keeps every job on schedule and every customer in the loop."
           />
-          <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {ops.map((m) => (
               <ProfileCard key={m.slug} member={m} />
             ))}
