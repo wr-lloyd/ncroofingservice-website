@@ -1,5 +1,33 @@
 /** @type {import('next').NextConfig} */
+
+// Content-Security-Policy: locked down to the third-parties we actually use.
+// - 'self' for first-party assets
+// - 'unsafe-inline' on script-src is required because Next.js inlines small
+//   bootstrap scripts and we emit JSON-LD as inline <script>. We do NOT
+//   allow 'unsafe-eval'.
+// - images allow https: + data: so OG previews / blur placeholders work,
+//   and Unsplash hero photos load.
+// - connect-src includes NOAA + Google Geocoding for the storm-check flow.
+const cspDirectives = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline'",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "font-src 'self' https://fonts.gstatic.com data:",
+  "img-src 'self' data: blob: https:",
+  "media-src 'self'",
+  "connect-src 'self' https://maps.googleapis.com https://www.ncdc.noaa.gov https://www.ncei.noaa.gov https://nominatim.openstreetmap.org",
+  "frame-ancestors 'self'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "object-src 'none'",
+  "upgrade-insecure-requests",
+].join('; ')
+
 const securityHeaders = [
+  {
+    key: 'Content-Security-Policy',
+    value: cspDirectives,
+  },
   {
     key: 'X-Frame-Options',
     value: 'SAMEORIGIN',

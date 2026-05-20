@@ -167,14 +167,14 @@ export default function StartPage() {
       case 'storm':
         return [
           { title: 'Identify the Problem', component: <ProblemFinder onSelectAction={() => handleNext()} /> },
-          { title: 'Upload Photos', component: <DamageUpload onContinueToSchedule={() => handleNext()} /> },
+          { title: 'Tell Us About the Damage', component: <DamageUpload onContinueToSchedule={() => handleNext()} /> },
           { title: 'Insurance Help', component: <InsuranceHelper /> },
           { title: 'Schedule Inspection', component: <ScheduleInspection /> },
         ]
       case 'leak':
         return [
           { title: 'Identify the Problem', component: <ProblemFinder onSelectAction={() => handleNext()} /> },
-          { title: 'Upload Photos', component: <DamageUpload onContinueToSchedule={() => handleNext()} /> },
+          { title: 'Tell Us About the Damage', component: <DamageUpload onContinueToSchedule={() => handleNext()} /> },
           { title: 'Schedule Priority Inspection', component: <ScheduleInspection urgency="priority" prefilledIssue="Active leak / water damage" /> },
         ]
       case 'aging':

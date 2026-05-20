@@ -1,6 +1,11 @@
 ﻿'use client'
 
-import { useState, useRef } from 'react'
+// Triage form: gather what + where + who, then trigger a callback. Photo
+// upload was removed from this step in 2026 — we ask homeowners to text
+// pictures to the office number after triage so they go straight to the
+// crew thread instead of getting buried as base64 in a lead email.
+
+import { useState } from 'react'
 import { useHoneypot, HoneypotField } from '@/components/Honeypot'
 import { OFFICE_PHONE, OFFICE_PHONE_DISPLAY } from '@/lib/site'
 
@@ -12,7 +17,6 @@ interface DamageUploadProps {
 interface DamageData {
   issueType: string
   description: string
-  photos: File[]
   name: string
   phone: string
 }
@@ -30,15 +34,12 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
   const [formData, setFormData] = useState<DamageData>({
     issueType: '',
     description: '',
-    photos: [],
     name: '',
     phone: '',
   })
-  const [previews, setPreviews] = useState<string[]>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [submitError, setSubmitError] = useState(false)
-  const fileInputRef = useRef<HTMLInputElement>(null)
   const honeypot = useHoneypot()
 
   const handleIssueSelect = (issueId: string) => {
@@ -49,36 +50,10 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = Array.from(e.target.files || [])
-    if (files.length + formData.photos.length > 5) {
-      alert('Maximum 5 photos allowed')
-      return
-    }
-
-    setFormData({ ...formData, photos: [...formData.photos, ...files] })
-
-    // Create previews
-    files.forEach(file => {
-      const reader = new FileReader()
-      reader.onloadend = () => {
-        setPreviews(prev => [...prev, reader.result as string])
-      }
-      reader.readAsDataURL(file)
-    })
-  }
-
-  const removePhoto = (index: number) => {
-    setFormData({
-      ...formData,
-      photos: formData.photos.filter((_, i) => i !== index)
-    })
-    setPreviews(previews.filter((_, i) => i !== index))
-  }
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSubmitError(false)
 
     try {
       const response = await fetch('/api/lead', {
@@ -90,13 +65,12 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
           description: formData.description,
           name: formData.name,
           phone: formData.phone,
-          photoCount: formData.photos.length,
           website: honeypot.value,
           metadata: {
             userAgent: navigator.userAgent,
             timestamp: new Date().toISOString(),
-          }
-        })
+          },
+        }),
       })
 
       if (response.ok) {
@@ -123,12 +97,14 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
         </div>
         <h3 className="text-2xl font-bold text-slate-900 mb-2">Damage Report Received!</h3>
         <p className="text-slate-600 mb-6">
-          We&apos;ll call within 2 hours during business hours.
-          {formData.photos.length > 0 && (
-            <> If you&apos;d like us to review your photos before we call, please text them to <a href={`sms:${OFFICE_PHONE}`} className="text-brand-red hover:underline font-semibold">{OFFICE_PHONE_DISPLAY}</a>.</>
-          )}
+          We&apos;ll call within 2 hours during business hours. Have photos of the damage?
+          Text them to{' '}
+          <a href={`sms:${OFFICE_PHONE}`} className="text-brand-red hover:underline font-semibold">
+            {OFFICE_PHONE_DISPLAY}
+          </a>{' '}
+          and we&apos;ll review them before the call.
         </p>
-        
+
         {onContinueToSchedule && (
           <button
             onClick={onContinueToSchedule}
@@ -137,9 +113,12 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
             Schedule an Inspection Now
           </button>
         )}
-        
+
         <p className="text-slate-500 text-sm">
-          Questions? Call us: <a href={`tel:${OFFICE_PHONE}`} className="text-brand-red hover:underline">(336) ROOFING</a>
+          Questions?{' '}
+          <a href={`tel:${OFFICE_PHONE}`} className="text-brand-red hover:underline">
+            Call {OFFICE_PHONE_DISPLAY}
+          </a>
         </p>
       </div>
     )
@@ -154,13 +133,20 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
         </div>
-        <h3 className="text-2xl font-bold text-slate-900">Upload Damage Photos</h3>
+        <h3 className="text-2xl font-bold text-slate-900">Tell Us About the Damage</h3>
       </div>
-      <p className="text-slate-600 mb-6">Share photos and we&apos;ll assess the damage before your inspection.</p>
+      <p className="text-slate-600 mb-6">
+        Give us the basics and we&apos;ll triage your situation before we call. You can text
+        photos to{' '}
+        <a href={`sms:${OFFICE_PHONE}`} className="text-brand-red hover:underline font-semibold">
+          {OFFICE_PHONE_DISPLAY}
+        </a>{' '}
+        once you submit.
+      </p>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <HoneypotField fieldProps={honeypot.fieldProps} />
-        {/* Issue Type Selection */}
+
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-3">What type of issue? *</label>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
@@ -182,56 +168,6 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
           </div>
         </div>
 
-        {/* Photo Upload */}
-        <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">
-            Add Photos (optional, up to 5)
-          </label>
-          <p className="text-xs text-slate-500 mb-3">
-            Previewed here so you have them ready. Text them to <a href={`sms:${OFFICE_PHONE}`} className="text-brand-red hover:underline">{OFFICE_PHONE_DISPLAY}</a> to share before your inspection.
-          </p>
-
-          {previews.length > 0 && (
-            <div className="grid grid-cols-5 gap-2 mb-3">
-              {previews.map((preview, index) => (
-                <div key={index} className="relative aspect-square">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={preview} alt={`Damage preview ${index + 1}`} className="w-full h-full object-cover rounded-lg border border-slate-200" />
-                  <button
-                    type="button"
-                    onClick={() => removePhoto(index)}
-                    className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center text-white text-xs hover:bg-red-600 shadow-sm"
-                  >
-                    ×
-                  </button>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {formData.photos.length < 5 && (
-            <button
-              type="button"
-              onClick={() => fileInputRef.current?.click()}
-              className="w-full border-2 border-dashed border-slate-300 rounded-xl p-6 hover:border-brand-red hover:bg-brand-red/5 transition-colors text-center"
-            >
-              <svg className="w-8 h-8 text-slate-400 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-              </svg>
-              <span className="text-slate-500">Click to add photos</span>
-              <input
-                ref={fileInputRef}
-                type="file"
-                accept="image/*"
-                multiple
-                onChange={handleFileChange}
-                className="hidden"
-              />
-            </button>
-          )}
-        </div>
-
-        {/* Description */}
         <div>
           <label htmlFor="description" className="block text-sm font-medium text-slate-700 mb-1">
             Describe the issue
@@ -247,7 +183,6 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
           />
         </div>
 
-        {/* Contact Info */}
         <div className="grid md:grid-cols-2 gap-4">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-1">Your Name *</label>
@@ -258,6 +193,7 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
               value={formData.name}
               onChange={handleChange}
               required
+              autoComplete="name"
               className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
               placeholder="John Smith"
             />
@@ -271,17 +207,27 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
               value={formData.phone}
               onChange={handleChange}
               required
+              autoComplete="tel"
               className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-brand-red/20"
               placeholder="(919) 555-1234"
             />
           </div>
         </div>
 
+        <div className="rounded-lg bg-slate-50 border border-slate-200 px-4 py-3 text-sm text-slate-600">
+          <span className="font-semibold text-slate-700">Have photos? </span>
+          After you submit, text them to{' '}
+          <a href={`sms:${OFFICE_PHONE}`} className="text-brand-red hover:underline font-semibold">
+            {OFFICE_PHONE_DISPLAY}
+          </a>
+          . They go straight to the crew so we can review before the inspection.
+        </div>
+
         {submitError && (
           <div className="bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-sm text-red-800">
             We couldn&apos;t submit your request. Please try again or call{' '}
             <a className="font-semibold underline" href={`tel:${OFFICE_PHONE}`}>
-              our office
+              {OFFICE_PHONE_DISPLAY}
             </a>{' '}
             so we don&apos;t miss you.
           </div>
@@ -303,7 +249,7 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
           ) : (
             <>
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
               </svg>
               Submit for Review
             </>

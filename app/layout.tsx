@@ -82,6 +82,10 @@ export const metadata: Metadata = {
 const localBusinessJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'RoofingContractor',
+  // Shared @id with the richer schema on /about so search engines treat the
+  // two JSON-LD blocks as the same organization node and merge properties
+  // instead of seeing them as duplicates.
+  '@id': `${SITE_URL}/#organization`,
   name: 'NC Roofing Service and Repair, LLC',
   image: `${SITE_URL}${OG_IMAGE}`,
   url: SITE_URL,
@@ -112,12 +116,9 @@ const localBusinessJsonLd = {
       closes: '21:30',
     },
   ],
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '50',
-    bestRating: '5',
-  },
+  // aggregateRating intentionally omitted: schema.org guidance prohibits
+  // fabricated review counts. Add this block back once we wire in a real
+  // source (e.g. Google Business Profile reviewCount).
   priceRange: '$$',
   areaServed: [
     'Rougemont',
