@@ -2,8 +2,10 @@
 import Image from 'next/image'
 import InstantQuote from '@/components/InstantQuote'
 import GoogleReviews from '@/components/GoogleReviews'
+import { yearsInBusiness } from '@/lib/site'
 
 export default function Home() {
+  const years = yearsInBusiness()
   return (
     <main>
       {/* Hero Section */}
@@ -32,7 +34,7 @@ export default function Home() {
               </h1>
               
               <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Proudly serving the greater NC Triangle since 2018. We provide free inspections, 
+                Proudly serving North Carolina since 2018. We provide free inspections, 
                 straightforward pricing, and dependable craftsmanship on every project.
               </p>
               
@@ -439,7 +441,7 @@ export default function Home() {
             {/* Stats */}
             <div className="grid grid-cols-2 gap-6">
               <div className="bg-white rounded-2xl p-8 text-center border border-brand-red/20 shadow-sm">
-                <div className="text-5xl font-bold text-brand-red mb-2">7+</div>
+                <div className="text-5xl font-bold text-brand-red mb-2">{years}+</div>
                 <div className="text-brand-gray">Years in Business</div>
               </div>
               <div className="bg-white rounded-2xl p-8 text-center border border-green-200 shadow-sm">

@@ -6,9 +6,9 @@ import Image from 'next/image'
 
 const residentialLinks = [
   { href: '/residential', label: 'All Residential Services' },
-  { href: '/residential/roof-replacement', label: 'Roof Replacement' },
   { href: '/residential/roof-repair', label: 'Roof Repair' },
   { href: '/residential/storm-damage', label: 'Storm Damage & Insurance' },
+  { href: '/residential/roof-replacement', label: 'Roof Replacement' },
   { href: '/residential/fortified-roofing', label: 'FORTIFIED Roofing' },
   { href: '/residential/metal-roofing', label: 'Metal Roofing' },
 ]

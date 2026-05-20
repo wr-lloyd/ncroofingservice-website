@@ -30,9 +30,9 @@ export default function Footer() {
             <h3 className="text-white font-semibold text-lg mb-4">Services</h3>
             <ul className="space-y-3">
               <li><Link href="/residential" className="text-slate-400 hover:text-white transition-colors text-sm">Residential Roofing</Link></li>
-              <li><Link href="/residential/roof-replacement" className="text-slate-400 hover:text-white transition-colors text-sm">Roof Replacement</Link></li>
               <li><Link href="/residential/roof-repair" className="text-slate-400 hover:text-white transition-colors text-sm">Roof Repair</Link></li>
               <li><Link href="/residential/storm-damage" className="text-slate-400 hover:text-white transition-colors text-sm">Storm Damage</Link></li>
+              <li><Link href="/residential/roof-replacement" className="text-slate-400 hover:text-white transition-colors text-sm">Roof Replacement</Link></li>
               <li>
                 <Link href="/commercial" className="text-brand-red hover:text-brand-red-dark transition-colors text-sm font-medium">
                   Commercial Roofing

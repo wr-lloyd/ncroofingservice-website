@@ -1,5 +1,6 @@
 ﻿import Link from 'next/link'
 import { Metadata } from 'next'
+import { yearsInBusiness } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Residential Roofing Services | NC Roofing Service | NC Triangle',
@@ -8,18 +9,6 @@ export const metadata: Metadata = {
 }
 
 const services = [
-  {
-    title: 'Roof Replacement',
-    slug: 'roof-replacement',
-    description: 'Complete roof replacement with premium materials and extended warranties up to 50 years.',
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-      </svg>
-    ),
-    color: 'from-slate-700 to-slate-900',
-    features: ['GAF, Owens Corning, CertainTeed certified', 'Up to 50-year warranties', 'Complete tear-off and disposal'],
-  },
   {
     title: 'Roof Repair',
     slug: 'roof-repair',
@@ -44,6 +33,18 @@ const services = [
     ),
     color: 'from-blue-600 to-blue-700',
     features: ['Free damage assessment', 'Insurance claim support', 'Adjuster meeting assistance'],
+  },
+  {
+    title: 'Roof Replacement',
+    slug: 'roof-replacement',
+    description: 'Complete roof replacement with premium materials and extended warranties up to 50 years.',
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+      </svg>
+    ),
+    color: 'from-slate-700 to-slate-900',
+    features: ['GAF, Owens Corning, CertainTeed certified', 'Up to 50-year warranties', 'Complete tear-off and disposal'],
   },
   {
     title: 'FORTIFIED Roofing',
@@ -111,6 +112,7 @@ function generateFaqSchema() {
 
 export default function ResidentialPage() {
   const faqSchema = generateFaqSchema()
+  const years = yearsInBusiness()
 
   return (
     <main className="pt-20">
@@ -308,7 +310,7 @@ export default function ResidentialPage() {
             {/* Stats */}
             <div className="grid grid-cols-2 gap-6">
               <div className="bg-slate-50 rounded-2xl p-8 text-center border border-slate-200">
-                <div className="text-5xl font-bold text-brand-red mb-2">7+</div>
+                <div className="text-5xl font-bold text-brand-red mb-2">{years}+</div>
                 <div className="text-slate-600">Years in Business</div>
               </div>
               <div className="bg-slate-50 rounded-2xl p-8 text-center border border-slate-200">
