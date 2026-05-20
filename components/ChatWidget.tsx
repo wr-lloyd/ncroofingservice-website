@@ -6,6 +6,7 @@
 // other form on the site.
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { useHoneypot, HoneypotField } from '@/components/Honeypot'
 import { OFFICE_PHONE, OFFICE_PHONE_DISPLAY } from '@/lib/site'
 
@@ -182,6 +183,16 @@ export default function ChatWidget() {
                     .
                   </div>
                 )}
+
+                <p className="text-[10px] leading-snug text-slate-500">
+                  By sending, you agree we may contact you about your request by phone, text,
+                  or email, including with automated technology. Msg &amp; data rates may apply.
+                  Reply STOP to opt out. See our{' '}
+                  <Link href="/privacy" className="underline hover:text-brand-red">
+                    Privacy Policy
+                  </Link>
+                  .
+                </p>
 
                 <button
                   type="submit"

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useHoneypot, HoneypotField } from '@/components/Honeypot'
+import TCPAConsent from '@/components/TCPAConsent'
 import { OFFICE_PHONE } from '@/lib/site'
 
 interface ScheduleInspectionProps {
@@ -271,6 +272,8 @@ export default function ScheduleInspection({ onSubmit, urgency = 'normal', prefi
             so we don&apos;t miss you.
           </div>
         )}
+
+        <TCPAConsent />
 
         <button
           type="submit"

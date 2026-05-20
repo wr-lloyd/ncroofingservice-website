@@ -7,6 +7,7 @@
 
 import { useState } from 'react'
 import { useHoneypot, HoneypotField } from '@/components/Honeypot'
+import TCPAConsent from '@/components/TCPAConsent'
 import { OFFICE_PHONE, OFFICE_PHONE_DISPLAY } from '@/lib/site'
 
 interface DamageUploadProps {
@@ -232,6 +233,8 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
             so we don&apos;t miss you.
           </div>
         )}
+
+        <TCPAConsent />
 
         <button
           type="submit"

@@ -71,7 +71,32 @@ export default function PrivacyPolicyPage() {
             function, but some features may be limited.
           </p>
 
-          <h2>5. Your choices</h2>
+          <h2>5. Phone calls and text messages (TCPA)</h2>
+          <p>
+            When you submit a form, call, or text us with your phone number, you authorize NC
+            Roofing Service and Repair, LLC and the territory lead assigned to your area to
+            contact you about your request by phone call, text message (SMS/MMS), and email,
+            including using an automatic telephone dialing system or pre-recorded voice. This
+            consent applies to the number you provide and any number you later add to your
+            account.
+          </p>
+          <p>
+            <strong>You are not required to consent</strong> as a condition of any purchase. Standard
+            message and data rates may apply to text messages. Message frequency varies based on your
+            project — typically a handful of messages while your inspection or repair is active.
+          </p>
+          <p>
+            To stop text messages, reply <strong>STOP</strong> to any message from us, or tell us
+            directly by phone or email. To stop phone calls, ask the team member you spoke with to
+            remove your number, or email{' '}
+            <a className="text-brand-red hover:underline" href={`mailto:${OFFICE_EMAIL}`}>
+              {OFFICE_EMAIL}
+            </a>
+            . Opting out of marketing follow-up will not stop transactional messages required to
+            complete work you have already authorized (for example, crew arrival times).
+          </p>
+
+          <h2>6. Your choices</h2>
           <ul>
             <li>You can ask us to delete the personal information we hold about you at any time.</li>
             <li>You can opt out of text or phone follow-ups by replying STOP or telling us directly.</li>
@@ -81,27 +106,27 @@ export default function PrivacyPolicyPage() {
             To exercise any of these rights, contact us using the details below.
           </p>
 
-          <h2>6. Data retention</h2>
+          <h2>7. Data retention</h2>
           <p>
             We retain inquiry and project records for as long as needed to provide service, resolve
             disputes, and comply with our legal and tax obligations. Records related to active or
             recently completed work are typically retained for at least seven years.
           </p>
 
-          <h2>7. Children</h2>
+          <h2>8. Children</h2>
           <p>
             The Site is not directed to children under 13, and we do not knowingly collect personal
             information from children.
           </p>
 
-          <h2>8. Changes to this policy</h2>
+          <h2>9. Changes to this policy</h2>
           <p>
             We may update this Privacy Policy from time to time. The &ldquo;Last updated&rdquo; date at the
             top of this page reflects the most recent revision. Continued use of the Site after a change
             means you accept the updated policy.
           </p>
 
-          <h2>9. Contact us</h2>
+          <h2>10. Contact us</h2>
           <p>
             Questions about this Privacy Policy or about the information we hold can be sent to:
           </p>

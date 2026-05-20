@@ -6,6 +6,7 @@ import Link from 'next/link'
 import SocialLinks from '@/components/SocialLinks'
 import { regions, cityToRegionId, getRegionById, getCitiesForDropdown } from '@/lib/regions'
 import { useHoneypot, HoneypotField } from '@/components/Honeypot'
+import TCPAConsent from '@/components/TCPAConsent'
 import { OFFICE_PHONE, OFFICE_PHONE_DISPLAY, OFFICE_EMAIL, OFFICE_ADDRESS } from '@/lib/site'
 
 interface StormAlert {
@@ -707,6 +708,8 @@ export default function ContactPage() {
                     </div>
                   </div>
                 )}
+
+                <TCPAConsent />
 
                 <button
                   type="submit"

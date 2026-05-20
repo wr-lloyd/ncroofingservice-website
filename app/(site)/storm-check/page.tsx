@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import AddressInput, { type AddressValue, type CitySource } from '@/components/AddressInput'
 import { useHoneypot, HoneypotField } from '@/components/Honeypot'
+import TCPAConsent from '@/components/TCPAConsent'
 import { OFFICE_PHONE, OFFICE_PHONE_DISPLAY } from '@/lib/site'
 
 interface StormEvent {
@@ -761,7 +762,8 @@ function StormCheckContent() {
                       </div>
                     </div>
                   </div>
-                  <div className="pt-6">
+                  <div className="pt-4">
+                    <TCPAConsent className="mb-4 text-slate-300" />
                     <button
                       type="submit"
                       disabled={isSubmitting}

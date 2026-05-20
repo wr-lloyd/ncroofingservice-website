@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import AddressInput, { type AddressValue, type CitySource } from '@/components/AddressInput'
 import { useHoneypot, HoneypotField } from '@/components/Honeypot'
+import TCPAConsent from '@/components/TCPAConsent'
 import { OFFICE_PHONE, OFFICE_PHONE_DISPLAY } from '@/lib/site'
 
 const reasonLabels: Record<string, string> = {
@@ -362,7 +363,9 @@ function RequestInspectionContent() {
                     {error}
                   </div>
                 )}
-                
+
+                <TCPAConsent />
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
