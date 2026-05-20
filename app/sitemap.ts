@@ -1,15 +1,19 @@
 import { MetadataRoute } from 'next'
 import { getAllTeamSlugs } from '@/lib/team'
+import { SITE_URL } from '@/lib/site'
 
+// Keep in sync with PUBLISHED_CITY_SLUGS in app/(site)/locations/page.tsx and
+// the cityData keys in app/(site)/locations/[city]/page.tsx. Adding 'oxford-nc'
+// also requires a middleware redirect from /locations/oxford to /locations/oxford-nc.
 const cities = [
   'raleigh-nc', 'durham-nc', 'cary-nc', 'chapel-hill-nc', 'apex-nc', 'wake-forest-nc',
   'hillsborough-nc', 'holly-springs-nc', 'garner-nc', 'morrisville-nc', 'carrboro-nc',
   'pittsboro-nc', 'fuquay-varina-nc', 'knightdale-nc', 'clayton-nc', 'smithfield-nc',
-  'mebane-nc', 'roxboro-nc', 'creedmoor-nc', 'butner-nc'
+  'mebane-nc', 'roxboro-nc', 'creedmoor-nc', 'butner-nc', 'oxford-nc'
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://ncroofingservice.com'
+  const baseUrl = SITE_URL
   const currentDate = new Date()
 
   const mainPages: MetadataRoute.Sitemap = [
@@ -98,16 +102,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/get-quote`,
+      url: `${baseUrl}/start`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.75,
     },
+  ]
+
+  const blogPages: MetadataRoute.Sitemap = [
     {
-      url: `${baseUrl}/schedule`,
+      url: `${baseUrl}/blog/what-to-look-for-hiring-roofer`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.6,
     },
   ]
 
@@ -214,6 +221,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...residentialPages,
     ...commercialPages,
     ...resourcePages,
+    ...blogPages,
     ...locationPages,
     ...serviceCityPages,
     ...teamProfilePages,

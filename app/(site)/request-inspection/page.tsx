@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import AddressInput, { type AddressValue, type CitySource } from '@/components/AddressInput'
 import { useHoneypot, HoneypotField } from '@/components/Honeypot'
-import { OFFICE_PHONE } from '@/lib/site'
+import { OFFICE_PHONE, OFFICE_PHONE_DISPLAY } from '@/lib/site'
 
 const reasonLabels: Record<string, string> = {
   'free-inspection': 'Free Roof Inspection',
@@ -163,7 +163,7 @@ function RequestInspectionContent() {
                 </svg>
               </div>
               
-              <h1 className="text-3xl font-black text-slate-900 mb-4">Request Received!</h1>
+              <h2 className="text-3xl font-black text-slate-900 mb-4">Request Received!</h2>
               <p className="text-slate-600 text-lg mb-8">
                 Thank you, {formData.name}. We&apos;ll contact you at <span className="font-bold text-slate-900">{formData.phone}</span> within 30 minutes during business hours to schedule your free inspection.
               </p>
@@ -183,7 +183,7 @@ function RequestInspectionContent() {
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
-                  Call (336) ROOFING
+                  Call {OFFICE_PHONE_DISPLAY}
                 </a>
                 <Link 
                   href="/"

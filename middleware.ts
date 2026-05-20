@@ -34,6 +34,9 @@ const locationRedirects: Record<string, string> = {
   '/locations/creedmoor': '/locations/creedmoor-nc',
   '/locations/butner': '/locations/butner-nc',
   '/locations/mebane': '/locations/mebane-nc',
+  '/locations/oxford': '/locations/oxford-nc',
+  '/locations/clayton': '/locations/clayton-nc',
+  '/locations/smithfield': '/locations/smithfield-nc',
 }
 
 export function middleware(request: NextRequest) {
@@ -82,5 +85,8 @@ export const config = {
     '/locations/creedmoor',
     '/locations/butner',
     '/locations/mebane',
+    '/locations/oxford',
+    '/locations/clayton',
+    '/locations/smithfield',
   ],
 }
