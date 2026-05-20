@@ -36,6 +36,7 @@ export default function ScheduleInspection({ onSubmit, urgency = 'normal', prefi
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState(false)
   const honeypot = useHoneypot()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -65,9 +66,12 @@ export default function ScheduleInspection({ onSubmit, urgency = 'normal', prefi
       if (response.ok) {
         setIsSubmitted(true)
         if (onSubmit) onSubmit(formData)
+      } else {
+        setSubmitError(true)
       }
     } catch (error) {
       console.error('Error submitting:', error)
+      setSubmitError(true)
     } finally {
       setIsSubmitting(false)
     }
@@ -257,6 +261,16 @@ export default function ScheduleInspection({ onSubmit, urgency = 'normal', prefi
 
         {/* Honeypot */}
         <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
+
+        {submitError && (
+          <div className="bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-sm text-red-800">
+            We couldn&apos;t submit your request. Please try again or call{' '}
+            <a className="font-semibold underline" href={`tel:${OFFICE_PHONE}`}>
+              our office
+            </a>{' '}
+            so we don&apos;t miss you.
+          </div>
+        )}
 
         <button
           type="submit"

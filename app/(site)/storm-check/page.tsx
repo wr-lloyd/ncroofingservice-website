@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import AddressInput, { type AddressValue, type CitySource } from '@/components/AddressInput'
 import { useHoneypot, HoneypotField } from '@/components/Honeypot'
-import { OFFICE_PHONE } from '@/lib/site'
+import { OFFICE_PHONE, OFFICE_PHONE_DISPLAY } from '@/lib/site'
 
 interface StormEvent {
   date: string
@@ -202,7 +202,7 @@ function StormCheckContent() {
     
     try {
       // Send to lead API with storm context
-      await fetch('/api/lead', {
+      const response = await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -223,12 +223,17 @@ function StormCheckContent() {
           }
         }),
       })
-      
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}))
+        throw new Error(data?.error || 'Server error')
+      }
+
       setSubmitSuccess(true)
       setShowScheduleForm(false)
     } catch (err) {
       console.error('Failed to submit lead:', err)
-      alert('Something went wrong. Please call us directly at (336) ROOFING')
+      alert(`We couldn't submit your request. Please call us directly at ${OFFICE_PHONE_DISPLAY}.`)
     } finally {
       setIsSubmitting(false)
     }

@@ -122,7 +122,7 @@ export default function ContactPage() {
     try {
       const cityName = cityNameLookup[formData.city] || formData.city
       
-      await fetch('/api/lead', {
+      const response = await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -145,11 +145,16 @@ export default function ContactPage() {
           }
         }),
       })
-      
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}))
+        throw new Error(data?.error || 'Server error')
+      }
+
       setIsSubmitted(true)
     } catch (err) {
       console.error('Failed to submit lead:', err)
-      alert(`Something went wrong. Please call us directly at ${OFFICE_PHONE_DISPLAY}`)
+      alert(`We couldn't submit your request. Please call us directly at ${OFFICE_PHONE_DISPLAY}.`)
     } finally {
       setIsSubmitting(false)
     }

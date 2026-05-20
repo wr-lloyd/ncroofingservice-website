@@ -212,18 +212,21 @@ export async function POST(request: NextRequest) {
     }
 
     const errors: string[] = []
+    const deliveries: string[] = []
 
     // Email via Resend
-    if (resend && process.env.LEAD_NOTIFICATION_EMAIL) {
+    const emailConfigured = Boolean(resend && process.env.LEAD_NOTIFICATION_EMAIL)
+    if (emailConfigured) {
       try {
         const isPriority = routingTag === 'priority' || routingTag === 'claims'
-        await resend.emails.send({
+        await resend!.emails.send({
           from: process.env.RESEND_FROM_EMAIL || 'leads@ncroofingservice.com',
-          to: process.env.LEAD_NOTIFICATION_EMAIL,
+          to: process.env.LEAD_NOTIFICATION_EMAIL!,
           subject: `${isPriority ? '🚨 ' : ''}[${routingTag.toUpperCase()}] New ${payload.leadType} Lead${payload.name ? ` - ${payload.name}` : ''}`,
           html: formatEmailHtml(leadData),
           text: formatEmailBody(leadData),
         })
+        deliveries.push('email')
       } catch (emailError) {
         console.error('❌ Email send failed:', emailError)
         errors.push('email')
@@ -231,11 +234,12 @@ export async function POST(request: NextRequest) {
     }
 
     // Google Sheets webhook
-    if (process.env.GOOGLE_SHEETS_WEBHOOK_URL) {
+    const sheetsConfigured = Boolean(process.env.GOOGLE_SHEETS_WEBHOOK_URL)
+    if (sheetsConfigured) {
       try {
         const ctrl = new AbortController()
         const timeout = setTimeout(() => ctrl.abort(), 5000)
-        await fetch(process.env.GOOGLE_SHEETS_WEBHOOK_URL, {
+        await fetch(process.env.GOOGLE_SHEETS_WEBHOOK_URL!, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -263,10 +267,40 @@ export async function POST(request: NextRequest) {
           signal: ctrl.signal,
         })
         clearTimeout(timeout)
+        deliveries.push('sheets')
       } catch (sheetError) {
         console.error('❌ Google Sheets update failed:', sheetError)
         errors.push('sheets')
       }
+    }
+
+    const isProd = process.env.NODE_ENV === 'production'
+
+    // No delivery channels at all (misconfigured env). In production this is a
+    // real outage — we'd silently lose every lead. Return 503 so the form UI
+    // can show 'Please call us' instead of a fake success.
+    if (isProd && !emailConfigured && !sheetsConfigured) {
+      console.error('❌ Lead received but NO delivery channel is configured (RESEND_API_KEY + LEAD_NOTIFICATION_EMAIL and/or GOOGLE_SHEETS_WEBHOOK_URL).')
+      return NextResponse.json(
+        {
+          error: 'Lead delivery is not configured. Please call our office directly so we don\'t lose your message.',
+          leadId,
+        },
+        { status: 503 }
+      )
+    }
+
+    // At least one channel was configured, but every configured channel failed.
+    // Same deal — we don't have the lead, so don't tell the visitor we do.
+    if (isProd && (emailConfigured || sheetsConfigured) && deliveries.length === 0) {
+      return NextResponse.json(
+        {
+          error: 'We couldn\'t deliver your request automatically. Please call our office so we can help you right away.',
+          leadId,
+          failedChannels: errors,
+        },
+        { status: 502 }
+      )
     }
 
     return NextResponse.json({
