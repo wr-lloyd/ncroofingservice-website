@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import Icon from '@/components/Icon'
-import { getTeamMember, memberPhoneHref, memberPhoneDisplay } from '@/lib/team'
+import { getTeamMember } from '@/lib/team'
+import { OFFICE_PHONE, OFFICE_PHONE_DISPLAY } from '@/lib/site'
 
 const RANDY_SLUG = 'randy-butler'
 
@@ -79,11 +80,11 @@ export default function OwnerStory() {
 
               <div className="mt-6 pt-6 border-t border-slate-200">
                 <a
-                  href={memberPhoneHref(randy)}
+                  href={`tel:${OFFICE_PHONE}`}
                   className="flex items-center justify-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white py-3 rounded-[2px] font-semibold transition-colors shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-2"
                 >
                   <Icon name="phone" className="w-5 h-5" />
-                  Call Randy: {memberPhoneDisplay(randy)}
+                  Call for Information: {OFFICE_PHONE_DISPLAY}
                 </a>
               </div>
             </div>

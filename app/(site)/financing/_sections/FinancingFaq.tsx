@@ -42,7 +42,7 @@ export default function FinancingFaq() {
         <SectionEyebrow
           eyebrow="Frequently Asked"
           title="The questions we actually get."
-          subtitle="Real answers, not hedged ones. Got a question that isn't here? Call Randy — he'll tell you straight."
+          subtitle="Real answers, not hedged ones. Got a question that isn't here? Call our team — we'll give it to you straight."
         />
 
         <div className="space-y-3">

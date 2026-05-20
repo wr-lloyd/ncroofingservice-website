@@ -110,7 +110,7 @@ export default function FinancingHero() {
                 className="mt-8 inline-flex items-center justify-center gap-2 w-full bg-white/10 hover:bg-white/15 text-white font-semibold px-5 py-3 rounded-[2px] border border-white/20 transition-colors"
               >
                 <Icon name="phone" className="w-4 h-4 text-brand-red" />
-                Or call Randy: {OFFICE_PHONE_DIGITS}
+                Or call for information: {OFFICE_PHONE_DIGITS}
               </a>
             </div>
           </div>
