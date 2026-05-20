@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { ScheduleInspection, VisualizerCard } from '@/components/tools'
+import { OFFICE_PHONE } from '@/lib/site'
 
 export default function FortifiedRoofingPage() {
   const [showScheduler, setShowScheduler] = useState(false)
@@ -149,7 +150,7 @@ export default function FortifiedRoofingPage() {
                   Learn More About FORTIFIED
                 </button>
                 <a
-                  href="tel:+13367663464"
+                  href={`tel:${OFFICE_PHONE}`}
                   className="flex items-center justify-center gap-2 border border-white/20 hover:bg-white/5 text-white px-6 py-4 rounded-[2px] font-semibold transition-colors"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -259,7 +260,7 @@ export default function FortifiedRoofingPage() {
               Schedule Consultation
             </Link>
             <a
-              href="tel:+13367663464"
+              href={`tel:${OFFICE_PHONE}`}
               className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-[2px] font-semibold transition-colors"
             >
               Call (336) ROOFING

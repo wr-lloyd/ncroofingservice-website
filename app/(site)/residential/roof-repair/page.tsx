@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { ProblemFinder, ScheduleInspection, DamageUpload } from '@/components/tools'
+import { OFFICE_PHONE } from '@/lib/site'
 
 export default function RoofRepairPage() {
   const [activeTool, setActiveTool] = useState<'problem' | 'upload' | 'schedule' | null>(null)
@@ -81,7 +82,7 @@ export default function RoofRepairPage() {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="tel:+13367663464"
+                  href={`tel:${OFFICE_PHONE}`}
                   className="flex items-center justify-center gap-2 bg-[#C8102E] hover:bg-[#a50d25] text-white px-6 py-4 rounded-[2px] font-semibold transition-colors shadow-lg"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -240,7 +241,7 @@ export default function RoofRepairPage() {
               Schedule Free Inspection
             </Link>
             <a
-              href="tel:+13367663464"
+              href={`tel:${OFFICE_PHONE}`}
               className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-[2px] font-semibold transition-colors"
             >
               Call (336) ROOFING

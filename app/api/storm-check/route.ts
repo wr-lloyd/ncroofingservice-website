@@ -346,7 +346,7 @@ interface NominatimResult {
 async function nominatimSearch(query: string, limit: number, signal?: AbortSignal): Promise<NominatimResult[]> {
   const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query)}&format=json&addressdetails=1&limit=${limit}&countrycodes=us`
   const response = await fetch(url, {
-    headers: { 'User-Agent': 'BandCRoofing/1.0 (info@ncroofingservice.com)' },
+    headers: { 'User-Agent': 'NCRoofingService/1.0 (info@ncroofingservice.com)' },
     signal,
   })
   if (!response.ok) return []
@@ -528,7 +528,7 @@ async function fetchSWDIStormEvents(
     const apiUrl = `https://www.ncdc.noaa.gov/swdiws/csv/${dataset}/${range.start}:${range.end}?bbox=${bbox}`
     try {
       const response = await fetch(apiUrl, {
-        headers: { 'User-Agent': 'BandCRoofing/1.0 (info@ncroofingservice.com)' },
+        headers: { 'User-Agent': 'NCRoofingService/1.0 (info@ncroofingservice.com)' },
         signal,
       })
       if (!response.ok) return [] as StormEvent[]

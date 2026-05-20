@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import AddressInput, { type AddressValue, type CitySource } from '@/components/AddressInput'
 import { useHoneypot, HoneypotField } from '@/components/Honeypot'
+import { OFFICE_PHONE } from '@/lib/site'
 
 interface StormEvent {
   date: string
@@ -653,7 +654,7 @@ function StormCheckContent() {
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <a 
-                    href="tel:+13367663464" 
+                    href={`tel:${OFFICE_PHONE}`} 
                     className="bg-white text-green-700 px-8 py-4 rounded-2xl font-black text-lg hover:bg-green-50 transition-colors shadow-lg flex items-center gap-3"
                   >
                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -684,7 +685,7 @@ function StormCheckContent() {
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 00-1.02.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.2a1.019 1.019 0 00.24-1.02c-.37-1.12-.57-2.32-.57-3.57 0-.55-.45-1-1-1H7c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z" />
                     </svg>
-                    OR CALL NOW: <a href="tel:+13367663464" className="hover:text-white underline">(336) ROOFING</a>
+                    OR CALL NOW: <a href={`tel:${OFFICE_PHONE}`} className="hover:text-white underline">(336) ROOFING</a>
                   </p>
                 </div>
               </div>

@@ -1,5 +1,10 @@
 ﻿// lib/regions.ts
-// Centralized region configuration - Single source of truth for all regional data
+// Centralized region configuration - Single source of truth for all regional data.
+// Phone numbers MUST stay in sync with lib/team/data.ts. Each region lead now
+// displays their direct cell so callers reach the person who actually services
+// that territory.
+
+import { getTeamMember, memberPhoneDisplay } from '@/lib/team'
 
 export interface RegionLead {
   name: string
@@ -11,6 +16,24 @@ export interface RegionLead {
   email: string
   photo: string
   bio: string
+}
+
+/** Pulls phone + email from lib/team so we never drift from the team data. */
+function leadFrom(slug: string, title: string, photo: string, bio: string): RegionLead {
+  const m = getTeamMember(slug)
+  if (!m) {
+    throw new Error(`Region lead slug "${slug}" not found in lib/team/data.ts`)
+  }
+  return {
+    name: m.fullName,
+    slug,
+    title,
+    phone: memberPhoneDisplay(m),
+    phoneRaw: m.directPhone,
+    email: m.email,
+    photo,
+    bio,
+  }
 }
 
 export interface Region {
@@ -36,16 +59,12 @@ export const regions: Region[] = [
     anchorCity: 'Durham',
     // Top 12 across Durham + Person counties
     displayCities: ['Durham', 'Roxboro', 'Bahama', 'Timberlake', 'Rougemont', 'Hurdle Mills', 'Gorman', 'Hester', 'Allensville', 'Helena', 'Bethel Hill', 'Mount Tirzah'],
-    lead: {
-      name: 'Randy Butler',
-      slug: 'randy-butler',
-      title: 'Regional Lead',
-      phone: '(336) ROOFING',
-      phoneRaw: '+13367663464',
-      email: 'info@ncroofingservice.com',
-      photo: '/images/team/randy-north-400x400.jpg',
-      bio: 'Born and raised in Durham County, Randy knows every neighborhood and building code in the North Triangle. 15+ years in roofing.',
-    },
+    lead: leadFrom(
+      'randy-butler',
+      'Regional Lead',
+      '/images/team/randy-north-400x400.jpg',
+      'Born and raised in Durham County, Randy knows every neighborhood and building code in the North Triangle.',
+    ),
     color: 'green',
     mapRegion: 'durham',
   },
@@ -58,16 +77,12 @@ export const regions: Region[] = [
     anchorCity: 'Oxford',
     // Top 12 across Granville County (incorporated + recognized communities)
     displayCities: ['Oxford', 'Creedmoor', 'Butner', 'Stem', 'Stovall', 'Wilton', 'Berea', 'Bullock', 'Brassfield', 'Tar River', 'Cornwall', 'Knap of Reeds'],
-    lead: {
-      name: 'Marvin Jackson',
-      slug: 'marvin-jackson',
-      title: 'Regional Lead',
-      phone: '(336) ROOFING',
-      phoneRaw: '+13367663464',
-      email: 'marvin@ncroofingservice.com',
-      photo: '/images/team/marvin-granville-400x400.jpg',
-      bio: 'Granville County native with deep roots in Oxford and the surrounding communities. Trusted across the Greater Granville area for honest, quality work.',
-    },
+    lead: leadFrom(
+      'marvin-jackson',
+      'Regional Lead',
+      '/images/team/marvin-granville-400x400.jpg',
+      'Granville County native with deep roots in Oxford and the surrounding communities. Trusted across the Greater Granville area for honest, quality work.',
+    ),
     color: 'amber',
     mapRegion: 'granville',
   },
@@ -80,16 +95,12 @@ export const regions: Region[] = [
     anchorCity: 'Chapel Hill',
     // Top 12 by population
     displayCities: ['Chapel Hill', 'Carrboro', 'Mebane', 'Hillsborough', 'Siler City', 'Pittsboro', 'Fearrington Village', 'Efland', 'Cedar Grove', 'Goldston', 'Bennett', 'Bynum'],
-    lead: {
-      name: 'Randy Butler',
-      slug: 'randy-butler',
-      title: 'Owner & Regional Lead',
-      phone: '(336) ROOFING',
-      phoneRaw: '+13367663464',
-      email: 'info@ncroofingservice.com',
-      photo: '/images/team/randy-north-400x400.jpg',
-      bio: 'Randy personally leads our Orange and Chatham County work — from historic Chapel Hill homes to new builds in Pittsboro. Same direct line, same standards as the Durham region.',
-    },
+    lead: leadFrom(
+      'randy-butler',
+      'Owner & Regional Lead',
+      '/images/team/randy-north-400x400.jpg',
+      'Randy personally leads our Orange and Chatham County work — from historic Chapel Hill homes to new builds in Pittsboro. Same direct line, same standards as the Durham region.',
+    ),
     color: 'purple',
     mapRegion: 'chapel-hill',
   },
@@ -102,16 +113,12 @@ export const regions: Region[] = [
     anchorCity: 'Raleigh',
     // Top 12 by population
     displayCities: ['Raleigh', 'Cary', 'Apex', 'Wake Forest', 'Holly Springs', 'Fuquay-Varina', 'Garner', 'Morrisville', 'Clayton', 'Knightdale', 'Smithfield', 'Rolesville'],
-    lead: {
-      name: 'Mike Villarreal',
-      slug: 'mike-villarreal',
-      title: 'Regional Lead',
-      phone: '(919) 521-9545',
-      phoneRaw: '+19195219545',
-      email: 'mike@ncroofingservice.com',
-      photo: '/images/team/mike-east-400x400.jpg',
-      bio: 'Serving Wake County and beyond with expertise in new construction and storm damage. Your go-to expert in the East Triangle.',
-    },
+    lead: leadFrom(
+      'mike-villarreal',
+      'Regional Lead',
+      '/images/team/mike-east-400x400.jpg',
+      'Serving Wake County and beyond with expertise in new construction and storm damage. Your go-to expert in the East Triangle.',
+    ),
     color: 'blue',
     mapRegion: 'raleigh',
   },
@@ -188,12 +195,14 @@ export const cityToRegionId: Record<string, string> = {
   'rolesville': 'wake-east',
 }
 
-// Default fallback for unknown locations
+// Default fallback for unknown locations — sources office line from lib/site.ts.
+import { OFFICE_PHONE, OFFICE_PHONE_DISPLAY, OFFICE_EMAIL } from '@/lib/site'
+
 export const defaultContact = {
   label: 'Triangle Support Team',
-  phone: '(336) ROOFING',
-  phoneRaw: '+13367663464',
-  email: 'info@ncroofingservice.com',
+  phone: OFFICE_PHONE_DISPLAY,
+  phoneRaw: OFFICE_PHONE,
+  email: OFFICE_EMAIL,
 }
 
 // Helper functions

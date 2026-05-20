@@ -1,6 +1,7 @@
 ﻿import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { OFFICE_PHONE } from '@/lib/site'
 
 const priorityCities = [
   'raleigh-nc',
@@ -154,7 +155,7 @@ export default async function ServiceCityPage({ params }: { params: Promise<{ ci
     "provider": {
       "@type": "RoofingContractor",
       "name": "NC Roofing Service",
-      "telephone": "+1-336-766-3464",
+      "telephone": OFFICE_PHONE,
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Rougemont",
@@ -235,7 +236,7 @@ export default async function ServiceCityPage({ params }: { params: Promise<{ ci
                 </svg>
               </Link>
               <a
-                href="tel:+13367663464"
+                href={`tel:${OFFICE_PHONE}`}
                 className="inline-flex items-center justify-center gap-2 border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded-[2px] font-semibold transition-colors"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

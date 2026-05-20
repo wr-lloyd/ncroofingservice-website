@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { OFFICE_PHONE, OFFICE_PHONE_DISPLAY } from '@/lib/site'
 
 const residentialLinks = [
   { href: '/residential', label: 'All Residential Services' },
@@ -157,23 +158,23 @@ export default function Navigation() {
             </Link>
 
             <a
-              href="tel:+13367663464"
-              aria-label="Call (336) ROOFING"
+              href={`tel:${OFFICE_PHONE}`}
+              aria-label={`Call ${OFFICE_PHONE_DISPLAY}`}
               className="flex items-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white px-5 py-2.5 rounded-[2px] font-semibold transition-colors shadow-md shadow-brand-red/20"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              (336) ROOFING
+              {OFFICE_PHONE_DISPLAY}
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="flex items-center gap-3 lg:hidden">
             <a
-              href="tel:+13367663464"
+              href={`tel:${OFFICE_PHONE}`}
               className="flex items-center justify-center w-10 h-10 bg-brand-red hover:bg-brand-red-dark text-white rounded-[2px] transition-colors"
-              aria-label="Call us"
+              aria-label={`Call ${OFFICE_PHONE_DISPLAY}`}
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -313,13 +314,13 @@ export default function Navigation() {
 
             <div className="mt-4 space-y-3">
               <a
-                href="tel:+13367663464"
+                href={`tel:${OFFICE_PHONE}`}
                 className="flex items-center justify-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white px-6 py-3 rounded-[2px] font-semibold transition-colors"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                Call (336) ROOFING
+                Call {OFFICE_PHONE_DISPLAY}
               </a>
               <Link
                 href="/contact"

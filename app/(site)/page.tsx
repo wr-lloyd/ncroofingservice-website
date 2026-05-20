@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import InstantQuote from '@/components/InstantQuote'
 import GoogleReviews from '@/components/GoogleReviews'
-import { yearsInBusiness } from '@/lib/site'
+import { yearsInBusiness, OFFICE_PHONE, OFFICE_PHONE_DISPLAY } from '@/lib/site'
 
 export default function Home() {
   const years = yearsInBusiness()
@@ -49,8 +49,8 @@ export default function Home() {
                   </svg>
                 </Link>
                 <a
-                  href="tel:+13367663464"
-                  aria-label="Call (336) ROOFING"
+                  href={`tel:${OFFICE_PHONE}`}
+                  aria-label={`Call ${OFFICE_PHONE_DISPLAY}`}
                   className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-[2px] font-semibold transition-all text-lg backdrop-blur-sm"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -531,7 +531,7 @@ export default function Home() {
               Request Assessment
             </Link>
             <a
-              href="tel:+13367663464"
+              href={`tel:${OFFICE_PHONE}`}
               className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-[2px] font-semibold transition-all text-lg"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

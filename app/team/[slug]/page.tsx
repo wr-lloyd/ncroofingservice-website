@@ -197,7 +197,7 @@ export default function TeamProfilePage({ params }: { params: { slug: string } }
           <footer className="bg-brand-black text-white px-6 py-5 text-center">
             <Image
               src="/images/logos/logo-number.png"
-              alt="NC Roofing Service — (336) ROOFING"
+              alt={`NC Roofing Service — ${OFFICE_PHONE_DISPLAY}`}
               width={520}
               height={180}
               className="h-12 w-auto mx-auto mb-2"

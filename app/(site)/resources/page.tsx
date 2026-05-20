@@ -1,5 +1,6 @@
 ﻿import Link from 'next/link'
 import { Metadata } from 'next'
+import { OFFICE_PHONE } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Roofing Resources & Guides | NC Roofing Service',
@@ -218,7 +219,7 @@ export default function ResourcesPage() {
               Get Free Consultation
             </Link>
             <a
-              href="tel:+13367663464"
+              href={`tel:${OFFICE_PHONE}`}
               className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-[2px] font-semibold transition-colors"
             >
               Call (336) ROOFING

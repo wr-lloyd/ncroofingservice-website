@@ -1,4 +1,5 @@
 ﻿import Link from 'next/link'
+import { OFFICE_PHONE } from '@/lib/site'
 
 export const metadata = {
   title: 'What to Look for When Hiring a Roofer | NC Roofing Service NC',
@@ -309,7 +310,7 @@ export default function HiringRooferArticle() {
                   Schedule Free Inspection
                 </Link>
                 <a
-                  href="tel:+13367663464"
+                  href={`tel:${OFFICE_PHONE}`}
                   className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-[2px] font-semibold transition-colors"
                 >
                   Call (336) ROOFING

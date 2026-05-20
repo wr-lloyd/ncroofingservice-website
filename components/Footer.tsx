@@ -1,6 +1,7 @@
 ﻿import Link from 'next/link'
 import Image from 'next/image'
 import SocialLinks from './SocialLinks'
+import { OFFICE_PHONE, OFFICE_PHONE_DISPLAY, OFFICE_EMAIL, OFFICE_ADDRESS, FOUNDED_YEAR } from '@/lib/site'
 
 export default function Footer() {
   return (
@@ -9,10 +10,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div>
-            <Link href="/" aria-label="NC Roofing Service — (336) ROOFING" className="inline-block mb-4">
+            <Link href="/" aria-label={`NC Roofing Service — ${OFFICE_PHONE_DISPLAY}`} className="inline-block mb-4">
               <Image
                 src="/images/logos/logo-number.png"
-                alt="NC Roofing Service — (336) ROOFING"
+                alt={`NC Roofing Service — ${OFFICE_PHONE_DISPLAY}`}
                 width={520}
                 height={180}
                 className="h-16 w-auto"
@@ -20,7 +21,7 @@ export default function Footer() {
             </Link>
             <p className="text-slate-500 text-xs mb-3">Your Local NC Roofing and Exterior Systems Provider</p>
             <p className="text-slate-400 mb-4 text-sm">
-              Professional roofing and exterior systems. Serving residential and commercial clients throughout the Triangle since 2018.
+              Professional roofing and exterior systems serving residential and commercial clients throughout North Carolina since {FOUNDED_YEAR}.
             </p>
             <SocialLinks size="sm" />
           </div>
@@ -77,19 +78,19 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-sm">5950 Mt. Harmony Church Rd<br />Rougemont, NC 27572</span>
+                <span className="text-sm">{OFFICE_ADDRESS.street}<br />{OFFICE_ADDRESS.city}, {OFFICE_ADDRESS.region} {OFFICE_ADDRESS.postalCode}</span>
               </li>
               <li className="flex items-center gap-3 text-slate-400">
                 <svg className="w-5 h-5 flex-shrink-0 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <a href="tel:+13367663464" className="hover:text-white transition-colors text-sm">(336) ROOFING</a>
+                <a href={`tel:${OFFICE_PHONE}`} className="hover:text-white transition-colors text-sm">{OFFICE_PHONE_DISPLAY}</a>
               </li>
               <li className="flex items-center gap-3 text-slate-400">
                 <svg className="w-5 h-5 flex-shrink-0 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <a href="mailto:info@ncroofingservice.com" className="hover:text-white transition-colors text-sm">info@ncroofingservice.com</a>
+                <a href={`mailto:${OFFICE_EMAIL}`} className="hover:text-white transition-colors text-sm">{OFFICE_EMAIL}</a>
               </li>
               <li className="flex items-start gap-3 text-slate-400">
                 <svg className="w-5 h-5 mt-0.5 flex-shrink-0 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -144,7 +145,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
           <p className="text-slate-500">
-            © {new Date().getFullYear()} NC Roofing Service. All rights reserved.
+            © {new Date().getFullYear()} NC Roofing Service and Repair, LLC. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link href="/privacy" className="text-slate-500 hover:text-white transition-colors">Privacy Policy</Link>

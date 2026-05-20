@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import BeforeAfterSlider from '@/components/BeforeAfterSlider'
 import ImageModal from '@/components/ImageModal'
+import { OFFICE_PHONE } from '@/lib/site'
 
 const projects = [
   {
@@ -217,7 +218,7 @@ export default function OurWorkPage() {
               Schedule Free Inspection
             </Link>
             <a
-              href="tel:+13367663464"
+              href={`tel:${OFFICE_PHONE}`}
               className="inline-flex items-center justify-center gap-2 border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-[2px] font-semibold transition-all text-lg"
             >
               Call (336) ROOFING

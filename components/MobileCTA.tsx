@@ -1,6 +1,7 @@
 ﻿'use client'
 
 import { useState, useEffect } from 'react'
+import { OFFICE_PHONE } from '@/lib/site'
 
 export default function MobileCTA() {
   const [isVisible, setIsVisible] = useState(false)
@@ -20,7 +21,7 @@ export default function MobileCTA() {
     <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white/95 backdrop-blur-lg border-t border-slate-200 p-3 safe-area-pb shadow-lg">
       <div className="flex gap-3">
         <a
-          href="tel:+13367663464"
+          href={`tel:${OFFICE_PHONE}`}
           className="flex-1 flex items-center justify-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white py-3 rounded-[2px] font-semibold transition-colors shadow-md"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

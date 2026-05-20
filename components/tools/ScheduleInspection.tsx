@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useHoneypot, HoneypotField } from '@/components/Honeypot'
+import { OFFICE_PHONE } from '@/lib/site'
 
 interface ScheduleInspectionProps {
   onSubmit?: (data: ScheduleData) => void
@@ -107,7 +108,7 @@ export default function ScheduleInspection({ onSubmit, urgency = 'normal', prefi
           </ol>
         </div>
         <p className="text-slate-500 text-sm">
-          Can&apos;t wait? Call us directly: <a href="tel:+13367663464" className="text-brand-red hover:underline">(336) ROOFING</a>
+          Can&apos;t wait? Call us directly: <a href={`tel:${OFFICE_PHONE}`} className="text-brand-red hover:underline">(336) ROOFING</a>
         </p>
       </div>
     )

@@ -6,6 +6,7 @@ import Link from 'next/link'
 import SocialLinks from '@/components/SocialLinks'
 import { regions, cityToRegionId, getRegionById, getCitiesForDropdown } from '@/lib/regions'
 import { useHoneypot, HoneypotField } from '@/components/Honeypot'
+import { OFFICE_PHONE, OFFICE_PHONE_DISPLAY, OFFICE_EMAIL, OFFICE_ADDRESS } from '@/lib/site'
 
 interface StormAlert {
   stormCount: number
@@ -148,7 +149,7 @@ export default function ContactPage() {
       setIsSubmitted(true)
     } catch (err) {
       console.error('Failed to submit lead:', err)
-      alert('Something went wrong. Please call us directly at (336) ROOFING')
+      alert(`Something went wrong. Please call us directly at ${OFFICE_PHONE_DISPLAY}`)
     } finally {
       setIsSubmitting(false)
     }
@@ -478,7 +479,7 @@ export default function ContactPage() {
                     </ol>
                   </div>
                   <p className="text-slate-500 text-sm">
-                    Can&apos;t wait? Call us: <a href="tel:+13367663464" className="text-blue-600 font-semibold hover:underline">(336) ROOFING</a>
+                    Can&apos;t wait? Call us: <a href={`tel:${OFFICE_PHONE}`} className="text-blue-600 font-semibold hover:underline">{OFFICE_PHONE_DISPLAY}</a>
                   </p>
                 </div>
               ) : (
@@ -761,8 +762,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-[#111111] font-semibold text-lg">Main Office</h3>
-                    <a href="tel:+13367663464" className="text-2xl font-bold text-[#C8102E] hover:text-[#a50d25] transition-colors">
-                      (336) ROOFING
+                    <a href={`tel:${OFFICE_PHONE}`} className="text-2xl font-bold text-[#C8102E] hover:text-[#a50d25] transition-colors">
+                      {OFFICE_PHONE_DISPLAY}
                     </a>
                     <p className="text-slate-500 text-sm mt-1">Call or text anytime</p>
                   </div>
@@ -776,8 +777,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-slate-900 font-semibold text-lg">Email</h3>
-                    <a href="mailto:info@ncroofingservice.com" className="text-[#C8102E] hover:text-[#a50d25] transition-colors">
-                      info@ncroofingservice.com
+                    <a href={`mailto:${OFFICE_EMAIL}`} className="text-[#C8102E] hover:text-[#a50d25] transition-colors">
+                      {OFFICE_EMAIL}
                     </a>
                     <p className="text-slate-500 text-sm mt-1">We respond within 24 hours</p>
                   </div>
@@ -793,8 +794,8 @@ export default function ContactPage() {
                   <div>
                     <h3 className="text-slate-900 font-semibold text-lg">Office Location</h3>
                     <p className="text-slate-600">
-                      5950 Mt. Harmony Church Rd<br />
-                      Rougemont, NC 27572
+                      {OFFICE_ADDRESS.street}<br />
+                      {OFFICE_ADDRESS.city}, {OFFICE_ADDRESS.region} {OFFICE_ADDRESS.postalCode}
                     </p>
                   </div>
                 </div>
@@ -856,13 +857,13 @@ export default function ContactPage() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+13367663464"
+              href={`tel:${OFFICE_PHONE}`}
               className="inline-flex items-center justify-center gap-3 bg-white hover:bg-slate-100 text-slate-900 px-8 py-4 rounded-xl font-bold transition-all hover:scale-105 text-lg shadow-xl"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              Call (336) ROOFING
+              Call {OFFICE_PHONE_DISPLAY}
             </a>
             <Link
               href="/storm-check"

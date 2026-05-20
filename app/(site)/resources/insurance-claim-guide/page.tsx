@@ -1,5 +1,6 @@
 ﻿import Link from 'next/link'
 import { Metadata } from 'next'
+import { OFFICE_PHONE } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Roofing Insurance Claim Guide for NC Homeowners | NC Roofing Service',
@@ -154,7 +155,7 @@ export default function InsuranceClaimGuidePage() {
             </div>
             <div>
               <p className="font-semibold text-slate-900">Have active roof damage?</p>
-              <p className="text-slate-600 text-sm">Call us at <a href="tel:+13367663464" className="text-brand-red font-medium">(336) ROOFING</a> for emergency tarping and a free inspection.</p>
+              <p className="text-slate-600 text-sm">Call us at <a href={`tel:${OFFICE_PHONE}`} className="text-brand-red font-medium">(336) ROOFING</a> for emergency tarping and a free inspection.</p>
             </div>
           </div>
         </div>

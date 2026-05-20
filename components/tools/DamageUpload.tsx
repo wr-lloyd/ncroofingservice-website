@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react'
 import { useHoneypot, HoneypotField } from '@/components/Honeypot'
+import { OFFICE_PHONE, OFFICE_PHONE_DISPLAY } from '@/lib/site'
 
 interface DamageUploadProps {
   onSubmit?: (data: DamageData) => void
@@ -120,7 +121,7 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
         <p className="text-slate-600 mb-6">
           We&apos;ll call within 2 hours during business hours.
           {formData.photos.length > 0 && (
-            <> If you&apos;d like us to review your photos before we call, please text them to <a href="sms:+13367663464" className="text-brand-red hover:underline font-semibold">(336) ROOFING</a>.</>
+            <> If you&apos;d like us to review your photos before we call, please text them to <a href={`sms:${OFFICE_PHONE}`} className="text-brand-red hover:underline font-semibold">{OFFICE_PHONE_DISPLAY}</a>.</>
           )}
         </p>
         
@@ -134,7 +135,7 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
         )}
         
         <p className="text-slate-500 text-sm">
-          Questions? Call us: <a href="tel:+13367663464" className="text-brand-red hover:underline">(336) ROOFING</a>
+          Questions? Call us: <a href={`tel:${OFFICE_PHONE}`} className="text-brand-red hover:underline">(336) ROOFING</a>
         </p>
       </div>
     )
@@ -183,7 +184,7 @@ export default function DamageUpload({ onSubmit, onContinueToSchedule }: DamageU
             Add Photos (optional, up to 5)
           </label>
           <p className="text-xs text-slate-500 mb-3">
-            Previewed here so you have them ready. Text them to <a href="sms:+13367663464" className="text-brand-red hover:underline">(336) ROOFING</a> to share before your inspection.
+            Previewed here so you have them ready. Text them to <a href={`sms:${OFFICE_PHONE}`} className="text-brand-red hover:underline">{OFFICE_PHONE_DISPLAY}</a> to share before your inspection.
           </p>
 
           {previews.length > 0 && (

@@ -1,6 +1,7 @@
 ﻿'use client'
 
 import { useState } from 'react'
+import { OFFICE_PHONE, OFFICE_PHONE_DISPLAY } from '@/lib/site'
 
 export default function EmergencyBanner() {
   const [isVisible, setIsVisible] = useState(true)
@@ -16,10 +17,10 @@ export default function EmergencyBanner() {
         </span>
         <span className="font-medium">🚨 24/7 Emergency Roof Repair Available</span>
         <span className="hidden md:inline text-red-200">—</span>
-        <a href="tel:+13367663464" className="font-bold hover:underline hidden md:inline">
-          Call Now: (336) ROOFING
+        <a href={`tel:${OFFICE_PHONE}`} className="font-bold hover:underline hidden md:inline">
+          Call Now: {OFFICE_PHONE_DISPLAY}
         </a>
-        <a href="tel:+13367663464" className="md:hidden font-bold bg-white text-red-600 px-3 py-1 rounded-full text-xs ml-2">
+        <a href={`tel:${OFFICE_PHONE}`} className="md:hidden font-bold bg-white text-red-600 px-3 py-1 rounded-full text-xs ml-2">
           CALL NOW
         </a>
         <button 

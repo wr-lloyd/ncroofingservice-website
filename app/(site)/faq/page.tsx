@@ -1,4 +1,5 @@
 ﻿import Link from 'next/link'
+import { OFFICE_PHONE } from '@/lib/site'
 
 export const metadata = {
   title: 'FAQ | NC Roofing Service and Repair | Common Roofing Questions',
@@ -176,7 +177,7 @@ export default function FAQPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+13367663464"
+                href={`tel:${OFFICE_PHONE}`}
                 className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-[#C8102E] px-8 py-4 rounded-[2px] font-semibold transition-colors"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import AddressInput, { type AddressValue, type CitySource } from '@/components/AddressInput'
 import { useHoneypot, HoneypotField } from '@/components/Honeypot'
+import { OFFICE_PHONE } from '@/lib/site'
 
 const reasonLabels: Record<string, string> = {
   'free-inspection': 'Free Roof Inspection',
@@ -176,7 +177,7 @@ function RequestInspectionContent() {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a 
-                  href="tel:+13367663464"
+                  href={`tel:${OFFICE_PHONE}`}
                   className="inline-flex items-center justify-center gap-2 bg-[#C8102E] hover:bg-[#a50d25] text-white px-6 py-3 rounded-[2px] font-bold transition-colors"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
