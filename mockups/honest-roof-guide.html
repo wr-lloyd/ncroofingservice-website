@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Honest Roof Guide — NC Roofing Service</title>
+<meta name="description" content="A roof is a 20-year decision. Plain-English guide to damage, replacement, insurance, hiring, and what happens after the crew leaves. Useful even if you never call us.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #DC2626;
+    --red-bright: #EF4444;
+    --red-dark: #991B1B;
+    --red-soft: #FEE2E2;
+    --red-wash: #FEF2F2;
+    --ink: #0F1B2D;
+    --ink-2: #1F2937;
+    --body: #4B5563;
+    --muted: #6B7280;
+    --line: #E5E7EB;
+    --line-soft: #F3F4F6;
+    --bg: #FFFFFF;
+    --bg-soft: #F9FAFB;
+    --max: 1240px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  a { color: inherit; }
+
+  /* utility bar */
+  .utility {
+    background: var(--red-wash);
+    color: var(--ink-2);
+    font-size: 13px;
+    border-bottom: 1px solid var(--red-soft);
+  }
+  .utility-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 9px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+  .utility-left { font-weight: 500; }
+  .utility-right { display: flex; gap: 24px; align-items: center; }
+  .utility-right a {
+    color: var(--ink-2);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 13px;
+  }
+  .utility-right a:hover { color: var(--red); }
+  .utility-phone {
+    color: var(--red) !important;
+    font-weight: 700 !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .utility-phone svg { width: 13px; height: 13px; }
+
+  /* nav */
+  nav.main {
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .nav-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 18px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .logo-mark {
+    width: 56px;
+    height: 32px;
+    color: var(--red);
+    flex-shrink: 0;
+  }
+  .logo-text {
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .logo-text small {
+    display: block;
+    font-size: 11px;
+    color: var(--red);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 4px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+  .nav-links a {
+    color: var(--ink-2);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .nav-links a:hover { color: var(--red); }
+  .nav-links a.active { color: var(--red); }
+  .nav-cta {
+    background: var(--red);
+    color: var(--bg) !important;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 1px 2px rgba(220, 38, 38, 0.15);
+    transition: all 0.15s;
+  }
+  .nav-cta:hover { background: var(--red-dark); transform: translateY(-1px); }
+  .nav-cta svg { width: 14px; height: 14px; }
+
+  /* hero */
+  .hero {
+    padding: 88px 32px 32px;
+    max-width: var(--max);
+    margin: 0 auto;
+    text-align: center;
+  }
+  .eyebrow {
+    color: var(--red);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-size: clamp(38px, 5vw, 60px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.028em;
+    color: var(--ink);
+    margin: 0 auto 28px;
+    max-width: 1000px;
+  }
+  h1 .accent { color: var(--red); }
+  .hero-lede {
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--body);
+    max-width: 720px;
+    margin: 0 auto 36px;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    padding: 15px 26px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.15s;
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .btn-primary {
+    background: var(--red);
+    color: var(--bg);
+    box-shadow: 0 1px 2px rgba(220, 38, 38, 0.18);
+  }
+  .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
+  .btn-secondary {
+    background: var(--bg);
+    color: var(--ink);
+    border: 1.5px solid var(--line);
+  }
+  .btn-secondary:hover { border-color: var(--ink); }
+  .btn svg { width: 16px; height: 16px; }
+
+  /* entry: where are you right now */
+  .entry {
+    background: var(--bg-soft);
+    padding: 88px 32px;
+    border-top: 1px solid var(--line);
+  }
+  .entry-inner { max-width: var(--max); margin: 0 auto; }
+  .entry-head { text-align: center; margin-bottom: 48px; }
+  .entry-head h2 {
+    font-size: clamp(28px, 3.4vw, 40px);
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -0.022em;
+    line-height: 1.1;
+    max-width: 720px;
+    margin: 0 auto 12px;
+  }
+  .entry-head p {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 580px;
+    margin: 0 auto;
+  }
+  .entry-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .entry-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 28px 26px 26px;
+    text-decoration: none;
+    color: var(--body);
+    transition: all 0.18s;
+    display: flex;
+    flex-direction: column;
+    min-height: 220px;
+  }
+  .entry-card:hover {
+    border-color: var(--red);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px -16px rgba(220, 38, 38, 0.22);
+  }
+  .num-badge {
+    width: 44px;
+    height: 44px;
+    background: var(--red-soft);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--red);
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+  .entry-card h3 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.25;
+    margin-bottom: 8px;
+    letter-spacing: -0.012em;
+  }
+  .entry-card p {
+    font-size: 14.5px;
+    color: var(--muted);
+    line-height: 1.55;
+    flex: 1;
+    margin-bottom: 18px;
+  }
+  .card-arrow {
+    font-size: 13px;
+    color: var(--red);
+    font-weight: 600;
+    letter-spacing: 0.005em;
+  }
+  .entry-alt {
+    text-align: center;
+    margin-top: 36px;
+    font-size: 15px;
+    color: var(--muted);
+  }
+  .entry-alt a {
+    color: var(--red);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .entry-alt a:hover { text-decoration: underline; }
+
+  /* trust */
+  .trust {
+    background: var(--bg);
+    padding: 72px 32px;
+  }
+  .trust-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .trust-quote {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.45;
+    letter-spacing: -0.012em;
+  }
+  .trust-quote::before {
+    content: "\201C";
+    color: var(--red);
+    font-size: 56px;
+    line-height: 0;
+    margin-right: 6px;
+    vertical-align: -18px;
+    font-weight: 800;
+  }
+  .trust-cite {
+    margin-top: 16px;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 700;
+  }
+  .trust-stat {
+    border-left: 1px solid var(--line);
+    padding-left: 36px;
+  }
+  .trust-num {
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -0.028em;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .trust-num .unit {
+    color: var(--red);
+    font-size: 28px;
+    margin-left: 2px;
+  }
+  .trust-label {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+
+  /* anti storm chaser callout */
+  .warning-wrap {
+    max-width: var(--max);
+    margin: 16px auto 0;
+    padding: 0 32px;
+  }
+  .warning {
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 12px;
+    padding: 36px 40px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .warning::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 5px;
+    background: var(--red);
+  }
+  .warning-mark {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: var(--red);
+    color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .warning-text strong {
+    font-size: 22px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+    letter-spacing: -0.012em;
+    color: var(--bg);
+  }
+  .warning-text p {
+    font-size: 15px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.78);
+    margin: 0;
+  }
+  .warning-text a {
+    color: var(--red-bright);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(239, 68, 68, 0.45);
+    white-space: nowrap;
+  }
+  .warning-text a:hover { border-bottom-color: var(--red-bright); }
+
+  /* the guide / chapters */
+  .guide {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 96px 32px;
+  }
+  .guide-head { text-align: center; margin-bottom: 56px; }
+  .guide-head h2 {
+    font-size: clamp(32px, 4vw, 46px);
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -0.025em;
+    line-height: 1.08;
+    margin: 14px auto 14px;
+    max-width: 760px;
+  }
+  .guide-head p {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  .guide-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .chapter {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 32px 28px 28px;
+    text-decoration: none;
+    color: var(--body);
+    transition: all 0.18s;
+    display: flex;
+    flex-direction: column;
+    min-height: 230px;
+  }
+  .chapter:hover {
+    border-color: var(--red);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px -16px rgba(220, 38, 38, 0.18);
+  }
+  .chapter-label {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .chapter-q {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.28;
+    letter-spacing: -0.012em;
+    flex: 1;
+    margin-bottom: 18px;
+  }
+
+  /* floating ask */
+  .ask {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    background: var(--red);
+    color: var(--bg);
+    border-radius: 999px;
+    padding: 14px 22px 14px 16px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 14px 38px -10px rgba(220, 38, 38, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 40;
+    cursor: pointer;
+    border: 0;
+    transition: all 0.15s;
+    font-family: inherit;
+  }
+  .ask:hover { background: var(--red-dark); transform: translateY(-2px); }
+  .ask-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--bg);
+    color: var(--red);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 15px;
+  }
+  .ask-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .ask-sub {
+    font-size: 11px;
+    font-weight: 400;
+    opacity: 0.85;
+    letter-spacing: 0.03em;
+    margin-top: 3px;
+  }
+
+  /* responsive */
+  @media (max-width: 1000px) {
+    .entry-grid { grid-template-columns: repeat(2, 1fr); }
+    .guide-grid { grid-template-columns: 1fr; }
+    .trust-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .trust-inner > div:first-child { grid-column: 1 / -1; }
+  }
+  @media (max-width: 720px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+    .utility-left { display: none; }
+    .hero { padding: 56px 24px 24px; }
+    .entry { padding: 56px 24px; }
+    .entry-grid { grid-template-columns: 1fr; }
+    .trust { padding: 56px 24px; }
+    .trust-inner { grid-template-columns: 1fr; gap: 28px; }
+    .trust-stat { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 24px; }
+    .warning { flex-direction: column; align-items: flex-start; padding: 28px 24px; gap: 14px; }
+    .warning-wrap { padding: 0 16px; }
+    .guide { padding: 64px 24px; }
+    .ask { bottom: 16px; right: 16px; padding: 12px 18px 12px 14px; }
+    .ask-sub { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="utility">
+  <div class="utility-inner">
+    <div class="utility-left">Serving the NC Triangle &middot; Charlotte &middot; the Blue Ridge</div>
+    <div class="utility-right">
+      <a href="#">Print this guide</a>
+      <a href="#">Share</a>
+      <a href="tel:3367663464" class="utility-phone">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.2c.27-.27.35-.67.24-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
+        (336) ROOFING
+      </a>
+    </div>
+  </div>
+</div>
+
+<nav class="main">
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <svg class="logo-mark" viewBox="0 0 100 48" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M6 26 Q14 18 24 20 Q34 16 44 19 Q56 14 68 17 Q80 14 90 22 L92 28 Q86 33 78 32 L70 35 L60 32 Q50 35 40 33 Q28 36 18 33 Q10 32 6 26 Z"/>
+      </svg>
+      <span class="logo-text">
+        NC ROOFING
+        <small>SERVICE</small>
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Residential</a>
+      <a href="#">Commercial</a>
+      <a href="#" class="active">The Guide</a>
+      <a href="#">Locations</a>
+      <a href="#">Our Work</a>
+      <a href="#">About</a>
+      <a href="tel:3367663464" class="nav-cta">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.2c.27-.27.35-.67.24-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
+        (336) ROOFING
+      </a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="eyebrow">The Honest Roof Guide</div>
+  <h1>A roof is a 20-year decision. <span class="accent">We'll help you make it well</span> &mdash; even if you never call us.</h1>
+  <p class="hero-lede">
+    Written for the person standing in their driveway after a storm. For the one staring up at a roof that's older than their kids. For anyone tired of pushy sales calls who just wants the truth, in plain English, from the roofers who put on every component a manufacturer requires &mdash; not just shingles.
+  </p>
+  <div class="hero-ctas">
+    <a href="#chapters" class="btn btn-primary">
+      Open the Guide
+      <span>&rarr;</span>
+    </a>
+    <a href="tel:3367663464" class="btn btn-secondary">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.2c.27-.27.35-.67.24-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
+      Call (336) ROOFING
+    </a>
+  </div>
+</section>
+
+<section class="entry">
+  <div class="entry-inner">
+    <div class="entry-head">
+      <div class="eyebrow">Start with where you are</div>
+      <h2>Where are you right now?</h2>
+      <p>Pick the one that fits. We'll send you to the right chapter.</p>
+    </div>
+    <div class="entry-grid">
+      <a href="#" class="entry-card">
+        <div class="num-badge">01</div>
+        <h3>A storm just hit my house</h3>
+        <p>Start with damage, insurance claims, and what to do this week before anything else.</p>
+        <span class="card-arrow">Start here &rarr;</span>
+      </a>
+      <a href="#" class="entry-card">
+        <div class="num-badge">02</div>
+        <h3>My roof is showing its age</h3>
+        <p>Plan a replacement on your own timeline &mdash; not someone else's.</p>
+        <span class="card-arrow">Start here &rarr;</span>
+      </a>
+      <a href="#" class="entry-card">
+        <div class="num-badge">03</div>
+        <h3>I'm buying or building a home</h3>
+        <p>Understand what's actually up there &mdash; and what it'll really cost to keep it that way.</p>
+        <span class="card-arrow">Start here &rarr;</span>
+      </a>
+      <a href="#" class="entry-card">
+        <div class="num-badge">04</div>
+        <h3>Just exploring &mdash; I want to learn</h3>
+        <p>Read the whole guide. Twelve minutes. No pressure. Take your time.</p>
+        <span class="card-arrow">Open the guide &rarr;</span>
+      </a>
+    </div>
+    <div class="entry-alt">
+      Or skip all this &mdash; <a href="tel:3367663464">call (336) ROOFING</a>. Real person. No script. No sales call.
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="trust-inner">
+    <div>
+      <div class="trust-quote">
+        NC Roofing Service was the third roofer we called. They were the only one who told us we didn't need a new roof yet. We hired them three years later when we actually did.
+      </div>
+      <div class="trust-cite">Dianne &amp; Bob H. &middot; Matthews, NC &middot; Replacement, 2024</div>
+    </div>
+    <div class="trust-stat">
+      <div class="trust-num">312<span class="unit">+</span></div>
+      <div class="trust-label">NC roofs replaced in 2025 across the Triangle, Charlotte, and the Blue Ridge.</div>
+    </div>
+    <div class="trust-stat">
+      <div class="trust-num">9</div>
+      <div class="trust-label">Essential components we install on every roof &mdash; not just shingles.</div>
+    </div>
+  </div>
+</section>
+
+<div class="warning-wrap">
+  <div class="warning">
+    <div class="warning-mark">!</div>
+    <div class="warning-text">
+      <strong>Did someone knock on your door this week?</strong>
+      <p>If a roofer showed up uninvited and said they "noticed damage" from the street, read <a href="#">how to spot a storm chaser &rarr;</a> before you sign anything. We wrote that chapter because we keep cleaning up after them.</p>
+    </div>
+  </div>
+</div>
+
+<section class="guide" id="chapters">
+  <div class="guide-head">
+    <div class="eyebrow">The Guide</div>
+    <h2>Six chapters. Read what you need.</h2>
+    <p>Twelve minutes for the whole thing. Or pick the one chapter that matches where you are. Each chapter ends with a way to talk to a real person &mdash; or not. Up to you.</p>
+  </div>
+  <div class="guide-grid">
+    <a href="honest-roof-guide-01-check-your-roof.html" class="chapter">
+      <div class="num-badge">01</div>
+      <div class="chapter-label">Check your roof</div>
+      <div class="chapter-q">What's actually wrong with my roof?</div>
+      <div class="card-arrow">Read this chapter &rarr;</div>
+    </a>
+    <a href="honest-roof-guide-02-plan-your-roof.html" class="chapter">
+      <div class="num-badge">02</div>
+      <div class="chapter-label">Plan your roof</div>
+      <div class="chapter-q">What kind of roof do I need &mdash; and what does it really cost?</div>
+      <div class="card-arrow">Read this chapter &rarr;</div>
+    </a>
+    <a href="#" class="chapter">
+      <div class="num-badge">03</div>
+      <div class="chapter-label">Pay for it</div>
+      <div class="chapter-q">How am I going to pay for this?</div>
+      <div class="card-arrow">Read this chapter &rarr;</div>
+    </a>
+    <a href="#" class="chapter">
+      <div class="num-badge">04</div>
+      <div class="chapter-label">Pick a good roofer</div>
+      <div class="chapter-q">Who should I hire &mdash; and how do I know if they're honest?</div>
+      <div class="card-arrow">Read this chapter &rarr;</div>
+    </a>
+    <a href="#" class="chapter">
+      <div class="num-badge">05</div>
+      <div class="chapter-label">The day we install</div>
+      <div class="chapter-q">What happens the day they put it on?</div>
+      <div class="card-arrow">Read this chapter &rarr;</div>
+    </a>
+    <a href="#" class="chapter">
+      <div class="num-badge">06</div>
+      <div class="chapter-label">After we're done</div>
+      <div class="chapter-q">What do I do once the new roof is on?</div>
+      <div class="card-arrow">Read this chapter &rarr;</div>
+    </a>
+  </div>
+</section>
+
+<button class="ask" type="button" aria-label="Open the Honest Roof Guide assistant">
+  <span class="ask-icon">?</span>
+  <span class="ask-text">
+    <span class="ask-main">Ask the Guide</span>
+    <span class="ask-sub">A search of what we've written</span>
+  </span>
+</button>
+
+</body>
+</html>

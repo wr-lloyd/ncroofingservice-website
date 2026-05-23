@@ -63,8 +63,8 @@ export default function Footer() {
               <Link href="/locations" className="text-brand-red hover:text-brand-red-dark transition-colors text-sm font-medium block">
                 View All Locations →
               </Link>
-              <Link href="/resources" className="text-slate-400 hover:text-white transition-colors text-sm block">
-                Resources & Guides
+              <Link href="/guide" className="text-slate-400 hover:text-white transition-colors text-sm block">
+                The Honest Roof Guide
               </Link>
             </div>
           </div>

@@ -30,6 +30,15 @@ const locationLinks = [
   { href: '/locations/wake-forest-nc', label: 'Wake Forest' },
 ]
 
+// The Honest Roof Guide — the dropdown surfaces the hub plus any live
+// chapters. Chapters in lib/guide.ts marked `coming-soon` are NOT linked
+// here (we don't want dead-end dropdown items); they appear on the hub
+// page itself with a "Coming soon" badge.
+const guideLinks = [
+  { href: '/guide', label: 'The Honest Roof Guide' },
+  { href: '/guide/check-your-roof', label: 'Ch. 01 · Check your roof' },
+]
+
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [residentialOpen, setResidentialOpen] = useState(false)
@@ -143,12 +152,30 @@ export default function Navigation() {
               Our Work
             </Link>
 
-            <Link
-              href="/financing"
-              className="transition-colors font-medium text-sm text-brand-gray hover:text-brand-black"
-            >
-              Financing
-            </Link>
+            {/* The Guide Dropdown */}
+            <div className="relative group">
+              <button
+                className="flex items-center gap-1 transition-colors font-medium text-sm text-brand-gray hover:text-brand-black"
+              >
+                The Guide
+                <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div className="bg-white rounded-lg shadow-xl border border-slate-200 py-2 min-w-[260px]">
+                  {guideLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="block px-4 py-2 text-sm text-brand-gray hover:bg-brand-red/5 hover:text-brand-red transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
 
             <Link
               href="/about"
@@ -297,11 +324,11 @@ export default function Navigation() {
             </Link>
 
             <Link
-              href="/financing"
+              href="/guide"
               className="block py-3 transition-colors font-medium border-b border-slate-100 text-brand-gray hover:text-brand-black"
               onClick={() => setIsOpen(false)}
             >
-              Financing
+              The Honest Roof Guide
             </Link>
 
             <Link

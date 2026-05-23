@@ -1,0 +1,1134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cost Estimator — The Honest Roof Guide — NC Roofing Service</title>
+<meta name="description" content="A real cost range for your roof. Six questions, two minutes, no email required. Built from 312 NC roofs we replaced in 2025.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #DC2626; --red-bright: #EF4444; --red-dark: #991B1B;
+    --red-soft: #FEE2E2; --red-wash: #FEF2F2;
+    --ink: #0F1B2D; --ink-2: #1F2937;
+    --body: #4B5563; --muted: #6B7280;
+    --line: #E5E7EB; --line-soft: #F3F4F6;
+    --bg: #FFFFFF; --bg-soft: #F9FAFB;
+    --max: 1240px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; background: var(--bg); color: var(--body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  a { color: inherit; }
+
+  /* utility */
+  .utility { background: var(--red-wash); color: var(--ink-2); font-size: 13px; border-bottom: 1px solid var(--red-soft); }
+  .utility-inner { max-width: var(--max); margin: 0 auto; padding: 9px 32px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+  .utility-left { font-weight: 500; }
+  .utility-right { display: flex; gap: 24px; align-items: center; }
+  .utility-right a { color: var(--ink-2); text-decoration: none; font-weight: 500; font-size: 13px; }
+  .utility-right a:hover { color: var(--red); }
+  .utility-phone { color: var(--red) !important; font-weight: 700 !important; display: inline-flex; align-items: center; gap: 6px; }
+  .utility-phone svg { width: 13px; height: 13px; }
+
+  /* nav */
+  nav.main { background: var(--bg); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 50; }
+  .nav-inner { max-width: var(--max); margin: 0 auto; padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; gap: 32px; }
+  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
+  .logo-mark { width: 56px; height: 32px; color: var(--red); flex-shrink: 0; }
+  .logo-text { font-weight: 800; font-size: 18px; letter-spacing: -0.01em; line-height: 1; color: var(--ink); }
+  .logo-text small { display: block; font-size: 11px; color: var(--red); letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; margin-top: 4px; }
+  .nav-links { display: flex; gap: 30px; align-items: center; }
+  .nav-links a { color: var(--ink-2); text-decoration: none; font-size: 15px; font-weight: 500; }
+  .nav-links a:hover { color: var(--red); }
+  .nav-links a.active { color: var(--red); }
+  .nav-cta { background: var(--red); color: var(--bg) !important; padding: 12px 20px; border-radius: 8px; font-size: 14px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 1px 2px rgba(220, 38, 38, 0.15); transition: all 0.15s; }
+  .nav-cta:hover { background: var(--red-dark); transform: translateY(-1px); }
+  .nav-cta svg { width: 14px; height: 14px; }
+
+  /* breadcrumb */
+  .position { background: var(--bg); border-bottom: 1px solid var(--line-soft); }
+  .position-inner { max-width: var(--max); margin: 0 auto; padding: 14px 32px; font-size: 13px; color: var(--muted); display: flex; gap: 10px; align-items: center; }
+  .position-inner a { color: var(--muted); text-decoration: none; border-bottom: 1px solid transparent; }
+  .position-inner a:hover { color: var(--red); border-bottom-color: var(--red); }
+  .position-sep { color: var(--line); }
+  .position-current { color: var(--ink); font-weight: 600; }
+
+  /* tool header */
+  .tool-head { max-width: var(--max); margin: 0 auto; padding: 56px 32px 40px; border-bottom: 1px solid var(--line); }
+  .eyebrow { color: var(--red); font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 20px; }
+  .tool-head h1 { font-size: clamp(36px, 4.6vw, 52px); font-weight: 800; line-height: 1.08; letter-spacing: -0.025em; color: var(--ink); margin-bottom: 22px; max-width: 820px; }
+  .tool-head-lede { font-size: 18px; line-height: 1.55; color: var(--body); max-width: 680px; margin-bottom: 24px; }
+  .tool-head-trust {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--red-wash);
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 13.5px;
+    color: var(--ink);
+    font-weight: 600;
+    border: 1px solid var(--red-soft);
+  }
+  .tool-head-trust::before {
+    content: "";
+    width: 8px; height: 8px;
+    background: var(--red);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  /* two column */
+  .estimator {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 56px 32px 80px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 420px;
+    gap: 56px;
+    align-items: start;
+  }
+  .worksheet { min-width: 0; }
+  .step { margin-bottom: 52px; }
+  .step:last-child { margin-bottom: 0; }
+  .step-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 16px; }
+  .step-num {
+    width: 32px; height: 32px;
+    background: var(--red-soft);
+    color: var(--red);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .step-q { font-size: 23px; font-weight: 700; color: var(--ink); line-height: 1.2; letter-spacing: -0.015em; }
+  .step-why { font-size: 14px; color: var(--muted); margin: -6px 0 18px 46px; line-height: 1.5; }
+  .step-why a { color: var(--red); text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(220, 38, 38, 0.3); }
+
+  /* region pills */
+  .region-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-left: 46px; }
+  .pill {
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--ink-2);
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: 14.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: center;
+    font-family: inherit;
+    line-height: 1.3;
+  }
+  .pill:hover { border-color: var(--ink-2); }
+  .pill.is-active {
+    background: var(--ink);
+    color: var(--bg);
+    border-color: var(--ink);
+  }
+
+  /* size slider */
+  .size-input {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 24px 28px 22px;
+    margin-left: 46px;
+    transition: border-color 0.15s;
+  }
+  .size-input:focus-within { border-color: var(--red); }
+  .size-input-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 22px;
+  }
+  .size-value {
+    font-size: 38px;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -0.025em;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .size-unit {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--muted);
+    margin-left: 2px;
+  }
+  .size-context {
+    display: inline-block;
+    font-size: 12.5px;
+    color: var(--red);
+    background: var(--red-wash);
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+  .size-controls { display: flex; gap: 6px; flex-shrink: 0; }
+  .size-btn {
+    width: 40px;
+    height: 40px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+  .size-btn:hover { border-color: var(--red); color: var(--red); }
+  .size-btn:active { background: var(--red-wash); }
+  .size-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(to right, var(--red) 0%, var(--red) 11.1%, var(--line) 11.1%, var(--line) 100%);
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    margin: 4px 0 10px;
+  }
+  .size-slider::-webkit-slider-runnable-track { height: 8px; border-radius: 4px; background: transparent; border: 0; }
+  .size-slider::-moz-range-track { height: 8px; border-radius: 4px; background: transparent; border: 0; }
+  .size-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background: var(--bg);
+    border: 3px solid var(--red);
+    border-radius: 50%;
+    margin-top: -8px;
+    cursor: grab;
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.35);
+    transition: transform 0.1s;
+  }
+  .size-slider::-webkit-slider-thumb:hover { transform: scale(1.12); }
+  .size-slider::-webkit-slider-thumb:active { cursor: grabbing; transform: scale(1.18); }
+  .size-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    background: var(--bg);
+    border: 3px solid var(--red);
+    border-radius: 50%;
+    cursor: grab;
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.35);
+  }
+  .size-scale {
+    position: relative;
+    height: 18px;
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    /* track thumb is 24px, so leave room on each end for the label */
+    margin: 0 12px;
+  }
+  .size-scale span {
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+  .size-scale span::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 4px;
+    background: var(--line);
+  }
+  .size-scale span:first-child { transform: translateX(0); }
+  .size-scale span:first-child::before { left: 0; transform: none; }
+  .size-scale span:last-child { transform: translateX(-100%); }
+  .size-scale span:last-child::before { left: auto; right: 0; transform: none; }
+  .size-hint {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line-soft);
+    line-height: 1.5;
+  }
+
+  /* stories cards — same as size */
+  .stories-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-left: 46px; }
+  .stories-card {
+    border: 1px solid var(--line);
+    background: var(--bg);
+    padding: 18px 16px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    transition: all 0.15s;
+  }
+  .stories-card:hover { border-color: var(--ink-2); }
+  .stories-card.is-active {
+    border-color: var(--red);
+    background: var(--red-wash);
+    box-shadow: inset 0 0 0 1px var(--red);
+  }
+  .stories-card .stories-label { font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 4px; letter-spacing: -0.01em; }
+  .stories-card .stories-sub { font-size: 12.5px; color: var(--muted); line-height: 1.35; }
+
+  /* pitch row */
+  .pitch-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-left: 46px; margin-bottom: 22px; }
+  .pitch-card {
+    border: 1px solid var(--line);
+    background: var(--bg);
+    padding: 16px 18px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    transition: all 0.15s;
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 12px;
+    align-items: center;
+  }
+  .pitch-card:hover { border-color: var(--ink-2); }
+  .pitch-card.is-active {
+    border-color: var(--red);
+    background: var(--red-wash);
+    box-shadow: inset 0 0 0 1px var(--red);
+  }
+  .pitch-icon { width: 64px; height: 32px; color: var(--ink); }
+  .pitch-card.is-active .pitch-icon { color: var(--red); }
+  .pitch-card .p-label { font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 4px; letter-spacing: -0.01em; }
+  .pitch-card .p-desc { font-size: 12px; color: var(--muted); line-height: 1.4; }
+
+  /* sub-label */
+  .sub-label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin: 4px 0 10px 46px; }
+  .sub-label-spaced { margin-top: 6px; }
+
+  /* complexity cards */
+  .complexity-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-left: 46px; }
+  .complexity-card {
+    border: 1px solid var(--line);
+    background: var(--bg);
+    padding: 22px 20px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    transition: all 0.15s;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .complexity-card:hover { border-color: var(--ink-2); }
+  .complexity-card.is-active {
+    border-color: var(--red);
+    background: var(--red-wash);
+    box-shadow: inset 0 0 0 1px var(--red);
+  }
+  .complexity-icon { height: 52px; width: 100%; color: var(--ink); }
+  .complexity-card.is-active .complexity-icon { color: var(--red); }
+  .complexity-card .c-label { font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 4px; letter-spacing: -0.01em; }
+  .complexity-card .c-desc { font-size: 13px; color: var(--muted); line-height: 1.45; }
+
+  /* material cards */
+  .material-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-left: 46px; }
+  .material-card {
+    border: 1px solid var(--line);
+    background: var(--bg);
+    padding: 20px 20px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    transition: all 0.15s;
+    position: relative;
+    overflow: hidden;
+  }
+  .material-card:hover { border-color: var(--ink-2); }
+  .material-card.is-active {
+    border-color: var(--red);
+    background: var(--red-wash);
+    box-shadow: inset 0 0 0 1px var(--red);
+  }
+  .material-card .m-tag {
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .material-card .m-tag::before {
+    content: "";
+    width: 7px; height: 7px;
+    background: currentColor;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .material-card.is-active .m-tag { color: var(--red); }
+  .material-card .m-name { font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.01em; line-height: 1.2; }
+  .material-card .m-impact { font-size: 12.5px; color: var(--muted); font-style: italic; }
+  .material-card .m-impact strong { font-style: normal; color: var(--red); font-weight: 700; font-size: 13.5px; }
+
+  /* add-ons */
+  .addons { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-left: 46px; }
+  .addon {
+    border: 1px solid var(--line);
+    background: var(--bg);
+    border-radius: 10px;
+    padding: 16px 18px 14px 52px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.15s;
+    text-align: left;
+    font-family: inherit;
+  }
+  .addon:hover { border-color: var(--ink-2); }
+  .addon.is-active { border-color: var(--red); background: var(--red-wash); box-shadow: inset 0 0 0 1px var(--red); }
+  .addon::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid var(--line);
+    border-radius: 4px;
+    background: var(--bg);
+    transition: all 0.15s;
+  }
+  .addon.is-active::before {
+    background: var(--red);
+    border-color: var(--red);
+  }
+  .addon.is-active::after {
+    content: "";
+    position: absolute;
+    top: 23px;
+    left: 23px;
+    width: 10px;
+    height: 5px;
+    border-left: 2px solid var(--bg);
+    border-bottom: 2px solid var(--bg);
+    transform: rotate(-45deg);
+  }
+  .addon-label { font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 4px; letter-spacing: -0.005em; }
+  .addon-impact { font-size: 12.5px; color: var(--muted); }
+  .addon-impact strong { color: var(--red); font-weight: 700; }
+
+  /* result panel */
+  .result {
+    position: sticky;
+    top: 96px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px -4px rgba(15, 27, 45, 0.08);
+  }
+  .result-top { padding: 30px 30px 26px; background: var(--bg); }
+  .result-live {
+    font-size: 10.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .result-live::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    background: var(--red);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.18);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.18); }
+    50% { box-shadow: 0 0 0 8px rgba(220, 38, 38, 0.06); }
+  }
+  .result-between {
+    font-size: 13.5px;
+    color: var(--muted);
+    margin-bottom: 4px;
+    font-style: italic;
+  }
+  .result-range {
+    font-size: clamp(34px, 4vw, 44px);
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -0.028em;
+    line-height: 1.05;
+    margin-bottom: 14px;
+    white-space: nowrap;
+  }
+  .result-dash { color: var(--red); margin: 0 6px; font-weight: 600; }
+  .result-summary { font-size: 14.5px; color: var(--body); line-height: 1.5; margin-bottom: 16px; }
+  .result-confidence { font-size: 13px; color: var(--muted); padding-top: 14px; border-top: 1px solid var(--line); line-height: 1.5; }
+  .result-confidence strong { color: var(--ink); font-weight: 700; }
+
+  .result-block { padding: 22px 30px; border-top: 1px solid var(--line); background: var(--bg); }
+  .result-block-title {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+  .included-list, .excluded-list { list-style: none; font-size: 13.5px; line-height: 1.55; color: var(--body); }
+  .included-list li { padding: 5px 0 5px 24px; position: relative; }
+  .included-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 12px;
+    height: 6px;
+    border-left: 2px solid var(--red);
+    border-bottom: 2px solid var(--red);
+    transform: rotate(-45deg);
+  }
+  .excluded-list li { padding: 5px 0 5px 22px; position: relative; }
+  .excluded-list li::before {
+    content: "\2014";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    color: var(--muted);
+    font-weight: 700;
+  }
+  .excluded-list em { color: var(--muted); font-style: normal; font-size: 12.5px; }
+
+  .result-ctas { padding: 24px 30px 28px; background: var(--ink); color: var(--bg); }
+  .result-cta {
+    display: block;
+    background: var(--red);
+    color: var(--bg);
+    padding: 16px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 12px;
+    transition: all 0.15s;
+    border: 0;
+    width: 100%;
+    cursor: pointer;
+    font-family: inherit;
+    box-shadow: 0 4px 14px -4px rgba(220, 38, 38, 0.5);
+  }
+  .result-cta:hover { background: var(--red-bright); transform: translateY(-1px); }
+  .result-secondary { text-align: center; font-size: 13px; color: rgba(255, 255, 255, 0.65); }
+  .result-secondary a { color: var(--red-bright); text-decoration: none; border-bottom: 1px solid rgba(239, 68, 68, 0.4); font-weight: 600; }
+  .result-trust {
+    text-align: center;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.55;
+  }
+  .result-trust strong { color: var(--bg); font-weight: 600; }
+
+  /* why we built */
+  .why-built { background: var(--bg-soft); border-top: 1px solid var(--line); padding: 88px 32px; }
+  .why-built-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 64px; }
+  .why-built h2 { font-size: clamp(28px, 3.4vw, 38px); font-weight: 800; color: var(--ink); line-height: 1.1; letter-spacing: -0.022em; }
+  .why-built-body p { font-size: 16px; line-height: 1.65; color: var(--body); margin-bottom: 18px; }
+  .why-built-body p:last-child { margin-bottom: 0; }
+  .why-built-body strong { color: var(--ink); font-weight: 700; }
+  .why-built-body a { color: var(--red); font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(220, 38, 38, 0.35); }
+
+  /* faqs */
+  .faqs {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 64px 32px 88px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .faq {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 28px 30px;
+    transition: all 0.15s;
+  }
+  .faq:hover { border-color: var(--red); }
+  .faq h3 { font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 10px; line-height: 1.25; letter-spacing: -0.01em; }
+  .faq p { font-size: 14.5px; line-height: 1.55; color: var(--body); margin: 0; }
+
+  /* ask */
+  .ask { position: fixed; bottom: 28px; right: 28px; background: var(--red); color: var(--bg); border-radius: 999px; padding: 14px 22px 14px 16px; font-size: 15px; font-weight: 600; text-decoration: none; box-shadow: 0 14px 38px -10px rgba(220, 38, 38, 0.5); display: flex; align-items: center; gap: 12px; z-index: 30; cursor: pointer; border: 0; transition: all 0.15s; font-family: inherit; }
+  .ask:hover { background: var(--red-dark); transform: translateY(-2px); }
+  .ask-icon { width: 28px; height: 28px; background: var(--bg); color: var(--red); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; }
+  .ask-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .ask-sub { font-size: 11px; font-weight: 400; opacity: 0.85; letter-spacing: 0.03em; margin-top: 3px; }
+
+  /* responsive */
+  @media (max-width: 1100px) {
+    .estimator { grid-template-columns: 1fr; gap: 32px; }
+    .result { position: relative; top: 0; order: -1; }
+    .why-built-inner { grid-template-columns: 1fr; gap: 24px; }
+    .faqs { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 760px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+    .utility-left { display: none; }
+    .tool-head { padding: 40px 24px 28px; }
+    .estimator { padding: 32px 24px 56px; }
+    .region-row, .stories-row, .complexity-row, .material-row, .pitch-row, .addons { grid-template-columns: 1fr 1fr; margin-left: 0; }
+    .size-input { margin-left: 0; padding: 20px 22px 18px; }
+    .size-value { font-size: 32px; }
+    .step-why { margin-left: 0; }
+    .sub-label { margin-left: 0; }
+    .result-range { font-size: 30px; white-space: normal; }
+    .why-built { padding: 56px 24px; }
+    .faqs { padding: 40px 24px 56px; }
+    .ask { bottom: 16px; right: 16px; padding: 12px 18px 12px 14px; }
+    .ask-sub { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="utility">
+  <div class="utility-inner">
+    <div class="utility-left">Serving the NC Triangle &middot; Charlotte &middot; the Blue Ridge</div>
+    <div class="utility-right">
+      <a href="#">Print this estimate</a>
+      <a href="#">Share</a>
+      <a href="tel:3367663464" class="utility-phone">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.2c.27-.27.35-.67.24-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
+        (336) ROOFING
+      </a>
+    </div>
+  </div>
+</div>
+
+<nav class="main">
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <svg class="logo-mark" viewBox="0 0 100 48" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M6 26 Q14 18 24 20 Q34 16 44 19 Q56 14 68 17 Q80 14 90 22 L92 28 Q86 33 78 32 L70 35 L60 32 Q50 35 40 33 Q28 36 18 33 Q10 32 6 26 Z"/>
+      </svg>
+      <span class="logo-text">NC ROOFING<small>SERVICE</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Residential</a>
+      <a href="#">Commercial</a>
+      <a href="honest-roof-guide.html" class="active">The Guide</a>
+      <a href="#">Locations</a>
+      <a href="#">Our Work</a>
+      <a href="#">About</a>
+      <a href="tel:3367663464" class="nav-cta">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.2c.27-.27.35-.67.24-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
+        (336) ROOFING
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="position">
+  <div class="position-inner">
+    <a href="honest-roof-guide.html">The Honest Roof Guide</a>
+    <span class="position-sep">/</span>
+    <a href="honest-roof-guide-02-plan-your-roof.html">Chapter 02 &middot; Plan your roof</a>
+    <span class="position-sep">/</span>
+    <span class="position-current">Cost Estimator</span>
+  </div>
+</div>
+
+<header class="tool-head">
+  <div class="eyebrow">Tool &middot; 2 minutes &middot; no email required</div>
+  <h1>How much will your roof actually cost?</h1>
+  <p class="tool-head-lede">
+    Six questions about your house. A real range on the right that updates as you answer. Built from the 312 NC roofs we replaced in 2025.
+  </p>
+  <div class="tool-head-trust">The math runs in your browser. We don't see what you type.</div>
+</header>
+
+<section class="estimator">
+  <div class="worksheet">
+
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num">1</div>
+        <div class="step-q">Where's your house?</div>
+      </div>
+      <p class="step-why">Materials and labor cost different things in different parts of the state. We have real pricing data for each region.</p>
+      <div class="region-row">
+        <button class="pill is-active" data-toggle="region" data-value="charlotte">Greater Charlotte</button>
+        <button class="pill" data-toggle="region" data-value="raleigh">Raleigh-Durham</button>
+        <button class="pill" data-toggle="region" data-value="blueridge">Blue Ridge</button>
+        <button class="pill" data-toggle="region" data-value="other">Other NC</button>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num">2</div>
+        <div class="step-q">How big is your house?</div>
+      </div>
+      <p class="step-why">By heated, living square footage &mdash; what's on your tax record. We'll convert that to roof area.</p>
+      <div class="size-input">
+        <div class="size-input-top">
+          <div>
+            <div class="size-value"><span id="size-num">2,000</span><span class="size-unit">sq ft</span></div>
+            <div class="size-context" id="size-context">Average family home</div>
+          </div>
+          <div class="size-controls">
+            <button class="size-btn" id="size-down" type="button" aria-label="Decrease by 100 sq ft">&minus;</button>
+            <button class="size-btn" id="size-up" type="button" aria-label="Increase by 100 sq ft">+</button>
+          </div>
+        </div>
+        <input type="range" min="1000" max="10000" step="100" value="2000" class="size-slider" id="size-slider" aria-label="Living square footage">
+        <div class="size-scale">
+          <span style="left: 0%;">1,000</span>
+          <span style="left: 16.67%;">2,500</span>
+          <span style="left: 44.44%;">5,000</span>
+          <span style="left: 72.22%;">7,500</span>
+          <span style="left: 100%;">10,000+</span>
+        </div>
+        <div class="size-hint">From your tax record, settlement papers, or MLS listing. Drag, or use +/&minus; in 100 sq ft steps.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num">3</div>
+        <div class="step-q">How tall is the house?</div>
+      </div>
+      <p class="step-why">A 2,000 sq ft ranch has roughly twice the roof of a 2,000 sq ft two-story. This one answer is the biggest accuracy gain we get.</p>
+      <div class="stories-row">
+        <button class="stories-card is-active" data-toggle="stories" data-value="one">
+          <div class="stories-label">1 story</div>
+          <div class="stories-sub">Ranch or rambler</div>
+        </button>
+        <button class="stories-card" data-toggle="stories" data-value="oneandhalf">
+          <div class="stories-label">1.5 story</div>
+          <div class="stories-sub">Cape Cod, attic conversion</div>
+        </button>
+        <button class="stories-card" data-toggle="stories" data-value="two">
+          <div class="stories-label">2 story</div>
+          <div class="stories-sub">Most common in newer NC builds</div>
+        </button>
+        <button class="stories-card" data-toggle="stories" data-value="three">
+          <div class="stories-label">3+ story</div>
+          <div class="stories-sub">Tall homes, walkouts</div>
+        </button>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num">4</div>
+        <div class="step-q">What does the roof look like?</div>
+      </div>
+      <p class="step-why">Slope and shape together drive labor more than anything else. Pick the closest for each.</p>
+
+      <div class="sub-label">Pitch &middot; slope</div>
+      <div class="pitch-row">
+        <button class="pitch-card" data-toggle="pitch" data-value="low">
+          <svg class="pitch-icon" viewBox="0 0 100 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">
+            <path d="M8 32 L50 22 L92 32"/>
+            <path d="M8 32 L92 32" stroke-dasharray="2 3" opacity="0.35"/>
+          </svg>
+          <div>
+            <div class="p-label">Low pitch</div>
+            <div class="p-desc">Walkable &middot; 1/12 &ndash; 4/12</div>
+          </div>
+        </button>
+        <button class="pitch-card is-active" data-toggle="pitch" data-value="average">
+          <svg class="pitch-icon" viewBox="0 0 100 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">
+            <path d="M8 32 L50 12 L92 32"/>
+            <path d="M8 32 L92 32" stroke-dasharray="2 3" opacity="0.35"/>
+          </svg>
+          <div>
+            <div class="p-label">Average pitch</div>
+            <div class="p-desc">Standard &middot; 5/12 &ndash; 7/12</div>
+          </div>
+        </button>
+        <button class="pitch-card" data-toggle="pitch" data-value="steep">
+          <svg class="pitch-icon" viewBox="0 0 100 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">
+            <path d="M8 32 L50 2 L92 32"/>
+            <path d="M8 32 L92 32" stroke-dasharray="2 3" opacity="0.35"/>
+          </svg>
+          <div>
+            <div class="p-label">Steep pitch</div>
+            <div class="p-desc">Over 8/12 &middot; needs harnesses</div>
+          </div>
+        </button>
+      </div>
+
+      <div class="sub-label sub-label-spaced">Shape complexity</div>
+      <div class="complexity-row">
+        <button class="complexity-card" data-toggle="complexity" data-value="simple">
+          <svg class="complexity-icon" viewBox="0 0 120 52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
+            <path d="M10 42 L60 12 L110 42 Z"/>
+            <path d="M10 42 L110 42"/>
+          </svg>
+          <div>
+            <div class="c-label">Simple</div>
+            <div class="c-desc">Single slope or basic gable. No dormers, one or no chimneys.</div>
+          </div>
+        </button>
+        <button class="complexity-card is-active" data-toggle="complexity" data-value="average">
+          <svg class="complexity-icon" viewBox="0 0 120 52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
+            <path d="M10 42 L40 16 L70 42"/>
+            <path d="M50 30 L80 12 L110 42 L10 42"/>
+            <rect x="60" y="22" width="8" height="14"/>
+          </svg>
+          <div>
+            <div class="c-label">Average</div>
+            <div class="c-desc">A couple slopes, one or two valleys, one chimney or skylight.</div>
+          </div>
+        </button>
+        <button class="complexity-card" data-toggle="complexity" data-value="complex">
+          <svg class="complexity-icon" viewBox="0 0 120 52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
+            <path d="M10 42 L28 18 L46 36 L64 14 L82 36 L100 20 L110 42 L10 42"/>
+            <rect x="34" y="26" width="6" height="10"/>
+            <rect x="70" y="24" width="6" height="12"/>
+          </svg>
+          <div>
+            <div class="c-label">Complex</div>
+            <div class="c-desc">Multiple slopes, several valleys, dormers or multiple chimneys.</div>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num">5</div>
+        <div class="step-q">What material?</div>
+      </div>
+      <p class="step-why">Architectural shingle is what we put on 80% of the houses we visit. <a href="honest-roof-guide-02-plan-your-roof.html#materials">Read the full breakdown &rarr;</a></p>
+      <div class="material-row">
+        <button class="material-card is-active" data-toggle="material" data-value="architectural">
+          <div class="m-tag">The default</div>
+          <div class="m-name">Architectural shingle</div>
+          <div class="m-impact">25 &ndash; 30 year life &middot; <strong>baseline</strong></div>
+        </button>
+        <button class="material-card" data-toggle="material" data-value="premium">
+          <div class="m-tag">Stay-forever pick</div>
+          <div class="m-name">Premium / designer shingle</div>
+          <div class="m-impact">30 &ndash; 50 year life &middot; <strong>about 1.6&times;</strong></div>
+        </button>
+        <button class="material-card" data-toggle="material" data-value="metal">
+          <div class="m-tag">Once-in-a-generation</div>
+          <div class="m-name">Standing seam metal</div>
+          <div class="m-impact">40 &ndash; 70 year life &middot; <strong>about 2.7&times;</strong></div>
+        </button>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">
+        <div class="step-num">6</div>
+        <div class="step-q">Anything special? <span style="font-weight:400;font-size:14px;color:var(--muted);">&mdash; optional</span></div>
+      </div>
+      <p class="step-why">Skip if you're not sure. We'll figure these out on the visit.</p>
+      <div class="addons">
+        <button class="addon" data-addon="fortified">
+          <div class="addon-label">Fortified upgrade</div>
+          <div class="addon-impact">Adds <strong>$1,800 &ndash; $3,200</strong> &middot; often lowers your premium</div>
+        </button>
+        <button class="addon" data-addon="decking">
+          <div class="addon-label">Decking replacement likely</div>
+          <div class="addon-impact">Adds <strong>$800 &ndash; $3,500</strong> &middot; if wood underneath is soft</div>
+        </button>
+        <button class="addon" data-addon="twolayers">
+          <div class="addon-label">Tear-off of two layers</div>
+          <div class="addon-impact">Adds <strong>$1,200 &ndash; $2,200</strong> &middot; if you already have an overlay</div>
+        </button>
+        <button class="addon" data-addon="gutters">
+          <div class="addon-label">Gutter replacement</div>
+          <div class="addon-impact">Adds <strong>$1,200 &ndash; $2,400</strong> &middot; matched and installed same week</div>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <aside class="result" aria-live="polite">
+    <div class="result-top">
+      <div class="result-live">Live estimate</div>
+      <div class="result-between">somewhere between</div>
+      <div class="result-range">
+        <span id="result-low">$12,000</span><span class="result-dash">&ndash;</span><span id="result-high">$18,000</span>
+      </div>
+      <p class="result-summary" id="result-summary">
+        Architectural shingle on a typical 2,000 sq ft 1-story home in greater Charlotte. Average pitch, typical shape, no add-ons.
+      </p>
+      <div class="result-confidence">
+        Based on <strong><span id="result-jobs">142</span> similar NC roofs</strong> we replaced in 2025. Most of our final quotes come in within $1,500 of the middle of this range.
+      </div>
+    </div>
+
+    <div class="result-block">
+      <div class="result-block-title">What this includes</div>
+      <ul class="included-list">
+        <li>All 9 components of a real roof</li>
+        <li>Tear-off of the existing roof</li>
+        <li>New synthetic underlayment</li>
+        <li>Ice &amp; water shield in valleys and at penetrations</li>
+        <li>Architectural shingle, GAF or equivalent</li>
+        <li>All flashing replaced (chimney, valleys, vents)</li>
+        <li>Ridge vent and ventilation balance</li>
+        <li>Cleanup and magnet sweep of the yard</li>
+        <li>Manufacturer warranty registration</li>
+      </ul>
+    </div>
+
+    <div class="result-block">
+      <div class="result-block-title">What it doesn't include</div>
+      <ul class="excluded-list">
+        <li>Gutters &mdash; <em>usually $1,200 &ndash; $2,400 separately</em></li>
+        <li>Decking replacement if we find soft wood &mdash; <em>add the option above</em></li>
+        <li>Interior repairs from prior leaks</li>
+        <li>Solar panel removal and reinstall</li>
+      </ul>
+    </div>
+
+    <div class="result-ctas">
+      <button class="result-cta">Get a free real look &rarr;</button>
+      <div class="result-secondary">
+        or <a href="#">save this estimate to come back to</a>
+      </div>
+      <div class="result-trust">
+        <strong>You won't get a sales call from this.</strong> If you want one of our roofers to come walk your roof, you'll ask for it.
+      </div>
+    </div>
+  </aside>
+
+</section>
+
+<section class="why-built">
+  <div class="why-built-inner">
+    <h2>Why we built this tool the way we did.</h2>
+    <div class="why-built-body">
+      <p>
+        Most roofer "calculators" online aren't calculators. They're contact forms with a fake number screen that says <em>"we'll email you a quote."</em> You give up your phone and email, then a salesperson calls. We got tired of customers telling us they'd been through that. So we built this instead.
+      </p>
+      <p>
+        <strong>The math runs on your phone, in your browser.</strong> Nothing leaves your machine. We don't know you ran the calculator. We can't &mdash; the page doesn't send anything anywhere unless you ask it to.
+      </p>
+      <p>
+        The numbers behind the math come from the 312 roofs we replaced in North Carolina in 2025 &mdash; real jobs in Charlotte, the Triangle, and the Blue Ridge, with the materials and complexities you're picking between. We update the model every spring.
+      </p>
+      <p>
+        When you're ready for a real number &mdash; not a range &mdash; <a href="#">schedule a free look</a>. One of our roofers will walk your roof, take drone photos, and give you a written quote in 30 minutes on-site. No deposit, no obligation.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="faqs">
+  <div class="faq">
+    <h3>How accurate is this, really?</h3>
+    <p>Within $1,500 of our final quote for 4 out of 5 of the roofs we end up doing after a visit. The visit catches what a webpage can't &mdash; soft decking, chimney repairs, an unusual roof shape.</p>
+  </div>
+  <div class="faq">
+    <h3>What if my roof is unusual?</h3>
+    <p>Call <a href="tel:3367663464" style="color:var(--red);text-decoration:none;font-weight:600;border-bottom:1px solid rgba(220,38,38,0.3);">(336) ROOFING</a>. We'll tell you straight if our typical model fits your house &mdash; or doesn't. Free, no pressure.</p>
+  </div>
+  <div class="faq">
+    <h3>Will I get spam if I use this?</h3>
+    <p>No. The math runs in your browser, not on our server. We don't know you ran the calculator. If you want a visit, you have to ask &mdash; we won't follow up unless you do.</p>
+  </div>
+</section>
+
+<button class="ask" type="button" aria-label="Open the Honest Roof Guide assistant">
+  <span class="ask-icon">?</span>
+  <span class="ask-text">
+    <span class="ask-main">Ask the Guide</span>
+    <span class="ask-sub">A search of what we've written</span>
+  </span>
+</button>
+
+<script>
+(function() {
+  const state = {
+    region: 'charlotte',
+    size: 2000,
+    stories: 'one',
+    pitch: 'average',
+    complexity: 'average',
+    material: 'architectural',
+    addons: []
+  };
+
+  const config = {
+    storiesDivisor: { one: 1.0, oneandhalf: 1.3, two: 2.0, three: 2.7 },
+    storiesLabor:   { one: 1.00, oneandhalf: 1.05, two: 1.12, three: 1.22 },
+    storiesLabel:   { one: '1-story', oneandhalf: '1.5-story', two: '2-story', three: '3-story' },
+    pitchSurface: { low: 1.06, average: 1.14, steep: 1.36 },
+    pitchLabor:   { low: 1.00, average: 1.00, steep: 1.18 },
+    pitchLabel:   { low: 'Low pitch', average: 'Average pitch', steep: 'Steep pitch' },
+    regionRates: {
+      charlotte: { low: 5.20, high: 7.80, jobs: 142, label: 'greater Charlotte' },
+      raleigh:   { low: 5.10, high: 7.60, jobs:  89, label: 'the Raleigh-Durham area' },
+      blueridge: { low: 5.50, high: 8.20, jobs:  41, label: 'the Blue Ridge' },
+      other:     { low: 4.90, high: 7.40, jobs:  38, label: 'North Carolina' }
+    },
+    complexityMult: {
+      simple:  { low: 0.92, high: 0.92, label: 'simple shape' },
+      average: { low: 1.00, high: 1.00, label: 'typical shape' },
+      complex: { low: 1.08, high: 1.20, label: 'complex shape' }
+    },
+    materialMult: {
+      architectural: { low: 1.00, high: 1.00, label: 'Architectural shingle', jobsMult: 1.00 },
+      premium:       { low: 1.55, high: 1.65, label: 'Premium designer shingle', jobsMult: 0.33 },
+      metal:         { low: 2.50, high: 2.90, label: 'Standing seam metal', jobsMult: 0.25 }
+    },
+    addonCosts: {
+      fortified:  { low: 1800, high: 3200 },
+      decking:    { low:  800, high: 3500 },
+      twolayers:  { low: 1200, high: 2200 },
+      gutters:    { low: 1200, high: 2400 }
+    }
+  };
+
+  function calc() {
+    const c = config;
+    const livingSqFt = state.size;
+    const footprint  = livingSqFt / c.storiesDivisor[state.stories];
+    const surface    = footprint * c.pitchSurface[state.pitch];
+    const labor      = c.storiesLabor[state.stories] * c.pitchLabor[state.pitch];
+    const rate = c.regionRates[state.region];
+    const cm   = c.complexityMult[state.complexity];
+    const mm   = c.materialMult[state.material];
+    let low  = surface * rate.low  * cm.low  * mm.low  * labor;
+    let high = surface * rate.high * cm.high * mm.high * labor;
+    state.addons.forEach(a => {
+      low  += c.addonCosts[a].low;
+      high += c.addonCosts[a].high;
+    });
+    const jobs = Math.max(8, Math.round(rate.jobs * mm.jobsMult));
+    return { low, high, jobs };
+  }
+
+  function roundTo(n, step) { return Math.round(n / step) * step; }
+  function fmt(n) { return '$' + roundTo(n, 500).toLocaleString(); }
+
+  function render() {
+    const { low, high, jobs } = calc();
+    document.getElementById('result-low').textContent  = fmt(low);
+    document.getElementById('result-high').textContent = fmt(high);
+    document.getElementById('result-jobs').textContent = jobs;
+
+    const c = config;
+    const matLabel     = c.materialMult[state.material].label;
+    const sizeLabel    = state.size.toLocaleString() + ' sq ft';
+    const storiesLabel = c.storiesLabel[state.stories];
+    const regionLabel  = c.regionRates[state.region].label;
+    const pitchLabel   = c.pitchLabel[state.pitch];
+    const cLabel       = c.complexityMult[state.complexity].label;
+    const n            = state.addons.length;
+    const addonsLabel  = n === 0 ? 'no add-ons' : n + ' add-on' + (n > 1 ? 's' : '');
+
+    document.getElementById('result-summary').textContent =
+      matLabel + ' on a ' + sizeLabel + ' ' + storiesLabel +
+      ' home in ' + regionLabel + '. ' +
+      pitchLabel + ', ' + cLabel + ', ' + addonsLabel + '.';
+  }
+
+  document.querySelectorAll('[data-toggle]').forEach(el => {
+    el.addEventListener('click', () => {
+      const group = el.dataset.toggle;
+      const value = el.dataset.value;
+      state[group] = value;
+      document.querySelectorAll('[data-toggle="' + group + '"]').forEach(e => e.classList.remove('is-active'));
+      el.classList.add('is-active');
+      render();
+    });
+  });
+
+  document.querySelectorAll('[data-addon]').forEach(el => {
+    el.addEventListener('click', () => {
+      const value = el.dataset.addon;
+      const idx = state.addons.indexOf(value);
+      if (idx === -1) {
+        state.addons.push(value);
+        el.classList.add('is-active');
+      } else {
+        state.addons.splice(idx, 1);
+        el.classList.remove('is-active');
+      }
+      render();
+    });
+  });
+
+  function getSizeContext(sqft) {
+    if (sqft < 1400) return 'Small home or condo';
+    if (sqft < 1800) return 'Typical starter home';
+    if (sqft < 2400) return 'Average family home';
+    if (sqft < 3000) return 'Larger family home';
+    if (sqft < 4000) return 'Large home';
+    if (sqft < 5500) return 'Very large home';
+    if (sqft < 7500) return 'Estate-size home';
+    return 'Large estate or compound';
+  }
+
+  function updateSize(value) {
+    value = Math.max(1000, Math.min(10000, Math.round(value / 100) * 100));
+    state.size = value;
+    const slider = document.getElementById('size-slider');
+    slider.value = value;
+    document.getElementById('size-num').textContent = value.toLocaleString();
+    document.getElementById('size-context').textContent = getSizeContext(value);
+    const pct = ((value - 1000) / 9000) * 100;
+    slider.style.background =
+      'linear-gradient(to right, var(--red) 0%, var(--red) ' + pct + '%, var(--line) ' + pct + '%, var(--line) 100%)';
+    render();
+  }
+
+  document.getElementById('size-slider').addEventListener('input', function(e) {
+    updateSize(parseInt(e.target.value, 10));
+  });
+  document.getElementById('size-down').addEventListener('click', function() {
+    updateSize(state.size - 100);
+  });
+  document.getElementById('size-up').addEventListener('click', function() {
+    updateSize(state.size + 100);
+  });
+
+  updateSize(state.size);
+})();
+</script>
+
+</body>
+</html>
