@@ -14,28 +14,28 @@ const ENTRIES: EntryCard[] = [
   {
     num: '01',
     title: 'A storm just hit my house',
-    body: 'Start with damage, insurance claims, and what to do this week before anything else.',
+    body: 'Damage, insurance, and what to do this week. Read this before you sign anything.',
     href: '/guide/check-your-roof#what-now',
     cta: 'Start here',
   },
   {
     num: '02',
     title: 'My roof is showing its age',
-    body: "Plan a replacement on your own timeline — not someone else's.",
-    href: '/guide/check-your-roof#repair-or-replace',
+    body: "Plan a replacement on your timeline. Not someone else's.",
+    href: '/guide/plan-your-roof',
     cta: 'Start here',
   },
   {
     num: '03',
     title: "I'm buying or building a home",
-    body: "Understand what's actually up there — and what it'll really cost to keep it that way.",
+    body: "Figure out what's actually up there, and what it'll cost to keep it that way.",
     href: '/guide/check-your-roof#from-ground',
     cta: 'Start here',
   },
   {
     num: '04',
-    title: "Just exploring — I want to learn",
-    body: 'Read the whole guide. Twelve minutes. No pressure. Take your time.',
+    title: 'Just curious. I want to learn',
+    body: 'Read the whole guide. Thirty seven minutes if you read every word. No pressure.',
     href: '/guide/check-your-roof',
     cta: 'Open the guide',
   },
@@ -83,7 +83,7 @@ export default function EntryChooser() {
         </div>
 
         <p className="text-center mt-10 text-[15px] text-slate-500">
-          Or skip all this &mdash;{' '}
+          Or skip all this and{' '}
           <a
             href={`tel:${OFFICE_PHONE}`}
             className="text-brand-red font-semibold hover:underline"

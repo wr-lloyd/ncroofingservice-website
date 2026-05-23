@@ -10,12 +10,12 @@ import GuideCallout from './_components/GuideCallout'
 export const metadata: Metadata = {
   title: `${GUIDE_NAME} | NC Roofing Service`,
   description:
-    "A roof is a 20-year decision. Plain-English guide to damage, replacement, insurance, hiring, and what happens after the crew leaves. Useful even if you never call us.",
+    "A roof is a 20-year decision. Plain guide to damage, replacement, insurance, hiring, and what happens after the crew leaves. Useful even if you never call us.",
   alternates: { canonical: absoluteUrl('/guide') },
   openGraph: {
     title: `${GUIDE_NAME} | NC Roofing Service`,
     description:
-      "A roof is a 20-year decision. Plain-English guide to damage, replacement, insurance, hiring, and what happens after the crew leaves.",
+      "A roof is a 20-year decision. Plain guide to damage, replacement, insurance, hiring, and what happens after the crew leaves.",
     url: absoluteUrl('/guide'),
     type: 'website',
   },
@@ -32,15 +32,15 @@ export default function GuideHubPage() {
           <GuideEyebrow>{GUIDE_NAME}</GuideEyebrow>
           <h1 className="mt-6 text-4xl sm:text-5xl lg:text-[60px] font-extrabold text-brand-black leading-[1.08] tracking-tight max-w-4xl mx-auto">
             A roof is a 20-year decision.{' '}
-            <span className="text-brand-red">We&apos;ll help you make it well</span>{' '}
-            &mdash; even if you never call us.
+            <span className="text-brand-red">We wrote this to help you make it well.</span>{' '}
+            Useful even if you never call us.
           </h1>
           <p className="mt-7 text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            Written for the person standing in their driveway after a storm.
-            For the one staring up at a roof that&apos;s older than their kids.
-            For anyone tired of pushy sales calls who just wants the truth,
-            in plain English, from the roofers who put on every component a
-            manufacturer requires &mdash; not just shingles.
+            Written for the person standing in the driveway after a storm. For
+            the one looking up at a roof that&apos;s older than their kids. For
+            anyone tired of pushy sales calls who just wants the truth from
+            roofers who install every component a manufacturer requires. Not
+            just shingles.
           </p>
           <div className="mt-9 flex flex-col sm:flex-row gap-3 justify-center">
             <Link
@@ -84,6 +84,8 @@ export default function GuideHubPage() {
         />
       </div>
 
+      {/* Chapter section heading */}
+
       {/* Chapters */}
       <section id="chapters" className="bg-white scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
@@ -93,9 +95,9 @@ export default function GuideHubPage() {
               Six chapters. Read what you need.
             </h2>
             <p className="mt-4 text-lg text-slate-500 max-w-2xl mx-auto">
-              {totalReadMinutes} minutes for the whole thing. Or pick the one
-              chapter that matches where you are. Each chapter ends with a
-              way to talk to a real person &mdash; or not. Up to you.
+              {totalReadMinutes} minutes for the whole thing. Or skip to the
+              one chapter that matches where you are. Each chapter ends with
+              a way to talk to a real person. Or not. Up to you.
             </p>
           </div>
 
@@ -153,11 +155,11 @@ export default function GuideHubPage() {
           </div>
 
           <p className="mt-10 text-center text-sm text-slate-500">
-            More chapters coming soon. Chapter 01 is live now —{' '}
+            All six chapters are live.{' '}
             <Link href="/guide/check-your-roof" className="text-brand-red font-semibold hover:underline">
-              start there
+              Start with chapter one
             </Link>
-            .
+            , or jump to whichever one fits.
           </p>
         </div>
       </section>

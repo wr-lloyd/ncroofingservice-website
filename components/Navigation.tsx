@@ -30,13 +30,17 @@ const locationLinks = [
   { href: '/locations/wake-forest-nc', label: 'Wake Forest' },
 ]
 
-// The Honest Roof Guide — the dropdown surfaces the hub plus any live
-// chapters. Chapters in lib/guide.ts marked `coming-soon` are NOT linked
-// here (we don't want dead-end dropdown items); they appear on the hub
-// page itself with a "Coming soon" badge.
+// The Honest Roof Guide. The dropdown surfaces the hub, the cost
+// estimator (the most-used tool in the guide), then every chapter.
 const guideLinks = [
   { href: '/guide', label: 'The Honest Roof Guide' },
+  { href: '/guide/cost-estimator', label: 'Cost Estimator' },
   { href: '/guide/check-your-roof', label: 'Ch. 01 · Check your roof' },
+  { href: '/guide/plan-your-roof', label: 'Ch. 02 · Plan your roof' },
+  { href: '/guide/pay-for-it', label: 'Ch. 03 · Pay for it' },
+  { href: '/guide/pick-a-roofer', label: 'Ch. 04 · Pick a roofer' },
+  { href: '/guide/install-day', label: 'Ch. 05 · Install day' },
+  { href: '/guide/after-the-job', label: 'Ch. 06 · After the job' },
 ]
 
 export default function Navigation() {

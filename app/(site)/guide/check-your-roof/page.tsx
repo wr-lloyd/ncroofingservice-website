@@ -8,22 +8,25 @@ import ToolsSection from '../_components/ToolsSection'
 
 const chapter = getChapter('check-your-roof')
 
+const LEDE =
+  "For the person who just had a storm. The one who noticed a stain on the ceiling. The one whose neighbor just got a new roof. Read what fits. Skip the rest."
+
 export const metadata: Metadata = {
   title: `Ch. ${chapter.number} · ${chapter.shortLabel} | The Honest Roof Guide`,
   description:
-    "What's actually wrong with my roof? Plain-English checks you can do from the ground, photos to take before you call anyone, and how to know whether it's a repair or a replacement.",
+    "What's actually wrong with your roof. Six things to look for from the ground. The photos to take before you call anyone. How to tell a repair from a replacement.",
   alternates: { canonical: absoluteUrl(chapter.href) },
   openGraph: {
     title: `${chapter.question} | The Honest Roof Guide`,
     description:
-      "Plain-English checks you can do from the ground, photos to take before you call anyone, and how to know if it's a repair or a replacement.",
+      "Six things to look for from the ground. The photos to take before you call anyone. How to tell a repair from a replacement.",
     url: absoluteUrl(chapter.href),
     type: 'article',
   },
 }
 
 const TOC = [
-  { id: 'stay-off', label: "Don't get up there" },
+  { id: 'stay-off', label: "Stay off the roof" },
   { id: 'from-ground', label: 'From the ground' },
   { id: 'photos', label: 'Photos to take' },
   { id: 'repair-or-replace', label: 'Repair or replace?' },
@@ -43,7 +46,7 @@ const QUICK_TOOLS = [
     tag: 'PDF checklist',
     tone: 'pdf' as const,
     name: 'Photos to Take',
-    desc: 'One-pager of what to capture before you call.',
+    desc: 'One page of what to capture before you call.',
     href: '/guide/downloads/photo-checklist',
   },
   {
@@ -66,7 +69,7 @@ const TOOLS = [
   {
     tag: '2-minute quiz',
     title: 'Problem Finder',
-    body: "Pick what you're seeing — stain, missing piece, drip. We'll tell you what it most likely means and what to do next.",
+    body: "Pick what you're seeing. A stain, a missing piece, a drip. We'll tell you what it most likely means and what to do next.",
     href: '/start#problem-finder',
     cta: 'Start the walkthrough',
   },
@@ -82,23 +85,22 @@ const TOOLS = [
 export default function CheckYourRoofPage() {
   return (
     <>
-      <ChapterShell chapter={chapter} tocItems={TOC} quickTools={QUICK_TOOLS}>
+      <ChapterShell chapter={chapter} lede={LEDE} tocItems={TOC} quickTools={QUICK_TOOLS}>
         {/* 01 — Stay off the roof */}
         <ChapterSection id="stay-off" number="01" variant="warning">
           <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-brand-black tracking-tight leading-[1.15] mb-5">
-            First &mdash; don&apos;t get up on your roof.
+            First. Don&apos;t get up on your roof.
           </h2>
           <p className="text-lg text-slate-700 leading-relaxed mb-4">
             We mean this. People who work on roofs every day still get hurt
-            doing it. You shouldn&apos;t be the one finding out what&apos;s
-            broken from on top of one.
+            doing it. You shouldn&apos;t be the one finding out what&apos;s broken
+            from on top of one.
           </p>
           <p className="text-[17px] text-slate-600 leading-relaxed">
-            Almost everything you need to assess your roof, you can see from
-            the ground or from inside the attic with a flashlight. The next
-            four sections walk you through exactly what to look for, in plain
-            English. If after all of that you still can&apos;t tell what&apos;s
-            going on &mdash; that&apos;s what we&apos;re for.{' '}
+            Almost everything you need to figure out about your roof, you can
+            see from the ground, or from inside the attic with a flashlight.
+            The next four sections walk you through it. If you still can&apos;t
+            tell what&apos;s going on, that&apos;s what we&apos;re for.{' '}
             <Link
               href="/request-inspection"
               className="text-brand-red font-semibold border-b border-brand-red/30 hover:border-brand-red"
@@ -117,7 +119,7 @@ export default function CheckYourRoofPage() {
           </h2>
           <p className="text-lg text-slate-700 leading-relaxed mb-8">
             Walk all four sides of your house. Look up. Look down. Here&apos;s
-            what to look for &mdash; and what it usually means.
+            what to look for, and what it usually means.
           </p>
 
           <div className="space-y-6">
@@ -125,12 +127,12 @@ export default function CheckYourRoofPage() {
               {
                 n: 1,
                 t: 'Shingles in the yard',
-                d: 'If you find pieces of shingle in your yard, in your neighbor\'s yard, or under bushes, your roof lost them. Wind got under them. The rest are now suspect.',
+                d: "If you find pieces of shingle in your yard, in your neighbor's yard, or under bushes, your roof lost them. Wind got under them. The rest are now suspect.",
               },
               {
                 n: 2,
                 t: 'Bare patches up there',
-                d: 'Stand across the street and look up at the roof. Anywhere it looks a different color — usually darker — is a spot where the shingle or its protective layer is gone.',
+                d: 'Stand across the street and look up at the roof. Anywhere it looks a different color, usually darker, is a spot where the shingle or its protective layer is gone.',
               },
               {
                 n: 3,
@@ -140,17 +142,17 @@ export default function CheckYourRoofPage() {
               {
                 n: 4,
                 t: 'Bent or missing metal',
-                d: 'Around the chimney, in the valleys where two roof slopes meet, and around vents and pipes. Anywhere metal is bent up, missing, or rusty — that\'s where water gets in first.',
+                d: "Around the chimney, in the valleys where two slopes meet, and around vents and pipes. Anywhere metal is bent up, missing, or rusty, that's where water gets in first.",
               },
               {
                 n: 5,
                 t: 'Dips or sagging',
-                d: 'Look at the ridge of the roof — the top line. It should be straight. A dip, a wave, or a sag means the wood underneath is failing. That\'s a structural call, not a shingle one.',
+                d: "Look at the ridge of the roof, the top line. It should be straight. A dip, a wave, or a sag means the wood underneath is failing. That's a structural call, not a shingle one.",
               },
               {
                 n: 6,
                 t: 'Stains inside the house',
-                d: 'Brown or yellow rings on ceilings or upper walls. Bubbled paint. Musty smell in an upstairs closet. The leak you\'re looking for is usually nowhere near where you see the stain.',
+                d: "Brown or yellow rings on ceilings or upper walls. Bubbled paint. A musty smell in an upstairs closet. The leak you're looking for is usually nowhere near where you see the stain.",
               },
             ].map((item) => (
               <div key={item.n} className="flex gap-4 sm:gap-5">
@@ -174,7 +176,7 @@ export default function CheckYourRoofPage() {
               href="/guide/downloads/ground-walkaround-checklist"
               className="inline-flex items-center gap-2 text-brand-red font-semibold border-b border-brand-red/40 hover:border-brand-red pb-0.5"
             >
-              Download the ground-walkaround checklist &rarr;
+              Download the ground walkaround checklist &rarr;
             </Link>
           </div>
         </ChapterSection>
@@ -191,8 +193,8 @@ export default function CheckYourRoofPage() {
               </span>
               <q className="text-xl sm:text-2xl text-brand-black font-semibold leading-snug tracking-tight not-italic">
                 If anyone tells you they spotted damage on your roof from the
-                street, they&apos;re either lying or they have superhuman eyes.
-                Real damage takes a real look.
+                street, they&apos;re either lying or they have superhuman
+                eyes. Real damage takes a real look.
               </q>
               <cite className="block mt-4 text-xs font-bold uppercase tracking-[0.14em] text-slate-500 not-italic">
                 NC Roofing Service &middot; on storm chasers &middot;{' '}
@@ -210,10 +212,10 @@ export default function CheckYourRoofPage() {
             Photos to take before you call anyone.
           </h2>
           <p className="text-lg text-slate-700 leading-relaxed mb-6">
-            Most homeowners don&apos;t know to do this. Insurance adjusters and
-            honest roofers both benefit when you have your own pictures from
-            before they show up. And storm chasers can&apos;t invent damage
-            that your photos prove wasn&apos;t there.
+            Most homeowners don&apos;t know to do this. Adjusters and honest
+            roofers both benefit when you have your own pictures from before
+            they show up. Storm chasers can&apos;t invent damage that your
+            photos prove wasn&apos;t there.
           </p>
 
           <ol className="space-y-3 mb-8 list-decimal list-outside ml-5 marker:text-brand-red marker:font-bold">
@@ -222,17 +224,17 @@ export default function CheckYourRoofPage() {
               full roofline in frame.
             </li>
             <li className="pl-2 text-[16px] text-slate-700 leading-relaxed">
-              Close-ups of anything that looks wrong &mdash; debris in the
-              yard, missing shingles, dents in the gutters or in metal vents.
+              Close-ups of anything that looks wrong. Debris in the yard,
+              missing shingles, dents in the gutters or in metal vents.
             </li>
             <li className="pl-2 text-[16px] text-slate-700 leading-relaxed">
               If you can safely enter the attic, point a flashlight up at the
-              rafters and the underside of the roof. Photograph daylight,
-              dark stains, or wet wood.
+              rafters and the underside of the roof. Photograph daylight, dark
+              stains, or wet wood.
             </li>
             <li className="pl-2 text-[16px] text-slate-700 leading-relaxed">
-              Any storm debris in the yard &mdash; branches, hail on the
-              lawn, broken siding pieces.
+              Any storm debris in the yard. Branches, hail on the lawn, broken
+              siding pieces.
             </li>
             <li className="pl-2 text-[16px] text-slate-700 leading-relaxed">
               Make sure your phone is set to date-stamp photos. The date and
@@ -257,7 +259,7 @@ export default function CheckYourRoofPage() {
             Repair, or replace?
           </h2>
           <p className="text-lg text-slate-700 leading-relaxed mb-8">
-            There&apos;s no single rule, but most honest roofers use a version
+            There&apos;s no single rule. Most honest roofers use some version
             of this. Find the row that sounds like you.
           </p>
 
@@ -284,7 +286,7 @@ export default function CheckYourRoofPage() {
                 a: 'Over 18 years old',
                 b: 'Any significant damage at all',
                 c: 'Replace',
-                csub: 'Even small repairs are usually throwing good money after bad.',
+                csub: 'Small repairs are usually throwing good money after bad.',
               },
               {
                 a: 'Any age',
@@ -355,8 +357,8 @@ export default function CheckYourRoofPage() {
                 h: 'If water is coming in',
                 items: [
                   "Move what's underneath. Buckets, towels, anything that can't get wet.",
-                  'If your attic is safe to enter, channel the drip into a container so it doesn\'t soak into joists.',
-                  "Don't get on the roof to tarp it. Call us. We'll come tarp it for free.",
+                  "If your attic is safe to enter, channel the drip into a container so it doesn't soak the joists.",
+                  "Don't get on the roof to tarp it. Call us. We'll tarp it for free.",
                   'Take photos of the inside damage now. They matter later for insurance.',
                 ],
               },
@@ -410,8 +412,8 @@ export default function CheckYourRoofPage() {
         <section className="bg-white">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 text-center">
             <p className="text-[17px] text-slate-600 leading-relaxed">
-              When you&apos;re ready for a real look from a real person, that&apos;s
-              what we&apos;re for.
+              When you&apos;re ready for a real look from a real person,
+              that&apos;s what we&apos;re for.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
               <Link
@@ -447,7 +449,7 @@ export default function CheckYourRoofPage() {
               '@type': 'Article',
               headline: chapter.question,
               description:
-                "Plain-English checks you can do from the ground, photos to take before you call anyone, and how to know whether it's a repair or a replacement.",
+                "Six things to look for from the ground. The photos to take before you call anyone. How to tell a repair from a replacement.",
               url: absoluteUrl(chapter.href),
               author: {
                 '@type': 'Organization',

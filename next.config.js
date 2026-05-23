@@ -85,6 +85,30 @@ const nextConfig = {
         destination: '/about#crew',
         permanent: true,
       },
+      // The three legacy /resources/* article pages were replaced by
+      // chapters of The Honest Roof Guide. Permanent 301s carry SEO value
+      // across to the new canonical URLs.
+      {
+        source: '/resources/metal-roofing-guide',
+        destination: '/guide/plan-your-roof#three-materials',
+        permanent: true,
+      },
+      {
+        source: '/resources/insurance-claim-guide',
+        destination: '/guide/pay-for-it#insurance',
+        permanent: true,
+      },
+      {
+        source: '/resources/roof-replacement-cost-guide',
+        destination: '/guide/cost-estimator',
+        permanent: true,
+      },
+      // The /resources index now lives inside the guide hub.
+      {
+        source: '/resources',
+        destination: '/guide',
+        permanent: true,
+      },
     ]
   },
 }

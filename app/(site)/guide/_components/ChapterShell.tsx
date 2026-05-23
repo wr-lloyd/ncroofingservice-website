@@ -6,10 +6,12 @@ import PrevNextChapter from './PrevNextChapter'
 
 interface ChapterShellProps {
   chapter: Chapter
+  /** Lede paragraph rendered under the chapter h1. */
+  lede: string
   tocItems: TocItem[]
   /** Optional quick-tools tiles for the hero. */
   quickTools?: React.ComponentProps<typeof ChapterHero>['quickTools']
-  /** Chapter body — typically a series of `<ChapterSection>` elements. */
+  /** Chapter body. Typically a series of `<ChapterSection>` elements. */
   children: React.ReactNode
 }
 
@@ -21,6 +23,7 @@ interface ChapterShellProps {
  */
 export default function ChapterShell({
   chapter,
+  lede,
   tocItems,
   quickTools,
   children,
@@ -28,7 +31,7 @@ export default function ChapterShell({
   const { prev, next } = getChapterNeighbors(chapter.slug)
   return (
     <main className="pt-20 bg-white">
-      <ChapterHero chapter={chapter} quickTools={quickTools} />
+      <ChapterHero chapter={chapter} lede={lede} quickTools={quickTools} />
       <ChapterTOC items={tocItems} variant="mobile" />
 
       <div className="max-w-7xl mx-auto lg:px-8">

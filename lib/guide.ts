@@ -6,7 +6,7 @@
 
 export const GUIDE_NAME = 'The Honest Roof Guide'
 export const GUIDE_TAGLINE =
-  "A roof is a 20-year decision. We'll help you make it well — even if you never call us."
+  "A roof is a 20-year decision. We wrote this to help you make it well. Useful even if you never call us."
 export const GUIDE_URL = '/guide'
 
 // Stats surfaced on the hub and inside chapters. Update here, propagates
@@ -51,7 +51,7 @@ export const CHAPTERS: Chapter[] = [
     shortLabel: 'Check your roof',
     question: "What's actually wrong with my roof?",
     summary:
-      "Plain-English checks you can do from the ground, photos to take before you call anyone, and how to know whether it's a repair or a replacement.",
+      "Plain checks you can do from the ground. Photos to take before you call anyone. How to tell a repair from a replacement.",
     readMinutes: 5,
     href: '/guide/check-your-roof',
     status: 'live',
@@ -61,12 +61,12 @@ export const CHAPTERS: Chapter[] = [
     slug: 'plan-your-roof',
     eyebrow: 'Chapter two · Plan your roof',
     shortLabel: 'Plan your roof',
-    question: 'What kind of roof do I need — and what does it really cost?',
+    question: 'What kind of roof do I need, and what does it really cost?',
     summary:
-      "The three materials you'll actually choose between, the nine components of a real roof, and honest NC pricing ranges.",
+      "Three materials worth your time. The nine pieces that go on every real roof. Honest NC prices, with a calculator that does the math.",
     readMinutes: 7,
     href: '/guide/plan-your-roof',
-    status: 'coming-soon',
+    status: 'live',
   },
   {
     number: '03',
@@ -75,22 +75,22 @@ export const CHAPTERS: Chapter[] = [
     shortLabel: 'Pay for it',
     question: 'How am I going to pay for this?',
     summary:
-      "Insurance honestly. Financing without the upsell. The three real paths to paying for a roof — and which one fits you.",
+      "Insurance, said straight. Financing without the upsell. The three real paths to a paid-for roof, and which one fits you.",
     readMinutes: 6,
     href: '/guide/pay-for-it',
-    status: 'coming-soon',
+    status: 'live',
   },
   {
     number: '04',
     slug: 'pick-a-roofer',
     eyebrow: 'Chapter four · Pick a roofer',
     shortLabel: 'Pick a good roofer',
-    question: "Who should I hire — and how do I know if they're honest?",
+    question: "Who should I hire, and how do I know they're honest?",
     summary:
-      "Five non-negotiables, twenty questions to ask, red flags to spot, and the reference check that catches everything.",
+      "Five non-negotiables. Twenty questions to ask. The red flags that mean walk away. A reference check script that catches the rest.",
     readMinutes: 8,
     href: '/guide/pick-a-roofer',
-    status: 'coming-soon',
+    status: 'live',
   },
   {
     number: '05',
@@ -99,10 +99,10 @@ export const CHAPTERS: Chapter[] = [
     shortLabel: 'The day we install',
     question: 'What happens the day they put it on?',
     summary:
-      "The week-before prep, the hour-by-hour of install day, what's normal and what isn't, and the end-of-day handoff.",
+      "Prep the week before. Hour by hour on install day. What's normal and what isn't. The handoff before the crew leaves.",
     readMinutes: 6,
     href: '/guide/install-day',
-    status: 'coming-soon',
+    status: 'live',
   },
   {
     number: '06',
@@ -111,10 +111,10 @@ export const CHAPTERS: Chapter[] = [
     shortLabel: "After we're done",
     question: 'What do I do once the new roof is on?',
     summary:
-      'The first 30 days. Your warranty, in plain English. A maintenance timeline. When to call us back.',
+      'The first 30 days. Your warranty, said plainly. A year by year maintenance plan. When to call us back, and when not to.',
     readMinutes: 5,
     href: '/guide/after-the-job',
-    status: 'coming-soon',
+    status: 'live',
   },
 ]
 

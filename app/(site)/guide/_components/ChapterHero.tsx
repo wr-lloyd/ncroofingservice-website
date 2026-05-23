@@ -4,6 +4,11 @@ import type { Chapter } from '@/lib/guide'
 interface ChapterHeroProps {
   chapter: Chapter
   /**
+   * Lede paragraph shown under the h1. Each chapter writes its own so the
+   * voice is specific to that chapter's reader.
+   */
+  lede: string
+  /**
    * Optional "Quick tools for this chapter" tiles shown under the lede.
    * Caller decides which tools belong on a given chapter.
    */
@@ -30,8 +35,9 @@ const TONE_CLASSES: Record<'tool' | 'pdf' | 'book', string> = {
  */
 export default function ChapterHero({
   chapter,
+  lede,
   quickTools,
-  updated = 'November 2025',
+  updated = 'May 2026',
 }: ChapterHeroProps) {
   return (
     <header className="bg-white border-b border-slate-100">
@@ -63,9 +69,7 @@ export default function ChapterHero({
               {chapter.question}
             </h1>
             <p className="mt-5 text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl">
-              This chapter is for the person who just had a storm. The one who
-              noticed a stain on the ceiling. The one whose neighbor just got a
-              new roof and is now wondering. Read what fits. Skip the rest.
+              {lede}
             </p>
             <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] text-slate-500">
               <span>{chapter.readMinutes} minute read</span>

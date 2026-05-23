@@ -39,8 +39,7 @@ export default function TrustQuote() {
               {GUIDE_STATS.componentsCount}
             </div>
             <p className="mt-3 text-sm text-slate-600 leading-relaxed">
-              Essential components we install on every roof &mdash; not just
-              shingles.
+              Real components we install on every roof. Not just shingles.
             </p>
           </div>
         </div>

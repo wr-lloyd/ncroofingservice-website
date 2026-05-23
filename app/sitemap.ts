@@ -42,10 +42,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/resources`,
+      url: `${baseUrl}/guide`,
       lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
+      changeFrequency: 'weekly',
+      priority: 0.95,
     },
     {
       url: `${baseUrl}/contact`,
@@ -118,25 +118,76 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  const resourcePages: MetadataRoute.Sitemap = [
+  // The legacy /resources/* pages now 301 to chapters of The Honest Roof
+  // Guide (see next.config.js redirects). They are intentionally excluded
+  // from the sitemap; the canonical destinations are listed below.
+  const guidePages: MetadataRoute.Sitemap = [
     {
-      url: `${baseUrl}/resources/roof-replacement-cost-guide`,
+      url: `${baseUrl}/guide/cost-estimator`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.85,
     },
     {
-      url: `${baseUrl}/resources/insurance-claim-guide`,
+      url: `${baseUrl}/guide/check-your-roof`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.85,
     },
     {
-      url: `${baseUrl}/resources/metal-roofing-guide`,
+      url: `${baseUrl}/guide/plan-your-roof`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.85,
     },
+    {
+      url: `${baseUrl}/guide/pay-for-it`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/guide/pick-a-roofer`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/guide/install-day`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/guide/after-the-job`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    // Downloadable / printable references. Slugs match lib/guide-downloads.ts.
+    ...[
+      'photo-checklist',
+      'ground-walkaround-checklist',
+      'repair-or-replace-decision-tree',
+      'nine-components-of-a-real-roof',
+      'materials-comparison',
+      'insurance-claim-walkthrough',
+      'payment-options-worksheet',
+      'five-non-negotiables',
+      'twenty-questions-to-ask-every-roofer',
+      'storm-chaser-red-flags',
+      'reference-check-script',
+      'week-before-prep-checklist',
+      'end-of-day-handoff-checklist',
+      'first-30-days-checklist',
+      'maintenance-timeline',
+      'warranty-explainer',
+    ].map((slug) => ({
+      url: `${baseUrl}/guide/downloads/${slug}`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.5,
+    })),
   ]
 
   const residentialPages: MetadataRoute.Sitemap = [
@@ -220,7 +271,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...mainPages,
     ...residentialPages,
     ...commercialPages,
-    ...resourcePages,
+    ...guidePages,
     ...blogPages,
     ...locationPages,
     ...serviceCityPages,
