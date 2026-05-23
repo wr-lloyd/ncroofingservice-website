@@ -12,6 +12,28 @@ import {
   type Region,
   type StoryCount,
 } from './estimator-math'
+import {
+  ArchitecturalIcon,
+  CharlotteRegionIcon,
+  ComplexIcon,
+  MetalIcon,
+  ModerateIcon,
+  MountainsCoastRegionIcon,
+  OneStoryIcon,
+  PitchExtremeIcon,
+  PitchLowIcon,
+  PitchStandardIcon,
+  PitchSteepIcon,
+  PitchVerySteepIcon,
+  PremiumIcon,
+  SimpleIcon,
+  SmallTownRegionIcon,
+  ThreeStoryIcon,
+  TriangleRegionIcon,
+  TwoStoryIcon,
+} from './icons'
+
+type IconCmp = (props: { className?: string }) => JSX.Element
 
 interface FormState {
   heatedSqft: number
@@ -115,11 +137,28 @@ export default function Estimator() {
           {/* Stories */}
           <Choice
             label="Stories"
+            help="How tall is the house from the ground to the peak of the roof?"
             value={form.stories}
+            cols={3}
             options={[
-              { value: 1, label: 'One' },
-              { value: 2, label: 'Two' },
-              { value: 3, label: 'Three' },
+              {
+                value: 1,
+                label: 'One',
+                Icon: OneStoryIcon,
+                description: 'Ranch or single-floor home. Crew can usually reach the eaves from a normal ladder.',
+              },
+              {
+                value: 2,
+                label: 'Two',
+                Icon: TwoStoryIcon,
+                description: 'Two floors of living space. Adds ladder time and safety setup.',
+              },
+              {
+                value: 3,
+                label: 'Three',
+                Icon: ThreeStoryIcon,
+                description: 'Three floors, or two with a tall walkout basement. More staging, more safety.',
+              },
             ]}
             onChange={(v) => set('stories', v)}
           />
@@ -127,14 +166,40 @@ export default function Estimator() {
           {/* Pitch */}
           <Choice
             label="Roof pitch (how steep)"
-            help="If you don't know, pick standard. Most NC homes are standard."
+            help="Stand at the curb and look at the side of your roof. Match it to one of these shapes. If you can't tell, pick standard. Most NC homes are standard."
             value={form.pitch}
+            cols={5}
             options={[
-              { value: 'low', label: 'Low' },
-              { value: 'standard', label: 'Standard' },
-              { value: 'steep', label: 'Steep' },
-              { value: 'very-steep', label: 'Very steep' },
-              { value: 'extreme', label: 'Extreme' },
+              {
+                value: 'low',
+                label: 'Low',
+                Icon: PitchLowIcon,
+                description: 'Almost flat. You could walk on it without thinking about it. Common on porches, additions, and modern homes.',
+              },
+              {
+                value: 'standard',
+                label: 'Standard',
+                Icon: PitchStandardIcon,
+                description: 'The typical NC roof. Walkable but you feel the slope. Most ranches and traditional two-story houses are here.',
+              },
+              {
+                value: 'steep',
+                label: 'Steep',
+                Icon: PitchSteepIcon,
+                description: 'Slower work, more careful footwork. Common on Victorians, taller Colonials, and some modern designs.',
+              },
+              {
+                value: 'very-steep',
+                label: 'Very steep',
+                Icon: PitchVerySteepIcon,
+                description: 'Roped and harnessed work. You can see it is dramatic from the street. Adds time and safety gear.',
+              },
+              {
+                value: 'extreme',
+                label: 'Extreme',
+                Icon: PitchExtremeIcon,
+                description: 'A-frame or church-roof steep. Rare on homes. Full fall protection on every step.',
+              },
             ]}
             onChange={(v) => set('pitch', v)}
           />
@@ -142,11 +207,28 @@ export default function Estimator() {
           {/* Material */}
           <Choice
             label="Material"
+            help="What goes on top. Each material has a different lifespan, look, and cost."
             value={form.material}
+            cols={3}
             options={[
-              { value: 'architectural', label: 'Architectural' },
-              { value: 'premium', label: 'Premium' },
-              { value: 'metal', label: 'Metal' },
+              {
+                value: 'architectural',
+                label: 'Architectural shingle',
+                Icon: ArchitecturalIcon,
+                description: 'The standard. Layered asphalt shingle. 25 to 30 year life. What most NC homes have right now.',
+              },
+              {
+                value: 'premium',
+                label: 'Premium shingle',
+                Icon: PremiumIcon,
+                description: 'Thicker, heavier, designer-grade shingle. 30 to 50 year life. Better wind rating, deeper shadow lines.',
+              },
+              {
+                value: 'metal',
+                label: 'Standing-seam metal',
+                Icon: MetalIcon,
+                description: 'Vertical metal panels with concealed seams. 50+ year life. Higher upfront cost, lower lifetime cost.',
+              },
             ]}
             onChange={(v) => set('material', v)}
           />
@@ -154,12 +236,28 @@ export default function Estimator() {
           {/* Complexity */}
           <Choice
             label="Roof complexity"
-            help="Count the dormers and the valleys. More = complex."
+            help="Look at the roof from the curb. Count the peaks, dormers, and corners. More angles means more flashing and more time."
             value={form.complexity}
+            cols={3}
             options={[
-              { value: 'simple', label: 'Simple' },
-              { value: 'moderate', label: 'Moderate' },
-              { value: 'complex', label: 'Complex' },
+              {
+                value: 'simple',
+                label: 'Simple',
+                Icon: SimpleIcon,
+                description: 'One main peak. Basic gable or hip roof. Few or no dormers, valleys, or chimneys.',
+              },
+              {
+                value: 'moderate',
+                label: 'Moderate',
+                Icon: ModerateIcon,
+                description: 'Typical two-story home. One or two dormers. A valley or two. One chimney.',
+              },
+              {
+                value: 'complex',
+                label: 'Complex',
+                Icon: ComplexIcon,
+                description: 'Multiple intersecting peaks. Several dormers. Lots of valleys. Skylights, multiple chimneys.',
+              },
             ]}
             onChange={(v) => set('complexity', v)}
           />
@@ -167,12 +265,34 @@ export default function Estimator() {
           {/* Region */}
           <Choice
             label="Where in NC"
+            help="Local labor and dump-fee differences. Triangle and Charlotte are our baseline."
             value={form.region}
+            cols={4}
             options={[
-              { value: 'triangle', label: 'Triangle' },
-              { value: 'charlotte', label: 'Charlotte' },
-              { value: 'small-town', label: 'Small town' },
-              { value: 'mountains-coast', label: 'Mtns/coast' },
+              {
+                value: 'triangle',
+                label: 'Triangle',
+                Icon: TriangleRegionIcon,
+                description: 'Raleigh, Durham, Chapel Hill, Cary, Apex, Wake Forest, Holly Springs.',
+              },
+              {
+                value: 'charlotte',
+                label: 'Charlotte',
+                Icon: CharlotteRegionIcon,
+                description: 'Charlotte metro and the surrounding suburbs.',
+              },
+              {
+                value: 'small-town',
+                label: 'Small town',
+                Icon: SmallTownRegionIcon,
+                description: 'Smaller NC towns outside the metros. Slightly lower labor cost.',
+              },
+              {
+                value: 'mountains-coast',
+                label: 'Mountains or coast',
+                Icon: MountainsCoastRegionIcon,
+                description: 'Blue Ridge, foothills, or the coast. Travel and weather windows add cost.',
+              },
             ]}
             onChange={(v) => set('region', v)}
           />
@@ -304,12 +424,21 @@ function Row({ k, v }: { k: string; v: string }) {
   )
 }
 
+interface ChoiceOption<T extends string | number> {
+  value: T
+  label: string
+  Icon?: IconCmp
+  description?: string
+}
+
 interface ChoiceProps<T extends string | number> {
   label: string
   help?: string
   value: T
-  options: ReadonlyArray<{ value: T; label: string }>
+  options: ReadonlyArray<ChoiceOption<T>>
   onChange: (v: T) => void
+  /** Number of columns for the option grid on >= sm screens. Mobile is always 2. */
+  cols?: 2 | 3 | 4 | 5
 }
 
 function Choice<T extends string | number>({
@@ -318,32 +447,62 @@ function Choice<T extends string | number>({
   value,
   options,
   onChange,
+  cols = 3,
 }: ChoiceProps<T>) {
+  const colsClass =
+    cols === 5
+      ? 'sm:grid-cols-5'
+      : cols === 4
+      ? 'sm:grid-cols-4'
+      : cols === 3
+      ? 'sm:grid-cols-3'
+      : 'sm:grid-cols-2'
+
+  const active = options.find((o) => o.value === value)
+
   return (
     <div>
       <label className="block text-sm font-semibold text-brand-black mb-1">
         {label}
       </label>
-      {help && <p className="text-xs text-slate-500 mb-2">{help}</p>}
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-2">
+      {help && <p className="text-xs text-slate-500 mb-3">{help}</p>}
+      <div className={`grid grid-cols-2 ${colsClass} gap-2`}>
         {options.map((opt) => {
-          const active = opt.value === value
+          const isActive = opt.value === value
+          const Icon = opt.Icon
           return (
             <button
               key={String(opt.value)}
               type="button"
               onClick={() => onChange(opt.value)}
-              className={`px-3 py-2 rounded-[6px] text-[13px] font-semibold border transition-colors text-left ${
-                active
-                  ? 'bg-brand-red text-white border-brand-red'
+              title={opt.description}
+              aria-pressed={isActive}
+              className={`flex flex-col items-center justify-start gap-2 px-2 py-3 rounded-[6px] text-[12px] font-semibold border transition-colors text-center min-h-[84px] ${
+                isActive
+                  ? 'bg-brand-red text-white border-brand-red shadow-sm'
                   : 'bg-white text-brand-black border-slate-300 hover:border-brand-red hover:text-brand-red'
               }`}
             >
-              {opt.label}
+              {Icon && (
+                <span
+                  className={`flex items-center justify-center w-12 h-7 ${
+                    isActive ? 'text-white' : 'text-slate-500'
+                  }`}
+                >
+                  <Icon />
+                </span>
+              )}
+              <span className="leading-tight">{opt.label}</span>
             </button>
           )
         })}
       </div>
+      {active?.description && (
+        <p className="mt-2 text-[12.5px] text-slate-500 leading-relaxed">
+          <span className="font-semibold text-brand-black">{active.label}:</span>{' '}
+          {active.description}
+        </p>
+      )}
     </div>
   )
 }

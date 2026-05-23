@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { absoluteUrl } from '@/lib/site'
+import { absoluteUrl, OFFICE_PHONE, OFFICE_PHONE_DISPLAY } from '@/lib/site'
+import { GUIDE_STATS } from '@/lib/guide'
 import Estimator from './_components/Estimator'
 
 export const metadata: Metadata = {
@@ -58,36 +59,82 @@ export default function CostEstimatorPage() {
         </div>
       </section>
 
-      {/* How the math works */}
+      {/* Why we built it this way */}
       <section className="bg-white border-t border-slate-200">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
           <div className="text-xs font-bold uppercase tracking-[0.14em] text-brand-red mb-3">
-            How we got the number
+            Why this is different
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-brand-black tracking-tight mb-5">
-            The math behind the range.
+            Why we built this tool the way we did.
           </h2>
+
           <p className="text-[16px] text-slate-700 leading-relaxed mb-4">
-            We start with a per-square base. (One square is 100 sq ft of roof.)
-            In NC right now, that base is $350 to $450 a square for a standard
-            architectural shingle install. Then we add for the things that
-            actually cost more on the job.
+            Most roofer &ldquo;calculators&rdquo; online aren&apos;t calculators.
+            They&apos;re contact forms with a fake number screen that says{' '}
+            <em>&ldquo;we&apos;ll email you a quote.&rdquo;</em> You give up your
+            phone and email, then a salesperson calls. We got tired of customers
+            telling us they&apos;d been through that. So we built this instead.
           </p>
-          <ul className="space-y-2 text-[15px] text-slate-700 list-disc list-outside ml-5 marker:text-brand-red mb-6">
-            <li>+$10/square if the house is two stories. Ladders, safety, time.</li>
-            <li>+$10/square for a steep pitch (7/12 to 9/12). Slower, safer work.</li>
-            <li>+$10/square more for very steep (10/12 to 12/12). Roped, harnessed.</li>
-            <li>Material multiplier: premium shingle is about 1.35x, standing-seam metal is about 3.10x.</li>
-            <li>Complexity multiplier: more dormers, valleys, and penetrations means more flashing and more time.</li>
-            <li>Regional multiplier: Triangle and Charlotte are baseline. Small towns about 5% less. Mountains and coast about 7% more.</li>
-          </ul>
-          <p className="text-[16px] text-slate-700 leading-relaxed">
-            Then the calculator gives you a range, low to high. Our own written
-            quotes almost always land inside that range. When they land
-            outside, it is because we found something on the deck that no
-            calculator could know about. Bad wood. A chimney that needs work.
-            A skylight a previous roofer ruined.
+
+          <p className="text-[16px] text-slate-700 leading-relaxed mb-4">
+            <strong className="text-brand-black">
+              The math runs on your phone, in your browser.
+            </strong>{' '}
+            Nothing leaves your machine. We don&apos;t know you ran the
+            calculator. We can&apos;t. The page doesn&apos;t send anything
+            anywhere unless you ask it to.
           </p>
+
+          <p className="text-[16px] text-slate-700 leading-relaxed mb-4">
+            The numbers behind the math come from the {GUIDE_STATS.jobsLastYear}{' '}
+            roofs we replaced in North Carolina in 2025. Real jobs in Charlotte,
+            the Triangle, and the Blue Ridge, with the materials and
+            complexities you&apos;re picking between. We update the model every
+            spring.
+          </p>
+
+          <p className="text-[16px] text-slate-700 leading-relaxed mb-8">
+            When you&apos;re ready for a real number, not a range,{' '}
+            <Link
+              href="/request-inspection"
+              className="text-brand-red font-semibold hover:underline"
+            >
+              schedule a free look
+            </Link>
+            . One of our roofers will walk your roof, take drone photos, and
+            give you a written quote in 30 minutes on-site. No deposit, no
+            obligation.
+          </p>
+
+          <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 mb-4">
+            <h3 className="text-base font-bold text-brand-black mb-2">
+              How accurate is this, really?
+            </h3>
+            <p className="text-[15px] text-slate-700 leading-relaxed">
+              Within $1,500 of our final written quote on 4 out of 5 of the
+              roofs we end up doing after a visit. The visit catches what a
+              webpage can&apos;t. Soft decking, chimney repairs, an unusual
+              roof shape.
+            </p>
+          </div>
+
+          <div className="bg-slate-50 border border-slate-200 rounded-xl p-6">
+            <h3 className="text-base font-bold text-brand-black mb-2">
+              What if my roof is unusual?
+            </h3>
+            <p className="text-[15px] text-slate-700 leading-relaxed">
+              Call{' '}
+              <a
+                href={`tel:${OFFICE_PHONE}`}
+                className="text-brand-red font-semibold hover:underline"
+              >
+                {OFFICE_PHONE_DISPLAY}
+              </a>
+              . We&apos;ll tell you straight whether our typical model fits
+              your house, or doesn&apos;t. Free, no pressure.
+            </p>
+          </div>
         </div>
       </section>
 
