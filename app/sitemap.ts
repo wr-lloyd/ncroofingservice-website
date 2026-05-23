@@ -123,6 +123,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // from the sitemap; the canonical destinations are listed below.
   const guidePages: MetadataRoute.Sitemap = [
     {
+      url: `${baseUrl}/guide/companion`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/guide/cost-estimator`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
