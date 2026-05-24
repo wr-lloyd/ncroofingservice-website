@@ -34,7 +34,7 @@ const locationLinks = [
 // estimator (the most-used tool in the guide), then every chapter.
 const guideLinks = [
   { href: '/guide', label: 'The Honest Roof Guide' },
-  { href: '/guide/companion', label: 'The Pocket Companion (print)' },
+  { href: '/guide/companion', label: 'The Field Guide (print)' },
   { href: '/guide/cost-estimator', label: 'Cost Estimator' },
   { href: '/guide/check-your-roof', label: 'Ch. 01 · Check your roof' },
   { href: '/guide/plan-your-roof', label: 'Ch. 02 · Plan your roof' },

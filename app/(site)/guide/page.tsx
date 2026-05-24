@@ -62,7 +62,7 @@ export default function GuideHubPage() {
                   d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                 />
               </svg>
-              The Pocket Companion
+              The Field Guide
             </Link>
             <a
               href={`tel:${OFFICE_PHONE}`}
@@ -81,7 +81,7 @@ export default function GuideHubPage() {
             </a>
           </div>
           <p className="mt-4 text-xs text-slate-500 text-center">
-            The Pocket Companion is the whole guide in one printable
+            The Field Guide is ten moments to watch for, on one printable
             document. Take it with you when you talk to roofers.
           </p>
         </div>
