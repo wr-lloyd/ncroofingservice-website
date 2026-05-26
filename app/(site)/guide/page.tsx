@@ -81,8 +81,8 @@ export default function GuideHubPage() {
             </a>
           </div>
           <p className="mt-4 text-xs text-slate-500 text-center">
-            The Field Guide is ten moments to watch for, on one printable
-            document. Take it with you when you talk to roofers.
+            The Field Guide is twelve moments to watch for, on one
+            printable document. Take it with you when you talk to roofers.
           </p>
         </div>
       </section>

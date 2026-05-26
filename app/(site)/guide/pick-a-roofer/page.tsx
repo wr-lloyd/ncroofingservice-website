@@ -2,6 +2,14 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getChapter } from '@/lib/guide'
 import { absoluteUrl, OFFICE_PHONE, OFFICE_PHONE_DISPLAY } from '@/lib/site'
+import {
+  VERIFY_NC_LICENSE,
+  VERIFY_GAF,
+  VERIFY_CERTAINTEED,
+  VERIFY_OWENS_CORNING,
+  VERIFY_FORTIFIED,
+  VERIFY_BBB,
+} from '@/lib/verification-links'
 import ChapterShell from '../_components/ChapterShell'
 import ChapterSection from '../_components/ChapterSection'
 import ToolsSection from '../_components/ToolsSection'
@@ -80,30 +88,46 @@ const TOOLS = [
   },
 ]
 
-const NON_NEGOTIABLES = [
+const NON_NEGOTIABLES: Array<{
+  n: number
+  h: string
+  sub: string
+  body: string
+  /** Verification links rendered beneath the body. The display string is
+   *  printable-friendly (no protocol) and the url is clickable. */
+  verify?: Array<{ display: string; url: string; label: string }>
+}> = [
   {
     n: 1,
     h: 'NC general contractor license',
     sub: 'Required at $30k+ jobs',
-    body: 'Verify on nclbgc.org. Search by company name. The license must be active and unsuspended. No license, no $30k+ replacement. Period.',
+    body: 'Search by company name. The license must be active and unsuspended. No license, no $30k+ replacement. Period.',
+    verify: [VERIFY_NC_LICENSE],
   },
   {
     n: 2,
     h: 'General liability + workers comp',
     sub: 'Get the COI by email',
-    body: '$1M minimum general liability. Workers comp required for any NC company with 3+ employees. Call the broker on the COI to confirm it is current. Roofers sometimes hand out old ones.',
+    body: '$1M minimum general liability. Workers comp required for any NC company with 3+ employees. Call the broker listed on the Certificate of Insurance to confirm it is current. Roofers sometimes hand out old ones. Never let anyone climb your roof until you have a current COI in hand — if an uninsured worker falls on your property, your homeowner\'s policy can end up paying.',
   },
   {
     n: 3,
     h: 'Manufacturer certification',
-    sub: 'GAF, Owens Corning, or CertainTeed',
-    body: 'GAF Master Elite, Owens Corning Platinum Preferred, or CertainTeed SELECT ShingleMaster. Verify on the manufacturer site, not the roofer site. These certifications unlock the longest warranty tiers.',
+    sub: 'GAF, CertainTeed, Owens Corning, or Fortified',
+    body: 'GAF Certified or Master Elite, CertainTeed Credentialed or SELECT ShingleMaster, Owens Corning Preferred or Platinum Preferred, Fortified-trained for storm-resilient roofing. Verify on the manufacturer site, not the roofer site. These certifications unlock the longest warranty tiers and prove a roofer met the manufacturer\'s training and insurance requirements.',
+    verify: [
+      VERIFY_GAF,
+      VERIFY_CERTAINTEED,
+      VERIFY_OWENS_CORNING,
+      VERIFY_FORTIFIED,
+    ],
   },
   {
     n: 4,
     h: 'Real local reviews',
     sub: '4.7+ across 50+ reviews',
     body: 'Read the 3-star reviews. Skip the 5-stars and 1-stars. Look for replies from the company within a week. Cross-check with the BBB. A+ with one or two resolved complaints is normal. Unresolved complaints are a problem.',
+    verify: [VERIFY_BBB],
   },
   {
     n: 5,
@@ -192,6 +216,27 @@ export default function PickARooferPage() {
                   <p className="mt-2 text-[15.5px] text-slate-600 leading-relaxed">
                     {item.body}
                   </p>
+                  {item.verify && item.verify.length > 0 && (
+                    <div className="mt-3 pt-3 border-t border-slate-100">
+                      <div className="text-[11px] font-bold uppercase tracking-[0.12em] text-slate-500 mb-1.5">
+                        Verify at
+                      </div>
+                      <ul className="flex flex-wrap gap-x-4 gap-y-1">
+                        {item.verify.map((v) => (
+                          <li key={v.url} className="text-[14px]">
+                            <a
+                              href={v.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-brand-red font-semibold border-b border-brand-red/40 hover:border-brand-red pb-0.5"
+                            >
+                              {v.display}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -269,10 +314,11 @@ export default function PickARooferPage() {
                 &ldquo;
               </span>
               <q className="text-xl sm:text-2xl text-brand-black font-semibold leading-snug tracking-tight not-italic">
-                A real local roofer does not need to knock on doors. They
-                have a phone that already rings. If someone shows up
-                uninvited and the pitch sounds urgent, that is the whole
-                story right there.
+                A real local roofer might knock on your door. They might
+                not. What they will not do is pressure you for a same-day
+                yes, refuse to hand you a printed business card, or get
+                hostile when you say you want to think about it. The
+                pressure is the story, not the knock.
               </q>
               <cite className="block mt-4 text-xs font-bold uppercase tracking-[0.14em] text-slate-500 not-italic">
                 On storm chasers, after twelve years of cleaning up after them
