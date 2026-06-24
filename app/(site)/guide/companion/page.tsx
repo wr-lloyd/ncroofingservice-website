@@ -178,8 +178,8 @@ export default function CompanionPage() {
       <Moment
         n="01"
         title="Someone knocks on your door"
-        whats={`Someone is on your porch. They want to talk about your roof. The story is almost always similar: "We noticed your neighbor's roof and yours looks like it has the same damage." There's a real difference between a professional canvasser working a neighborhood where they already have customers, and a storm chaser following weather radar across state lines. The first sixty seconds tell you which one is on the porch.`}
-        why={`First impressions aren't a small thing. The way a roofer introduces themselves at the door is the way they'll handle every transaction afterward, including the warranty call three years from now. Credentials offered up front, in writing, with a license number you can verify, is how the good version of this conversation starts.`}
+        whats={`Someone is on your porch wanting to talk about your roof. The story is almost always the same: "We noticed your neighbor's damage." There's a difference between a local roofer working a neighborhood where they already have customers and a storm chaser following weather radar across state lines. The first sixty seconds tell you which one is on the porch.`}
+        why={`How a roofer introduces themselves at the door is how they'll handle every transaction afterward, including the warranty call three years from now. Credentials offered up front, in writing, with a license number you can verify, are how the good version of this starts.`}
         say={`"I'll take your card. If I want to talk, I'll call you. What's your physical office address?"`}
         ask={`"What's your North Carolina license number?" Write it down. Verify it later at ${VERIFY_NC_LICENSE.display} (free, two minutes).`}
         flags={[
@@ -190,14 +190,14 @@ export default function CompanionPage() {
           "They get hostile when you don't decide on the spot",
           "They won't hand you a printed business card with a physical office address on it",
         ]}
-        honestRoofer={`Yes, real roofers sometimes knock too. The difference is in the how. After a storm we may work the neighborhoods where we already have a customer, knocking with their permission so neighbors hear it from someone they know. When we do, we identify ourselves with a printed card showing our NC license number (verifiable at ${VERIFY_NC_LICENSE.display}), a marked truck with NC plates, and we send our Certificate of Insurance before anyone climbs anything. We leave when you say not interested, no hard sell, no follow-up the next morning. From your side, if a real local roofer takes the time to come introduce themselves, take the card — two minutes spent verifying them later could save you a roof.`}
+        honestRoofer={`Yes, real roofers sometimes knock too. The difference is in the how. After a storm we may work the neighborhoods where we already have a customer, knocking with their permission so neighbors hear it from someone they know. When we do, we identify ourselves with a printed card showing our NC license number (verifiable at ${VERIFY_NC_LICENSE.display}), a marked truck with NC plates, and we send our Certificate of Insurance before anyone climbs anything. We leave when you say not interested, no hard sell, no follow-up the next morning. From your side, if a real local roofer takes the time to come introduce themselves, take the card. Two minutes spent verifying them later could save you a roof.`}
       />
 
       <Moment
         n="02"
         title="They want to inspect for free"
-        whats={`A roofer offers to climb your roof at no charge. Most do. The free inspection is the foot in the door — the photos they take and the story they build from them become either an insurance claim or a sales pitch. They'll often have photos of damaged roofs from other jobs ready to show. You won't always know which ones are yours.`}
-        why={`What gets photographed in the next twenty minutes becomes the starting point for everything that follows. Inaccurate photos rarely get corrected. Once a story exists in someone's notes — "extensive hail damage on the north slope" — removing it later is harder than not letting it get written. And before anyone sets foot on your roof, you need their proof of insurance in your hand. If an uninsured worker falls on your property, your homeowner's policy can end up paying the bill.`}
+        whats={`A roofer offers to climb your roof at no charge. The free inspection is the foot in the door. The photos they take become either an insurance claim or a sales pitch. Some carry photos of damaged roofs from other jobs, and you won't always know which ones are yours.`}
+        why={`Inaccurate photos rarely get corrected. Once "extensive hail damage on the north slope" is in someone's notes, removing it later is harder than preventing it. And if an uninsured worker falls on your property, your homeowner's policy can end up paying the bill.`}
         say={`"Before anyone goes up, I'd like a copy of your Certificate of Insurance. And every photo you take comes to my phone before you leave the property."`}
         ask={`"Can I get the address and date of three other roofs you've inspected this month?" A real local roofer can answer this. A traveler can't, or invents one.`}
         flags={[
@@ -208,14 +208,14 @@ export default function CompanionPage() {
           'They take photos but won\'t share them',
           '"This can\'t wait, you have to file the claim today"',
         ]}
-        honestRoofer={`Yes, we inspect for free. We now use a drone for the first pass on most roofs — fewer feet on your roof means less risk of accidental damage and a faster, more thorough photo record. If we do need to climb, we send our Certificate of Insurance ahead of time so you can verify our general liability and workers' comp are current (call the agent listed on the cert, takes two minutes). We send you every photo before we leave, and we tell you "your roof is fine" when it is. From your side: never let anyone on your roof without a current Certificate of Insurance in hand, and only ask for an inspection if you're seriously considering work — a roofer's time on your roof is real time.`}
+        honestRoofer={`Yes, we inspect for free. We now use a drone for the first pass on most roofs. Fewer feet on your roof means less risk of accidental damage and a faster, more thorough photo record. If we do need to climb, we send our Certificate of Insurance ahead of time so you can verify our general liability and workers' comp are current (call the agent listed on the cert, takes two minutes). We send you every photo before we leave, and we tell you "your roof is fine" when it is. From your side: never let anyone on your roof without a current Certificate of Insurance in hand, and only ask for an inspection if you're seriously considering work. A roofer's time on your roof is real time.`}
       />
 
       <Moment
         n="03"
         title="The kitchen-table pitch"
-        whats={`A salesperson is sitting across from you with a folder. The folder is built to make the decision feel inevitable: glossy materials, shingle samples, a tablet ready for a digital signature. The phrases will sound like "we're already in the neighborhood," "today only," "your insurance is paying anyway."`}
-        why={`Pressure in this moment is how five-figure decisions become regrets. The discount that "expires tonight" was almost always going to be the price either way. A salesperson who needs your signature today is telling you their entire follow-up plan depends on you not having time to think.`}
+        whats={`A salesperson sits across from you with a folder built to make the decision feel inevitable: glossy materials, shingle samples, a tablet ready for a signature. The phrases sound like "today only," "we're already in the neighborhood," "your insurance is paying anyway."`}
+        why={`Pressure in this moment is how five-figure decisions become regrets. The discount that expires tonight was almost always going to be the price either way. A salesperson who needs your signature today is counting on you not having time to think.`}
         say={`"I appreciate you coming. I'm getting three quotes and I'll make a decision in two weeks."`}
         ask={`"If I called you back in two weeks with a yes, would the price still stand?" A real roofer says yes without flinching.`}
         flags={[
@@ -226,14 +226,14 @@ export default function CompanionPage() {
           'They mention financing before you mention how you\'re paying',
           '"Your insurance is paying for all of this anyway" (no: your insurance pays a specific scope of loss, and you sign the checks)',
         ]}
-        honestRoofer={`Yes, we sit at kitchen tables too. The difference is what we bring and what we don't bring. We bring a written estimate, shingle samples if you want to see them, copies of our license and insurance, and any manufacturer certifications you ask to verify (we're GAF Certified, CertainTeed Credentialed, and Fortified-trained — verifiable at ${VERIFY_GAF.display}, ${VERIFY_CERTAINTEED.display}, and ${VERIFY_FORTIFIED.display}). We do not bring a tablet for instant signatures, a folder of "today only" pricing, or manufactured urgency. We follow up once, in a week, with a polite check-in. From your side, if you tell three roofers you'll decide in two weeks, then decide in two weeks — even a clear no lets the others move on and serve the next homeowner waiting for a slot.`}
+        honestRoofer={`Yes, we sit at kitchen tables too. The difference is what we bring and what we don't bring. We bring a written estimate, shingle samples if you want to see them, copies of our license and insurance, and any manufacturer certifications you ask to verify (we're GAF Certified, CertainTeed Credentialed, and Fortified-trained, verifiable at ${VERIFY_GAF.display}, ${VERIFY_CERTAINTEED.display}, and ${VERIFY_FORTIFIED.display}). We do not bring a tablet for instant signatures, a folder of "today only" pricing, or manufactured urgency. We follow up once, in a week, with a polite check-in. From your side, if you tell three roofers you'll decide in two weeks, then decide in two weeks. Even a clear no lets the others move on and serve the next homeowner waiting for a slot.`}
       />
 
       <Moment
         n="04"
         title="The insurance adjuster shows up"
-        whats={`An employee of your insurance company is climbing your roof. Their job, on paper, is to fairly assess damage. Their incentive is to minimize the payout. Who's standing next to them changes what gets written down on the scope of loss.`}
-        why={`The scope of loss the adjuster writes on this visit is the legal document everything downstream depends on. What's missed in this hour can cost you five to fifteen thousand dollars in real damage you'll pay for yourself later. Once a claim is closed, reopening it is slow and rarely fully successful.`}
+        whats={`An employee of your insurance company is on your roof. Their job, on paper, is to fairly assess damage. Their incentive is to minimize the payout. Who's standing next to them changes what gets written on the scope of loss.`}
+        why={`The scope of loss written on this visit is the legal document everything downstream depends on. What's missed in this hour can cost you five to fifteen thousand dollars later. Once a claim is closed, reopening it is slow and rarely fully successful.`}
         say={`"I'd like a copy of your photos and your measurements before you leave today."`}
         ask={`"Will you flag every dent on the soft metal? Gutters, vent covers, AC fins?" Hail evidence on soft metal is often what tips a claim from denied to approved.`}
         flags={[
@@ -244,23 +244,40 @@ export default function CompanionPage() {
           '"This isn\'t covered" without showing you the policy language',
           'They use the word "wear" repeatedly',
         ]}
-        honestRoofer={`We meet your adjuster at no charge. We bring a clipboard and a phone. We point at the damage we see, we don't perform for the camera. We don't pressure the adjuster, we don't write the scope, and we don't run your claim for you. We help you read what was written. From your side, be present for the visit (not by phone), and pay your deductible when it comes due — anyone offering to "absorb" or "waive" it is offering you fraud, and the IRS or your insurance company can come back on you, not them.`}
+        honestRoofer={`We meet your adjuster at no charge. We bring a clipboard and a phone. We point at the damage we see, we don't perform for the camera. We don't pressure the adjuster, we don't write the scope, and we don't run your claim for you. We help you read what was written. From your side, be present for the visit (not by phone), and pay your deductible when it comes due. Anyone offering to "absorb" or "waive" it is offering you fraud, and the IRS or your insurance company can come back on you, not them.`}
       />
 
       <Moment
         n="05"
         title="They hand you an agreement"
-        whats={`A roofer is asking you to sign paper. In an insurance claim there are typically three or four separate documents you'll be asked to sign at different points, and each one means something different. Knowing which is which (and when to sign which) is most of the protection here. There is no neutral document at any of these stages — every one was written by their lawyer to protect them.`}
-        why={`Each of these documents shifts leverage. Sign the wrong one too early and you've handed over choices you didn't realize were choices. The most expensive mistakes in residential roofing happen when a homeowner signs something they didn't fully read because the moment felt urgent.`}
+        whats={`In an insurance claim you will typically sign three or four separate documents at different points, and each one means something different. There is no neutral document at any stage. Every one was written by their lawyer to protect them.`}
+        why={`Each document shifts leverage. Sign the wrong one too early and you have handed over choices you did not know were choices. The most expensive mistakes happen when a homeowner signs something they did not read because the moment felt urgent.`}
         say={`"I'll take this home tonight, read it through, and call you tomorrow with any questions."`}
-        ask={`"Which document is this? Is it the contingency, the scope of work, the main contract, or something else? Will you walk me through exactly what I'm agreeing to?"`}
-        special={{
+        ask={`"Which document is this? Is it the contingency, the scope, the main contract, or something else? Walk me through exactly what I'm agreeing to."`}
+        table={{
           title: 'The four documents you may be asked to sign',
-          items: [
-            'CONTINGENCY AGREEMENT — Short. Signed early (sometimes the same day as the first inspection). Says you will use this roofer IF your insurance approves the claim. Required language: a 3-day right to cancel, an end date if no claim is filed within 60-90 days, no penalty if you cancel, and zero Assignment-of-Benefits clauses. Some roofers hide AOB inside the contingency.',
-            'SCOPE OF WORK / SCOPE OF LOSS — The insurance company\'s written list of damage and what they will pay to repair. You AND the roofer should both agree this matches the actual condition of the roof BEFORE work starts. Missing items here become out-of-pocket bills later. Ask the roofer to file written supplements with your carrier if the scope is short.',
-            'ROOFING CONTRACT — The main one. Names your project manager by name, the start date, the brand and product line of shingles, every line item (drip edge, ice and water shield, underlayment, flashing, vents), the per-sheet decking-repair rate, the workmanship warranty in years, and the written-change-order policy. Deposit should be 10% or less. No AOB. No "we will cover your deductible." No notary in the truck.',
-            'CERTIFICATE OF COMPLETION — Signed at the very end, after the install (see Moment 09). This is the document that releases the insurance company\'s final payment. Never sign it before the walk-around, the punch list, the lien waiver, and the warranty registration are all done.',
+          headers: ['Document', 'When signed', 'What to verify'],
+          rows: [
+            [
+              'Contingency agreement',
+              'Early (same day as inspection)',
+              '3-day cancellation right, an end date if no claim is filed in 60-90 days, no Assignment-of-Benefits clause. Some roofers hide AOB in here.',
+            ],
+            [
+              'Scope of work / scope of loss',
+              'Before work starts',
+              'Matches the actual roof condition. Ask the roofer to file written supplements with your carrier if the scope is short.',
+            ],
+            [
+              'Roofing contract',
+              'Before materials are ordered',
+              'Project manager named, every material listed, per-sheet decking rate, workmanship warranty in years, deposit 10% or less, no AOB.',
+            ],
+            [
+              'Certificate of completion',
+              'After final walkthrough only',
+              'Sign only after the walkthrough, punch list, lien waiver, and warranty registration are all complete (see Moment 09).',
+            ],
           ],
         }}
         flags={[
@@ -274,14 +291,14 @@ export default function CompanionPage() {
           'A contract that is only one page',
           'They have a notary in the truck "for convenience"',
         ]}
-        honestRoofer={`Our paperwork is plain, separate, and walked through with you. If you're in a claim, our contingency is a short document that only says we'll do the work if your insurance approves it — with a clear 3-day right to cancel and no Assignment of Benefits, ever. We review the scope of work with you so you understand what the insurance is paying for, and we file written supplements with your carrier when the scope misses something. The main contract names your project manager by name, every line item including drip edge / ice and water shield / underlayment / flashing, the per-sheet decking rate, and the workmanship warranty in years. Our deposit is ten percent or less. We hand it all to you and say take it home and read it. From your side, once you sign and we order your materials, please honor that — a last-minute switch to a storm chaser who appeared at your door costs us a slot we can't refill, and it leaves you with the very company you were trying to avoid.`}
+        honestRoofer={`Our paperwork is plain, separate, and walked through with you. If you're in a claim, our contingency is a short document that only says we'll do the work if your insurance approves it, with a clear 3-day right to cancel and no Assignment of Benefits, ever. We review the scope of work with you so you understand what the insurance is paying for, and we file written supplements with your carrier when the scope misses something. The main contract names your project manager by name, every line item including drip edge / ice and water shield / underlayment / flashing, the per-sheet decking rate, and the workmanship warranty in years. Our deposit is ten percent or less. We hand it all to you and say take it home and read it. From your side, once you sign and we order your materials, please honor that. A last-minute switch to a storm chaser who appeared at your door costs us a slot we can't refill, and it leaves you with the very company you were trying to avoid.`}
       />
 
       <Moment
         n="06"
         title="They keep calling"
-        whats={`Your phone is ringing again. There's a difference between a professional check-in (one call, on a cadence you agreed to, during business hours, with a clear stop point) and pursuit (every day, after hours, drop-bys at dinner). This moment is about the second one. The first is just a roofer doing their job.`}
-        why={`Follow-up patterns reveal a company's culture. A company that chases you before the sale will chase you for money after the sale, and disappear when you need them later. The way they treat the pursuit is the way they'll treat the warranty call.`}
+        whats={`Your phone keeps ringing. There's a difference between a professional check-in (one call, on a cadence you agreed to, during business hours) and pursuit (every day, after hours, drop-bys at dinner). This moment is about the second one.`}
+        why={`Follow-up patterns reveal a company's culture. A company that chases you before the sale will chase you for money after the sale, and disappear when you need warranty work. The way they treat the pursuit is the way they'll treat the warranty call.`}
         say={`"I'll let you know my decision by [date]. I won't make it before then. Please don't call again before that."`}
         ask={`"What's the latest date you'd need a decision?" See if the urgency is real, or manufactured.`}
         flags={[
@@ -292,26 +309,26 @@ export default function CompanionPage() {
           'They claim a different homeowner is about to sign for "your" start date',
           "They won't agree to a single follow-up date and stick to it",
         ]}
-        honestRoofer={`Yes, we follow up too — once, in a week, with a polite check-in. At the first meeting we ask what cadence works for you and we use it (some homeowners want a call, some want a text, some want nothing until they reach out). No texts after hours, no unannounced visits, no pretend-urgency. If you say "I'll call when I'm ready," we wait. If we don't hear from you in three weeks we send one short note and the ball stays in your court. From your side, if you say you'll call back by Friday, call back by Friday — even a clear no is better than a slow maybe, because it frees the company to serve the next family on the calendar.`}
+        honestRoofer={`Yes, we follow up too, once, in a week, with a polite check-in. At the first meeting we ask what cadence works for you and we use it (some homeowners want a call, some want a text, some want nothing until they reach out). No texts after hours, no unannounced visits, no pretend-urgency. If you say "I'll call when I'm ready," we wait. If we don't hear from you in three weeks we send one short note and the ball stays in your court. From your side, if you say you'll call back by Friday, call back by Friday. Even a clear no is better than a slow maybe, because it frees the company to serve the next family on the calendar.`}
       />
 
       <Moment
         n="07"
         title="Before the crew arrives"
-        whats={`The contract is signed. The install date is on the calendar. Materials have been ordered. Right now, before a single shingle gets touched, is your last clean window to verify that the full scope is actually on the truck. Cheap quotes often shave money by quietly omitting the small things — the things you can't see from the ground once the roof is done — that make a roof last twenty-five years instead of eight.`}
-        why={`What's missing from the scope shows up as a callback two or three years from now: early granule loss, leaks at flashings, ice damming in the eaves, ventilation problems that cook the attic. By the time those things appear, proving the install caused them (not weather, not wear) is almost impossible. The day before install is when those omissions are still cheap to fix. A bid that's a thousand dollars lower because it skipped drip edge on the rakes and reused the chimney flashing isn't a deal — it's a future repair bill that you'll pay twice.`}
+        whats={`The contract is signed and materials are ordered. Before a single shingle gets touched is your last clean window to verify the full scope is actually on the truck. Cheap quotes often shave money by quietly omitting the components you can't see from the ground once the roof is done, the ones that make a roof last twenty-five years instead of eight.`}
+        why={`Missing components show up as a callback two or three years later: early granule loss, leaks at flashings, ice damming in the eaves, ventilation that cooks the attic. By then, proving the install caused it rather than weather is almost impossible. A bid that's a thousand dollars lower because it skipped drip edge on the rakes and reused the chimney flashing isn't a deal. It's a future repair bill you'll pay twice.`}
         say={`"Before the crew shows up, can you walk me through the materials list one more time? I want to confirm everything is on the truck."`}
         ask={`"Will the foreman text me a photo of the materials on the truck before they start, and a photo of the bare decking before they cover it?" A real roofer says yes without hesitation.`}
         special={{
           title: 'Make sure each of these is in the contract (or ask why not)',
           items: [
             'New drip edge along every eave AND every rake (rakes are often the silent omission)',
-            'Ice and water shield in every valley, around chimneys, around all roof penetrations, and along eaves (required by NC code in most counties — verify yours)',
+            'Ice and water shield in every valley, around chimneys, around all roof penetrations, and along eaves (required by NC code in most counties, verify yours)',
             'Synthetic underlayment, not 15-lb felt (felt tears in the wind and absorbs moisture)',
             'Real starter shingles along eaves and rakes (not three-tabs cut down)',
             'Ridge cap shingles by the same manufacturer as the field shingles (not three-tabs serving as ridge cap)',
             'All new step flashing around chimneys and walls (NOT reused, NOT painted to look new)',
-            'New pipe boots on every vent pipe (NOT reused — these are the #1 leak source on a roof under 10 years old)',
+            'New pipe boots on every vent pipe (NOT reused. These are the #1 leak source on a roof under 10 years old)',
             'Ventilation calculated for your attic: ridge vent PLUS soffit intake, not just one or the other',
             'A per-sheet decking-replacement allowance with a written rate, so a discovery on install day is not a surprise',
           ],
@@ -326,14 +343,14 @@ export default function CompanionPage() {
           'No per-sheet decking rate written down anywhere in the contract',
           '"Ventilation is whatever is up there now"',
         ]}
-        honestRoofer={`Our material list is itemized line by line and we send you a final copy a few days before install. Every penetration gets a new boot. Every valley gets ice and water shield. Drip edge goes on eaves AND rakes. Step flashing is always new, never reused, never painted. Ridge cap matches the field shingle by manufacturer and product line. We text you a photo of the materials on the truck the morning of install, and a photo of the bare decking before any new material covers it. We do not cut these corners, even when it costs us the bid. From your side, the right move here is to read the materials list before install day, not after — once a shingle covers a missed step flashing, fixing it means tearing the roof open again.`}
+        honestRoofer={`Our material list is itemized line by line and we send you a final copy a few days before install. Every penetration gets a new boot. Every valley gets ice and water shield. Drip edge goes on eaves AND rakes. Step flashing is always new, never reused, never painted. Ridge cap matches the field shingle by manufacturer and product line. We text you a photo of the materials on the truck the morning of install, and a photo of the bare decking before any new material covers it. We do not cut these corners, even when it costs us the bid. From your side, the right move here is to read the materials list before install day, not after. Once a shingle covers a missed step flashing, fixing it means tearing the roof open again.`}
       />
 
       <Moment
         n="08"
         title="The crew is on your roof"
-        whats={`Material is in the dumpster. Your house is partially open to the weather. You're not in a strong negotiating position and they know this. This is the moment when verbal change orders show up.`}
-        why={`Your house is partially open to the weather. Verbal change orders thrive in exactly this moment because you're not in a strong position to push back. Anything decided in conversation today becomes "he said / she said" the day the final invoice arrives.`}
+        whats={`Material is in the dumpster and your house is partially open to the weather. This is when verbal change orders show up, because you're not in a strong position to push back and they know it.`}
+        why={`Anything decided in conversation today becomes "he said, she said" the day the final invoice arrives. Verbal change orders are how unexpected charges appear at the end of a job.`}
         say={`"Walk me through what you found. Send photos. Tell me what it adds in writing. I'll respond within two hours."`}
         ask={`"Does our contract require written approval before extra work proceeds?" Hold them to it. If your contract doesn't say that, it's a clause to add to every future roofing contract you sign.`}
         special={{
@@ -350,14 +367,14 @@ export default function CompanionPage() {
           'A different crew than the one in the contract',
           'Old flashing being reused around the chimney (it should be new)',
         ]}
-        honestRoofer={`Our contract sets a per-sheet decking-repair rate up front, in writing, so there are no surprise numbers later. Any work beyond the contract requires a written change order with a photo, sent to you, with at least a one-hour response window. We never present a discovery as "decide right now." From your side, please be reachable on install day — if the foreman texts a photo of rotten decking, that's a real thing, and answering within a couple of hours keeps the crew working and your house out of the weather.`}
+        honestRoofer={`Our contract sets a per-sheet decking-repair rate up front, in writing, so there are no surprise numbers later. Any work beyond the contract requires a written change order with a photo, sent to you, with at least a one-hour response window. We never present a discovery as "decide right now." From your side, please be reachable on install day. If the foreman texts a photo of rotten decking, that's a real thing, and answering within a couple of hours keeps the crew working and your house out of the weather.`}
       />
 
       <Moment
         n="09"
         title="They're done. Before you sign the Certificate of Completion"
-        whats={`The crew is packing up. The yard is mostly clean. Someone walks up with a clipboard and a pen. One of the documents in their hand is the Certificate of Completion (sometimes called a "Certificate of Satisfaction"). This is the document that tells your insurance company the job is finished and releases the final payment to the roofer. Once you sign, you've certified — in writing, to your insurance company — that everything is done to your satisfaction.`}
-        why={`A signature here is your last real piece of leverage. Once the certificate is signed and the final insurance check is cut, getting a roofer to come back for punch-list items is much harder. Insurance companies use this document as evidence the work was complete; disputes filed afterward usually arrive too late. Pressure to sign the COC the same hour the crew finishes is almost always a tell — the good version of this moment is unhurried.`}
+        whats={`The crew is packing up and someone walks up with a clipboard. One document in their hand is the Certificate of Completion (sometimes called a "Certificate of Satisfaction"). It tells your insurance company the job is finished and releases the final payment to the roofer. Once you sign, you've certified in writing that everything is done to your satisfaction.`}
+        why={`Your signature here is your last real piece of leverage. Once the certificate is signed and the final check is cut, getting a roofer back for punch-list items is much harder, and disputes filed afterward usually arrive too late. Pressure to sign the same hour the crew finishes is almost always a tell.`}
         say={`"I'm not signing the Certificate of Completion today. I'll sign it once the walkthrough is done, the punch list is closed, and you've handed me the lien waiver and the manufacturer warranty registration number."`}
         ask={`"Can we walk the property together right now? Just five minutes." A real roofer agrees without flinching.`}
         special={{
@@ -365,13 +382,13 @@ export default function CompanionPage() {
           items: [
             'Walk the perimeter with the foreman. Take photos.',
             'Look at the roof from the curb. Lines should be straight. Color should be uniform with no streaking.',
-            'Crouch at each corner of the house and look up — drip edge should be visible along every eave AND every rake.',
-            'Look at every chimney and wall meet — flashing should be new shiny metal, not painted over.',
-            'Look at every pipe boot — every one should be new.',
+            'Crouch at each corner of the house and look up. Drip edge should be visible along every eave AND every rake.',
+            'Look at every chimney and wall meet. Flashing should be new shiny metal, not painted over.',
+            'Look at every pipe boot. Every one should be new.',
             'Check the yard, driveway, and flowerbeds for nails. Run a magnet sweep if you have one.',
             'Open every door and window. Look at the screens for shingle granules.',
             'Get the manufacturer warranty registration number IN WRITING and confirm it was filed in your name today.',
-            'Get a lien waiver IN WRITING — protects you from a supplier or subcontractor putting a lien on your house if the roofer fails to pay them.',
+            'Get a lien waiver IN WRITING. It protects you from a supplier or subcontractor putting a lien on your house if the roofer fails to pay them.',
             'Write down every punch-list item, get a date for each, get the foreman to sign next to it.',
           ],
         }}
@@ -384,13 +401,13 @@ export default function CompanionPage() {
           '"Your insurance will not release the final check until you sign this" (true, but you control the timing)',
           'Pressure to sign before the walk-around is done',
         ]}
-        honestRoofer={`We schedule the final walk-around BEFORE the Certificate of Completion is ever signed. We bring the manufacturer warranty registration number on paper, a lien waiver, the final invoice, and the COC — and you sign the COC last, only after every punch-list item has a date next to it. We do not present the COC the same hour the crew packs up. From your side, once the walk is done and the punch list is agreed, sign the COC and pay the final on time — letting it drag without the money behind it makes the insurance side messy for both of us.`}
+        honestRoofer={`We schedule the final walk-around BEFORE the Certificate of Completion is ever signed. We bring the manufacturer warranty registration number on paper, a lien waiver, the final invoice, and the COC. You sign the COC last, only after every punch-list item has a date next to it. We do not present the COC the same hour the crew packs up. From your side, once the walk is done and the punch list is agreed, sign the COC and pay the final on time. Letting it drag without the money behind it makes the insurance side messy for both of us.`}
       />
 
       <Moment
         n="10"
         title="The final invoice"
-        whats={`The Certificate of Completion is signed, the walkthrough is done, and now there's an invoice on the table. The number may match the contract. It may not. Anything over the contract should be backed by signed change orders from Moment 08 — written, photographed, approved while it was happening.`}
+        whats={`The walkthrough is done and there's an invoice on the table. The number may match the contract. It may not. Anything over the contract should be backed by signed change orders from Moment 08, written and photographed while it was happening.`}
         why={`This is the last moment to challenge anything you don't recognize. Once the check clears, your only recourse on disputed line items is the licensing board or small claims court. A five-minute review now is cheaper than a five-month dispute later.`}
         say={`"Walk me through the invoice line by line. I want to match each charge to either the contract or a written change order from install."`}
         ask={`"Can I see the manufacturer warranty registration confirmation, not just your form?" Some "warranties" never get filed. Without registration, the manufacturer warranty doesn't exist.`}
@@ -410,14 +427,14 @@ export default function CompanionPage() {
           'No lien waiver paperwork is offered',
           'Verbal-only explanations for line items you do not recognize',
         ]}
-        honestRoofer={`Our final invoice matches the contract. Anything beyond the contract is backed by a written change order with a photo, signed by you on the day it happened. The decking line shows the actual sheet count. We send the lien waiver and the registered manufacturer warranty number with the invoice, not after. From your side, once the numbers reconcile and the Certificate of Completion is signed, pay on time — letting the dust settle without the money behind it is hard on the next homeowner waiting on our slot.`}
+        honestRoofer={`Our final invoice matches the contract. Anything beyond the contract is backed by a written change order with a photo, signed by you on the day it happened. The decking line shows the actual sheet count. We send the lien waiver and the registered manufacturer warranty number with the invoice, not after. From your side, once the numbers reconcile and the Certificate of Completion is signed, pay on time. Letting the dust settle without the money behind it is hard on the next homeowner waiting on our slot.`}
       />
 
       <Moment
         n="11"
         title="The first 30 days after install"
-        whats={`Most workmanship issues will show themselves in the next four weeks. Your leverage is highest right now. Once the 30 days pass, getting them back gets harder.`}
-        why={`This is the only window where small workmanship issues are still cheap, fast, and obvious to fix. After thirty days the seasons turn, the roof settles, and the line between "install issue" and "weather damage" blurs. The day-five fix is a phone call. The day-sixty fix is a debate.`}
+        whats={`Most workmanship issues appear in the first four weeks, and your leverage is highest right now. Once 30 days pass, getting them back gets harder.`}
+        why={`After thirty days the seasons turn, the roof settles, and the line between "install issue" and "weather damage" blurs. The day-five fix is a phone call. The day-sixty fix is a debate.`}
         say={`"Can the foreman come back and take a look this week?" Call the project manager's cell, not the office. Send an email afterward so the conversation is in writing.`}
         ask={`"Where is my registered warranty number, and what was the date filed?" Confirm it with the manufacturer directly if you can.`}
         special={{
@@ -435,14 +452,14 @@ export default function CompanionPage() {
           'The company is slow to come back when you call',
           'The "warranty registration number" you were given doesn\'t exist when you call the manufacturer',
         ]}
-        honestRoofer={`We call you on day fourteen and ask how the roof is holding up. If you call us with a question, the project manager comes back within forty-eight hours. We don't charge for first-month adjustments — if we put it on the house, we own it for the first month. From your side, do the perimeter walks and the post-rain attic checks. Catching something on day five lets us fix it the same week, before a small thing becomes a story.`}
+        honestRoofer={`We call you on day fourteen and ask how the roof is holding up. If you call us with a question, the project manager comes back within forty-eight hours. We don't charge for first-month adjustments. If we put it on the house, we own it for the first month. From your side, do the perimeter walks and the post-rain attic checks. Catching something on day five lets us fix it the same week, before a small thing becomes a story.`}
       />
 
       <Moment
         n="12"
         title="Something goes wrong months later"
-        whats={`Two years pass. Something leaks. You go looking for the paperwork. The honest reality: by the time you're here, the decision was already made back in Moment 5. If you picked a real local roofer, this is a phone call. If you picked a storm chaser, this is a problem.`}
-        why={`This is the moment a warranty becomes either a piece of paper or a real promise. The way a roofer responds to a problem two years after the check cleared is the truest measure of their work. By this point, your decision back in Moment 5 has fully expressed itself.`}
+        whats={`Two years pass. Something leaks, and you go looking for the paperwork. The honest reality: by the time you're here, the decision was made back in Moment 5. If you picked a real local roofer, this is a phone call. If you picked a storm chaser, this is a problem.`}
+        why={`A warranty is either a piece of paper or a real promise, and how a roofer responds to a problem two years after the check cleared is the truest measure of their work. By this point, your decision back in Moment 5 has fully expressed itself.`}
         say={`"I'm the homeowner at [address]. Your company installed my roof on [date]. I'm seeing [issue]. When can someone be here to look at it?"`}
         ask={`"What's the next step, and when?" Document the answer. A real roofer commits to a date. A storm chaser stalls.`}
         special={{
@@ -461,7 +478,7 @@ export default function CompanionPage() {
           "The local address you drive to doesn't exist or is a UPS Store",
           'Their license has been revoked or suspended on the NC Licensing Board site',
         ]}
-        honestRoofer={`We answer the phone. We schedule a return visit. If we made the mistake, we fix it free, full stop. If the issue isn't covered by the warranty (storm damage, an unrelated leak), we tell you so honestly and quote the repair fairly. From your side, call us before you post — a real issue raised in a phone call almost always gets handled, and the same issue posted on Google before any call makes everyone defensive. Give a roofer the chance to make it right before you decide they won't.`}
+        honestRoofer={`We answer the phone. We schedule a return visit. If we made the mistake, we fix it free, full stop. If the issue isn't covered by the warranty (storm damage, an unrelated leak), we tell you so honestly and quote the repair fairly. From your side, call us before you post. A real issue raised in a phone call almost always gets handled, and the same issue posted on Google before any call makes everyone defensive. Give a roofer the chance to make it right before you decide they won't.`}
       />
 
       {/* ---------------- APPENDIX A: THE PAUSE SCRIPT ---------------- */}
@@ -634,6 +651,13 @@ interface MomentProps {
     title: string
     items: string[]
   }
+  /** Optional scannable table (e.g. the four documents in Moment 5).
+   *  Kept light-on-white so it stays cheap to print. */
+  table?: {
+    title: string
+    headers: [string, string, string]
+    rows: Array<[string, string, string]>
+  }
   /** What an honest roofer does here. Ends each block with a "from your side"
    *  sentence so the document reads as reciprocal, not victim-literature. */
   honestRoofer: string
@@ -648,6 +672,7 @@ function Moment({
   ask,
   flags,
   special,
+  table,
   honestRoofer,
 }: MomentProps) {
   return (
@@ -680,6 +705,48 @@ function Moment({
             ))}
           </ul>
         </Block>
+      )}
+
+      {table && (
+        <div className="row my-4">
+          <div className="text-[11px] font-bold uppercase tracking-[0.14em] mb-2 text-slate-500">
+            {table.title}
+          </div>
+          <div className="overflow-hidden rounded-md border border-slate-200">
+            <table className="w-full border-collapse text-[14px]">
+              <thead>
+                <tr className="bg-brand-black">
+                  {table.headers.map((h, i) => (
+                    <th
+                      key={i}
+                      className="text-left font-semibold tracking-[0.04em] text-[13px] text-white px-4 py-3 align-bottom"
+                    >
+                      {h}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {table.rows.map((r, i) => (
+                  <tr
+                    key={i}
+                    className="align-top border-b border-slate-200 last:border-b-0 even:bg-slate-50"
+                  >
+                    <td className="px-4 py-3 font-semibold text-brand-black leading-[1.55]">
+                      {r[0]}
+                    </td>
+                    <td className="px-4 py-3 text-brand-red font-semibold text-[12.5px] leading-[1.55]">
+                      {r[1]}
+                    </td>
+                    <td className="px-4 py-3 text-slate-700 leading-[1.55]">
+                      {r[2]}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
       )}
 
       <Block label="Red flags" tone="warn">

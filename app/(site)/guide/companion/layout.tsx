@@ -44,6 +44,15 @@ export default function CompanionLayout({
           .companion-doc li,
           .companion-doc .row { break-inside: avoid; page-break-inside: avoid; }
 
+          /* The documents table uses a filled dark header with white text.
+             Force its backgrounds to print, or the header would render
+             white-on-white. */
+          .companion-doc table {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+          }
+          .companion-doc table th { color: #fff !important; }
+
           @page { margin: 0.6in; size: letter; }
         }
 
