@@ -60,6 +60,13 @@ const QUICK_TOOLS = [
 
 const TOOLS = [
   {
+    tag: 'Before the storm',
+    title: 'Roof readiness checklist',
+    body: "Don't wait for damage. Take baseline photos, clear the gutters, and know your deductible before the next wind, hail, or ice event hits.",
+    href: '/guide/downloads/before-the-storm-readiness',
+    cta: 'Get storm-ready',
+  },
+  {
     tag: 'Address lookup',
     title: 'Storm Check',
     body: "Type in your address. We'll show you every hail and high-wind storm that's actually hit your house in the last ten years.",

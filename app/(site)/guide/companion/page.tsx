@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import {
   absoluteUrl,
   OFFICE_PHONE,
@@ -13,6 +14,7 @@ import {
   VERIFY_CERTAINTEED,
   VERIFY_FORTIFIED,
 } from '@/lib/verification-links'
+import { JOURNEY_BANDS, getMomentsForPhase } from '@/lib/guide-journey'
 import CompanionActions from './_components/CompanionActions'
 
 const UPDATED = 'May 2026'
@@ -21,7 +23,7 @@ const GUIDE_NAME = 'The Honest Roof Field Guide'
 export const metadata: Metadata = {
   title: `${GUIDE_NAME} | The Honest Roof Guide`,
   description:
-    "A short, printable field guide that walks you through the twelve moments where a roofer might pressure you to sign. What to say, what to ask, what to watch for. No email required.",
+    "A tight, printable field guide for before, during, and after a roof decision. Scan a QR code to open the right tool on the spot, then follow the twelve moments where a roofer might pressure you to sign. No email required.",
   alternates: { canonical: absoluteUrl('/guide/companion') },
   openGraph: {
     title: `${GUIDE_NAME} | NC Roofing Service`,
@@ -72,6 +74,63 @@ export default function CompanionPage() {
           We won&apos;t ask for your email. If you use this to interview
           five roofers and pick one of the others, that&apos;s fine.
           You&apos;ll have done your homework. That was the point.
+        </p>
+      </section>
+
+      {/* ---------------- SCAN HERE: QUICK START ---------------- */}
+      <section className="companion-section">
+        <div className="text-xs font-bold uppercase tracking-[0.18em] text-brand-red mb-3 text-center">
+          Scan here
+        </div>
+        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight leading-[1.1] mb-4 text-center">
+          Jump straight to the tool you need.
+        </h2>
+        <p className="text-[15px] leading-relaxed text-slate-700 max-w-2xl mx-auto text-center mb-10">
+          Point any phone camera at a code to open the live tool. No app, no
+          login. Whether you&apos;re getting ready before a storm or standing on
+          the lawn after one, start with the row that matches where you are.
+        </p>
+
+        {JOURNEY_BANDS.map((band) => {
+          const moments = getMomentsForPhase(band.phase)
+          if (moments.length === 0) return null
+          return (
+            <div key={band.phase} className="mb-9">
+              <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-brand-red mb-3 pb-1.5 border-b border-slate-200">
+                {band.label}
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
+                {moments.map((moment) => (
+                  <div key={moment.id} className="row flex items-center gap-4">
+                    <Image
+                      src={`/qr/guide-${moment.id}.png`}
+                      alt={`QR code to ${moment.primary.label}`}
+                      width={120}
+                      height={120}
+                      loading="eager"
+                      className="w-[72px] h-[72px] flex-shrink-0 border border-slate-200 rounded-md bg-white p-1"
+                    />
+                    <div className="min-w-0">
+                      <div className="font-bold text-brand-black text-[15px] leading-snug">
+                        {moment.label}
+                      </div>
+                      <div className="text-[13px] text-slate-600 leading-snug mt-0.5">
+                        {moment.question}
+                      </div>
+                      <div className="text-[11px] text-slate-400 mt-1 break-all">
+                        ncroofingservice.com{moment.qrTarget}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )
+        })}
+
+        <p className="text-[13px] text-slate-500 leading-relaxed text-center mt-2">
+          Prefer a real person? Call {OFFICE_PHONE_DISPLAY}. No script, no sales
+          call.
         </p>
       </section>
 

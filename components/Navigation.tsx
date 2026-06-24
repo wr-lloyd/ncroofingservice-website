@@ -30,11 +30,13 @@ const locationLinks = [
   { href: '/locations/wake-forest-nc', label: 'Wake Forest' },
 ]
 
-// The Honest Roof Guide. The dropdown surfaces the hub, the cost
-// estimator (the most-used tool in the guide), then every chapter.
+// The Honest Roof Guide. The dropdown surfaces the hub, the "jump to what you
+// need" quick start, the printable/scannable Field Guide, the cost estimator
+// (the most-used tool in the guide), then every chapter.
 const guideLinks = [
   { href: '/guide', label: 'The Honest Roof Guide' },
-  { href: '/guide/companion', label: 'The Field Guide (print)' },
+  { href: '/guide#start-here', label: 'Jump to what you need' },
+  { href: '/guide/companion', label: 'The Field Guide (print & QR)' },
   { href: '/guide/cost-estimator', label: 'Cost Estimator' },
   { href: '/guide/check-your-roof', label: 'Ch. 01 · Check your roof' },
   { href: '/guide/plan-your-roof', label: 'Ch. 02 · Plan your roof' },

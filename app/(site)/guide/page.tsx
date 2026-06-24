@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { OFFICE_PHONE, OFFICE_PHONE_DISPLAY, absoluteUrl } from '@/lib/site'
 import { CHAPTERS, GUIDE_NAME, GUIDE_TAGLINE } from '@/lib/guide'
 import GuideEyebrow from './_components/GuideEyebrow'
-import EntryChooser from './_components/EntryChooser'
+import GuideJourney from './_components/GuideJourney'
 import TrustQuote from './_components/TrustQuote'
 import GuideCallout from './_components/GuideCallout'
 
@@ -32,22 +32,21 @@ export default function GuideHubPage() {
           <GuideEyebrow>{GUIDE_NAME}</GuideEyebrow>
           <h1 className="mt-6 text-4xl sm:text-5xl lg:text-[60px] font-extrabold text-brand-black leading-[1.08] tracking-tight max-w-4xl mx-auto">
             A roof is a 20-year decision.{' '}
-            <span className="text-brand-red">We wrote this to help you make it well.</span>{' '}
+            <span className="text-brand-red">Use this before, during, and after.</span>{' '}
             Useful even if you never call us.
           </h1>
           <p className="mt-7 text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            Written for the person standing in the driveway after a storm. For
-            the one looking up at a roof that&apos;s older than their kids. For
-            anyone tired of pushy sales calls who just wants the truth from
-            roofers who install every component a manufacturer requires. Not
-            just shingles.
+            For the homeowner getting ready before storm season. For the person
+            standing in the driveway after one. For the one looking up at a roof
+            that&apos;s older than their kids. Start where you are, use the tool
+            you need, and read the full story when you want it.
           </p>
           <div className="mt-9 flex flex-col sm:flex-row gap-3 justify-center flex-wrap">
             <Link
-              href="#chapters"
+              href="#start-here"
               className="inline-flex items-center justify-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white px-7 py-4 rounded-[2px] font-semibold transition-colors"
             >
-              Open the Guide
+              Jump to what you need
               <span aria-hidden>&rarr;</span>
             </Link>
             <Link
@@ -62,7 +61,7 @@ export default function GuideHubPage() {
                   d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                 />
               </svg>
-              The Field Guide
+              The Field Guide (print &amp; QR)
             </Link>
             <a
               href={`tel:${OFFICE_PHONE}`}
@@ -81,13 +80,13 @@ export default function GuideHubPage() {
             </a>
           </div>
           <p className="mt-4 text-xs text-slate-500 text-center">
-            The Field Guide is twelve moments to watch for, on one
-            printable document. Take it with you when you talk to roofers.
+            The Field Guide is a tight, printable PDF you can leave on the
+            counter or scan with your phone to open the right tool on the spot.
           </p>
         </div>
       </section>
 
-      <EntryChooser />
+      <GuideJourney />
 
       <TrustQuote />
 
@@ -108,14 +107,14 @@ export default function GuideHubPage() {
       <section id="chapters" className="bg-white scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="text-center mb-14">
-            <GuideEyebrow>The Guide</GuideEyebrow>
+            <GuideEyebrow>Read the full guide</GuideEyebrow>
             <h2 className="mt-3 text-3xl sm:text-4xl lg:text-[46px] font-extrabold text-brand-black tracking-tight leading-[1.08] max-w-3xl mx-auto">
-              Six chapters. Read what you need.
+              The whole story, in six chapters.
             </h2>
             <p className="mt-4 text-lg text-slate-500 max-w-2xl mx-auto">
-              {totalReadMinutes} minutes for the whole thing. Or skip to the
-              one chapter that matches where you are. Each chapter ends with
-              a way to talk to a real person. Or not. Up to you.
+              The jump-to tools above get you moving fast. These chapters are
+              the deeper why behind them. {totalReadMinutes} minutes for the
+              whole thing, or read the one that fits where you are.
             </p>
           </div>
 

@@ -172,6 +172,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     // Downloadable / printable references. Slugs match lib/guide-downloads.ts.
     ...[
+      'before-the-storm-readiness',
       'photo-checklist',
       'ground-walkaround-checklist',
       'repair-or-replace-decision-tree',

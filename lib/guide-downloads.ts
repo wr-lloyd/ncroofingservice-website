@@ -46,6 +46,67 @@ export interface GuideDownload {
 }
 
 // =========================================================================
+// Before the storm — preventive readiness (lives with Chapter 01)
+// =========================================================================
+
+const beforeTheStormReadiness: GuideDownload = {
+  slug: 'before-the-storm-readiness',
+  chapter: 'check-your-roof',
+  kind: 'checklist',
+  label: 'Before the storm',
+  title: 'Before the Storm: Roof Readiness Checklist',
+  intro:
+    "The Honest Roofer wants to help before you have a problem. Wind, hail, hurricane rain, ice, and snow are coming every year in North Carolina. Twenty minutes now, before the season, makes everything after a storm faster, cheaper, and far less stressful.",
+  useTime: '20 to 30 minutes, before storm season',
+  sections: [
+    {
+      heading: 'Take baseline photos now (the single most valuable step)',
+      intro:
+        "Date-stamped photos taken before any storm are your strongest protection. They prove what was already fine, so a storm chaser can't invent damage and an adjuster can't write off real damage as old wear.",
+      items: [
+        'Turn on date or location stamping in your phone camera settings.',
+        'One wide photo of each side of the house, full roofline in frame, from the yard.',
+        'Close-ups of the chimney, valleys, vents, and any spot that already looks worn.',
+        'Photos of gutters, downspouts, siding, and screens while they are intact.',
+        'Save them somewhere you will still find them in two years. Email them to yourself.',
+      ],
+    },
+    {
+      heading: 'Before the season (early spring and early fall)',
+      items: [
+        'Walk all four sides of the house from the ground. Look up. Note anything already loose or worn.',
+        'Clean the gutters and confirm downspouts carry water away from the foundation.',
+        'Trim back any branches within 6 feet of the roof. Wind turns them into battering rams.',
+        'Secure or plan to move anything that becomes a projectile: patio furniture, grills, trampolines.',
+        'Check the attic with a flashlight on a dry day so you know what "normal" looks like before a leak.',
+      ],
+    },
+    {
+      heading: 'When a named storm or hard freeze is in the forecast',
+      items: [
+        'Bring in or tie down loose outdoor items 48 hours out.',
+        'Clear gutters again so melting ice and heavy rain can drain instead of backing up under shingles.',
+        'Locate your insurance policy. Find the wind/hail deductible line and write the number down now.',
+        'Save the office number in your phone so you are not searching for it in the dark after a storm.',
+        'Know where your water shutoff and attic access are, in case water gets in.',
+      ],
+    },
+    {
+      heading: 'After it passes',
+      items: [
+        'Stay off the roof. Check from the ground and from inside the attic.',
+        'Run Storm Check at ncroofingservice.com/storm-check to confirm what actually hit your address.',
+        'Compare new photos to your baseline set. Differences are your documentation.',
+        'If you see real damage, read the insurance claim walkthrough before you call your carrier.',
+      ],
+    },
+  ],
+  closing:
+    "Most homeowners only think about their roof after it fails. Doing this short list before the season is the difference between a calm, documented claim and a frantic, expensive scramble. The Honest Roofer would rather help you prepare than clean up after a storm chaser.",
+  ready: true,
+}
+
+// =========================================================================
 // Chapter 01 — Check your roof
 // =========================================================================
 
@@ -903,6 +964,8 @@ const warrantyExplainer: GuideDownload = {
 // =========================================================================
 
 export const DOWNLOADS: GuideDownload[] = [
+  // Before the storm (preventive)
+  beforeTheStormReadiness,
   // Ch. 01
   photoChecklist,
   groundWalkaroundChecklist,
