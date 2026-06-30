@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">NC Roofing Service icon</title>
+  <rect width="512" height="512" rx="96" fill="#c8102e"/>
+  <path d="M96 278 256 132l160 146h-48v114h-88v-88h-48v88h-88V278H96Z" fill="#fff"/>
+  <path d="M126 262 256 144l130 118" fill="none" stroke="#111827" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" opacity=".22"/>
+</svg>

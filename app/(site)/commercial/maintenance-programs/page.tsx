@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Commercial Roof Maintenance Programs | NC Roofing Service',
   description: 'Preventive commercial roof maintenance programs in the NC Triangle. Bi-annual inspections, priority service, detailed documentation. Extend your roof life by 25%+.',
   keywords: 'commercial roof maintenance, preventive roof maintenance, roof inspection program, commercial roof care',
+  alternates: { canonical: '/commercial/maintenance-programs' },
 }
 
 const programFeatures = [

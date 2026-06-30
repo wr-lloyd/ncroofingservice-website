@@ -1,4 +1,5 @@
 ﻿import { NextRequest, NextResponse } from 'next/server'
+import { checkRateLimit, clientIpFromHeaders } from '@/lib/rate-limit'
 
 // On Vercel Hobby, function timeout caps at 10s. We aim to finish in ~9s
 // to leave room for response serialization. Pro/Enterprise can bump this to 60.
@@ -84,28 +85,21 @@ function generateMonthlyDateRanges(months: number = 6): Array<{ start: string; e
     return `${year}${month}${day}`
   }
   
-  // Generate monthly ranges going back from today
+  let endDate = new Date(today)
+
+  // Generate contiguous monthly ranges going backward from today.
   for (let i = 0; i < months; i++) {
-    const endDate = new Date(today)
-    endDate.setMonth(today.getMonth() - i)
-    // Set to first of month if i > 0, otherwise use today
-    if (i > 0) {
-      endDate.setDate(1)
-    }
-    
     const startDate = new Date(endDate)
-    startDate.setMonth(endDate.getMonth() - 1)
-    if (i === 0) {
-      startDate.setDate(1)
-    }
-    
-    // Only add if end date is in the past or present
-    if (endDate <= today) {
-      ranges.push({
-        start: formatDate(startDate),
-        end: formatDate(endDate),
-      })
-    }
+    startDate.setMonth(startDate.getMonth() - 1)
+    startDate.setDate(startDate.getDate() + 1)
+
+    ranges.push({
+      start: formatDate(startDate),
+      end: formatDate(endDate),
+    })
+
+    endDate = new Date(startDate)
+    endDate.setDate(endDate.getDate() - 1)
   }
   
   return ranges
@@ -442,6 +436,25 @@ function reportsToStormEvents(
     const distance = calculateDistance(userLat, userLon, reportLat, reportLon)
     if (distance > 20) continue
 
+    if (dataset === 'plsr') {
+      const eventType = mapEventType(report.EVENT_TYPE || '')
+      const magnitude = report.MAGNITUDE || report.MAXSIZE
+      const units = report.UNITS ? ` ${report.UNITS}` : ''
+      const location = report.LOCATION || report.COUNTY || `${Math.round(distance * 10) / 10} miles away`
+
+      events.push({
+        date: formatZTime(report.ZTIME),
+        type: eventType,
+        severity: formatSeverity(report),
+        distance: Math.round(distance * 10) / 10,
+        description: report.REMARKS || `${report.EVENT_TYPE || 'Severe weather'} reported near ${location}.`,
+        damageRisk: determineDamageRisk(report.EVENT_TYPE || '', magnitude, report.REMARKS),
+        magnitude: magnitude ? `${magnitude}${units}` : undefined,
+        location,
+      })
+      continue
+    }
+
     const eventType: 'hail' | 'wind' | 'tornado' = dataset === 'nx3hail' ? 'hail' : 'tornado'
     const maxSize = parseFloat(report.MAXSIZE || '0')
     const sevProb = parseInt(report.SEVPROB || '0', 10)
@@ -465,7 +478,7 @@ function reportsToStormEvents(
       : `Tornado vortex signature detected by radar (${report.WSR_ID || 'NEXRAD'}). Immediate severe weather threat.`
 
     events.push({
-      date: report.ZTIME,
+      date: formatZTime(report.ZTIME),
       type: eventType,
       severity,
       distance: Math.round(distance * 10) / 10,
@@ -511,7 +524,7 @@ async function fetchSWDIStormEvents(
 
   const bboxBuffer = 0.25
   const bbox = `${(lon - bboxBuffer).toFixed(4)},${(lat - bboxBuffer).toFixed(4)},${(lon + bboxBuffer).toFixed(4)},${(lat + bboxBuffer).toFixed(4)}`
-  const datasets = ['nx3hail', 'nx3tvs']
+  const datasets = ['plsr', 'nx3hail', 'nx3tvs']
 
   console.log(`[SWDI API] bbox=${bbox} months=${months} ranges=${dateRanges.length}`)
 
@@ -626,7 +639,7 @@ function calculateOverallRisk(storms: StormEvent[]): 'low' | 'moderate' | 'high'
 
 function generateRecommendation(storms: StormEvent[], overallRisk: string): string {
   if (storms.length === 0) {
-    return 'Good news! No significant storm events have been recorded near your address in the past 5 years. However, regular roof inspections are still recommended every 2-3 years to catch any wear and tear.'
+    return 'Good news! NOAA did not return significant storm reports near your address in this lookback window. Regular roof inspections are still recommended every 2-3 years to catch wear, tear, and damage weather data cannot confirm.'
   }
   
   const severeStorms = storms.filter(s => s.damageRisk === 'severe' || s.damageRisk === 'high')
@@ -685,6 +698,23 @@ export async function POST(request: NextRequest) {
   const budgetTimer = setTimeout(() => controller.abort(), REQUEST_BUDGET_MS)
 
   try {
+    const ip = clientIpFromHeaders(request.headers)
+    const rateLimit = checkRateLimit({
+      key: `storm-check:${ip}`,
+      windowMs: 60 * 1000,
+      maxRequests: 12,
+    })
+
+    if (!rateLimit.allowed) {
+      return NextResponse.json(
+        { error: 'Too many storm checks. Please wait a minute and try again.' },
+        {
+          status: 429,
+          headers: { 'Retry-After': String(rateLimit.retryAfterSeconds) },
+        }
+      )
+    }
+
     const body = await request.json().catch(() => null)
     if (!body || typeof body !== 'object') {
       return NextResponse.json({ error: 'Invalid request body' }, { status: 400 })

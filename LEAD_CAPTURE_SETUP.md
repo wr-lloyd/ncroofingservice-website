@@ -57,13 +57,20 @@ This creates a backup log of all leads in a spreadsheet.
 ### Step 2: Create a Google Apps Script
 1. In your spreadsheet, click Extensions > Apps Script
 2. Delete any existing code
-3. Paste this code:
+3. In Apps Script, open Project Settings > Script Properties and add a property named `WEBHOOK_SECRET` with a long random value. Use the same value for `GOOGLE_SHEETS_WEBHOOK_SECRET` in Vercel.
+4. Paste this code:
 
 ```javascript
 function doPost(e) {
   try {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     var data = JSON.parse(e.postData.contents);
+
+    var expectedSecret = PropertiesService.getScriptProperties().getProperty('WEBHOOK_SECRET');
+    if (expectedSecret && data.secret !== expectedSecret) {
+      return ContentService.createTextOutput(JSON.stringify({success: false, error: 'Unauthorized'}))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
     
     // Append row with lead data
     sheet.appendRow([
@@ -99,8 +106,8 @@ function doPost(e) {
 }
 ```
 
-4. Click the Save icon (or Ctrl+S)
-5. Name the project "Lead Logger"
+5. Click the Save icon (or Ctrl+S)
+6. Name the project "Lead Logger"
 
 ### Step 3: Deploy as Web App
 1. Click Deploy > New Deployment
@@ -118,6 +125,7 @@ Add to your `.env.local` file (and Vercel):
 
 ```
 GOOGLE_SHEETS_WEBHOOK_URL=https://script.google.com/macros/s/your_script_id/exec
+GOOGLE_SHEETS_WEBHOOK_SECRET=your_long_random_secret
 ```
 
 ---
@@ -133,6 +141,7 @@ For production, add these environment variables in Vercel:
    - `RESEND_FROM_EMAIL`
    - `LEAD_NOTIFICATION_EMAIL`
    - `GOOGLE_SHEETS_WEBHOOK_URL`
+   - `GOOGLE_SHEETS_WEBHOOK_SECRET`
 4. Redeploy for changes to take effect
 
 ---
@@ -164,7 +173,8 @@ The system captures these lead types:
 | `estimate` | Quote request forms | Normal |
 | `schedule` | Schedule inspection forms | Normal |
 | `triage` | Problem finder tool | Based on issue |
-| `storm-check` | Storm damage check page | Based on risk level |
+| `storm-check-lookup` | Storm Check address lookup | Based on risk level |
+| `storm-check` | Storm Check inspection request | Based on risk level |
 
 High-priority leads (leaks, high storm risk) are tagged and the email subject includes 🚨
 

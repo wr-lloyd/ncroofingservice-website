@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Residential Roofing Services | NC Roofing Service | NC Triangle',
   description: 'Complete residential roofing services for NC Triangle homeowners. Roof replacement, repair, storm damage, FORTIFIED roofing, and metal roofing. GAF, Owens Corning, CertainTeed certified.',
   keywords: 'residential roofing NC, roof replacement Raleigh, roof repair Durham, storm damage roofing, FORTIFIED roofing NC',
+  alternates: { canonical: '/residential' },
 }
 
 const services = [

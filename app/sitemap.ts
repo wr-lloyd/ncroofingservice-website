@@ -14,7 +14,7 @@ const cities = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_URL
-  const currentDate = new Date()
+  const currentDate = new Date('2026-06-29')
 
   const mainPages: MetadataRoute.Sitemap = [
     {
@@ -106,6 +106,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/privacy`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/terms`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly',
+      priority: 0.3,
     },
   ]
 

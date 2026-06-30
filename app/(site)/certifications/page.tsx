@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'Our Certifications & Credentials | NC Roofing Service',
   description: 'NC Roofing Service is GAF Certified, Owens Corning Preferred, CertainTeed credentialed, and FORTIFIED by IBHS. Learn about our professional credentials and what they mean for your roof.',
   keywords: 'GAF certified roofer NC, Owens Corning contractor, CertainTeed installer, FORTIFIED roofing NC, BBB accredited roofer',
+  alternates: { canonical: '/certifications' },
 }
 
 const certifications = [

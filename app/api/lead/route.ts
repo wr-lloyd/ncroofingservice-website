@@ -1,12 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { checkRateLimit, clientIpFromHeaders } from '@/lib/rate-limit'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null
 
-const ALLOWED_LEAD_TYPES = ['estimate', 'triage', 'schedule', 'storm-check'] as const
+const ALLOWED_LEAD_TYPES = ['estimate', 'triage', 'schedule', 'storm-check', 'storm-check-lookup'] as const
 type LeadType = typeof ALLOWED_LEAD_TYPES[number]
 
 interface LeadPayload {
@@ -48,35 +49,6 @@ const MAX_PAYLOAD_BYTES = 10 * 1024 // 10 KB is plenty for a contact form
 const RATE_LIMIT = 5
 const RATE_WINDOW_MS = 60_000
 
-const requestCounts = new Map<string, { count: number; resetTime: number }>()
-
-function getClientIp(request: NextRequest): string {
-  // On Vercel, x-real-ip is set by the platform. x-forwarded-for can be spoofed
-  // by an upstream proxy, so prefer x-real-ip when available.
-  const realIp = request.headers.get('x-real-ip')
-  if (realIp) return realIp
-  const forwarded = request.headers.get('x-forwarded-for')
-  if (forwarded) {
-    // Take the leftmost (original client) — best effort.
-    return forwarded.split(',')[0].trim()
-  }
-  return 'unknown'
-}
-
-function checkRateLimit(ip: string): boolean {
-  const now = Date.now()
-  const record = requestCounts.get(ip)
-
-  if (!record || now > record.resetTime) {
-    requestCounts.set(ip, { count: 1, resetTime: now + RATE_WINDOW_MS })
-    return true
-  }
-
-  if (record.count >= RATE_LIMIT) return false
-  record.count++
-  return true
-}
-
 function clipString(value: unknown, max = MAX_FIELD_LENGTH): string | undefined {
   if (typeof value !== 'string') return undefined
   const trimmed = value.trim()
@@ -87,6 +59,10 @@ function clipString(value: unknown, max = MAX_FIELD_LENGTH): string | undefined 
 function isValidEmail(email: string): boolean {
   // Simple, permissive RFC-5322-ish pattern. Good enough for marketing forms.
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+}
+
+function isValidPhone(phone: string): boolean {
+  return phone.replace(/\D/g, '').length >= 7
 }
 
 function sanitizePayload(raw: unknown): LeadPayload | { error: string } {
@@ -149,11 +125,28 @@ function sanitizePayload(raw: unknown): LeadPayload | { error: string } {
   }
 }
 
+function validateRequiredFields(payload: LeadPayload): string | null {
+  if (payload.leadType === 'storm-check-lookup') {
+    return payload.address ? null : 'Address is required'
+  }
+
+  if (!payload.name) return 'Name is required'
+  if (!payload.phone && !payload.email) return 'Phone or email is required'
+  if (payload.phone && !isValidPhone(payload.phone)) return 'Please enter a valid phone number'
+  return null
+}
+
 function getRoutingTag(payload: LeadPayload): string {
   if (payload.issueType === 'leak' || payload.metadata?.urgency === 'priority') {
     return 'priority'
   }
-  if (payload.issueType === 'hail' || payload.issueType === 'wind' || payload.leadType === 'triage') {
+  if (
+    payload.issueType === 'hail' ||
+    payload.issueType === 'wind' ||
+    payload.leadType === 'triage' ||
+    payload.leadType === 'storm-check' ||
+    payload.leadType === 'storm-check-lookup'
+  ) {
     return 'claims'
   }
   if (payload.leadType === 'estimate') {
@@ -164,12 +157,21 @@ function getRoutingTag(payload: LeadPayload): string {
 
 export async function POST(request: NextRequest) {
   try {
-    const ip = getClientIp(request)
+    const ip = clientIpFromHeaders(request.headers)
 
-    if (!checkRateLimit(ip)) {
+    const rateLimit = checkRateLimit({
+      key: `lead:${ip}`,
+      windowMs: RATE_WINDOW_MS,
+      maxRequests: RATE_LIMIT,
+    })
+
+    if (!rateLimit.allowed) {
       return NextResponse.json(
         { error: 'Too many requests. Please try again later.' },
-        { status: 429 }
+        {
+          status: 429,
+          headers: { 'Retry-After': String(rateLimit.retryAfterSeconds) },
+        }
       )
     }
 
@@ -197,6 +199,11 @@ export async function POST(request: NextRequest) {
     if (payload.website) {
       console.log('🪤 Honeypot triggered, ignoring submission from', ip)
       return NextResponse.json({ success: true, leadId: `lead_${Date.now()}` })
+    }
+
+    const validationError = validateRequiredFields(payload)
+    if (validationError) {
+      return NextResponse.json({ error: validationError }, { status: 400 })
     }
 
     const routingTag = getRoutingTag(payload)
@@ -236,13 +243,14 @@ export async function POST(request: NextRequest) {
     // Google Sheets webhook
     const sheetsConfigured = Boolean(process.env.GOOGLE_SHEETS_WEBHOOK_URL)
     if (sheetsConfigured) {
+      const ctrl = new AbortController()
+      const timeout = setTimeout(() => ctrl.abort(), 5000)
       try {
-        const ctrl = new AbortController()
-        const timeout = setTimeout(() => ctrl.abort(), 5000)
-        await fetch(process.env.GOOGLE_SHEETS_WEBHOOK_URL!, {
+        const sheetResponse = await fetch(process.env.GOOGLE_SHEETS_WEBHOOK_URL!, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
+            secret: process.env.GOOGLE_SHEETS_WEBHOOK_SECRET || '',
             leadId,
             timestamp: receivedAt,
             leadType: payload.leadType,
@@ -266,11 +274,25 @@ export async function POST(request: NextRequest) {
           }),
           signal: ctrl.signal,
         })
-        clearTimeout(timeout)
+
+        const sheetText = await sheetResponse.text().catch(() => '')
+        if (!sheetResponse.ok) {
+          throw new Error(`Sheets webhook returned ${sheetResponse.status}: ${sheetText.slice(0, 500)}`)
+        }
+
+        if (sheetText) {
+          const sheetJson = JSON.parse(sheetText) as { success?: boolean; error?: string }
+          if (sheetJson.error || sheetJson.success === false) {
+            throw new Error(sheetJson.error || 'Sheets webhook reported failure')
+          }
+        }
+
         deliveries.push('sheets')
       } catch (sheetError) {
         console.error('❌ Google Sheets update failed:', sheetError)
         errors.push('sheets')
+      } finally {
+        clearTimeout(timeout)
       }
     }
 

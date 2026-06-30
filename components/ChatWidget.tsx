@@ -63,10 +63,11 @@ export default function ChatWidget() {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed bottom-6 right-6 z-50 w-16 h-16 rounded-[2px] shadow-2xl flex items-center justify-center transition-all hover:scale-110 ${
+        className={`fixed bottom-24 right-6 z-50 w-16 h-16 rounded-[2px] shadow-2xl flex items-center justify-center transition-all hover:scale-110 md:bottom-6 ${
           isOpen ? 'bg-brand-black' : 'bg-brand-red hover:bg-brand-red-dark'
         }`}
         aria-label={isOpen ? 'Close question form' : 'Ask Pam a quick question'}
+        aria-expanded={isOpen}
       >
         {isOpen ? (
           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -85,8 +86,9 @@ export default function ChatWidget() {
       {isOpen && (
         <div
           role="dialog"
+          aria-modal="true"
           aria-labelledby="pam-widget-title"
-          className="fixed bottom-24 right-6 z-50 w-[360px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden"
+          className="fixed bottom-44 right-6 z-50 w-[360px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden md:bottom-24"
         >
           <div className="bg-brand-black p-4">
             <div className="flex items-center gap-3">
@@ -172,7 +174,7 @@ export default function ChatWidget() {
                   />
                 </div>
 
-                <HoneypotField {...honeypot} />
+                <HoneypotField fieldProps={honeypot.fieldProps} />
 
                 {status === 'error' && (
                   <div className="text-xs text-red-700 bg-red-50 border border-red-200 rounded px-3 py-2">

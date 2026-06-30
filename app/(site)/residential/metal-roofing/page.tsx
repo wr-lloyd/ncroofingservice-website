@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Metal Roofing Installation | NC Roofing Service | NC Triangle',
   description: 'Professional metal roofing installation in the NC Triangle. 50+ year lifespan, energy efficient, weather resistant. Standing seam, metal shingles, and corrugated panels.',
   keywords: 'metal roofing NC, standing seam roof, metal roof installation, metal shingles, energy efficient roofing',
+  alternates: { canonical: '/residential/metal-roofing' },
 }
 
 const metalTypes = [

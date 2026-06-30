@@ -4,6 +4,7 @@ import { OFFICE_PHONE } from '@/lib/site'
 export const metadata = {
   title: 'What to Look for When Hiring a Roofer | NC Roofing Service NC',
   description: 'Learn what insurance and certifications a professional roofer should have. Protect yourself from storm chasers and unlicensed contractors in NC.',
+  alternates: { canonical: '/blog/what-to-look-for-hiring-roofer' },
 }
 
 export default function HiringRooferArticle() {

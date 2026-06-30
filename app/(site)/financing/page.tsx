@@ -28,10 +28,10 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/about/team-jobsite-800x600.jpg',
-        width: 800,
-        height: 600,
-        alt: 'NC Roofing Service crew on a Triangle, NC jobsite',
+        url: '/images/logos/logo-number.png',
+        width: 520,
+        height: 180,
+        alt: 'NC Roofing Service and Repair',
       },
     ],
   },

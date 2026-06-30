@@ -2,7 +2,7 @@
 // origin, an office phone, an office email, or a postal address should import
 // from here so we never hard-code those strings in markup or JSON-LD.
 
-export const SITE_URL = 'https://ncroofingservice.com'
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://ncroofingservice.com').replace(/\/$/, '')
 
 export const FOUNDED_YEAR = 2018
 

@@ -78,7 +78,8 @@ Copy `.env.example` to `.env.local` and fill in real values for local developmen
 | `RESEND_FROM_EMAIL` | Required for live leads | Verified sending address (e.g. `leads@ncroofingservice.com`). |
 | `LEAD_NOTIFICATION_EMAIL` | Required for live leads | Where lead emails are delivered (e.g. `info@ncroofingservice.com`). |
 | `GOOGLE_SHEETS_WEBHOOK_URL` | Optional | Google Apps Script Web App URL that appends each lead to a Sheet. See [LEAD_CAPTURE_SETUP.md](./LEAD_CAPTURE_SETUP.md). |
-| `GOOGLE_GEOCODING_API_KEY` | Required for `/storm-check` | Google Geocoding API key. Without it `/api/storm-check` falls back to a static lookup. |
+| `GOOGLE_SHEETS_WEBHOOK_SECRET` | Recommended with Sheets | Shared secret checked by the Apps Script before it appends a lead. |
+| Storm Check APIs | None | `/api/storm-check` uses Nominatim geocoding and NOAA SWDI data; no API key is required. |
 | `NEXT_PUBLIC_SITE_URL` | Optional | Override the canonical site URL (defaults to `https://ncroofingservice.com`). |
 
 > **Sitewide constants** (office phone, address, founded year, etc.) live in [`lib/site.ts`](./lib/site.ts). Update them there — they cascade to JSON-LD, page metadata, headers, footers, and CTAs.

@@ -20,6 +20,8 @@ interface StormEvent {
 
 interface StormResults {
   address: string
+  county?: string
+  state?: string
   storms: StormEvent[]
   overallRisk: 'low' | 'moderate' | 'high' | 'severe'
   insuranceDeadline?: string
@@ -80,6 +82,7 @@ function StormCheckContent() {
   
   const resultsRef = useRef<HTMLElement>(null)
   const loadingRef = useRef<HTMLElement>(null)
+  const capturedLookupKeysRef = useRef<Set<string>>(new Set())
   const [expandedDates, setExpandedDates] = useState<Set<string>>(new Set())
 
   const toggleDate = (date: string) => {
@@ -109,7 +112,20 @@ function StormCheckContent() {
       }
       groups[dateKey].push(storm)
       return groups
-    }, {} as Record<string, typeof results.storms>)
+    }, {} as Record<string, StormEvent[]>)
+  }, [results?.storms])
+
+  const closestStormDistance = useMemo(() => {
+    if (!results?.storms.length) return 'N/A'
+    return Math.min(...results.storms.map(s => s.distance)).toFixed(1)
+  }, [results?.storms])
+
+  const mostRecentStormDate = useMemo(() => {
+    if (!results?.storms.length) return 'N/A'
+    return new Date(Math.max(...results.storms.map(s => new Date(s.date).getTime()))).toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+    })
   }, [results?.storms])
   
   // Function to check storm data
@@ -140,13 +156,49 @@ function StormCheckContent() {
       }
       
       setResults(data)
+
+      const lookupKey = `${data.address || fullAddress}|${data.overallRisk}|${data.storms?.length ?? 0}`
+      if (!capturedLookupKeysRef.current.has(lookupKey)) {
+        capturedLookupKeysRef.current.add(lookupKey)
+
+        fetch('/api/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            leadType: 'storm-check-lookup',
+            address: data.address || fullAddress,
+            city: addressToCheck.city || undefined,
+            zip: addressToCheck.zip || undefined,
+            county: data.county || addressToCheck.county || undefined,
+            state: data.state || 'NC',
+            issueType: 'storm-check-lookup',
+            stormRisk: data.overallRisk,
+            stormCount: data.storms?.length ?? 0,
+            notes: `Address checked in Storm Check: ${data.overallRisk?.toUpperCase()} risk, ${data.storms?.length ?? 0} events detected`,
+            website: honeypot.value,
+            metadata: {
+              source: 'storm-check-lookup',
+              citySource: addressToCheck.citySource,
+              userAgent: navigator.userAgent,
+              urgency: data.overallRisk === 'severe' || data.overallRisk === 'high' ? 'priority' : 'normal',
+              timestamp: new Date().toISOString(),
+            },
+          }),
+        }).then((captureResponse) => {
+          if (!captureResponse.ok) {
+            console.warn('Storm check lookup capture was not delivered:', captureResponse.status)
+          }
+        }).catch((captureError) => {
+          console.error('Storm check lookup capture failed:', captureError)
+        })
+      }
     } catch (err) {
       setError('Unable to check storm data. Please try again.')
       console.error('Storm check error:', err)
     } finally {
       setIsLoading(false)
     }
-  }, [])
+  }, [honeypot.value])
   
   // Auto-fill and auto-check if address is provided in URL
   useEffect(() => {
@@ -386,14 +438,16 @@ function StormCheckContent() {
                   <div>
                     <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-2">
                       <h2 className={`text-3xl font-black tracking-tight ${riskColors[results.overallRisk].text}`}>
-                        {results.overallRisk.toUpperCase()} DAMAGE RISK
+                        {results.storms.length > 0 ? `${results.overallRisk.toUpperCase()} DAMAGE RISK` : 'NO RECENT STORM ACTIVITY'}
                       </h2>
                       <span className="px-3 py-1 bg-white/50 backdrop-blur-sm rounded-full text-xs font-bold border border-current opacity-70">
                         {results.storms.length} EVENTS DETECTED
                       </span>
                     </div>
                     <p className="text-slate-700 text-lg max-w-xl font-medium">
-                      Our scan detected {results.storms.length} significant storm events near <span className="text-slate-900 font-bold underline decoration-blue-500/30">{results.address}</span>.
+                      {results.storms.length > 0
+                        ? <>Our scan detected {results.storms.length} significant storm events near <span className="text-slate-900 font-bold underline decoration-blue-500/30">{results.address}</span>.</>
+                        : <>NOAA did not return significant hail, wind, or tornado reports within 20 miles of <span className="text-slate-900 font-bold underline decoration-blue-500/30">{results.address}</span> for this lookback window.</>}
                     </p>
                   </div>
                 </div>
@@ -432,27 +486,28 @@ function StormCheckContent() {
               <div className="bg-slate-50 rounded-2xl p-5 border border-slate-100 text-center hover:bg-white hover:shadow-md transition-all group">
                 <div className="text-3xl mb-2 group-hover:scale-110 transition-transform">📍</div>
                 <div className="text-2xl font-black text-slate-900 leading-none mb-1">
-                  {Math.min(...results.storms.map(s => s.distance))}
+                  {closestStormDistance}
                 </div>
                 <div className="text-xs font-bold text-slate-500 uppercase tracking-widest">Closest (Miles)</div>
               </div>
               <div className="bg-slate-50 rounded-2xl p-5 border border-slate-100 text-center hover:bg-white hover:shadow-md transition-all group">
                 <div className="text-3xl mb-2 group-hover:scale-110 transition-transform">📅</div>
                 <div className="text-2xl font-black text-slate-900 leading-none mb-1">
-                  {results.storms.length > 0 ? new Date(Math.max(...results.storms.map(s => new Date(s.date).getTime()))).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : 'N/A'}
+                  {mostRecentStormDate}
                 </div>
                 <div className="text-xs font-bold text-slate-500 uppercase tracking-widest">Most Recent</div>
               </div>
             </div>
 
             {/* Storm Events List - Grouped by Date */}
-            <div className="space-y-6 mb-12">
-              <div className="flex items-center justify-between px-2">
-                <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight">Recent Activity Log</h3>
-                <span className="text-sm text-slate-500 font-medium">Click dates to expand details</span>
-              </div>
-              <div className="space-y-3">
-              {Object.entries(groupedStorms)
+            {results.storms.length > 0 ? (
+              <div className="space-y-6 mb-12">
+                <div className="flex items-center justify-between px-2">
+                  <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight">Recent Activity Log</h3>
+                  <span className="text-sm text-slate-500 font-medium">Click dates to expand details</span>
+                </div>
+                <div className="space-y-3">
+                {Object.entries(groupedStorms)
                 .sort(([a], [b]) => new Date(b).getTime() - new Date(a).getTime())
                 .map(([date, storms]) => {
                   const isExpanded = expandedDates.has(date)
@@ -540,8 +595,16 @@ function StormCheckContent() {
                     </div>
                   )
                 })}
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="mb-12 rounded-3xl border border-green-200 bg-green-50 p-8 text-center">
+                <h3 className="text-2xl font-black text-green-700 mb-3">No NOAA Storm Reports Found Nearby</h3>
+                <p className="text-slate-700 max-w-2xl mx-auto">
+                  This is a data check, not a roof inspection. Older damage, smaller storms, tree impacts, and maintenance issues can still affect your roof.
+                </p>
+              </div>
+            )}
 
             {/* Recommendation & Trust */}
             <div className="grid md:grid-cols-3 gap-6 mb-12">
@@ -579,14 +642,14 @@ function StormCheckContent() {
               <div className="bg-slate-900 rounded-3xl p-8 text-white shadow-xl flex flex-col justify-center">
                 <h3 className="text-lg font-black mb-4 uppercase tracking-widest text-[#C8102E]">Claims Tip</h3>
                 <p className="text-slate-300 font-medium leading-relaxed mb-6">
-                  Most homeowners in North Carolina have up to <span className="text-white font-black underline decoration-blue-500">2 years</span> to file a claim. However, waiting increases the risk of claim denial.
+                  Insurance reporting windows vary by carrier and policy. If you suspect storm damage, document it quickly and ask your carrier about your specific deadline before filing.
                 </p>
                 <div className="pt-6 border-t border-slate-800">
                   <div className="flex items-center gap-3 text-sm font-black text-slate-400">
                     <svg className="w-5 h-5 text-[#C8102E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    AVG CLAIM: $14,000+
+                    DOCUMENT BEFORE REPAIRS
                   </div>
                 </div>
               </div>
@@ -842,7 +905,7 @@ function StormCheckContent() {
                       <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center text-xl shrink-0">⏰</div>
                       <div>
                         <h4 className="text-white font-bold text-lg mb-1">Insurance deadlines</h4>
-                        <p className="text-slate-400">Most policies require claims within 1-2 years. Once the deadline passes, you pay for repairs out of pocket.</p>
+                        <p className="text-slate-400">Every policy has its own notice and claim rules. Prompt documentation gives you more options if storm damage is confirmed.</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-5">
@@ -856,18 +919,18 @@ function StormCheckContent() {
                       <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center text-xl shrink-0">💰</div>
                       <div>
                         <h4 className="text-white font-bold text-lg mb-1">Full Coverage</h4>
-                        <p className="text-slate-400">If your roof is compromised by a storm, your insurance company is legally obligated to restore it to its pre-storm condition.</p>
+                        <p className="text-slate-400">Covered storm damage is handled under your specific policy terms. We document roof conditions clearly so you can make an informed claim decision.</p>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="bg-white/5 backdrop-blur-md rounded-3xl p-10 border border-white/10 text-center">
-                  <div className="text-7xl font-black text-[#C8102E] mb-4 tracking-tighter">68%</div>
+                  <div className="text-5xl font-black text-[#C8102E] mb-4 tracking-tighter">Often Hidden</div>
                   <p className="text-white text-xl font-medium mb-6 leading-relaxed">
-                    of NC homeowners have storm damage they are currently unaware of.
+                    Hail bruising, lifted shingles, and broken seals can be hard to spot from the ground.
                   </p>
                   <div className="h-px bg-white/10 mb-6"></div>
-                  <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">— NC Insurance Commissioner Report</p>
+                  <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">A roof inspection confirms what weather data cannot.</p>
                 </div>
               </div>
             </div>

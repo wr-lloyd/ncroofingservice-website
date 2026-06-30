@@ -12,9 +12,10 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: '#c8102e',
     icons: [
       {
-        src: '/images/logos/logo-number.png',
-        sizes: '520x180',
-        type: 'image/png',
+        src: '/icons/nc-roofing-icon.svg',
+        sizes: 'any',
+        type: 'image/svg+xml',
+        purpose: 'maskable',
       },
     ],
   }

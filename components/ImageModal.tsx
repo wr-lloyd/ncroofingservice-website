@@ -41,6 +41,9 @@ export default function ImageModal({
     <div 
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
       onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby={title ? 'image-modal-title' : undefined}
     >
       {/* Backdrop */}
       <div className="absolute inset-0 bg-black/90 backdrop-blur-sm" />
@@ -53,10 +56,11 @@ export default function ImageModal({
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-white/10">
           <div>
-            {title && <h3 className="text-white font-bold text-lg">{title}</h3>}
+            {title && <h3 id="image-modal-title" className="text-white font-bold text-lg">{title}</h3>}
             {location && <p className="text-brand-red text-sm">{location}</p>}
           </div>
           <button
+            type="button"
             onClick={onClose}
             className="w-10 h-10 flex items-center justify-center rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors"
             aria-label="Close modal"

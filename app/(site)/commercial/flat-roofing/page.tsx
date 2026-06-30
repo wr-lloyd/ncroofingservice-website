@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Commercial Flat Roofing Systems | TPO, EPDM, PVC | NC Roofing Service',
   description: 'Expert commercial flat roof installation and repair in the NC Triangle. TPO, EPDM, PVC, and modified bitumen systems. Licensed, insured, manufacturer certified.',
   keywords: 'flat roof NC, TPO roofing, EPDM roofing, PVC roofing, commercial flat roof repair, modified bitumen',
+  alternates: { canonical: '/commercial/flat-roofing' },
 }
 
 const roofingSystems = [

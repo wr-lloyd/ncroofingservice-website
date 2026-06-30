@@ -69,7 +69,7 @@ const TOOLS = [
   {
     tag: 'Address lookup',
     title: 'Storm Check',
-    body: "Type in your address. We'll show you every hail and high-wind storm that's actually hit your house in the last ten years.",
+    body: "Type in your address. We'll check recent NOAA hail, wind, and tornado reports near your house.",
     href: '/storm-check',
     cta: 'Open the tool',
   },

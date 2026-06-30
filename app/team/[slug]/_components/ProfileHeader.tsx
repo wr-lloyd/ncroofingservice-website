@@ -16,11 +16,11 @@ export default function ProfileHeader({ member }: { member: TeamMember }) {
         />
         <div className="relative z-10">
           <Image
-            src="/images/logos/NC ROOFING SERVICE-01.png"
+            src="/images/logos/logo-number.png"
             alt="NC Roofing Service"
-            width={400}
-            height={80}
-            className="h-9 w-auto mx-auto mb-1 brightness-0 invert"
+            width={520}
+            height={180}
+            className="h-10 w-auto mx-auto mb-1 brightness-0 invert"
           />
           <p className="text-white/90 text-[11px] tracking-[0.18em] uppercase font-semibold">
             Your Local Triangle Roofing Team

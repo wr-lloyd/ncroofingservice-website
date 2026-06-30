@@ -59,11 +59,11 @@ export default function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center flex-1 max-w-[400px]">
             <Image
-              src="/images/logos/NC ROOFING SERVICE-01.png"
+              src="/images/logos/logo-number.png"
               alt="NC Roofing Service"
-              width={400}
-              height={80}
-              className="h-14 w-full object-contain object-left"
+              width={520}
+              height={180}
+              className="h-14 w-auto object-contain object-left"
               priority
             />
           </Link>
@@ -80,6 +80,8 @@ export default function Navigation() {
             {/* Residential Dropdown */}
             <div className="relative group">
               <button
+                type="button"
+                aria-haspopup="true"
                 className="flex items-center gap-1 transition-colors font-medium text-sm text-brand-gray hover:text-brand-black"
               >
                 Residential
@@ -87,7 +89,7 @@ export default function Navigation() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200">
                 <div className="bg-white rounded-lg shadow-xl border border-slate-200 py-2 min-w-[220px]">
                   {residentialLinks.map((link) => (
                     <Link
@@ -105,6 +107,8 @@ export default function Navigation() {
             {/* Commercial Dropdown */}
             <div className="relative group">
               <button
+                type="button"
+                aria-haspopup="true"
                 className="flex items-center gap-1 transition-colors font-medium text-sm text-brand-gray hover:text-brand-black"
               >
                 Commercial
@@ -112,7 +116,7 @@ export default function Navigation() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200">
                 <div className="bg-white rounded-lg shadow-xl border border-slate-200 py-2 min-w-[220px]">
                   {commercialLinks.map((link) => (
                     <Link
@@ -130,6 +134,8 @@ export default function Navigation() {
             {/* Locations Dropdown */}
             <div className="relative group">
               <button
+                type="button"
+                aria-haspopup="true"
                 className="flex items-center gap-1 transition-colors font-medium text-sm text-brand-gray hover:text-brand-black"
               >
                 Locations
@@ -137,7 +143,7 @@ export default function Navigation() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200">
                 <div className="bg-white rounded-lg shadow-xl border border-slate-200 py-2 min-w-[180px]">
                   {locationLinks.map((link) => (
                     <Link
@@ -162,6 +168,8 @@ export default function Navigation() {
             {/* The Guide Dropdown */}
             <div className="relative group">
               <button
+                type="button"
+                aria-haspopup="true"
                 className="flex items-center gap-1 transition-colors font-medium text-sm text-brand-gray hover:text-brand-black"
               >
                 The Guide
@@ -169,7 +177,7 @@ export default function Navigation() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200">
                 <div className="bg-white rounded-lg shadow-xl border border-slate-200 py-2 min-w-[260px]">
                   {guideLinks.map((link) => (
                     <Link
@@ -215,9 +223,12 @@ export default function Navigation() {
               </svg>
             </a>
             <button
+              type="button"
               onClick={() => setIsOpen(!isOpen)}
               className="text-slate-700 p-2"
               aria-label="Toggle menu"
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isOpen ? (
@@ -232,7 +243,7 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden pb-4 bg-white">
+          <div id="mobile-navigation" className="lg:hidden pb-4 bg-white">
             <Link
               href="/"
               className="block py-3 transition-colors font-medium border-b border-slate-100 text-brand-gray hover:text-brand-black"
@@ -244,8 +255,10 @@ export default function Navigation() {
             {/* Mobile Residential Section */}
             <div className="border-b border-slate-100">
               <button
+                type="button"
                 onClick={() => setResidentialOpen(!residentialOpen)}
                 className="flex items-center justify-between w-full py-3 transition-colors font-medium text-brand-gray"
+                aria-expanded={residentialOpen}
               >
                 Residential
                 <svg className={`w-4 h-4 transition-transform ${residentialOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -271,8 +284,10 @@ export default function Navigation() {
             {/* Mobile Commercial Section */}
             <div className="border-b border-slate-100">
               <button
+                type="button"
                 onClick={() => setCommercialOpen(!commercialOpen)}
                 className="flex items-center justify-between w-full py-3 transition-colors font-medium text-brand-gray"
+                aria-expanded={commercialOpen}
               >
                 Commercial
                 <svg className={`w-4 h-4 transition-transform ${commercialOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -298,8 +313,10 @@ export default function Navigation() {
             {/* Mobile Locations Section */}
             <div className="border-b border-slate-100">
               <button
+                type="button"
                 onClick={() => setLocationsOpen(!locationsOpen)}
                 className="flex items-center justify-between w-full py-3 transition-colors font-medium text-brand-gray"
+                aria-expanded={locationsOpen}
               >
                 Locations
                 <svg className={`w-4 h-4 transition-transform ${locationsOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">

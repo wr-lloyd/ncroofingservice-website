@@ -29,10 +29,10 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/about/team-jobsite-800x600.jpg',
-        width: 800,
-        height: 600,
-        alt: 'NC Roofing Service crew on a Triangle, NC jobsite',
+        url: '/images/logos/logo-number.png',
+        width: 520,
+        height: 180,
+        alt: 'NC Roofing Service and Repair',
       },
     ],
   },
@@ -52,7 +52,7 @@ const businessJsonLd = {
   '@id': `${SITE_URL}/#organization`,
   name: 'NC Roofing Service and Repair, LLC',
   url: SITE_URL,
-  logo: `${SITE_URL}/images/logos/NC ROOFING SERVICE-01.png`,
+  logo: `${SITE_URL}/images/logos/logo-number.png`,
   telephone: OFFICE_PHONE,
   email: OFFICE_EMAIL,
   foundingDate: `${FOUNDED_YEAR}-01-01`,

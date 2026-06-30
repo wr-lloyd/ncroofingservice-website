@@ -7,7 +7,7 @@
 //   allow 'unsafe-eval'.
 // - images allow https: + data: so OG previews / blur placeholders work,
 //   and Unsplash hero photos load.
-// - connect-src includes NOAA + Google Geocoding for the storm-check flow.
+// - connect-src includes NOAA + Nominatim for the storm-check flow.
 const cspDirectives = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline'",
@@ -15,7 +15,7 @@ const cspDirectives = [
   "font-src 'self' https://fonts.gstatic.com data:",
   "img-src 'self' data: blob: https:",
   "media-src 'self'",
-  "connect-src 'self' https://maps.googleapis.com https://www.ncdc.noaa.gov https://www.ncei.noaa.gov https://nominatim.openstreetmap.org",
+  "connect-src 'self' https://www.ncdc.noaa.gov https://www.ncei.noaa.gov https://nominatim.openstreetmap.org",
   "frame-ancestors 'self'",
   "base-uri 'self'",
   "form-action 'self'",
@@ -110,6 +110,12 @@ const nextConfig = {
         permanent: true,
       },
     ]
+  },
+  webpack(config, { dev }) {
+    if (!dev) {
+      config.cache = false
+    }
+    return config
   },
 }
 

@@ -2,16 +2,15 @@ import Image from 'next/image'
 
 /**
  * About hero. The background image is the LCP for this page so it gets
- * `priority` and a `sizes="100vw"` hint. We re-use the existing self-hosted
- * jobsite photo here; swap the `src` if a larger 1920×1080 hero gets
- * commissioned later (drop it at /public/images/about/hero-roof-1920.jpg).
+ * `priority` and a `sizes="100vw"` hint. Swap this remote fallback for a
+ * real local jobsite image once one is available.
  */
 export default function Hero() {
   return (
     <section className="relative py-24 overflow-hidden">
       <div className="absolute inset-0" aria-hidden="true">
         <Image
-          src="/images/about/team-jobsite-800x600.jpg"
+          src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&q=80&auto=format&fit=crop"
           alt=""
           fill
           priority

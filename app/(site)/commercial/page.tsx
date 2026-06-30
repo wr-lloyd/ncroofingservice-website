@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Commercial Roofing Services | NC Roofing Service | Rougemont NC',
   description: 'Professional commercial roofing services in the NC Triangle. Flat roofs, TPO, EPDM, metal roofing, maintenance programs. Licensed, insured, manufacturer certified.',
   keywords: 'commercial roofing NC, flat roof repair, TPO roofing, EPDM roofing, commercial roof maintenance',
+  alternates: { canonical: '/commercial' },
 }
 
 const commercialServices = [
